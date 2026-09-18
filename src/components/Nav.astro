@@ -29,7 +29,6 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
               <a href={withBase(`/${s.slug}`)}>{s.navLabel}</a>
             ))}
             <a class="mega-more" href={withBase('/services')}>All services</a>
-            <a class="mobile-only mega-more" href={withBase('/services#industries')}>Industries</a>
           </div>
           <div class="mega-industries" aria-labelledby="mega-industry-label">
             <p class="mh" id="mega-industry-label">By Industry</p>
@@ -40,6 +39,7 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
           </div>
         </div>
       </div>
+      <a class="mobile-only" href={withBase('/services#industries')}>Industries</a>
       <a href={withBase('/about-us')}>About Us</a>
       <a class="mobile-only" href={PORTAL_URL}>Login</a>
       <a class="mobile-only btn" href={withBase('/#contact')}>Book a Call</a>
