@@ -4,14 +4,14 @@ import LogoMarquee from '../../components/LogoMarquee.astro';
 import TestimonialBlock from '../../components/TestimonialBlock.astro';
 import ContactSection from '../../components/ContactSection.astro';
 import { getServicesForHub, SECTORS, INDUSTRY_HUB, getVertical, SITE } from '../../consts';
-import { withBase } from '../../base';
+import { withBase, pageHero } from '../../base';
 
 const types = getServicesForHub();
 const hubSectors = SECTORS.filter((s) => s.slug !== 'utilities');
 const sectorPhotos: Record<string, string> = {
-  business: withBase('/brand/services-1.jpg'),
-  enterprise: withBase('/brand/services-2.jpg'),
-  government: withBase('/brand/services-3.jpg'),
+  business: pageHero('business'),
+  enterprise: pageHero('enterprise'),
+  government: pageHero('government'),
 };
 const sectorStats: Record<string, string> = {
   business: 'Increased 85%',
@@ -47,7 +47,7 @@ const industries = INDUSTRY_HUB.map((slug) => getVertical(slug)).filter(Boolean)
     <div class="wrap svc-grid">
       {hubSectors.map((s) => (
         <a class="svc-photo" href={withBase(`/${s.slug}`)}>
-          <img src={sectorPhotos[s.slug] ?? withBase('/brand/hero.jpg')} alt="" />
+          <img src={sectorPhotos[s.slug] ?? pageHero(s.slug)} alt="" />
           <div class="body">
             <h3>{s.name}</h3>
             <p>{s.short}</p>

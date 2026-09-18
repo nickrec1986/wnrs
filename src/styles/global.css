@@ -72,9 +72,9 @@ button { font-family: inherit; }
   gap: 28px;
 }
 .brand-logo img { height: 52px; width: auto; }
-.nav-main { display: flex; align-items: center; gap: 8px; flex: 1; }
+.nav-main { display: flex; align-items: center; gap: 4px; flex: 1; align-self: stretch; }
 .nav-main > a,
-.nav-drop > button {
+.nav-item > .menu-btn {
   background: none;
   border: 0;
   cursor: pointer;
@@ -84,65 +84,119 @@ button { font-family: inherit; }
   padding: 10px 12px;
 }
 .nav-main > a:hover,
-.nav-drop > button:hover,
-.nav-drop > button.on { color: var(--primary); }
-.nav-drop { position: relative; }
-.nav-drop > button { display: inline-flex; align-items: center; gap: 6px; }
+.nav-item > .menu-btn:hover,
+.nav-item > .menu-btn.on,
+.nav-item > .menu-btn[aria-expanded="true"] { color: var(--primary); }
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  margin-top: -14px;
+  margin-bottom: -14px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.nav-item > .menu-btn { display: inline-flex; align-items: center; gap: 6px; }
 .caret { font-size: 10px; opacity: 0.7; }
 .mega {
-  display: none;
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   left: 0;
-  min-width: 520px;
+  min-width: 540px;
   background: var(--white);
-  border-radius: 16px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
-  padding: 22px 24px;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  padding: 20px 24px 22px;
+  display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px 32px;
+  gap: 8px 40px;
+  z-index: 90;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.14s ease, transform 0.14s ease, visibility 0.14s;
 }
-.nav-drop:hover .mega,
-.nav-drop:focus-within .mega,
-.nav-drop.open .mega { display: grid; }
-.mega-single { min-width: 260px; grid-template-columns: 1fr; }
+.mega::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -18px;
+  height: 18px;
+}
+.nav-item:hover .mega,
+.nav-item:focus-within .mega,
+.nav-item.open .mega {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
 .mega .mh {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--primary);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--gray2);
 }
 .mega a {
   display: block;
-  padding: 7px 0;
+  padding: 8px 8px;
+  margin: 0 -8px;
+  border-radius: 8px;
   font-size: 14.5px;
   color: var(--text);
 }
-.mega a:hover { color: var(--primary); }
-.nav-end { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.mega a:hover,
+.mega a:focus-visible { background: var(--gray); color: var(--primary); }
+.mega a.mega-more { font-weight: 600; color: var(--primary); }
+.nav-end { display: flex; align-items: center; gap: 6px; margin-left: auto; align-self: stretch; }
 .nav-end > a.plain,
-.nav-end .nav-drop > button {
+.nav-end .nav-item > .menu-btn {
   font-size: 15px;
   color: var(--secondary);
   padding: 10px 12px;
 }
 .lang-menu {
-  min-width: 140px;
-  display: none;
+  min-width: 180px;
   position: absolute;
   right: 0;
-  top: calc(100% + 8px);
+  top: 100%;
   background: var(--white);
-  border-radius: 12px;
+  border-radius: 0 0 12px 12px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
   padding: 8px;
+  z-index: 90;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.14s ease, transform 0.14s ease, visibility 0.14s;
 }
-.nav-drop:hover .lang-menu,
-.nav-drop.open .lang-menu { display: block; }
+.lang-menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -18px;
+  height: 18px;
+}
+.nav-item:hover .lang-menu,
+.nav-item:focus-within .lang-menu,
+.nav-item.open .lang-menu {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
 .lang-menu a { display: block; padding: 8px 12px; border-radius: 8px; font-size: 14px; }
-.lang-menu a:hover { background: var(--gray); color: var(--primary); }
+.lang-menu a:hover,
+.lang-menu a:focus-visible { background: var(--gray); color: var(--primary); }
 .hamburger {
   display: none;
   width: 42px;
@@ -170,7 +224,7 @@ button { font-family: inherit; }
 
 @media (max-width: 900px) {
   .hamburger { display: grid; place-items: center; }
-  .nav-main, .nav-end .plain, .nav-end .nav-drop, .nav-end > .btn { display: none; }
+  .nav-main, .nav-end .plain, .nav-end .nav-item, .nav-end > .btn { display: none; }
   .site-header.open .nav-main {
     display: flex;
     flex-direction: column;
@@ -185,17 +239,26 @@ button { font-family: inherit; }
     gap: 0;
   }
   .site-header.open .nav-main > a,
-  .site-header.open .nav-drop > button { width: 100%; text-align: left; padding: 12px 0; }
+  .site-header.open .nav-item > .menu-btn { width: 100%; text-align: left; padding: 12px 0; }
+  .site-header.open .nav-item { margin: 0; padding: 0; display: block; }
   .site-header.open .mobile-only { display: inline-flex; margin-top: 8px; width: fit-content; }
   .site-header.open .locale-row { display: flex; gap: 12px; }
   .mega, .lang-menu {
     position: static;
     display: none;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
     box-shadow: none;
     min-width: 0;
     padding: 0 0 10px 12px;
+    border-radius: 0;
   }
-  .nav-drop.open .mega { display: grid; grid-template-columns: 1fr; }
+  .mega::before, .lang-menu::before { display: none; }
+  .nav-item.open .mega { display: grid; grid-template-columns: 1fr; }
+  .nav-item:hover .mega,
+  .nav-item:focus-within .mega { visibility: visible; }
   .site-header .bar { gap: 12px; }
 }
 
@@ -629,6 +692,7 @@ button { font-family: inherit; }
   align-items: center;
 }
 .page-split img { width: 100%; border-radius: 16px; object-fit: cover; max-height: 420px; }
+.page-split img.hero-photo { height: 360px; max-height: 420px; background: var(--gray2); }
 .page-hero .lede { font-size: 17px; max-width: 54ch; margin: 14px 0 24px; }
 .tabs {
   display: flex;

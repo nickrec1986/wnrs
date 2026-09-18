@@ -14,3 +14,8 @@ export function withBase(path: string): string {
   const prefix = base.endsWith('/') ? base : `${base}/`;
   return `${prefix}${relative}${hash}`;
 }
+
+/** Live wnrs.com above-the-fold photo for a Type / Industry / sector slug. */
+export function pageHero(slug: string): string {
+  return withBase(`/heroes/${slug}.jpg`);
+}

@@ -12,22 +12,31 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
     </a>
 
     <nav class="nav-main" id="nav-links">
-      <div class="nav-drop">
-        <button type="button" class:list={['drop-toggle', { on: servicesOn }]}>Services <span class="caret">▾</span></button>
-        <div class="mega" role="menu">
+      <div class="nav-item" data-menu>
+        <button
+          type="button"
+          class:list={['menu-btn', { on: servicesOn }]}
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="mega-services"
+          id="services-btn"
+        >
+          Services <span class="caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="mega" id="mega-services" role="region" aria-labelledby="services-btn">
           <div>
             <div class="mh">Types</div>
             {SERVICES.map((s) => (
               <a href={withBase(`/${s.slug}`)}>{s.navLabel}</a>
             ))}
-            <a href={withBase('/services')}>All services</a>
+            <a class="mega-more" href={withBase('/services')}>All services</a>
           </div>
           <div>
             <div class="mh">Industry</div>
             {FEATURED_INDUSTRIES.map((i) => (
               <a href={withBase(`/${i.slug}`)}>{i.name}</a>
             ))}
-            <a href={withBase('/services#industries')}>More…</a>
+            <a class="mega-more" href={withBase('/services#industries')}>More industries</a>
           </div>
         </div>
       </div>
@@ -42,17 +51,19 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
     </nav>
 
     <div class="nav-end">
-      <div class="nav-drop">
-        <button type="button" class="drop-toggle">EN <span class="caret">▾</span></button>
-        <div class="lang-menu">
+      <div class="nav-item lang" data-menu>
+        <button type="button" class="menu-btn" aria-expanded="false" aria-haspopup="true" aria-controls="lang-menu" id="lang-btn">
+          EN <span class="caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="lang-menu" id="lang-menu" role="region" aria-labelledby="lang-btn">
           {LOCALES.map((l) => (
-            <a href={l.href} hreflang={l.code === 'pt' ? 'pt-BR' : l.code}>{l.label}</a>
+            <a href={l.href} hreflang={l.code === 'pt' ? 'pt-BR' : l.code}>{l.label} · {l.name}</a>
           ))}
         </div>
       </div>
       <a class="plain" href={PORTAL_URL}>Login</a>
       <a class="btn" href={withBase('/#contact')}>Book a Call</a>
-      <button class="hamburger" type="button" id="nav-toggle" aria-label="Open menu" aria-controls="nav-links">
+      <button class="hamburger" type="button" id="nav-toggle" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
         <span></span>
       </button>
     </div>
@@ -60,8 +71,64 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
 </header>
 <script>
   const nav = document.getElementById('nav');
-  document.getElementById('nav-toggle')?.addEventListener('click', () => nav?.classList.toggle('open'));
-  nav?.querySelectorAll('.drop-toggle').forEach((btn) => {
-    btn.addEventListener('click', () => btn.parentElement?.classList.toggle('open'));
+  const burger = document.getElementById('nav-toggle');
+  const desktop = window.matchMedia('(min-width: 901px)');
+  const items = Array.from(nav?.querySelectorAll('[data-menu]') ?? []);
+
+  const setOpen = (item, open) => {
+    item.classList.toggle('open', open);
+    const btn = item.querySelector('.menu-btn');
+    btn?.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  const closeAll = (except) => {
+    items.forEach((item) => { if (item !== except) setOpen(item, false); });
+  };
+
+  burger?.addEventListener('click', () => {
+    const on = nav?.classList.toggle('open');
+    burger.setAttribute('aria-expanded', on ? 'true' : 'false');
+  });
+
+  items.forEach((item) => {
+    const btn = item.querySelector('.menu-btn');
+    let hide;
+    const scheduleClose = () => {
+      window.clearTimeout(hide);
+      hide = window.setTimeout(() => setOpen(item, false), 180);
+    };
+    const cancelClose = () => window.clearTimeout(hide);
+
+    btn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (desktop.matches) {
+        setOpen(item, true);
+        return;
+      }
+      const next = !item.classList.contains('open');
+      closeAll(item);
+      setOpen(item, next);
+    });
+
+    item.addEventListener('mouseenter', () => {
+      if (!desktop.matches) return;
+      cancelClose();
+      closeAll(item);
+      setOpen(item, true);
+    });
+    item.addEventListener('mouseleave', () => {
+      if (!desktop.matches) return;
+      scheduleClose();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAll();
+      nav?.classList.remove('open');
+      burger?.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!nav?.contains(e.target)) closeAll();
   });
 </script>
