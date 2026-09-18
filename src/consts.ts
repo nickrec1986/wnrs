@@ -108,7 +108,7 @@ export const SERVICES: Service[] = [
     name: 'Early Stage ARM',
     navLabel: 'Early Stage Collection',
     ic: '1–60 DAYS · FIRST-PARTY',
-    short: 'Keep accounts current before they age — in your brand’s voice.',
+    short: 'WNRS’s early stage ARM services are built for companies looking to target customers in the earlier life cycle stages.',
     tagline: 'Stop delinquency early, without souring the relationship.',
     intro:
       'WNRS’s early stage collection services are built for companies looking to target customers in the earlier life cycle stages. Our world-class ARM expertise provides a customer-oriented, cost-effective approach that greatly reduces the probability of balances moving to later aging buckets. For today’s globally competitive companies, there is no other choice – leverage world in class services – or be left behind.',
@@ -140,7 +140,7 @@ export const SERVICES: Service[] = [
     name: 'Late Stage ARM',
     navLabel: 'Late Stage Collection',
     ic: 'PRE-CHARGE-OFF · CONCENTRATED',
-    short: 'Concentrated recovery as accounts near charge-off.',
+    short: 'Companies face a common problem on customer accounts as they near their charge off date.',
     tagline: 'A winning strategy for accounts that are about to age out.',
     intro:
       'Companies face a familiar problem as customer accounts near charge-off: collectability falls, internal teams are stretched, and a generic call-center approach burns the file. WNRS late-stage ARM concentrates experienced collectors, industry-specific campaigns, skip tracing, and attorney backup on this segment.',
@@ -170,7 +170,7 @@ export const SERVICES: Service[] = [
     name: 'Specialized ARM',
     navLabel: 'Specialized Collection',
     ic: 'SENSITIVE · MULTIDISCIPLINARY',
-    short: 'Special-purpose recovery for complex, high-stakes files.',
+    short: 'Not all AR programs are created equal. WNRS’s SU (Specialized Unit) is a division of WNRS trained to conduct special purpose and sensitive ARM operations.',
     tagline: 'A dedicated unit for matters that a standard desk cannot touch.',
     intro:
       'Not every AR program is the same. WNRS Specialized Unit (SU) handles special-purpose and sensitive ARM — typically for government and select multinationals. Multidisciplinary professionals combine conventional and unconventional tactics on complex multi-party disputes with financial, legal, operational, political, and regulatory dimensions.',
@@ -200,7 +200,7 @@ export const SERVICES: Service[] = [
     name: 'Financial Skip Tracing',
     navLabel: 'Financial Skip Tracing',
     ic: 'INVESTIGATION · LOCATION',
-    short: 'Find the debtor — and the assets — when they have gone dark.',
+    short: 'The globalized nature of today’s economy has facilitated the ability of customers to incur O2C issues and then simply relocate their activity, in efforts to avoid location.',
     tagline: 'Location and financial investigation that a database search cannot replace.',
     intro:
       'A global economy makes it easier for counterparties to relocate activity and avoid contact. WNRS skip tracing combines technology with investigators, international offices, and field skill — especially where public databases are thin or the debtor is deliberately opaque.',
@@ -229,7 +229,7 @@ export const SERVICES: Service[] = [
     name: 'Attorney Intervention',
     navLabel: 'Attorney Intervention',
     ic: 'LITIGATION · ENFORCEMENT',
-    short: 'Legal enforcement through an international attorney network.',
+    short: 'Over the years and through our global locations, we have built an international network of attorneys as well as bankruptcy attorneys.',
     tagline: 'Litigation and judgment enforcement, managed in one place.',
     intro:
       'WNRS has built an international network of collections and bankruptcy attorneys across U.S. jurisdictions, Canada, Mexico, Latin America, Central America, the Caribbean, and Western Europe. Attorney Intervention deploys legal enforcement when a file needs more than outreach.',
@@ -258,6 +258,18 @@ export const SERVICES: Service[] = [
 
 export const getService = (slug: string) => SERVICES.find((s) => s.slug === slug);
 
+/** Hub order on /services/ — matches live Elementor. */
+export const SERVICE_HUB_ORDER = [
+  'early-stage-arm',
+  'late-stage-arm',
+  'attorney-intervention',
+  'financial-skip-tracing',
+  'specialized-arm',
+] as const;
+
+export const getServicesForHub = () =>
+  SERVICE_HUB_ORDER.map((slug) => getService(slug)).filter(Boolean) as Service[];
+
 export const DIFFERENTIATORS = [
   {
     h: 'The first results within days',
@@ -272,7 +284,7 @@ export const DIFFERENTIATORS = [
   {
     h: 'Tailored expertise & strategies',
     p: 'Unlike other agencies cookie-cutter approaches, we build hyper personalized go-to-market strategies that align perfectly with your unique brand, business objectives, and combine over 50 years of best practices.',
-    img: '/brand/illustration-strategy.png',
+    img: '/brand/illustration-4.png',
   },
 ] as const;
 
@@ -314,7 +326,7 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "I don't know how they do it, but WNRS was able to recover what my entire staff of 60 in house lawyers was unable to recover for years. One thing is clear, every craftsman to his trade.",
+      "I don't know how they do it, but WNRS was able to recover what my entire staff of 60 in house lawyers was unable to recover for years. One thing is clear, every craftsman to his trade. ",
     name: 'Juan Romero',
     title: 'President',
     company: 'Cemex',
@@ -491,7 +503,7 @@ export const INDUSTRIES: Vertical[] = [
   },
   {
     slug: 'aerospace-defense',
-    name: 'Aerospace & Defense',
+    name: 'Defense & Security',
     kind: 'industry',
     ic: 'CONTRACT · COMPLIANCE',
     short: 'Discreet ARM for aerospace, defense, and dual-use commercial claims.',
@@ -569,7 +581,7 @@ export const INDUSTRIES: Vertical[] = [
   },
   {
     slug: 'gaming-hospitality-leisure',
-    name: 'Gaming, Hospitality & Leisure',
+    name: 'Gaming Hospitality & Leisure',
     kind: 'industry',
     ic: 'MARKERS · FOLIOS · EVENTS',
     short: 'Receivables for casinos, hotels, leisure operators, and related venues.',
@@ -613,7 +625,7 @@ export const INDUSTRIES: Vertical[] = [
   },
   {
     slug: 'high-tech',
-    name: 'High Tech',
+    name: 'High-tech',
     kind: 'industry',
     ic: 'SAAS · HARDWARE · CHANNEL',
     short: 'Collections for technology companies with channel, SaaS, and hardware books.',
@@ -674,6 +686,19 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'We understand agency billing, make-goods, and subscription dunning. Collectors work the commercial file without treating a media buyer like a consumer debtor.',
     audience: 'Publishers, broadcasters, digital media, and production companies.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'mill-products',
+    name: 'Mill Products',
+    kind: 'industry',
+    ic: 'PAPER · PACKAGING · FOREST',
+    short: 'Trade-credit recovery for paper, packaging, and mill-product producers.',
+    intro:
+      'Mill-product companies invoice distributors and converters on terms that can stall when commodity prices move. WNRS recovers those commercial balances with a B2B desk used to this book.',
+    overview:
+      'We work aged invoices, quality disputes, and slow-pay trade accounts so working capital is not trapped in finished goods. Skip tracing and attorney backup are available on stubborn files.',
+    audience: 'Paper, packaging, lumber, and mill-product manufacturers and distributors.',
     benefits: ARM_BENEFITS,
   },
   {
@@ -746,6 +771,31 @@ export const INDUSTRIES: Vertical[] = [
 export const VERTICALS: Vertical[] = [...SECTORS, ...INDUSTRIES];
 export const FEATURED_INDUSTRIES = INDUSTRIES.filter((i) => i.featured);
 export const getVertical = (slug: string) => VERTICALS.find((v) => v.slug === slug);
+
+/** Industry picker order on /services/#industries — live Elementor grid. */
+export const INDUSTRY_HUB = [
+  'consumer-products',
+  'chemicals',
+  'aerospace-defense',
+  'education-research',
+  'engineering',
+  'gaming-hospitality-leisure',
+  'government-contracting',
+  'healthcare',
+  'high-tech',
+  'industrial-machinery-components',
+  'insurance',
+  'life-sciences',
+  'manufacturing',
+  'media',
+  'mill-products',
+  'mining',
+  'oil-gas',
+  'professional-services',
+  'retail',
+  'sports-entertainment',
+  'telecommunications',
+] as const;
 
 export const ABOUT = {
   lede: 'WNRS is a leading global provider of customized debt collection and accounts receivable management services. For over half a century, WNRS has been helping companies in a diverse range of industries increase cash flow and reduce operating expenses through results-driven recovery solutions. Every step of the debt recovery process — design, implementation, management — is built to deliver results.',

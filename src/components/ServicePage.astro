@@ -1,15 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import LogoMarquee from './LogoMarquee.astro';
 import TestimonialBlock from './TestimonialBlock.astro';
 import ContactSection from './ContactSection.astro';
-import { SERVICES, getService, SITE } from '../consts';
+import { getService, SITE } from '../consts';
 
 interface Props { slug: string }
 const { slug } = Astro.props;
 const svc = getService(slug);
 if (!svc) throw new Error(`Unknown service slug: ${slug}`);
-const others = SERVICES.filter((s) => s.slug !== slug);
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -45,12 +43,6 @@ const jsonLd = {
             <p class="kicker" style="display:flex;align-items:center;gap:8px"><span class="check">✓</span> Overview</p>
             <h2>Overview</h2>
             {svc.overview.map((p) => <p>{p}</p>)}
-            <h2>What’s included</h2>
-            <ul class="list-checks">
-              {svc.included.map((item) => (
-                <li><span class="check">✓</span><span>{item}</span></li>
-              ))}
-            </ul>
           </div>
           <div id="panel-benefits" hidden>
             <p class="kicker" style="display:flex;align-items:center;gap:8px"><span class="check">✓</span> Benefits</p>
@@ -62,32 +54,14 @@ const jsonLd = {
             </ul>
           </div>
         </div>
-        <aside class="stats-card">
-          <img class="photo" src="/brand/hero.jpg" alt="" style="height:180px" />
-          <h3>Everything you need</h3>
-          <p class="prose-el">Pick a related service or talk to us about a custom ARM program.</p>
-        </aside>
+        <div class="dash-art">
+          <img id="aside-overview" src="/brand/results-analysis.webp" alt="Campaign results analysis" />
+          <img id="aside-benefits" src="/brand/demand-gen.webp" alt="Outreach and scheduling" hidden />
+        </div>
       </div>
     </div>
   </section>
 
-  {others.length > 0 && (
-    <section class="sec" style="padding-top:0">
-      <div class="wrap">
-        <h2>Related services</h2>
-        <div class="svc-grid">
-          {others.map((s) => (
-            <a class="svc-tile" href={`/${s.slug}`}>
-              <h3>{s.name}</h3>
-              <p>{s.short}</p>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <LogoMarquee />
   <TestimonialBlock />
   <ContactSection />
 </BaseLayout>
@@ -95,6 +69,8 @@ const jsonLd = {
   const buttons = document.querySelectorAll('[data-tab]');
   const overview = document.getElementById('panel-overview');
   const benefits = document.getElementById('panel-benefits');
+  const asideOverview = document.getElementById('aside-overview');
+  const asideBenefits = document.getElementById('aside-benefits');
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
       buttons.forEach((b) => b.classList.remove('on'));
@@ -103,6 +79,10 @@ const jsonLd = {
       if (overview && benefits) {
         overview.hidden = tab !== 'overview';
         benefits.hidden = tab !== 'benefits';
+      }
+      if (asideOverview && asideBenefits) {
+        asideOverview.hidden = tab !== 'overview';
+        asideBenefits.hidden = tab !== 'benefits';
       }
     });
   });

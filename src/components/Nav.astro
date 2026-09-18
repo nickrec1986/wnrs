@@ -1,5 +1,7 @@
 ---
 import { SERVICES, FEATURED_INDUSTRIES, LOCALES, PORTAL_URL } from '../consts';
+const path = Astro.url.pathname;
+const servicesOn = path === '/services' || path === '/services/' || SERVICES.some((s) => path.includes(s.slug));
 ---
 <header class="site-header" id="nav">
   <div class="bar">
@@ -9,7 +11,7 @@ import { SERVICES, FEATURED_INDUSTRIES, LOCALES, PORTAL_URL } from '../consts';
 
     <nav class="nav-main" id="nav-links">
       <div class="nav-drop">
-        <button type="button" class="drop-toggle">Services <span class="caret">▾</span></button>
+        <button type="button" class:list={['drop-toggle', { on: servicesOn }]}>Services <span class="caret">▾</span></button>
         <div class="mega" role="menu">
           <div>
             <div class="mh">Types</div>
@@ -20,17 +22,6 @@ import { SERVICES, FEATURED_INDUSTRIES, LOCALES, PORTAL_URL } from '../consts';
           </div>
           <div>
             <div class="mh">Industry</div>
-            {FEATURED_INDUSTRIES.map((i) => (
-              <a href={`/${i.slug}`}>{i.name}</a>
-            ))}
-            <a href="/services#industries">More…</a>
-          </div>
-        </div>
-      </div>
-      <div class="nav-drop">
-        <button type="button" class="drop-toggle">Industry <span class="caret">▾</span></button>
-        <div class="mega mega-single" role="menu">
-          <div>
             {FEATURED_INDUSTRIES.map((i) => (
               <a href={`/${i.slug}`}>{i.name}</a>
             ))}
