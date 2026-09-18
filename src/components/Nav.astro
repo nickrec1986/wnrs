@@ -40,11 +40,6 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
         </div>
       </div>
       <a href={withBase('/about-us')}>About Us</a>
-      <div class="mobile-only locale-row">
-        {LOCALES.map((l) => (
-          <a href={l.href} hreflang={l.code === 'pt' ? 'pt-BR' : l.code}>{l.label}</a>
-        ))}
-      </div>
       <a class="mobile-only" href={PORTAL_URL}>Login</a>
       <a class="mobile-only btn" href={withBase('/#contact')}>Book a Call</a>
     </nav>
