@@ -11,6 +11,7 @@ import {
   DIFFERENTIATORS,
   PROCESS_STEPS,
 } from '../consts';
+import { withBase } from '../base';
 ---
 <BaseLayout title={SITE.title} description={SITE.description}>
   <section class="hero-el">
@@ -31,7 +32,7 @@ import {
     </div>
     <div class="wrap split-home">
       <div class="stats-card">
-        <img class="photo" src="/brand/hero.jpg" alt="WNRS teams at work" />
+        <img class="photo" src={withBase('/brand/hero.jpg')} alt="WNRS teams at work" />
         <h3>Key Stats:</h3>
         <div class="stat-grid">
           <ul>
@@ -101,7 +102,7 @@ import {
         </div>
         <div class="process-right">
           <p class="cap">Realtime technology and data driven decisions</p>
-          <img src="/brand/illustration-1.png" alt="WNRS specialists collaborating" />
+          <img src={withBase('/brand/illustration-1.png')} alt="WNRS specialists collaborating" />
         </div>
       </div>
     </section>

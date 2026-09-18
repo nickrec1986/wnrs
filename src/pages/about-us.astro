@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import LogoMarquee from '../components/LogoMarquee.astro';
 import ContactSection from '../components/ContactSection.astro';
 import { ABOUT, SITE, SERVICES } from '../consts';
+import { withBase } from '../base';
 ---
 <BaseLayout
   title={`About Us | ${SITE.name}`}
@@ -13,7 +14,7 @@ import { ABOUT, SITE, SERVICES } from '../consts';
       <p class="kicker">About WNRS</p>
       <h1>About WNRS</h1>
       <p class="lede" style="margin-left:auto;margin-right:auto">{ABOUT.lede}</p>
-      <a class="btn" href="/#contact">Get a quote</a>
+      <a class="btn" href={withBase('/#contact')}>Get a quote</a>
     </div>
   </header>
 
@@ -28,7 +29,7 @@ import { ABOUT, SITE, SERVICES } from '../consts';
         <p>{ABOUT.vision}</p>
         <p>{ABOUT.mission}</p>
       </div>
-      <img src="/brand/illustration-1.png" alt="WNRS operation culture" />
+      <img src={withBase('/brand/illustration-1.png')} alt="WNRS operation culture" />
     </div>
   </section>
 
@@ -62,7 +63,7 @@ import { ABOUT, SITE, SERVICES } from '../consts';
       <h2>Everything you need for any stage of the receivable experience. Pick your service.</h2>
       <div class="svc-grid">
         {SERVICES.map((s) => (
-          <a class="svc-tile" href={`/${s.slug}`}>
+          <a class="svc-tile" href={withBase(`/${s.slug}`)}>
             <h3>{s.name}</h3>
             <p>{s.short}</p>
           </a>

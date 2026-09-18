@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE, EMAIL, EMAIL_HREF } from '../consts';
+import { withBase } from '../base';
 ---
 <BaseLayout title={`Privacy policy | ${SITE.name}`} description="Privacy policy for the WNRS marketing website.">
   <header class="page-hero">
     <div class="wrap">
-      <p class="kicker"><a href="/">Home</a> / Privacy</p>
+      <p class="kicker"><a href={withBase('/')}>Home</a> / Privacy</p>
       <h1>Privacy policy</h1>
       <p class="lede">How the public WNRS marketing site handles information.</p>
     </div>

@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE, EMAIL, EMAIL_HREF } from '../consts';
+import { withBase } from '../base';
 ---
 <BaseLayout title={`Terms of service | ${SITE.name}`} description="Terms of service for the WNRS marketing website.">
   <header class="page-hero">
     <div class="wrap">
-      <p class="kicker"><a href="/">Home</a> / Terms</p>
+      <p class="kicker"><a href={withBase('/')}>Home</a> / Terms</p>
       <h1>Terms of service</h1>
       <p class="lede">These terms govern use of the public WNRS marketing website. They are not a collections engagement agreement.</p>
     </div>

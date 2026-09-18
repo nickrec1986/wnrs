@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../consts';
+import { withBase } from '../base';
 ---
 <BaseLayout title={`Not found | ${SITE.name}`} description="That page is not on the WNRS site.">
   <section class="hero-el">
@@ -8,7 +9,7 @@ import { SITE } from '../consts';
       <p class="kicker">404</p>
       <h1>Page not found.</h1>
       <p class="lede">That URL is not on the WNRS marketing site.</p>
-      <a class="btn" href="/">Home</a>
+      <a class="btn" href={withBase('/')}>Home</a>
     </div>
   </section>
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import { SITE, PHONE, EMAIL, LOCALES } from '../consts';
+import { withBase } from '../base';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -24,7 +25,11 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, SITE.url).href.replace(/\/$/, '') || SITE.url;
-const ogImage = new URL('/og-default.jpg', SITE.url).href;
+const ogImage = new URL(withBase('/og-default.jpg'), SITE.url).href;
+const favicon = withBase('/brand/favicon.png');
+const sitemapHref = withBase('/sitemap-index.xml');
+const assetMotif = withBase('/brand/bg-motif.svg');
+const assetArrow = withBase('/icons/right.svg');
 
 const org = {
   '@context': 'https://schema.org',
@@ -48,7 +53,7 @@ const org = {
 const ldBlocks = [org, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
 ---
 <!DOCTYPE html>
-<html lang={lang}>
+<html lang={lang} style={`--asset-motif: url("${assetMotif}"); --asset-arrow: url("${assetArrow}");`}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,7 +61,7 @@ const ldBlocks = [org, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) 
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
-  <link rel="icon" href="/brand/favicon.png" type="image/png" />
+  <link rel="icon" href={favicon} type="image/png" />
 
   {LOCALES.map((l) => (
     <link rel="alternate" hreflang={l.code === 'pt' ? 'pt-BR' : l.code} href={l.href} />
@@ -77,8 +82,7 @@ const ldBlocks = [org, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) 
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImage} />
 
-  <link rel="sitemap" href="/sitemap-index.xml" />
-
+  <link rel="sitemap" href={sitemapHref} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link

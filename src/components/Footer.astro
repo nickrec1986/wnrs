@@ -1,12 +1,13 @@
 ---
 import { SERVICES, FEATURED_INDUSTRIES, EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF, SITE } from '../consts';
+import { withBase } from '../base';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
   <div class="wrap fgrid">
     <div class="fbrand">
-      <a class="brand-logo" href="/" aria-label="WNRS home">
-        <img src="/brand/logo-wnrs.png" alt="WNRS" width="160" height="46" />
+      <a class="brand-logo" href={withBase('/')} aria-label="WNRS home">
+        <img src={withBase('/brand/logo-wnrs.png')} alt="WNRS" width="160" height="46" />
       </a>
       <div class="social" aria-label="Social">
         <a class="li" href="https://www.linkedin.com/company/wnrs" aria-label="LinkedIn">
@@ -26,15 +27,15 @@ const year = new Date().getFullYear();
     <div class="fcol">
       <div class="fh">Types</div>
       {SERVICES.map((s) => (
-        <a href={`/${s.slug}`}>{s.navLabel}</a>
+        <a href={withBase(`/${s.slug}`)}>{s.navLabel}</a>
       ))}
     </div>
     <div class="fcol">
       <div class="fh">Industry</div>
       {FEATURED_INDUSTRIES.map((i) => (
-        <a href={`/${i.slug}`}>{i.name}</a>
+        <a href={withBase(`/${i.slug}`)}>{i.name}</a>
       ))}
-      <a href="/services#industries">More…</a>
+      <a href={withBase('/services#industries')}>More…</a>
     </div>
     <div class="fcol">
       <div class="fh">Resources</div>
@@ -45,8 +46,8 @@ const year = new Date().getFullYear();
   <div class="wrap legal">
     <div>Copyright © {year} {SITE.name}</div>
     <div>
-      <a href="/terms">Terms of service</a>
-      <a href="/privacy" style="margin-left:18px">Privacy policy</a>
+      <a href={withBase('/terms')}>Terms of service</a>
+      <a href={withBase('/privacy')} style="margin-left:18px">Privacy policy</a>
     </div>
   </div>
 </footer>

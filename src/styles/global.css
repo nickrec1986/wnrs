@@ -205,7 +205,7 @@ button { font-family: inherit; }
   text-align: center;
   padding: 7rem 1rem 4rem;
   background-color: var(--gray);
-  background-image: url('/brand/bg-motif.svg');
+  background-image: var(--asset-motif);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -375,7 +375,7 @@ button { font-family: inherit; }
   padding: 22px 22px;
   font-size: 16px;
   color: var(--text);
-  background-image: url('/icons/right.svg');
+  background-image: var(--asset-arrow);
   background-repeat: no-repeat;
   background-position: 92% 50%;
   background-size: 22px auto;
@@ -557,7 +557,7 @@ button { font-family: inherit; }
   content: "";
   position: absolute;
   inset: 0;
-  background: url('/brand/bg-motif.svg') center / cover no-repeat;
+  background: var(--asset-motif) center / cover no-repeat;
   mix-blend-mode: overlay;
   opacity: 0.28;
   pointer-events: none;
@@ -610,7 +610,7 @@ button { font-family: inherit; }
 /* inner pages */
 .page-hero {
   background: var(--gray);
-  background-image: url('/brand/bg-motif.svg');
+  background-image: var(--asset-motif);
   background-size: cover;
   background-position: center;
   padding: 4.5rem 0 3rem;

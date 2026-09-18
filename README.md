@@ -13,9 +13,9 @@ Stack matches [tryteleforce.com](https://tryteleforce.com): **Astro 4**, `@astro
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321
+npm run dev      # http://localhost:4321/wnrs/
 npm run build    # writes ./dist
-npm run preview  # serve the static build
+npm run preview  # serve the static build (also under /wnrs/)
 ```
 
 Content is consts-driven. Edit copy in `src/consts.ts`; pages under `src/pages/` stay thin so bots can change the site via git.
@@ -27,20 +27,31 @@ Content is consts-driven. Edit copy in `src/consts.ts`; pages under `src/pages/`
 | `src/components/` | Nav, footer, service/industry templates, contact |
 | `src/pages/[slug].astro` | All industry + sector URLs from `VERTICALS` |
 | `src/pages/early-stage-arm.astro` (etc.) | Core service URLs |
-| `public/CNAME` | GitHub Pages custom domain (`wnrs.com`) |
+| `public/.nojekyll` | Lets GitHub Pages serve Astro’s `_astro/` folder |
 
 ## GitHub Pages deploy
 
-This repo deploys with [GitHub Pages](https://docs.github.com/en/pages) from `main`.
+Two URL modes. **This branch is set up so Nicolas can scroll a live preview on github.io.** Custom-domain cutover is a later config change, not required for review.
 
-1. **Repo settings → Pages**
-   - Source: **GitHub Actions** (not “Deploy from a branch”).
-   - The workflow `.github/workflows/deploy.yml` runs `npm ci && npm run build` and publishes `./dist`.
-2. **Custom domain**
-   - Pages custom domain: `wnrs.com`
-   - `public/CNAME` contains `wnrs.com` so the built site keeps the domain on every deploy.
-   - Enforce HTTPS once DNS has propagated (GitHub provisions a Let’s Encrypt certificate automatically — no paid SSL SKU).
-3. **Push to `main`** (or run the workflow manually). The first deploy can take a few minutes while DNS and the certificate settle.
+### Preview now (GitHub project Pages)
+
+**Live preview:** https://nickrec1986.github.io/wnrs/ (after the first Actions deploy on this branch).
+
+- `astro.config.mjs` has `site: 'https://wnrs.com'` and **`base: '/wnrs/'`** so CSS, JS, images, and internal links resolve under `/wnrs/`.
+- Workflow: `.github/workflows/deploy-pages.yml` runs `npm ci` + `npm run build` and deploys `dist/` with `actions/upload-pages-artifact` + `actions/deploy-pages` on push to `cursor/wnrs-astro-marketing-site-2e72` and `main` (or **Actions → Deploy GitHub Pages → Run workflow**).
+- **Repo settings → Pages → Source: GitHub Actions** (not “Deploy from a branch”). The first run may sit in “waiting for approval” until Pages is enabled and the `github-pages` environment is allowed.
+
+`public/CNAME` is **not** on this branch. A CNAME of `wnrs.com` would force Pages onto the custom domain and redirect `github.io/wnrs` to the live WordPress site, which would hide this preview.
+
+### Custom domain later (wnrs.com)
+
+When DNS for `wnrs.com` / `www` points at GitHub Pages:
+
+1. In `astro.config.mjs`, set **`base: '/'`** (leave `site: 'https://wnrs.com'`). Rebuild so asset URLs are root-absolute again.
+2. Add `public/CNAME` containing `wnrs.com`.
+3. In **Repo → Settings → Pages**, set custom domain `wnrs.com` and enable **Enforce HTTPS** after DNS checks pass.
+
+Until that cutover, keep `base: '/wnrs/'` so the github.io preview keeps working.
 
 `public/.nojekyll` is included because Astro emits `/_astro/` assets. Jekyll on Pages would otherwise ignore that folder.
 
@@ -62,7 +73,7 @@ ALTERNATIVE: some registrars allow an apex **ALIAS/ANAME** to `<user>.github.io`
 
 ### Cutover sequence
 
-1. Merge this site, confirm the Pages workflow is green, and open `https://<user>.github.io/wnrs/` or the Pages preview URL.
+1. Merge this site, confirm the Pages workflow is green, and open **https://nickrec1986.github.io/wnrs/**.
 2. In GitHub: set custom domain `wnrs.com`, wait until the DNS check is no longer “incorrect”, then enable **Enforce HTTPS**.
 3. In **GoDaddy DNS** for `wnrs.com`:
    - Remove records that point the apex/`www` at WordPress hosting, a parked page, or a CDN in front of WP (A records to the current host, CNAME to `www`, forwarding, etc.).

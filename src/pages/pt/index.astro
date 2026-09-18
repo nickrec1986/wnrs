@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '../../consts';
+import { withBase } from '../../base';
 ---
 <BaseLayout
   lang="pt-BR"
@@ -16,7 +17,7 @@ import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '../../consts';
         Enquanto isso, fale com a equipe ou use o site em inglês.
       </p>
       <a class="btn btn-lg" href={EMAIL_HREF}>{EMAIL}</a>
-      <p style="margin-top:16px"><a href="/">English site →</a> · <a href={PHONE_HREF}>{PHONE}</a></p>
+      <p style="margin-top:16px"><a href={withBase('/')}>English site →</a> · <a href={PHONE_HREF}>{PHONE}</a></p>
     </div>
   </section>
 </BaseLayout>

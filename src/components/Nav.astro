@@ -1,12 +1,14 @@
 ---
 import { SERVICES, FEATURED_INDUSTRIES, LOCALES, PORTAL_URL } from '../consts';
-const path = Astro.url.pathname;
-const servicesOn = path === '/services' || path === '/services/' || SERVICES.some((s) => path.includes(s.slug));
+import { withBase } from '../base';
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const servicesPath = withBase('/services').replace(/\/$/, '');
+const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s.slug));
 ---
 <header class="site-header" id="nav">
   <div class="bar">
-    <a class="brand-logo" href="/" aria-label="WNRS home">
-      <img src="/brand/logo-wnrs.png" alt="WNRS — Accelerate your Cashflow" width="180" height="52" />
+    <a class="brand-logo" href={withBase('/')} aria-label="WNRS home">
+      <img src={withBase('/brand/logo-wnrs.png')} alt="WNRS — Accelerate your Cashflow" width="180" height="52" />
     </a>
 
     <nav class="nav-main" id="nav-links">
@@ -16,27 +18,27 @@ const servicesOn = path === '/services' || path === '/services/' || SERVICES.som
           <div>
             <div class="mh">Types</div>
             {SERVICES.map((s) => (
-              <a href={`/${s.slug}`}>{s.navLabel}</a>
+              <a href={withBase(`/${s.slug}`)}>{s.navLabel}</a>
             ))}
-            <a href="/services">All services</a>
+            <a href={withBase('/services')}>All services</a>
           </div>
           <div>
             <div class="mh">Industry</div>
             {FEATURED_INDUSTRIES.map((i) => (
-              <a href={`/${i.slug}`}>{i.name}</a>
+              <a href={withBase(`/${i.slug}`)}>{i.name}</a>
             ))}
-            <a href="/services#industries">More…</a>
+            <a href={withBase('/services#industries')}>More…</a>
           </div>
         </div>
       </div>
-      <a href="/about-us">About Us</a>
+      <a href={withBase('/about-us')}>About Us</a>
       <div class="mobile-only locale-row">
         {LOCALES.map((l) => (
           <a href={l.href} hreflang={l.code === 'pt' ? 'pt-BR' : l.code}>{l.label}</a>
         ))}
       </div>
       <a class="mobile-only" href={PORTAL_URL}>Login</a>
-      <a class="mobile-only btn" href="/#contact">Book a Call</a>
+      <a class="mobile-only btn" href={withBase('/#contact')}>Book a Call</a>
     </nav>
 
     <div class="nav-end">
@@ -49,7 +51,7 @@ const servicesOn = path === '/services' || path === '/services/' || SERVICES.som
         </div>
       </div>
       <a class="plain" href={PORTAL_URL}>Login</a>
-      <a class="btn" href="/#contact">Book a Call</a>
+      <a class="btn" href={withBase('/#contact')}>Book a Call</a>
       <button class="hamburger" type="button" id="nav-toggle" aria-label="Open menu" aria-controls="nav-links">
         <span></span>
       </button>

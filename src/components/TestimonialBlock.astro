@@ -1,5 +1,6 @@
 ---
 import { HOME, TESTIMONIALS } from '../consts';
+import { withBase } from '../base';
 const t = TESTIMONIALS[0];
 ---
 <section class="quotes-el">
@@ -20,7 +21,7 @@ const t = TESTIMONIALS[0];
       <div class="stars">★★★★★</div>
       <p>"{t.quote}"</p>
       <div class="who">
-        <img src="/brand/juan-romero.jpg" alt={t.name} width="52" height="52" />
+        <img src={withBase('/brand/juan-romero.jpg')} alt={t.name} width="52" height="52" />
         <div>
           <b>{t.name}</b>
           <span>{t.title} {t.company}</span>

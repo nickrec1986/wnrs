@@ -4,13 +4,14 @@ import LogoMarquee from '../../components/LogoMarquee.astro';
 import TestimonialBlock from '../../components/TestimonialBlock.astro';
 import ContactSection from '../../components/ContactSection.astro';
 import { getServicesForHub, SECTORS, INDUSTRY_HUB, getVertical, SITE } from '../../consts';
+import { withBase } from '../../base';
 
 const types = getServicesForHub();
 const hubSectors = SECTORS.filter((s) => s.slug !== 'utilities');
 const sectorPhotos: Record<string, string> = {
-  business: '/brand/services-1.jpg',
-  enterprise: '/brand/services-2.jpg',
-  government: '/brand/services-3.jpg',
+  business: withBase('/brand/services-1.jpg'),
+  enterprise: withBase('/brand/services-2.jpg'),
+  government: withBase('/brand/services-3.jpg'),
 };
 const sectorStats: Record<string, string> = {
   business: 'Increased 85%',
@@ -32,7 +33,7 @@ const industries = INDUSTRY_HUB.map((slug) => getVertical(slug)).filter(Boolean)
         At WNRS we believe in keeping it simple – and smart. Results are what make us the market leader in collections.
         Explore our services by type, industry, or sector.
       </p>
-      <a class="btn btn-lg" href="/#contact">Call to Action</a>
+      <a class="btn btn-lg" href={withBase('/#contact')}>Call to Action</a>
     </div>
   </header>
 
@@ -45,8 +46,8 @@ const industries = INDUSTRY_HUB.map((slug) => getVertical(slug)).filter(Boolean)
     </div>
     <div class="wrap svc-grid">
       {hubSectors.map((s) => (
-        <a class="svc-photo" href={`/${s.slug}`}>
-          <img src={sectorPhotos[s.slug] ?? '/brand/hero.jpg'} alt="" />
+        <a class="svc-photo" href={withBase(`/${s.slug}`)}>
+          <img src={sectorPhotos[s.slug] ?? withBase('/brand/hero.jpg')} alt="" />
           <div class="body">
             <h3>{s.name}</h3>
             <p>{s.short}</p>
@@ -69,7 +70,7 @@ const industries = INDUSTRY_HUB.map((slug) => getVertical(slug)).filter(Boolean)
     </div>
     <div class="wrap svc-grid">
       {types.map((s) => (
-        <a class="svc-tile" href={`/${s.slug}`}>
+        <a class="svc-tile" href={withBase(`/${s.slug}`)}>
           <h3>{s.name}</h3>
           <p>{s.short}</p>
         </a>
@@ -84,7 +85,7 @@ const industries = INDUSTRY_HUB.map((slug) => getVertical(slug)).filter(Boolean)
     </div>
     <div class="wrap ind-grid">
       {industries.map((i) => (
-        <a class="pick" href={`/${i!.slug}`}>{i!.name}</a>
+        <a class="pick" href={withBase(`/${i!.slug}`)}>{i!.name}</a>
       ))}
     </div>
   </section>

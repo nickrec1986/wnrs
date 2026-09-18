@@ -25,5 +25,8 @@ Do not overclaim legal outcomes. Collections compliance: directional, not legal 
 - Leave `online.wnrs.com` alone (client portal)
 
 ## Stack
-Astro 4, `@astrojs/sitemap`, `output: 'static'`, `site: 'https://wnrs.com'`.
-GitHub Pages: `public/CNAME`, `.github/workflows/deploy.yml`.
+Astro 4, `@astrojs/sitemap`, `output: 'static'`, `site: 'https://wnrs.com'`,
+`base: '/wnrs/'` (GitHub project Pages preview). Switch `base` to `'/'` at
+custom-domain cutover. Deploy: `.github/workflows/deploy-pages.yml`.
+Do not add `public/CNAME` until wnrs.com points at Pages — it would redirect
+github.io/wnrs to the live WordPress site.

@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TestimonialBlock from './TestimonialBlock.astro';
 import ContactSection from './ContactSection.astro';
 import { getService, SITE } from '../consts';
+import { withBase } from '../base';
 
 interface Props { slug: string }
 const { slug } = Astro.props;
@@ -25,9 +26,9 @@ const jsonLd = {
         <p class="kicker">Debt Collection Experts</p>
         <h1>{svc.navLabel}</h1>
         <p class="lede">{svc.intro}</p>
-        <a class="btn" href="/#contact">Get a quote</a>
+        <a class="btn" href={withBase('/#contact')}>Get a quote</a>
       </div>
-      <img src="/brand/hero.jpg" alt="" />
+      <img src={withBase('/brand/hero.jpg')} alt="" />
     </div>
   </header>
 
@@ -55,8 +56,8 @@ const jsonLd = {
           </div>
         </div>
         <div class="dash-art">
-          <img id="aside-overview" src="/brand/results-analysis.webp" alt="Campaign results analysis" />
-          <img id="aside-benefits" src="/brand/demand-gen.webp" alt="Outreach and scheduling" hidden />
+          <img id="aside-overview" src={withBase('/brand/results-analysis.webp')} alt="Campaign results analysis" />
+          <img id="aside-benefits" src={withBase('/brand/demand-gen.webp')} alt="Outreach and scheduling" hidden />
         </div>
       </div>
     </div>

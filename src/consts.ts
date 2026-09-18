@@ -3,6 +3,8 @@
 // Edit copy here; pages and components consume these objects.
 // ============================================================
 
+import { withBase } from './base';
+
 export const SITE = {
   name: 'WNRS',
   legalName: 'World Net Recovery Systems',
@@ -29,16 +31,16 @@ export const LOCALES = [
 ] as const;
 
 export const NAV_LINKS = [
-  { href: '/services', label: 'Services' },
-  { href: '/about-us', label: 'About Us' },
+  { href: withBase('/services'), label: 'Services' },
+  { href: withBase('/about-us'), label: 'About Us' },
 ] as const;
 
 export const FOOTER_LINKS = [
-  { href: '/services', label: 'Services' },
-  { href: '/about-us', label: 'About Us' },
-  { href: '/#contact', label: 'Contact' },
-  { href: '/terms', label: 'Terms of service' },
-  { href: '/privacy', label: 'Privacy policy' },
+  { href: withBase('/services'), label: 'Services' },
+  { href: withBase('/about-us'), label: 'About Us' },
+  { href: withBase('/#contact'), label: 'Contact' },
+  { href: withBase('/terms'), label: 'Terms of service' },
+  { href: withBase('/privacy'), label: 'Privacy policy' },
 ] as const;
 
 /** Hero proof stats (homepage strip). */
@@ -63,30 +65,30 @@ export const KEY_STATS = [
 
 /** Client marks used in the live Elementor carousel. */
 export const CLIENT_LOGOS = [
-  { src: '/clients/ups.png', alt: 'UPS' },
-  { src: '/clients/ternium.png', alt: 'Ternium' },
-  { src: '/clients/intertek.png', alt: 'Intertek' },
-  { src: '/clients/seaboard.png', alt: 'Seaboard Marine' },
-  { src: '/clients/sap.png', alt: 'SAP' },
-  { src: '/clients/pg.png', alt: 'Procter & Gamble' },
-  { src: '/clients/dhl.png', alt: 'DHL' },
-  { src: '/clients/amex.png', alt: 'American Express' },
-  { src: '/clients/avis.png', alt: 'Avis' },
-  { src: '/clients/carnival.png', alt: 'Carnival' },
-  { src: '/clients/maersk.png', alt: 'Maersk' },
-  { src: '/clients/nike.png', alt: 'Nike' },
-  { src: '/clients/aeromexico.png', alt: 'Aeroméxico' },
-  { src: '/clients/ef.png', alt: 'EF Education First' },
+  { src: withBase('/clients/ups.png'), alt: 'UPS' },
+  { src: withBase('/clients/ternium.png'), alt: 'Ternium' },
+  { src: withBase('/clients/intertek.png'), alt: 'Intertek' },
+  { src: withBase('/clients/seaboard.png'), alt: 'Seaboard Marine' },
+  { src: withBase('/clients/sap.png'), alt: 'SAP' },
+  { src: withBase('/clients/pg.png'), alt: 'Procter & Gamble' },
+  { src: withBase('/clients/dhl.png'), alt: 'DHL' },
+  { src: withBase('/clients/amex.png'), alt: 'American Express' },
+  { src: withBase('/clients/avis.png'), alt: 'Avis' },
+  { src: withBase('/clients/carnival.png'), alt: 'Carnival' },
+  { src: withBase('/clients/maersk.png'), alt: 'Maersk' },
+  { src: withBase('/clients/nike.png'), alt: 'Nike' },
+  { src: withBase('/clients/aeromexico.png'), alt: 'Aeroméxico' },
+  { src: withBase('/clients/ef.png'), alt: 'EF Education First' },
 ] as const;
 
 /** Homepage “pick your service” tiles — live Elementor labels, mapped to ARM slugs. */
 export const HOME_PICKER = [
-  { href: '/early-stage-arm', label: 'Administrative Collection' },
-  { href: '/specialized-arm', label: 'Specialized Collection' },
-  { href: '/late-stage-arm', label: 'Extrajudicial Collection' },
-  { href: '/financial-skip-tracing', label: 'Financial Investigation' },
-  { href: '/attorney-intervention', label: 'Judicial Collection' },
-  { href: '/#contact', label: 'Customer Experience Management' },
+  { href: withBase('/early-stage-arm'), label: 'Administrative Collection' },
+  { href: withBase('/specialized-arm'), label: 'Specialized Collection' },
+  { href: withBase('/late-stage-arm'), label: 'Extrajudicial Collection' },
+  { href: withBase('/financial-skip-tracing'), label: 'Financial Investigation' },
+  { href: withBase('/attorney-intervention'), label: 'Judicial Collection' },
+  { href: withBase('/#contact'), label: 'Customer Experience Management' },
 ] as const;
 
 export interface Service {
@@ -274,17 +276,17 @@ export const DIFFERENTIATORS = [
   {
     h: 'The first results within days',
     p: "On average within the first 15 days you'll start seeing recovery results hitting the books.",
-    img: '/brand/illustration-3.png',
+    img: withBase('/brand/illustration-3.png'),
   },
   {
     h: 'World-class talent',
     p: "We carefully select and train expert teams to act as an extension of your own brand. Rest assured, you'll get faster, transparent, and predictable results that recover debt and restore cashflow.",
-    img: '/brand/illustration-2.png',
+    img: withBase('/brand/illustration-2.png'),
   },
   {
     h: 'Tailored expertise & strategies',
     p: 'Unlike other agencies cookie-cutter approaches, we build hyper personalized go-to-market strategies that align perfectly with your unique brand, business objectives, and combine over 50 years of best practices.',
-    img: '/brand/illustration-4.png',
+    img: withBase('/brand/illustration-4.png'),
   },
 ] as const;
 
