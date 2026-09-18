@@ -1,0 +1,48 @@
+---
+import { HOME, EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '../consts';
+---
+<section class="block" style="padding-top:0">
+  <div class="wrap reveal">
+    <div class="ctabanner">
+      <div class="cb-text">
+        <h3>{HOME.ctaH}</h3>
+        <p>{HOME.ctaP}</p>
+      </div>
+      <a class="btn btn-gold" href="#contact">Book a call</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow" style="color:var(--gold)">Contact</div>
+        <h2 class="disp">Let’s recover what’s owed.</h2>
+        <p class="sub">Email or call. We’ll scope the book, the aging, and the right mix of early-stage, late-stage, specialized, skip tracing, or attorney work — then come back with a plan.</p>
+        <div class="contact-actions">
+          <a class="btn btn-gold" href={EMAIL_HREF}>Email {EMAIL}</a>
+          <a class="btn btn-ghost" href={PHONE_HREF}>Call {PHONE}</a>
+        </div>
+      </div>
+      <dl>
+        <div>
+          <dt>Email</dt>
+          <dd><a href={EMAIL_HREF}>{EMAIL}</a></dd>
+        </div>
+        <div>
+          <dt>Phone</dt>
+          <dd><a href={PHONE_HREF}>{PHONE}</a></dd>
+        </div>
+        <div>
+          <dt>Headquarters</dt>
+          <dd>Miami, Florida · operations across the U.S., Canada, and Latin America</dd>
+        </div>
+        <div>
+          <dt>Client portal</dt>
+          <dd><a href="https://online.wnrs.com">online.wnrs.com</a></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>

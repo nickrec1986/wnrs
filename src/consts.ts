@@ -1,0 +1,802 @@
+// ============================================================
+// WNRS brand facts — single source of truth.
+// Edit copy here; pages and components consume these objects.
+// ============================================================
+
+export const SITE = {
+  name: 'WNRS',
+  legalName: 'World Net Recovery Systems',
+  url: 'https://wnrs.com',
+  title: 'WNRS — Debt Collection & Accounts Receivable Management',
+  description:
+    'WNRS recovers receivables at every stage of delinquency. 1,200+ professionals, 8 global hubs, and 50+ years of accounts receivable management for companies across the Americas.',
+  tagline: 'Debt collection experts. Receivables recovered fast.',
+  slogan: 'Your Receivables. Recovered. Fast.',
+} as const;
+
+export const EMAIL = 'info@wnrs.com';
+export const EMAIL_HREF = 'mailto:info@wnrs.com';
+export const PHONE = '1-866-252-3961';
+export const PHONE_DISPLAY = '1866 252-3961';
+export const PHONE_HREF = 'tel:+18662523961';
+export const PORTAL_URL = 'https://online.wnrs.com';
+export const HQ = 'Miami, FL';
+
+export const LOCALES = [
+  { code: 'en', label: 'EN', name: 'English', href: 'https://wnrs.com', host: 'wnrs.com' },
+  { code: 'pt', label: 'BR', name: 'Português', href: 'https://wnrs.com.br', host: 'wnrs.com.br' },
+  { code: 'es', label: 'ES', name: 'Español', href: 'https://wnrs.com.mx', host: 'wnrs.com.mx' },
+] as const;
+
+export const NAV_LINKS = [
+  { href: '/services', label: 'Services' },
+  { href: '/about-us', label: 'About Us' },
+] as const;
+
+export const FOOTER_LINKS = [
+  { href: '/services', label: 'Services' },
+  { href: '/about-us', label: 'About Us' },
+  { href: '/#contact', label: 'Contact' },
+  { href: '/terms', label: 'Terms of service' },
+  { href: '/privacy', label: 'Privacy policy' },
+] as const;
+
+/** Hero proof stats (homepage strip). */
+export const STATS = [
+  { n: '1,200+', k: 'Professionals' },
+  { n: '8', k: 'Global recovery hubs' },
+  { n: '50+', k: 'Years of performance' },
+  { n: '30+', k: 'Countries served' },
+] as const;
+
+/** Expanded key stats (homepage panel). */
+export const KEY_STATS = [
+  { n: '#1', k: 'Agency for Fortune 500 clients' },
+  { n: '50+', k: 'Years of proven performance' },
+  { n: '30+', k: 'Countries served' },
+  { n: '20+', k: 'Languages covered' },
+  { n: '500,000+', k: 'Interactions every month' },
+  { n: '99.9997%', k: 'System uptime' },
+  { n: '3x+', k: 'Recovery vs. typical in-house' },
+  { n: '10x', k: 'Faster than traditional teams' },
+] as const;
+
+/**
+ * Trust-wall names drawn from WNRS public case history and network clients.
+ * Rendered as a text marquee — not a claim that every logo is a current retainer.
+ */
+export const LOGOS = [
+  'Cemex',
+  'Ternium',
+  'Aeroméxico',
+  'Intertek',
+  'Carnival',
+  'Maersk',
+  'Avis',
+  'SAP',
+  'American Express',
+  'UPS',
+  'Procter & Gamble',
+  'Nike',
+] as const;
+
+export interface Service {
+  slug: string;
+  name: string;
+  navLabel: string;
+  short: string;
+  tagline: string;
+  intro: string;
+  overview: string[];
+  benefits: string[];
+  included: string[];
+  ic: string;
+}
+
+export const SERVICES: Service[] = [
+  {
+    slug: 'early-stage-arm',
+    name: 'Early Stage ARM',
+    navLabel: 'Early Stage Collection',
+    ic: '1–60 DAYS · FIRST-PARTY',
+    short: 'Keep accounts current before they age — in your brand’s voice.',
+    tagline: 'Stop delinquency early, without souring the relationship.',
+    intro:
+      'WNRS early-stage ARM is built for companies that want to reach customers in the first aging buckets — before balances become charge-offs. Multilingual professionals work one-on-one, typically in your name, with a customer-service posture that protects the relationship while cash comes back in.',
+    overview: [
+      'Early-stage work is designed to protect your brand. Outreach is diplomatic, courteous, and trained to your policies — not a blunt third-party script.',
+      'Proprietary segmentation and analytics pick the right intervention and the right agent for each account, across industries and geographies.',
+      'The goal is simple: recover faster, improve DSO, and keep far fewer accounts from rolling into late-stage delinquency.',
+    ],
+    benefits: [
+      'Increased cash flow',
+      'Improved days sales outstanding (DSO)',
+      'Shorter turnover on aged invoices',
+      'Lower operating expense vs. building an in-house desk',
+      'Fewer accounts entering delinquency',
+      'Reduced write-offs',
+      'Customer master-record updates',
+      'Add-ons: cash application, deductions, dispute resolution, O2C support',
+      '24/7 online account tracking and status',
+    ],
+    included: [
+      'First-party, brand-safe outreach in the client’s name',
+      'Segmentation, scoring, and agent matching per account',
+      'Multilingual coverage aligned to the debtor’s language',
+      'Payment reminders, billing questions, and early follow-up',
+      'Reporting, QA, and a named point of contact',
+    ],
+  },
+  {
+    slug: 'late-stage-arm',
+    name: 'Late Stage ARM',
+    navLabel: 'Late Stage Collection',
+    ic: 'PRE-CHARGE-OFF · CONCENTRATED',
+    short: 'Concentrated recovery as accounts near charge-off.',
+    tagline: 'A winning strategy for accounts that are about to age out.',
+    intro:
+      'Companies face a familiar problem as customer accounts near charge-off: collectability falls, internal teams are stretched, and a generic call-center approach burns the file. WNRS late-stage ARM concentrates experienced collectors, industry-specific campaigns, skip tracing, and attorney backup on this segment.',
+    overview: [
+      'After decades of industry-specific ARM systems, we do not staff late-stage work with high-turnover temps. Agents are trained on your industry, compliance requirements, and peak-performance playbooks.',
+      'Campaigns can include customized billing, national and international skip tracing, 24/7 tracking, and attorney intervention when the file warrants it.',
+      'Stay focused on the core business. Do not let inaction tax the bottom line as accounts slide past recoverability.',
+    ],
+    benefits: [
+      'Increased cash flow',
+      'Higher returns on aged inventory',
+      'Better location rates on skip accounts',
+      'Optimized working capital',
+      'Lasting customer relations where recovery is still relationship-based',
+      'Client satisfaction through transparent reporting',
+    ],
+    included: [
+      'Seasoned collectors — not a revolving call-center bench',
+      'Specialized and customized billing campaigns',
+      'National and international skip tracing and investigations',
+      '24/7 online tracking, monitoring, and reporting',
+      'Attorney intervention when necessary',
+    ],
+  },
+  {
+    slug: 'specialized-arm',
+    name: 'Specialized ARM',
+    navLabel: 'Specialized Collection',
+    ic: 'SENSITIVE · MULTIDISCIPLINARY',
+    short: 'Special-purpose recovery for complex, high-stakes files.',
+    tagline: 'A dedicated unit for matters that a standard desk cannot touch.',
+    intro:
+      'Not every AR program is the same. WNRS Specialized Unit (SU) handles special-purpose and sensitive ARM — typically for government and select multinationals. Multidisciplinary professionals combine conventional and unconventional tactics on complex multi-party disputes with financial, legal, operational, political, and regulatory dimensions.',
+    overview: [
+      'SU teams mobilize wherever the file requires: complex bankruptcy and non-bankruptcy commercial disputes, government-related matters, and cases that need industry-specific expertise from assessment through settlement.',
+      'The unit has supported market-shaping matters across the Americas — from large commercial settlements to government-related disputes in the U.S., Mexico, Canada, Brazil, and elsewhere.',
+      'We bring insight to strengths, weaknesses, damages, and timing so clients can decide how far to press a file — and then execute.',
+    ],
+    benefits: [
+      'Industry-specific, multidisciplinary experts',
+      'Worldwide deployment and reach',
+      'Dispute and fraud coverage: financial, legal, operational, transactional, political, regulatory',
+      'National and international investigators and field specialists',
+      'Litigation consulting, valuation, and trial support when needed',
+      'Attorney intervention when needed',
+    ],
+    included: [
+      'Early case assessment and discovery support',
+      'Case strategy, damages analysis, and settlement services',
+      'Sensitive-file handling for government and multinational clients',
+      'Coordination with legal, investigative, and field resources',
+      'Consolidated reporting through WNRS',
+    ],
+  },
+  {
+    slug: 'financial-skip-tracing',
+    name: 'Financial Skip Tracing',
+    navLabel: 'Financial Skip Tracing',
+    ic: 'INVESTIGATION · LOCATION',
+    short: 'Find the debtor — and the assets — when they have gone dark.',
+    tagline: 'Location and financial investigation that a database search cannot replace.',
+    intro:
+      'A global economy makes it easier for counterparties to relocate activity and avoid contact. WNRS skip tracing combines technology with investigators, international offices, and field skill — especially where public databases are thin or the debtor is deliberately opaque.',
+    overview: [
+      'Financial investigations complement collection: we do not stop at a last-known address. We look for the person, the entity, and the assets that can satisfy the claim.',
+      'Experience matters on shadowy files and on debts that originate in markets with unsophisticated communications infrastructure. Algorithms help; trained investigators close.',
+    ],
+    benefits: [
+      'Corporate structure decomposition',
+      'Corporate veil piercing analysis',
+      'Corporate banking details',
+      'Employment history',
+      'Real property, vehicle, and lien information',
+      'Judgment and bankruptcy information',
+      'Personal location, contact, and banking details',
+    ],
+    included: [
+      'Skip tracing across national and international footprints',
+      'Asset and entity investigation in support of recovery',
+      'Integration with early-stage, late-stage, and attorney workstreams',
+      'Discreet handling of sensitive commercial files',
+    ],
+  },
+  {
+    slug: 'attorney-intervention',
+    name: 'Attorney Intervention',
+    navLabel: 'Attorney Intervention',
+    ic: 'LITIGATION · ENFORCEMENT',
+    short: 'Legal enforcement through an international attorney network.',
+    tagline: 'Litigation and judgment enforcement, managed in one place.',
+    intro:
+      'WNRS has built an international network of collections and bankruptcy attorneys across U.S. jurisdictions, Canada, Mexico, Latin America, Central America, the Caribbean, and Western Europe. Attorney Intervention deploys legal enforcement when a file needs more than outreach.',
+    overview: [
+      'From litigation through judgment enforcement, network attorneys bring proven legal collection experience. WNRS manages progress and keeps you current at every stage.',
+      'We analyze whether litigation is worth it — consolidation, investigation, execution, and timing — then, if you proceed, track the matter in one consolidated view.',
+    ],
+    benefits: [
+      'One-stop consolidation of legal recovery',
+      'Detailed reporting through proceedings',
+      'Levy and execution of assets',
+      'Civil (and, where applicable, criminal) sanctions support',
+      'Wage, bank, and investment-account garnishment',
+      'Real-property seizure and vehicle impoundment where lawful',
+      'Corporate veil-piercing actions',
+    ],
+    included: [
+      'Pre-litigation analysis of recoverability and cost',
+      'Attorney placement in the right jurisdiction',
+      'Judgment enforcement and asset execution',
+      'Bankruptcy-attorney coverage in key markets',
+      'Centralized status tracking through WNRS',
+    ],
+  },
+];
+
+export const getService = (slug: string) => SERVICES.find((s) => s.slug === slug);
+
+export const DIFFERENTIATORS = [
+  {
+    h: 'The first results within days',
+    p: 'On average, recovery starts hitting the books within the first 15 days — not after a long setup cycle.',
+  },
+  {
+    h: 'World-class talent',
+    p: 'We select and train expert teams to act as an extension of your brand: faster, transparent, predictable recovery that restores cash flow.',
+  },
+  {
+    h: 'Tailored expertise & strategies',
+    p: 'No cookie-cutter playbook. We build personalized strategies that match your brand, objectives, and 50+ years of ARM best practice.',
+  },
+] as const;
+
+export const PROCESS_STEPS = [
+  {
+    num: '01',
+    h: 'Unpaid invoice(s)',
+    p: 'You are losing money — and time. We step in fast.',
+  },
+  {
+    num: '02',
+    h: 'Account assessment',
+    p: 'We vet the debtor, map the terrain, and execute the recovery plan.',
+  },
+  {
+    num: '03',
+    h: 'Negotiations',
+    p: 'We reach out directly — in their language, on their turf.',
+  },
+  {
+    num: '04',
+    h: 'Enforcement',
+    p: 'We always take the next appropriate step to advance recovery.',
+  },
+  {
+    num: '05',
+    h: 'Funds recovered',
+    p: 'You get results with full transparency. CX services optional.',
+  },
+] as const;
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  title: string;
+  company: string;
+}
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    quote:
+      "I don't know how they do it, but WNRS was able to recover what my entire staff of 60 in-house lawyers was unable to recover for years. One thing is clear: every craftsman to his trade.",
+    name: 'Juan Romero',
+    title: 'President',
+    company: 'Cemex',
+  },
+];
+
+export interface Vertical {
+  slug: string;
+  name: string;
+  kind: 'industry' | 'sector';
+  featured?: boolean;
+  ic: string;
+  short: string;
+  intro: string;
+  overview: string;
+  audience: string;
+  benefits: string[];
+}
+
+const ARM_BENEFITS = [
+  'Early-stage and late-stage collections',
+  'A/R management and invoice support',
+  'Demand-letter campaigns',
+  'Financial skip tracing',
+  'Attorney intervention when warranted',
+  '24/7 online account tracking',
+];
+
+export const SECTORS: Vertical[] = [
+  {
+    slug: 'business',
+    name: 'Business',
+    kind: 'sector',
+    ic: 'MID-MARKET',
+    short: 'ARM programs sized for growing companies that need cash back without a full in-house desk.',
+    intro:
+      'Whether you collect from businesses or you are one, WNRS has the experience to put a definitive accounts receivable program around your book — without the overhead of standing up a recovery team.',
+    overview:
+      'Mid-market companies often outgrow ad-hoc collections and under-invest in a dedicated ARM function. We plug in trained collectors, reporting, and skip tracing so finance leaders can stay on growth work. Clients in this sector typically see material cash-flow lift once outreach is consistent and professional.',
+    audience: 'Privately held and mid-market companies across B2B and B2C books.',
+    benefits: ['Increased cash flow — clients in this sector have seen lifts around 85%', ...ARM_BENEFITS],
+  },
+  {
+    slug: 'enterprise',
+    name: 'Enterprise',
+    kind: 'sector',
+    ic: 'GLOBAL · FORTUNE 500',
+    short: 'Scale recovery across regions, languages, and legal regimes.',
+    intro:
+      'Global enterprises need ARM that matches their footprint: multiple jurisdictions, languages, and brand standards. WNRS runs that program as an extension of corporate finance and legal.',
+    overview:
+      'Enterprise files are large, political, and visible. We staff multilingual teams, specialized units, and attorney networks so recovery does not stop at a country border. Reporting is built for treasury, shared services, and audit — not a spreadsheet dump.',
+    audience: 'Multinationals and Fortune 500 finance organizations.',
+    benefits: ['Increased cash flow — clients in this sector have seen lifts around 80%', ...ARM_BENEFITS],
+  },
+  {
+    slug: 'government',
+    name: 'Government',
+    kind: 'sector',
+    ic: 'PUBLIC SECTOR',
+    short: 'Sensitive recovery for public entities and government-related commercial claims.',
+    intro:
+      'Public-sector and government-related receivables demand discretion, compliance, and reach. WNRS supports government entities and contractors with ARM that can move from administrative outreach to specialized and legal enforcement.',
+    overview:
+      'Government files often mix commercial, regulatory, and political constraints. Our specialized unit and attorney network are used to that mix. We report clearly, document thoroughly, and escalate only when the file supports it.',
+    audience: 'Government entities, agencies, and government contractors.',
+    benefits: ['Increased cash flow — clients in this sector have seen lifts around 75%', ...ARM_BENEFITS],
+  },
+  {
+    slug: 'utilities',
+    name: 'Utilities',
+    kind: 'sector',
+    ic: 'REGULATED',
+    short: 'Accounts receivable programs for regulated utility and public-service books.',
+    intro:
+      'Utilities run high-volume, regulated receivables where customer treatment and documentation matter as much as dollars recovered. WNRS supports that book with trained outreach and compliant escalation.',
+    overview:
+      'From past-due residential and commercial accounts to complex B2B utility claims, we align to tariff rules, hardship programs, and brand standards. The aim is recovered revenue without unnecessary disconnection or reputational damage.',
+    audience: 'Electric, gas, water, telecom-adjacent, and public-service operators.',
+    benefits: ARM_BENEFITS,
+  },
+];
+
+export const INDUSTRIES: Vertical[] = [
+  {
+    slug: 'education-research',
+    name: 'Education & Research',
+    kind: 'industry',
+    featured: true,
+    ic: 'TUITION · GRANTS · LENDING',
+    short: 'Receivables programs for schools, research programs, and education lenders.',
+    intro:
+      'Language schools, specialized courses, research programs, study-abroad, online learning, public and private universities, technical schools, and education lenders all run distinct receivable books. WNRS has the experience to service them.',
+    overview:
+      'No two education programs are the same. We work with schools and research facilities to pick the right mix of early intervention, loan servicing, and third-party recovery. Collectors are trained on student-borrower circumstances and the laws that govern them, and the program is built to protect the institution’s image.',
+    audience: 'Universities, technical schools, research programs, and education lenders.',
+    benefits: [
+      'Early intervention collections',
+      'Third-party collections',
+      'A/R management and loan servicing',
+      'Invoicing (print, mail, and electronic)',
+      'Customer care and demand letters',
+      'Back-office support',
+      'Attorney intervention and skip tracing',
+      'Payment processing',
+    ],
+  },
+  {
+    slug: 'travel-transportation',
+    name: 'Travel & Transportation',
+    kind: 'industry',
+    featured: true,
+    ic: 'CARRIERS · FLEETS · BOOKINGS',
+    short: 'Recovery for carriers, logistics, travel operators, and transportation networks.',
+    intro:
+      'Travel and transportation books move fast: unpaid freight, corporate travel, tours, and equipment charges age while assets and counterparties keep moving. WNRS recovers those receivables across borders and languages.',
+    overview:
+      'We train on your tariffs, contracts, and customer mix — airlines, logistics, freight, passenger, and travel operators. Outreach happens in the debtor’s language. Skip tracing and attorney backup are available when a counterparty has relocated or is simply not paying.',
+    audience: 'Airlines, freight and logistics, passenger transport, and travel operators.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'retail',
+    name: 'Retail',
+    kind: 'industry',
+    featured: true,
+    ic: 'STORE · ECOMMERCE · CREDIT',
+    short: 'High-volume retail and ecommerce receivables, without overwhelming working capital.',
+    intro:
+      'Electronics, mass merchandise, food service, safety products, apparel, and more: retail runs thousands of transactions a day — in person and online, on cards, leases, checks, and notes. It is one of WNRS’s largest client categories.',
+    overview:
+      'Do not let receivables management choke working capital. WNRS associates learn your products, policies, and culture so they function as an extension of the store and the brand. We resolve collections and billing on time, preserve image on customer-facing files, and report status in real time.',
+    audience: 'Brick-and-mortar, omnichannel, and ecommerce retailers.',
+    benefits: [
+      'Industry experience across retail formats',
+      'Issue resolution that protects company image',
+      'Online account input, audits, invoices, and real-time status',
+      'Full range of A/R management and collection services',
+      'Increased cash flow, reduced write-offs, reduced delinquencies',
+    ],
+  },
+  {
+    slug: 'manufacturing',
+    name: 'Manufacturing',
+    kind: 'industry',
+    featured: true,
+    ic: 'B2B · TRADE CREDIT',
+    short: 'Trade-credit recovery for manufacturers who need DSO down and disputes closed.',
+    intro:
+      'Electronics, building materials, auto and auto-parts, and other manufacturers use WNRS for A/R management and collections on trade-credit books.',
+    overview:
+      'Before work starts, we make sure representatives understand your processes, payment plans, credit criteria, and brand. Then they manage receivables, resolve disputes, collect delinquencies, and support goods recovery when needed — without adding overhead to the plant.',
+    audience: 'Discrete and process manufacturers selling on trade terms.',
+    benefits: [
+      'Faster collection times',
+      'Increased revenue and cash flow',
+      'Higher customer satisfaction on resolved disputes',
+      'Decreased DSO and write-offs',
+    ],
+  },
+  {
+    slug: 'professional-services',
+    name: 'Professional Services',
+    kind: 'industry',
+    featured: true,
+    ic: 'FEES · RETAINERS',
+    short: 'Collect for firms that sell expertise — without damaging client relationships.',
+    intro:
+      'Law, accounting, consulting, engineering, and other professional firms carry aged WIP and unpaid invoices that in-house teams are reluctant to chase. WNRS recovers those fees with the discretion the relationship requires.',
+    overview:
+      'Professional-services receivables are relationship-heavy. We work the file with your billing policies in mind, document every contact, and escalate only when the engagement is truly over. The firm stays focused on delivery; we stay focused on getting paid.',
+    audience: 'Law firms, consultancies, accounting firms, and other fee-for-service practices.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'aerospace-defense',
+    name: 'Aerospace & Defense',
+    kind: 'industry',
+    ic: 'CONTRACT · COMPLIANCE',
+    short: 'Discreet ARM for aerospace, defense, and dual-use commercial claims.',
+    intro:
+      'Aerospace and defense receivables sit on long contracts, government flow-downs, and counterparties that may be anywhere in the supply chain. WNRS handles those files with the confidentiality and documentation the sector expects.',
+    overview:
+      'From commercial aviation suppliers to defense contractors, we align recovery to contract terms, offset rights, and jurisdictional complexity. Specialized unit and attorney resources are available on sensitive or cross-border matters.',
+    audience: 'OEMs, suppliers, and contractors in aerospace and defense.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'construction-operations',
+    name: 'Construction & Operations',
+    kind: 'industry',
+    ic: 'PROJECTS · RETAINAGE',
+    short: 'Recover progress billings, retainage, and vendor balances on project work.',
+    intro:
+      'Construction and operations companies live on progress billings, change orders, and retainage — all of which can stall. WNRS works those receivables so cash is not trapped in completed work.',
+    overview:
+      'We train on your contract forms and project structure, then pursue owners, GCs, and vendors as the file requires. Documentation-heavy disputes are a normal part of this book; we treat them as such rather than as simple past-due calls.',
+    audience: 'General contractors, specialty trades, and facilities operators.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'banking',
+    name: 'Banking',
+    kind: 'industry',
+    ic: 'REGULATED CREDIT',
+    short: 'Compliant recovery support for banks and credit portfolios.',
+    intro:
+      'Banks need ARM partners who understand regulated credit, documentation, and customer treatment. WNRS supports banking collections and related commercial recovery with trained, auditable processes.',
+    overview:
+      'We work within your compliance framework — contact rules, hardship, and escalation — and report in a form credit-risk and collections leadership can use. Skip tracing and attorney intervention are available on commercial and charged-off files.',
+    audience: 'Retail, commercial, and specialty banking collections teams.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'consumer-products',
+    name: 'Consumer Products',
+    kind: 'industry',
+    ic: 'CPG · TRADE',
+    short: 'Trade and consumer receivables for CPG and branded goods.',
+    intro:
+      'Consumer-product companies carry distributor, retailer, and sometimes direct-to-consumer balances. WNRS recovers those books while protecting brand equity at the shelf and online.',
+    overview:
+      'We handle trade deductions, slow-pay retail, and aged consumer accounts with industry-aware scripts and dispute workflows. The aim is cash back without a public fight that costs more than the invoice.',
+    audience: 'CPG manufacturers, brands, and consumer-goods distributors.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'chemicals',
+    name: 'Chemicals',
+    kind: 'industry',
+    ic: 'TRADE CREDIT · B2B',
+    short: 'B2B recovery for chemical producers and distributors selling on terms.',
+    intro:
+      'Chemical producers and distributors extend significant trade credit. When invoices age, WNRS steps in with B2B collectors who understand contracts, logistics claims, and international counterparties.',
+    overview:
+      'Files in this sector often mix product, freight, and quality disputes. We separate collectible balances from genuine claims, then pursue the rest with the right mix of outreach, investigation, and legal backup.',
+    audience: 'Commodity and specialty chemical companies and their distributors.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'engineering',
+    name: 'Engineering',
+    kind: 'industry',
+    ic: 'PROJECT FEES',
+    short: 'Fee recovery for engineering firms on project and retainer work.',
+    intro:
+      'Engineering firms invoice against milestones and retainers that clients delay. WNRS recovers those professional fees with the care a continuing project relationship requires.',
+    overview:
+      'We work from your SOWs and change-order trail, not a generic dunning letter. Where the relationship is over, we escalate; where it is not, we keep the tone professional and the file documented.',
+    audience: 'Civil, industrial, and specialty engineering practices.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'gaming-hospitality-leisure',
+    name: 'Gaming, Hospitality & Leisure',
+    kind: 'industry',
+    ic: 'MARKERS · FOLIOS · EVENTS',
+    short: 'Receivables for casinos, hotels, leisure operators, and related venues.',
+    intro:
+      'Gaming, hospitality, and leisure generate markers, folios, group events, and vendor balances that need discreet, fast recovery. WNRS has worked this sector across the Americas.',
+    overview:
+      'Tone and timing matter in hospitality. We recover what is owed without turning a guest or a group account into a public dispute, and we escalate through skip tracing or counsel when the file is no longer a guest-relations problem.',
+    audience: 'Casinos, hotels, resorts, and leisure operators.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'government-contracting',
+    name: 'Government Contracting',
+    kind: 'industry',
+    ic: 'PRIME · SUB · FLOW-DOWN',
+    short: 'Commercial recovery around government contracts and subcontractor chains.',
+    intro:
+      'Government contractors carry receivables against primes, subs, and agencies that do not behave like ordinary trade credit. WNRS supports that book with documentation discipline and specialized resources.',
+    overview:
+      'We understand flow-downs, assignment, and the pace of public-sector payment. When a commercial dispute sits next to a government contract, specialized unit and attorney resources are available.',
+    audience: 'Primes, subcontractors, and vendors on government work.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'healthcare',
+    name: 'Healthcare',
+    kind: 'industry',
+    ic: 'PATIENT · PAYER',
+    short: 'Healthcare A/R for hospitals, physician groups, and related facilities.',
+    intro:
+      'WNRS healthcare clients have included government-owned hospitals, nonprofit community hospitals, religiously affiliated hospitals, large physician groups, and investor-owned facilities.',
+    overview:
+      'Medical A/R is complex: managed-care reimbursement, Medicare and Medicaid rules, and third-party liability. We manage on-time, outstanding, and write-off patient and payer files with collectors trained for this market.',
+    audience: 'Hospitals, physician groups, and healthcare facilities.',
+    benefits: [
+      'Patient and payer follow-up on aged balances',
+      'Support on managed-care, Medicare, and Medicaid-related files',
+      'Third-party liability collections',
+      'Reduced write-offs and improved cash on self-pay and residual balances',
+    ],
+  },
+  {
+    slug: 'high-tech',
+    name: 'High Tech',
+    kind: 'industry',
+    ic: 'SAAS · HARDWARE · CHANNEL',
+    short: 'Collections for technology companies with channel, SaaS, and hardware books.',
+    intro:
+      'High-tech receivables mix subscriptions, hardware, and channel partners — often across borders. WNRS recovers those balances with multilingual teams and modern reporting.',
+    overview:
+      'We work expired subscriptions, unpaid hardware, and distributor defaults without treating every file like a consumer debt. Channel and enterprise accounts get a B2B posture; consumer tech accounts get a CX-aware one.',
+    audience: 'Software, hardware, and technology-services companies.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'industrial-machinery-components',
+    name: 'Industrial Machinery & Components',
+    kind: 'industry',
+    ic: 'CAPEX · SPARES',
+    short: 'Capex and spare-parts recovery for industrial equipment sellers.',
+    intro:
+      'Machinery and component suppliers invoice large capital equipment and ongoing spares. When either ages, WNRS pursues the commercial claim — including counterparties that have reorganized or relocated.',
+    overview:
+      'These files often justify skip tracing and, if needed, attorney intervention. We assess recoverability before recommending legal spend, then execute the plan you approve.',
+    audience: 'OEMs and distributors of industrial machinery and components.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'insurance',
+    name: 'Insurance',
+    kind: 'industry',
+    ic: 'PREMIUM · SUBROGATION',
+    short: 'Premium, deductible, and subrogation recovery for insurers and MGAs.',
+    intro:
+      'Insurers and managing agents carry premium, deductible, and subrogation balances that need a specialist desk. WNRS provides that desk with compliant contact and documentation.',
+    overview:
+      'We work the file to your product rules and regulatory constraints, report in a form claims and finance can use, and escalate stubborn commercial recoveries through investigation or counsel.',
+    audience: 'Carriers, MGAs, and related insurance operations.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'life-sciences',
+    name: 'Life Sciences',
+    kind: 'industry',
+    ic: 'PHARMA · DEVICE · RESEARCH',
+    short: 'Receivables for pharma, device, and life-science research organizations.',
+    intro:
+      'Life-sciences companies invoice hospitals, distributors, research partners, and governments. WNRS recovers those books with the confidentiality the sector requires.',
+    overview:
+      'Contracts are long, counterparties are sophisticated, and some files are politically sensitive. Specialized unit support is available when a standard commercial desk is not enough.',
+    audience: 'Pharma, medical device, biotech, and research organizations.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'media',
+    name: 'Media',
+    kind: 'industry',
+    ic: 'ADVERTISING · LICENSING',
+    short: 'Advertising, licensing, and subscription recovery for media companies.',
+    intro:
+      'Media receivables — advertising, licensing, subscriptions, production — age while the next cycle is already selling. WNRS keeps that book moving.',
+    overview:
+      'We understand agency billing, make-goods, and subscription dunning. Collectors work the commercial file without treating a media buyer like a consumer debtor.',
+    audience: 'Publishers, broadcasters, digital media, and production companies.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'mining',
+    name: 'Mining',
+    kind: 'industry',
+    ic: 'COMMODITY · TRADE',
+    short: 'Cross-border commercial recovery for mining and related trade.',
+    intro:
+      'Mining companies and their suppliers operate across borders with large invoices and counterparties that can be hard to locate. WNRS brings international offices and investigation to those files.',
+    overview:
+      'We combine commercial collections with skip tracing and, when warranted, attorney intervention in the jurisdictions where assets actually sit.',
+    audience: 'Producers, traders, and suppliers in mining.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'oil-gas',
+    name: 'Oil & Gas',
+    kind: 'industry',
+    ic: 'UPSTREAM · MIDSTREAM · TRADE',
+    short: 'Energy-sector ARM for operators, service companies, and traders.',
+    intro:
+      'Oil and gas receivables are large, contractual, and often international. WNRS recovers them with collectors and investigators used to energy counterparties.',
+    overview:
+      'Joint-interest, services, and trade invoices each need a different posture. We scope the file, then apply early-stage, late-stage, specialized, or legal tools as recoverability demands.',
+    audience: 'Operators, oilfield services, midstream, and energy traders.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'wholesale-distribution',
+    name: 'Wholesale Distribution',
+    kind: 'industry',
+    ic: 'TRADE CREDIT',
+    short: 'High-volume trade-credit recovery for wholesalers and distributors.',
+    intro:
+      'Wholesale distributors live on trade credit. When customers slow-pay or disappear, working capital tightens immediately. WNRS is built for that book.',
+    overview:
+      'We work aged invoices at volume, update customer records, and escalate skips and disputes without waiting for a quarter-end surprise. Reporting is built for credit managers.',
+    audience: 'Wholesalers and distributors on open-account terms.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'sports-entertainment',
+    name: 'Sports & Entertainment',
+    kind: 'industry',
+    ic: 'RIGHTS · TICKETS · SPONSORS',
+    short: 'Recovery for rights, tickets, sponsorships, and venue-related receivables.',
+    intro:
+      'Sports and entertainment companies invoice sponsors, venues, talent, and ticket buyers. WNRS recovers those balances with discretion around public brands.',
+    overview:
+      'A sponsorship dispute is not a utility bill. We match tone to the relationship, document the file, and use specialized or legal resources when a high-value counterparty will not close.',
+    audience: 'Leagues, teams, venues, promoters, and entertainment companies.',
+    benefits: ARM_BENEFITS,
+  },
+  {
+    slug: 'telecommunications',
+    name: 'Telecommunications',
+    kind: 'industry',
+    ic: 'SUBSCRIBER · CARRIER',
+    short: 'Subscriber and carrier receivables for telecom operators.',
+    intro:
+      'Telecom books combine high-volume subscriber delinquency with wholesale carrier claims. WNRS covers both with process, language coverage, and reporting.',
+    overview:
+      'We align to your disconnect rules, regulatory constraints, and brand. Carrier and enterprise files get a B2B desk; subscriber files get scaled, compliant outreach.',
+    audience: 'Wireline, wireless, and wholesale telecom operators.',
+    benefits: ARM_BENEFITS,
+  },
+];
+
+export const VERTICALS: Vertical[] = [...SECTORS, ...INDUSTRIES];
+export const FEATURED_INDUSTRIES = INDUSTRIES.filter((i) => i.featured);
+export const getVertical = (slug: string) => VERTICALS.find((v) => v.slug === slug);
+
+export const ABOUT = {
+  lede: 'WNRS is a leading global provider of customized debt collection and accounts receivable management services. For over half a century we have helped companies across industries increase cash flow and reduce operating expense through results-driven recovery.',
+  body: [
+    'Every step of the debt-recovery process — design, implementation, management — is built to deliver results. Headquarters in Miami, Florida oversees operation centers in the U.S., Canada, and Latin America.',
+    'Proven systems have worked for thousands of clients for decades. Networked offices, subsidiaries, research and investigation experts, multilingual collection specialists, and governmental partners give clients a synergistic program that is difficult to match in the ARM industry.',
+  ],
+  vision: 'Resolve accounts receivable issues through expert customer service.',
+  mission:
+    'Strengthen our worldwide position as the premier provider of customized accounts receivable management services to diversified client groups.',
+  objectives: [
+    'Continuously improve, innovate, and stay ahead of market conditions affecting a global customer base',
+    'Reduce clients’ operating expenses',
+    'Maximize clients’ cash flow',
+    'Seek and offer tangible results',
+    'Shorten processing, billing, and collection times',
+    'Implement industry best practices that serve client needs',
+    'Protect clients’ prized customer and business relationships',
+  ],
+  features: [
+    {
+      h: 'Top business processes',
+      p: 'Account-level processes, personnel, and data-flow systems generate continuous revenue at every stage — from independently owned companies to Fortune 500 accounts.',
+    },
+    {
+      h: 'Talented human capital',
+      p: 'Results-driven experts train against client practices and objectives. Retention programs translate into consistent, high-quality service. There is no substitute for people who know this work.',
+    },
+    {
+      h: 'Innovative technology',
+      p: 'Centers connect over a closed network so associates work from current data. Operations run on proprietary software with VoIP, predictive dialers, call recording, secure transport, WAN, mirrored storage, and automated processors — built to scale.',
+    },
+    {
+      h: '24×7 account tracking',
+      p: 'Clients log in to monitor listed accounts in real time. The portal is the same system operations use — full transparency on progress, not a delayed summary.',
+    },
+  ],
+} as const;
+
+export const HOME = {
+  kicker: 'Debt collection experts',
+  h1a: 'Your Receivables.',
+  h1b: 'Recovered.',
+  h1c: 'Fast.',
+  lede: 'With over 1,200 professionals, 8 global recovery hubs, and half a century of experience, we address all stages of delinquency to manage risk, reduce expenses, and increase recovery rates — at scale.',
+  logosLabel: 'Finance leaders at top global and regional companies trust WNRS',
+  servicesEyebrow: 'Services',
+  servicesH2: 'Custom-fit, hyper-specialized receivable and CX services — done for you',
+  servicesSub:
+    'Built to outperform any market. Companies using our services recover 3× or more — 10× faster than traditional in-house teams — while preserving valued customer experiences.',
+  apartEyebrow: 'Why WNRS',
+  apartH2: 'What sets us apart',
+  apartSub:
+    'For 50 years, WNRS has been a top debt-collection and accounts receivable management agency for Fortune 500 companies throughout the Americas. Here is why.',
+  processEyebrow: 'How it works',
+  processH2: 'From debt to cashflow',
+  processSub: 'We take care of the entire recovery journey — from unpaid invoices to recovered revenue. Real-time technology, data-driven decisions.',
+  recognizedH2: '#1 agency for Fortune 500 clients and government throughout the Americas',
+  quotesEyebrow: 'What our clients say',
+  quotesH2: 'Results clients talk about',
+  quotesSub:
+    'For over 50 years, WNRS has been a top accounts receivable agency for B2B and B2C companies across 30+ industries.',
+  ctaH: 'Recover and restore your cashflow now.',
+  ctaP: 'Book a meeting and find out why WNRS has been ranked a leading agency in accounts receivable and debt management for nearly half a century.',
+} as const;

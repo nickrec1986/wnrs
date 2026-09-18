@@ -1,0 +1,14 @@
+---
+import IndustryPage from '../components/IndustryPage.astro';
+import { VERTICALS } from '../consts';
+
+export function getStaticPaths() {
+  return VERTICALS.map((vertical) => ({
+    params: { slug: vertical.slug },
+    props: { vertical },
+  }));
+}
+
+const { vertical } = Astro.props;
+---
+<IndustryPage vertical={vertical} />

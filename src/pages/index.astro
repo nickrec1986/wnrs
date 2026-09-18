@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LogoMarquee from '../components/LogoMarquee.astro';
+import TestimonialBlock from '../components/TestimonialBlock.astro';
+import ContactSection from '../components/ContactSection.astro';
+import {
+  SITE,
+  HOME,
+  STATS,
+  KEY_STATS,
+  SERVICES,
+  DIFFERENTIATORS,
+  PROCESS_STEPS,
+  FEATURED_INDUSTRIES,
+} from '../consts';
+---
+<BaseLayout title={SITE.title} description={SITE.description}>
+  <section class="hero">
+    <div class="inner wrap">
+      <div class="kicker">{HOME.kicker}</div>
+      <h1 class="disp">
+        {HOME.h1a}<br />
+        <span class="l2">{HOME.h1b}</span><br />
+        <span class="l3">{HOME.h1c}</span>
+      </h1>
+      <p class="lede">{HOME.lede}</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#contact">Get a quote</a>
+        <a class="btn btn-ghost" href="/services">See services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="row">
+      {STATS.map((s) => (
+        <div class="stat">
+          <div class="n">{s.n}</div>
+          <div class="k">{s.k}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <LogoMarquee label={HOME.logosLabel} />
+
+  <section class="block">
+    <div class="wrap reveal">
+      <div class="eyebrow">{HOME.servicesEyebrow}</div>
+      <h2 class="disp">{HOME.servicesH2}</h2>
+      <p class="sub">{HOME.servicesSub}</p>
+      <div class="svc-cards">
+        {SERVICES.map((s) => (
+          <a class="svc-card" href={`/${s.slug}`}>
+            <div class="ic-label">{s.ic}</div>
+            <h3>{s.name}</h3>
+            <p>{s.short}</p>
+            <span class="more">Learn more <span class="ar">→</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap reveal">
+      <div class="statpanel">
+        {KEY_STATS.map((s) => (
+          <div class="sp-cell">
+            <div class="sp-n">{s.n}</div>
+            <div class="sp-k">{s.k}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap reveal">
+      <div class="eyebrow">{HOME.apartEyebrow}</div>
+      <h2 class="disp">{HOME.apartH2}</h2>
+      <p class="sub">{HOME.apartSub}</p>
+      <div class="why">
+        {DIFFERENTIATORS.map((d) => (
+          <div class="item">
+            <h3>{d.h}</h3>
+            <p>{d.p}</p>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top:28px">
+        <a class="btn btn-gold" href="#contact">Get a quote</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="block howwrap">
+    <div class="wrap reveal">
+      <div class="eyebrow">{HOME.processEyebrow}</div>
+      <h2 class="disp">{HOME.processH2}</h2>
+      <p class="sub">{HOME.processSub}</p>
+      <div class="steps">
+        {PROCESS_STEPS.map((st) => (
+          <div class="step">
+            <div class="num">{st.num}</div>
+            <h4>{st.h}</h4>
+            <p>{st.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap reveal">
+      <div class="eyebrow">Industries</div>
+      <h2 class="disp">Built for your book, not a generic desk</h2>
+      <p class="sub">Industry-specific ARM — featured verticals below, with the full list on the services hub.</p>
+      <div class="svc-cards">
+        {FEATURED_INDUSTRIES.map((i) => (
+          <a class="svc-card" href={`/${i.slug}`}>
+            <div class="ic-label">{i.ic}</div>
+            <h3>{i.name}</h3>
+            <p>{i.short}</p>
+            <span class="more">Learn more <span class="ar">→</span></span>
+          </a>
+        ))}
+      </div>
+      <p style="margin-top:22px">
+        <a class="btn btn-ghost-paper" href="/services#industries">All industries →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap reveal">
+      <div class="eyebrow">Recognition</div>
+      <h2 class="disp">{HOME.recognizedH2}</h2>
+      <p class="sub">As recognized by finance leaders across global and regional companies — and by the results on the books.</p>
+    </div>
+  </section>
+
+  <TestimonialBlock eyebrow={HOME.quotesEyebrow} heading={HOME.quotesH2} sub={HOME.quotesSub} />
+  <ContactSection />
+</BaseLayout>

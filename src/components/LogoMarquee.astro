@@ -1,0 +1,16 @@
+---
+import { LOGOS } from '../consts';
+interface Props {
+  label?: string;
+}
+const { label = 'Finance leaders at top global and regional companies trust WNRS' } = Astro.props;
+const marquee = [...LOGOS, ...LOGOS];
+---
+<section class="logos">
+  <p class="lab">{label}</p>
+  <div class="marquee-mask">
+    <div class="marquee">
+      {marquee.map((name) => <span>{name}</span>)}
+    </div>
+  </div>
+</section>

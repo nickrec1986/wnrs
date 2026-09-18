@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LogoMarquee from './LogoMarquee.astro';
+import TestimonialBlock from './TestimonialBlock.astro';
+import ContactSection from './ContactSection.astro';
+import { SERVICES, SITE, type Vertical } from '../consts';
+
+interface Props {
+  vertical: Vertical;
+}
+
+const { vertical } = Astro.props;
+const kindLabel = vertical.kind === 'sector' ? 'Sector' : 'Industry';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `${vertical.name} accounts receivable management — ${SITE.name}`,
+  serviceType: `Accounts receivable management for ${vertical.name}`,
+  description: vertical.intro,
+  provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  audience: vertical.audience,
+};
+---
+<BaseLayout title={`${vertical.name} collections | ${SITE.name}`} description={vertical.intro} jsonLd={jsonLd}>
+  <header class="masthead">
+    <div class="wrap">
+      <div class="crumb"><a href="/">Home</a> / {kindLabel} / {vertical.name}</div>
+      <div class="kicker">{vertical.ic}</div>
+      <h1>{vertical.name}</h1>
+      <p>{vertical.short}</p>
+      <div class="chips">
+        <span>{kindLabel}</span>
+        <span>{vertical.audience}</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="/#contact">Get a quote</a>
+        <a class="btn btn-ghost" href="/services">All services</a>
+      </div>
+    </div>
+  </header>
+
+  <LogoMarquee />
+
+  <section class="block">
+    <div class="wrap split reveal">
+      <div class="prose">
+        <h2>Collection services for {vertical.name}</h2>
+        <p>{vertical.intro}</p>
+        <p>{vertical.overview}</p>
+        <h2>How we work this book</h2>
+        <p>
+          Pick the stage that matches the aging — early-stage ARM to keep accounts current,
+          late-stage concentration as charge-off approaches, skip tracing when the counterparty
+          has gone dark, or attorney intervention when the file needs legal enforcement.
+          Specialized unit support is available for sensitive or multi-party matters.
+        </p>
+      </div>
+      <aside class="panel">
+        <div class="ph">What you can expect</div>
+        <ul>
+          {vertical.benefits.map((b) => <li>{b}</li>)}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap reveal">
+      <div class="eyebrow">Deploy against this book</div>
+      <h2 class="disp">ARM services</h2>
+      <div class="svc-cards">
+        {SERVICES.map((s) => (
+          <a class="svc-card" href={`/${s.slug}`}>
+            <div class="ic-label">{s.ic}</div>
+            <h3>{s.name}</h3>
+            <p>{s.short}</p>
+            <span class="more">Learn more <span class="ar">→</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TestimonialBlock />
+  <ContactSection />
+</BaseLayout>

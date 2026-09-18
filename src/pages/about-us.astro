@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { ABOUT, SITE, SERVICES } from '../consts';
+---
+<BaseLayout
+  title={`About Us | ${SITE.name}`}
+  description="WNRS is a leading global provider of customized debt collection and accounts receivable management, headquartered in Miami with operations across the Americas."
+>
+  <header class="masthead">
+    <div class="wrap">
+      <div class="crumb"><a href="/">Home</a> / About Us</div>
+      <div class="kicker">About WNRS</div>
+      <h1>Half a century of customized recovery.</h1>
+      <p>{ABOUT.lede}</p>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="wrap split reveal">
+      <div class="prose">
+        {ABOUT.body.map((p) => <p>{p}</p>)}
+        <h2>Vision</h2>
+        <p>{ABOUT.vision}</p>
+        <h2>Mission</h2>
+        <p>{ABOUT.mission}</p>
+      </div>
+      <aside class="panel">
+        <div class="ph">Objectives</div>
+        <ul>
+          {ABOUT.objectives.map((o) => <li>{o}</li>)}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block howwrap">
+    <div class="wrap reveal">
+      <div class="eyebrow">How we operate</div>
+      <h2 class="disp">People, process, and technology</h2>
+      <div class="why why-2">
+        {ABOUT.features.map((f) => (
+          <div class="item">
+            <h3>{f.h}</h3>
+            <p>{f.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap reveal">
+      <div class="eyebrow">Services</div>
+      <h2 class="disp">Everything you need for any stage of the receivable</h2>
+      <div class="svc-cards">
+        {SERVICES.map((s) => (
+          <a class="svc-card" href={`/${s.slug}`}>
+            <div class="ic-label">{s.ic}</div>
+            <h3>{s.name}</h3>
+            <p>{s.short}</p>
+            <span class="more">Learn more <span class="ar">→</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactSection />
+</BaseLayout>

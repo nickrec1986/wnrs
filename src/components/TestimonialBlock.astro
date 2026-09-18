@@ -1,0 +1,28 @@
+---
+import { TESTIMONIALS } from '../consts';
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  sub?: string;
+}
+const {
+  eyebrow = 'What our clients say',
+  heading = 'Results clients talk about',
+  sub,
+} = Astro.props;
+---
+<section class="block">
+  <div class="wrap reveal">
+    <div class="eyebrow">{eyebrow}</div>
+    <h2 class="disp">{heading}</h2>
+    {sub && <p class="sub">{sub}</p>}
+    <div class="quotes">
+      {TESTIMONIALS.map((t) => (
+        <blockquote class="quote">
+          <p>“{t.quote}”</p>
+          <div class="by"><b>{t.name}</b> · {t.title}, {t.company}</div>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>

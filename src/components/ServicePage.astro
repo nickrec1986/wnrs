@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LogoMarquee from './LogoMarquee.astro';
+import TestimonialBlock from './TestimonialBlock.astro';
+import ContactSection from './ContactSection.astro';
+import { SERVICES, getService, SITE } from '../consts';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const svc = getService(slug);
+if (!svc) throw new Error(`Unknown service slug: ${slug}`);
+
+const others = SERVICES.filter((s) => s.slug !== slug);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `${svc.name} — ${SITE.name}`,
+  serviceType: svc.name,
+  description: svc.intro,
+  provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  areaServed: ['US', 'CA', 'MX', 'BR', 'LATAM'],
+};
+---
+<BaseLayout title={`${svc.name} | ${SITE.name}`} description={svc.intro} jsonLd={jsonLd}>
+  <header class="masthead">
+    <div class="wrap">
+      <div class="crumb"><a href="/">Home</a> / <a href="/services">Services</a> / {svc.name}</div>
+      <div class="kicker">{svc.ic}</div>
+      <h1>{svc.name}</h1>
+      <p>{svc.tagline}</p>
+      <div class="chips">
+        <span>50+ years</span>
+        <span>20+ languages</span>
+        <span>8 recovery hubs</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="/#contact">Get a quote</a>
+        <a class="btn btn-ghost" href="/services">All services</a>
+      </div>
+    </div>
+  </header>
+
+  <LogoMarquee />
+
+  <section class="block">
+    <div class="wrap split reveal">
+      <div class="prose">
+        <h2>Overview</h2>
+        <p>{svc.intro}</p>
+        {svc.overview.map((p) => <p>{p}</p>)}
+        <h2>What’s included</h2>
+        <ul class="svc-list">
+          {svc.included.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <aside class="panel">
+        <div class="ph">Benefits</div>
+        <ul>
+          {svc.benefits.map((b) => <li>{b}</li>)}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <TestimonialBlock />
+
+  {others.length > 0 && (
+    <section class="block" style="padding-top:0">
+      <div class="wrap reveal">
+        <div class="eyebrow">Also from WNRS</div>
+        <h2 class="disp">Related services</h2>
+        <div class="svc-cards">
+          {others.map((s) => (
+            <a class="svc-card" href={`/${s.slug}`}>
+              <div class="ic-label">{s.ic}</div>
+              <h3>{s.name}</h3>
+              <p>{s.short}</p>
+              <span class="more">Learn more <span class="ar">→</span></span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <ContactSection />
+</BaseLayout>

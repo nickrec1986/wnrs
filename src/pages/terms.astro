@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, EMAIL, EMAIL_HREF } from '../consts';
+---
+<BaseLayout title={`Terms of service | ${SITE.name}`} description="Terms of service for the WNRS marketing website.">
+  <header class="masthead">
+    <div class="wrap">
+      <div class="crumb"><a href="/">Home</a> / Terms</div>
+      <h1>Terms of service</h1>
+      <p>These terms govern use of the public WNRS marketing website. They are not a collections engagement agreement.</p>
+    </div>
+  </header>
+  <section class="block">
+    <div class="wrap prose">
+      <p>
+        The content on this site is for general information about WNRS accounts receivable and collection services.
+        Nothing here is legal advice, a credit decision, or a commitment to take a specific file.
+      </p>
+      <p>
+        Engagement for collection or ARM work is governed by a separate written agreement between WNRS and the client.
+        Use of the client portal at online.wnrs.com is governed by that portal’s own terms.
+      </p>
+      <p>
+        Questions: <a href={EMAIL_HREF}>{EMAIL}</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

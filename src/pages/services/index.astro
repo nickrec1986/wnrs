@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialBlock from '../../components/TestimonialBlock.astro';
+import ContactSection from '../../components/ContactSection.astro';
+import { SERVICES, SECTORS, INDUSTRIES, SITE } from '../../consts';
+---
+<BaseLayout
+  title={`Services | ${SITE.name}`}
+  description="Explore WNRS accounts receivable and collection services by type, industry, or sector — early-stage ARM through attorney intervention."
+>
+  <header class="masthead">
+    <div class="wrap">
+      <div class="kicker">WNRS services</div>
+      <h1>Sophisticated ARM, kept simple.</h1>
+      <p>
+        Sophisticated accounts receivable and collection services do not have to be complicated.
+        Results are what make WNRS the market leader. Explore by type, industry, or sector.
+      </p>
+      <div class="chips">
+        <span>By type</span>
+        <span>By industry</span>
+        <span>By sector</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="block" id="sectors">
+    <div class="wrap reveal">
+      <div class="eyebrow">By sector</div>
+      <h2 class="disp">Business, enterprise, government</h2>
+      <p class="sub">Have an existing ARM need? From mid-market to enterprise to government, we have the program.</p>
+      <div class="svc-cards">
+        {SECTORS.map((s) => (
+          <a class="svc-card" href={`/${s.slug}`}>
+            <div class="ic-label">{s.ic}</div>
+            <h3>{s.name}</h3>
+            <p>{s.short}</p>
+            <span class="more">Learn more <span class="ar">→</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="types" style="padding-top:0">
+    <div class="wrap reveal">
+      <div class="eyebrow">By type</div>
+      <h2 class="disp">Pick the stage of the receivable</h2>
+      <p class="sub">Award-winning accounts receivable management — the right desk for the aging and the file.</p>
+      <div class="svc-cards">
+        {SERVICES.map((s) => (
+          <a class="svc-card" href={`/${s.slug}`}>
+            <div class="ic-label">{s.ic}</div>
+            <h3>{s.name}</h3>
+            <p>{s.short}</p>
+            <span class="more">Learn more <span class="ar">→</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="block howwrap" id="industries">
+    <div class="wrap reveal">
+      <div class="eyebrow">By industry</div>
+      <h2 class="disp">Industry-specific ARM</h2>
+      <p class="sub">What differentiates world-class accounts receivable management is often industry-specific process. Leverage ours.</p>
+      <div class="svc-cards">
+        {INDUSTRIES.map((i) => (
+          <a class="svc-card" href={`/${i.slug}`}>
+            <div class="ic-label">{i.ic}</div>
+            <h3>{i.name}</h3>
+            <p>{i.short}</p>
+            <span class="more">Learn more <span class="ar">→</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TestimonialBlock />
+  <ContactSection />
+</BaseLayout>

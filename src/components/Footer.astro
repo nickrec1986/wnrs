@@ -1,0 +1,53 @@
+---
+import { SITE, SERVICES, FEATURED_INDUSTRIES, PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, LOCALES, PORTAL_URL } from '../consts';
+const year = new Date().getFullYear();
+---
+<footer class="site">
+  <div class="wrap">
+    <div class="fcols">
+      <div class="fbrand">
+        <a href="/" class="brand logo" aria-label="WNRS home">
+          <span class="mark" aria-hidden="true">W</span>
+          WNRS
+        </a>
+        <p class="tagline">{SITE.tagline}</p>
+      </div>
+
+      <div class="fcol">
+        <div class="fh">Services</div>
+        {SERVICES.map((s) => (
+          <a href={`/${s.slug}`}>{s.navLabel}</a>
+        ))}
+      </div>
+
+      <div class="fcol">
+        <div class="fh">Industries</div>
+        {FEATURED_INDUSTRIES.map((i) => (
+          <a href={`/${i.slug}`}>{i.name}</a>
+        ))}
+        <a href="/services#industries">All industries</a>
+      </div>
+
+      <div class="fcol">
+        <div class="fh">Contact</div>
+        <a href={EMAIL_HREF}>{EMAIL}</a>
+        <a href={PHONE_HREF}>{PHONE}</a>
+        <a href="/#contact">Book a call</a>
+        <a href={PORTAL_URL}>Client login</a>
+        <div class="fh" style="margin-top:14px">Locales</div>
+        {LOCALES.map((l) => (
+          <a href={l.href} hreflang={l.code === 'pt' ? 'pt-BR' : l.code}>{l.label} · {l.host}</a>
+        ))}
+      </div>
+    </div>
+
+    <div class="legal">
+      <div>© {year} {SITE.name} · {SITE.url.replace('https://', '')}</div>
+      <div>
+        <a href="/terms">Terms of service</a>
+        {' · '}
+        <a href="/privacy">Privacy policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
