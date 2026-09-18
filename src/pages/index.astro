@@ -85,29 +85,34 @@ import { withBase } from '../base';
     <a class="btn" href={withBase('/#contact')}>Book a call</a>
   </section>
 
-  <div class="process-wrap">
-    <section class="process">
-      <h2>From Debt to Cashflow</h2>
-      <p class="psub">A simplified visual showing how you turn unpaid cases into recovered revenue.</p>
-      <div class="process-grid">
-        <div class="process-left">
-          <div class="process-intro">
-            <h3>We take care of the entire recovery journey from debt to revenue.</h3>
-          </div>
-          {PROCESS_STEPS.map((st, i) => (
-            <details class="acc" open={i === 0}>
-              <summary>{st.h} <span class="ch">›</span></summary>
-              <p>{st.p}</p>
-            </details>
-          ))}
+  <section class="sec journey" id="how-it-works">
+    <div class="wrap">
+      <div class="journey-panel">
+        <div class="journey-head">
+          <p class="kicker">{HOME.processEyebrow}</p>
+          <h2>From Debt to Cashflow</h2>
+          <p class="sub">A simplified visual showing how you turn unpaid cases into recovered revenue.</p>
         </div>
-        <div class="process-right">
-          <p class="cap">Realtime technology and data driven decisions</p>
-          <img src={withBase('/brand/illustration-1.png')} alt="WNRS specialists collaborating" />
+        <div class="journey-split">
+          <ol class="journey-steps">
+            {PROCESS_STEPS.map((st) => (
+              <li class="journey-step">
+                <span class="journey-num" aria-hidden="true">{st.num}</span>
+                <div>
+                  <h3>{st.h}</h3>
+                  <p>{st.p}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <figure class="journey-art">
+            <img src={withBase('/brand/illustration-1.png')} alt="WNRS specialists collaborating" />
+            <figcaption>Realtime technology and data driven decisions</figcaption>
+          </figure>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
   <section class="sec" style="padding-top:1rem">
     <div class="wrap center">

@@ -469,73 +469,90 @@ button { font-family: inherit; }
 @media (max-width: 1024px) { .banner-3x h2 { font-size: 2.5rem; } .banner-3x { padding: 1rem 1rem 3rem; } }
 @media (max-width: 767px) { .banner-3x h2 { font-size: 2rem; } .banner-3x { padding: 2rem 1rem; } }
 
-/* process */
-.process-wrap { background: var(--gray); padding: 0 24px 5rem; }
-.process {
-  max-width: 1180px;
-  margin: 0 auto;
-  background: var(--secondary);
-  color: var(--white);
-  border-radius: 20px;
-  padding: 5rem 4.5rem;
+/* journey — From Debt to Cashflow */
+.journey { padding-top: 1rem; }
+.journey-panel {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 56px 48px;
+  box-shadow: 0 10px 28px rgba(26, 91, 140, 0.06);
 }
-.process h2 {
-  color: var(--white);
-  text-align: center;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1.15;
-}
-.process .psub {
-  text-align: center;
-  color: var(--muted);
-  font-size: 18px;
-  max-width: 610px;
-  margin: 10px auto 36px;
-}
-.process-grid {
+.journey-head { text-align: center; max-width: 720px; margin: 0 auto 44px; }
+.journey-head h2 { margin-bottom: 12px; }
+.journey-head .sub { margin-left: auto; margin-right: auto; }
+.journey-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 36px;
-  align-items: start;
-}
-.process-intro {
-  border: 1px dashed var(--text);
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 16px;
-}
-.process-left h3 { font-size: 24px; font-weight: 600; color: var(--muted); }
-.acc {
-  border: 0;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 10px;
-  background: #ffffff0f;
-}
-.acc summary {
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
+  gap: 56px;
   align-items: center;
-  gap: 12px;
+}
+.journey-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.journey-step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  align-items: start;
+  position: relative;
+  padding: 10px 0 18px;
+  transition: transform 0.2s ease;
+}
+.journey-step:hover { transform: translateX(4px); }
+.journey-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 58px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), var(--green));
+  border-radius: 2px;
+}
+.journey-num {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary);
   color: var(--white);
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 6px 16px rgba(26, 91, 140, 0.22);
+}
+.journey-step:last-child .journey-num { background: var(--green); box-shadow: 0 6px 16px rgba(78, 171, 133, 0.28); }
+.journey-step h3 {
+  font-size: 18px;
   font-weight: 600;
-  font-size: 1rem;
+  color: var(--secondary);
+  margin: 6px 0 4px;
 }
-.acc summary::-webkit-details-marker { display: none; }
-.acc summary .ch { color: var(--muted); }
-.acc p { color: var(--muted); margin-top: 10px; font-size: 15px; }
-.process-right { text-align: center; }
-.process-right .cap { font-size: 14px; color: var(--muted); margin-bottom: 12px; }
-.process-right img { width: 100%; border-radius: 20px; }
-@media (max-width: 1024px) {
-  .process { padding: 3rem 1rem; }
-  .process-grid { grid-template-columns: 1fr; }
+.journey-step p { font-size: 15px; color: var(--text); line-height: 1.45; }
+.journey-art { margin: 0; }
+.journey-art img { width: 100%; border-radius: 20px; }
+.journey-art figcaption {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--steel);
 }
-@media (max-width: 767px) {
-  .process-wrap { padding: 0 16px 2.5rem; }
+@media (max-width: 900px) {
+  .journey-panel { padding: 36px 22px; }
+  .journey-split { grid-template-columns: 1fr; gap: 32px; }
+  .journey-step:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey-step { transition: none; }
+  .journey-step:hover { transform: none; }
 }
 
 /* testimonial */
