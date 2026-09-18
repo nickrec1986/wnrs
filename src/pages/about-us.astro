@@ -53,7 +53,7 @@ import { withBase } from '../base';
       <div class="press-grid">
         {PRESS_LOGOS.map((l) => (
           <figure>
-            <img src={l.src} alt={l.alt} />
+            <img class:list={[{ wide: 'wide' in l && l.wide }]} src={l.src} alt={l.alt} />
           </figure>
         ))}
       </div>

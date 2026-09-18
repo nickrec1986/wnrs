@@ -1,7 +1,7 @@
 ---
 import { CLIENT_LOGOS } from '../consts';
 
-interface Logo { src: string; alt: string }
+interface Logo { src: string; alt: string; wide?: boolean }
 interface Props {
   label?: string;
   logos?: readonly Logo[];
@@ -26,7 +26,7 @@ const imgH = variant === 'press' ? 72 : 42;
   <div class="marquee-mask">
     <div class="marquee">
       {marquee.map((l) => (
-        <img src={l.src} alt={l.alt} height={imgH} />
+        <img class:list={[{ wide: Boolean(l.wide) }]} src={l.src} alt={l.alt} height={l.wide ? 42 : imgH} />
       ))}
     </div>
   </div>

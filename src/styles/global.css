@@ -301,7 +301,8 @@ button { font-family: inherit; }
 .marquee img { height: 42px; width: auto; object-fit: contain; }
 .logos-el.press { padding: 0.25rem 0 2.75rem; }
 .logos-el.press .marquee { gap: 80px; animation-duration: 52s; }
-.logos-el.press .marquee img { height: 72px; max-width: 400px; }
+.logos-el.press .marquee img { height: 72px; max-width: 220px; }
+.logos-el.press .marquee img.wide { height: 42px; max-width: 200px; }
 @keyframes scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -813,6 +814,10 @@ button { font-family: inherit; }
   max-width: 100%;
   object-fit: contain;
   margin: 0 auto;
+}
+.press-grid img.wide {
+  max-height: 46px;
+  max-width: 168px;
 }
 .ceo-photo { max-height: 480px; object-fit: cover; object-position: top; border-radius: 16px; }
 @media (max-width: 900px) {

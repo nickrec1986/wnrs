@@ -876,7 +876,7 @@ export const PRESS_LOGOS = [
   { src: withBase('/press/latin-trade.webp'), alt: 'Latin Trade' },
   // Compact official-style wordmark — live wnrs.com has no WSJ asset. Wordmark style
   // matches the public-domain masthead on Wikimedia (PD-textlogo).
-  { src: withBase('/press/wsj.png'), alt: 'The Wall Street Journal' },
+  { src: withBase('/press/wsj.png'), alt: 'The Wall Street Journal', wide: true },
   // Official Reuters wordmark (navy + dotted globe) from Wikimedia Commons PD-textlogo.
-  { src: withBase('/press/reuters.png'), alt: 'Reuters' },
+  { src: withBase('/press/reuters.png'), alt: 'Reuters', wide: true },
 ] as const;
