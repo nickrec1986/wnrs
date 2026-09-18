@@ -23,29 +23,20 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
           Services <span class="caret" aria-hidden="true"></span>
         </button>
         <div class="mega" id="mega-services" hidden>
-          <div class="mega-col mega-types">
+          <div class="mega-types" aria-labelledby="mega-types-label">
             <p class="mh" id="mega-types-label">By Type</p>
-            <button type="button" class="mega-acc" id="mega-types-btn" aria-expanded="false" aria-controls="mega-types-panel">
-              By Type <span class="caret" aria-hidden="true"></span>
-            </button>
-            <div class="mega-panel" id="mega-types-panel" aria-labelledby="mega-types-label">
-              {SERVICES.map((s) => (
-                <a href={withBase(`/${s.slug}`)}>{s.navLabel}</a>
-              ))}
-              <a class="mega-more" href={withBase('/services')}>All services</a>
-            </div>
+            {SERVICES.map((s) => (
+              <a href={withBase(`/${s.slug}`)}>{s.navLabel}</a>
+            ))}
+            <a class="mega-more" href={withBase('/services')}>All services</a>
+            <a class="mobile-only mega-more" href={withBase('/services#industries')}>By Industry</a>
           </div>
-          <div class="mega-col mega-industries">
+          <div class="mega-industries" aria-labelledby="mega-industry-label">
             <p class="mh" id="mega-industry-label">By Industry</p>
-            <button type="button" class="mega-acc" id="mega-industry-btn" aria-expanded="false" aria-controls="mega-industry-panel">
-              By Industry <span class="caret" aria-hidden="true"></span>
-            </button>
-            <div class="mega-panel" id="mega-industry-panel" aria-labelledby="mega-industry-label">
-              {FEATURED_INDUSTRIES.map((i) => (
-                <a href={withBase(`/${i.slug}`)}>{i.name}</a>
-              ))}
-              <a class="mega-more" href={withBase('/services#industries')}>More industries</a>
-            </div>
+            {FEATURED_INDUSTRIES.map((i) => (
+              <a href={withBase(`/${i.slug}`)}>{i.name}</a>
+            ))}
+            <a class="mega-more" href={withBase('/services#industries')}>More industries</a>
           </div>
         </div>
       </div>
@@ -83,28 +74,6 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
 
   const panelOf = (item) => item.querySelector('.mega, .lang-menu');
   const isDesktop = () => window.matchMedia(DESKTOP).matches;
-  const nestCols = Array.from(nav?.querySelectorAll('.mega-col') ?? []);
-
-  const setNest = (col, open) => {
-    col.classList.toggle('open', open);
-    const btn = col.querySelector('.mega-acc');
-    const panel = col.querySelector('.mega-panel');
-    btn?.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (!panel) return;
-    if (isDesktop()) {
-      panel.hidden = false;
-      if ('inert' in panel) panel.inert = false;
-      return;
-    }
-    panel.hidden = !open;
-    if ('inert' in panel) panel.inert = !open;
-  };
-
-  const closeNests = (except) => {
-    nestCols.forEach((col) => {
-      if (col !== except) setNest(col, false);
-    });
-  };
 
   const setOpen = (item, open) => {
     item.classList.toggle('open', open);
@@ -115,7 +84,6 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
       panel.hidden = !open;
       if ('inert' in panel) panel.inert = !open;
     }
-    if (!open && item.querySelector('.mega')) closeNests();
   };
 
   const clearTimer = (item) => {
@@ -133,7 +101,6 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
   };
 
   items.forEach((item) => setOpen(item, false));
-  nestCols.forEach((col) => setNest(col, false));
 
   burger?.addEventListener('click', () => {
     const on = nav?.classList.toggle('open');
@@ -167,20 +134,6 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
       closeAll(item);
       setOpen(item, next);
     });
-  });
-
-  nestCols.forEach((col) => {
-    col.querySelector('.mega-acc')?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (isDesktop()) return;
-      const next = !col.classList.contains('open');
-      closeNests(col);
-      setNest(col, next);
-    });
-  });
-
-  window.matchMedia(DESKTOP).addEventListener('change', () => {
-    nestCols.forEach((col) => setNest(col, false));
   });
 
   document.addEventListener('keydown', (e) => {
