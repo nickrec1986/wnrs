@@ -23,14 +23,15 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
           Services <span class="caret" aria-hidden="true"></span>
         </button>
         <div class="mega" id="mega-services" hidden>
-          <div aria-labelledby="mega-types-label">
+          <div class="mega-types" aria-labelledby="mega-types-label">
             <p class="mh" id="mega-types-label">By Type</p>
             {SERVICES.map((s) => (
               <a href={withBase(`/${s.slug}`)}>{s.navLabel}</a>
             ))}
             <a class="mega-more" href={withBase('/services')}>All services</a>
+            <a class="mobile-only mega-more" href={withBase('/services#industries')}>By Industry</a>
           </div>
-          <div aria-labelledby="mega-industry-label">
+          <div class="mega-industries" aria-labelledby="mega-industry-label">
             <p class="mh" id="mega-industry-label">By Industry</p>
             {FEATURED_INDUSTRIES.map((i) => (
               <a href={withBase(`/${i.slug}`)}>{i.name}</a>

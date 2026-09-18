@@ -240,9 +240,10 @@ button { font-family: inherit; }
   }
   .nav-item.open .mega {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     align-items: start;
   }
+  .nav-main .mega-industries { display: none; }
   .nav-main .mega a {
     margin: 0;
     padding: 8px 4px;
