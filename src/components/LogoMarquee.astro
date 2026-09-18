@@ -13,7 +13,7 @@ const {
   variant = 'clients',
 } = Astro.props;
 // Duplicate so the -50% scroll loop is seamless. Client strip needs a longer
-// half-set; press marks stay at one copy per half so five large logos do not
+// half-set; press marks stay at one copy per half so the large logos do not
 // feel like a stamp sheet.
 const minHalf = variant === 'press' ? logos.length : 8;
 const reps = Math.max(1, Math.ceil(minHalf / logos.length));

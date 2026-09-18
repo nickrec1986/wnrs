@@ -301,7 +301,7 @@ button { font-family: inherit; }
 .marquee img { height: 42px; width: auto; object-fit: contain; }
 .logos-el.press { padding: 0.25rem 0 2.75rem; }
 .logos-el.press .marquee { gap: 80px; animation-duration: 52s; }
-.logos-el.press .marquee img { height: 72px; max-width: 280px; }
+.logos-el.press .marquee img { height: 72px; max-width: 400px; }
 @keyframes scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
