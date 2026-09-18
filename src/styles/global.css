@@ -243,7 +243,8 @@ button { font-family: inherit; }
     grid-template-columns: minmax(0, 1fr);
     align-items: start;
   }
-  .nav-main .mega-industries { display: none; }
+  .nav-main .mega-industries,
+  .nav-main .mega-types .mh { display: none; }
   .nav-main .mega a {
     margin: 0;
     padding: 8px 4px;
