@@ -5,20 +5,28 @@ interface Logo { src: string; alt: string }
 interface Props {
   label?: string;
   logos?: readonly Logo[];
+  variant?: 'clients' | 'press';
 }
-const { label = 'Finance leaders at top global and regional companies trust WNRS', logos = CLIENT_LOGOS } = Astro.props;
-// Duplicate the set so the -50% scroll loop is seamless. Repeat a short set
-// (press marks) until a half-strip has enough logos to fill the marquee.
-const reps = Math.max(1, Math.ceil(8 / logos.length));
+const {
+  label = 'Finance leaders at top global and regional companies trust WNRS',
+  logos = CLIENT_LOGOS,
+  variant = 'clients',
+} = Astro.props;
+// Duplicate so the -50% scroll loop is seamless. Client strip needs a longer
+// half-set; press marks stay at one copy per half so five large logos do not
+// feel like a stamp sheet.
+const minHalf = variant === 'press' ? logos.length : 8;
+const reps = Math.max(1, Math.ceil(minHalf / logos.length));
 const half = Array.from({ length: reps }, () => [...logos]).flat();
 const marquee = [...half, ...half];
+const imgH = variant === 'press' ? 72 : 42;
 ---
-<section class="logos-el">
+<section class:list={['logos-el', variant]}>
   {label && <p class="lab">{label}</p>}
   <div class="marquee-mask">
     <div class="marquee">
       {marquee.map((l) => (
-        <img src={l.src} alt={l.alt} height="42" />
+        <img src={l.src} alt={l.alt} height={imgH} />
       ))}
     </div>
   </div>

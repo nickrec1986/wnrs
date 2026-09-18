@@ -868,10 +868,13 @@ export const HOME = {
   ctaP: 'Book a meeting today and find out why WNRS has been ranked the #1 agency in the accounts receivable and debt management space for nearly half a decade.',
 } as const;
 
-/** Live wnrs.com/about-us “Recognized by” marks. */
+/** Live wnrs.com/about-us “Recognized by” marks, plus WSJ (not on the live WP page). */
 export const PRESS_LOGOS = [
   { src: withBase('/press/bloomberg.png'), alt: 'Bloomberg' },
   { src: withBase('/press/el-financiero.png'), alt: 'El Financiero' },
   { src: withBase('/press/art-americas.png'), alt: 'Art / Americas Society' },
   { src: withBase('/press/latin-trade.webp'), alt: 'Latin Trade' },
+  // Compact official-style wordmark — live wnrs.com has no WSJ asset. Wordmark style
+  // matches the public-domain masthead on Wikimedia (PD-textlogo).
+  { src: withBase('/press/wsj.png'), alt: 'The Wall Street Journal' },
 ] as const;
