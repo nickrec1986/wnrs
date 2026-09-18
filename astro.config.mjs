@@ -4,7 +4,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://wnrs.com',
+  site: 'https://nickrec1986.github.io',
+  base: '/wnrs/',
   output: 'static',
   trailingSlash: 'ignore',
   integrations: [sitemap()],
