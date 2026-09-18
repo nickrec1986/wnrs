@@ -39,7 +39,8 @@ Two URL modes. **This branch is set up so Nicolas can scroll a live preview on g
 
 - `astro.config.mjs` has `site: 'https://wnrs.com'` and **`base: '/wnrs/'`** so CSS, JS, images, and internal links resolve under `/wnrs/`.
 - Workflow: `.github/workflows/deploy-pages.yml` runs `npm ci` + `npm run build` and deploys `dist/` with `actions/upload-pages-artifact` + `actions/deploy-pages` on push to `cursor/wnrs-astro-marketing-site-2e72` and `main` (or **Actions → Deploy GitHub Pages → Run workflow**).
-- **Repo settings → Pages → Source: GitHub Actions** (not “Deploy from a branch”). The first run may sit in “waiting for approval” until Pages is enabled and the `github-pages` environment is allowed.
+- **Repo settings → Pages → Source: GitHub Actions** (not “Deploy from a branch”).
+- If deploy fails with “branch is not allowed to deploy to github-pages”, open **Settings → Environments → github-pages → Deployment branches** and add this PR branch (today only `main` is listed). Repo admins can also re-run the workflow; admin pushes bypass that rule, GitHub Actions does not.
 
 `public/CNAME` is **not** on this branch. A CNAME of `wnrs.com` would force Pages onto the custom domain and redirect `github.io/wnrs` to the live WordPress site, which would hide this preview.
 

@@ -34,9 +34,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    # Do not bind this job to the github-pages environment: that environment
+    # currently allows only `main`, so Actions from this PR branch is rejected.
+    # actions/deploy-pages still publishes with pages:write + id-token:write.
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
