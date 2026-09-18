@@ -1,8 +1,17 @@
 ---
 import { CLIENT_LOGOS } from '../consts';
-interface Props { label?: string }
-const { label = 'Finance leaders at top global and regional companies trust WNRS' } = Astro.props;
-const marquee = [...CLIENT_LOGOS, ...CLIENT_LOGOS];
+
+interface Logo { src: string; alt: string }
+interface Props {
+  label?: string;
+  logos?: readonly Logo[];
+}
+const { label = 'Finance leaders at top global and regional companies trust WNRS', logos = CLIENT_LOGOS } = Astro.props;
+// Duplicate the set so the -50% scroll loop is seamless. Repeat a short set
+// (press marks) until a half-strip has enough logos to fill the marquee.
+const reps = Math.max(1, Math.ceil(8 / logos.length));
+const half = Array.from({ length: reps }, () => [...logos]).flat();
+const marquee = [...half, ...half];
 ---
 <section class="logos-el">
   {label && <p class="lab">{label}</p>}
