@@ -33,11 +33,18 @@ import {
       <div class="stats-card">
         <img class="photo" src="/brand/hero.jpg" alt="WNRS teams at work" />
         <h3>Key Stats:</h3>
-        <ul class="stat-grid">
-          {KEY_STATS.map((s) => (
-            <li><span class="check" aria-hidden="true">✓</span><span>{s}</span></li>
-          ))}
-        </ul>
+        <div class="stat-grid">
+          <ul>
+            {KEY_STATS.slice(0, 4).map((s) => (
+              <li><span class="check" aria-hidden="true">✓</span><span>{s}</span></li>
+            ))}
+          </ul>
+          <ul>
+            {KEY_STATS.slice(4).map((s) => (
+              <li><span class="check" aria-hidden="true">✓</span><span>{s}</span></li>
+            ))}
+          </ul>
+        </div>
       </div>
       <div class="picker">
         <h3>Everything you need for any stage of the receivable experience. Pick your service.</h3>

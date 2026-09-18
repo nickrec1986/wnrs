@@ -69,12 +69,14 @@ export const CLIENT_LOGOS = [
   { src: '/clients/seaboard.png', alt: 'Seaboard Marine' },
   { src: '/clients/sap.png', alt: 'SAP' },
   { src: '/clients/pg.png', alt: 'Procter & Gamble' },
+  { src: '/clients/dhl.png', alt: 'DHL' },
   { src: '/clients/amex.png', alt: 'American Express' },
   { src: '/clients/avis.png', alt: 'Avis' },
   { src: '/clients/carnival.png', alt: 'Carnival' },
   { src: '/clients/maersk.png', alt: 'Maersk' },
   { src: '/clients/nike.png', alt: 'Nike' },
   { src: '/clients/aeromexico.png', alt: 'Aeroméxico' },
+  { src: '/clients/ef.png', alt: 'EF Education First' },
 ] as const;
 
 /** Homepage “pick your service” tiles — live Elementor labels, mapped to ARM slugs. */
