@@ -165,9 +165,11 @@ button { font-family: inherit; }
 .hamburger span::before { top: -6px; }
 .hamburger span::after { top: 6px; }
 
+.mobile-only { display: none; }
+
 @media (max-width: 900px) {
   .hamburger { display: grid; place-items: center; }
-  .nav-main, .nav-end .plain, .nav-end .nav-drop { display: none; }
+  .nav-main, .nav-end .plain, .nav-end .nav-drop, .nav-end > .btn { display: none; }
   .site-header.open .nav-main {
     display: flex;
     flex-direction: column;
@@ -183,6 +185,8 @@ button { font-family: inherit; }
   }
   .site-header.open .nav-main > a,
   .site-header.open .nav-drop > button { width: 100%; text-align: left; padding: 12px 0; }
+  .site-header.open .mobile-only { display: inline-flex; margin-top: 8px; width: fit-content; }
+  .site-header.open .locale-row { display: flex; gap: 12px; }
   .mega, .lang-menu {
     position: static;
     display: none;
@@ -191,7 +195,6 @@ button { font-family: inherit; }
     padding: 0 0 10px 12px;
   }
   .nav-drop.open .mega { display: grid; grid-template-columns: 1fr; }
-  .site-header.open .nav-end .nav-drop { display: block; }
   .site-header .bar { gap: 12px; }
 }
 
