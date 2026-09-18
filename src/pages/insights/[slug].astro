@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, INSIGHTS, type InsightPost } from '../../consts';
+import { withBase } from '../../base';
+
+export function getStaticPaths() {
+  return INSIGHTS.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+interface Props { post: InsightPost }
+const { post } = Astro.props;
+---
+<BaseLayout title={`${post.title} | ${SITE.name}`} description={post.description} ogType="article">
+  <header class="page-hero">
+    <div class="wrap">
+      <p class="kicker"><a href={withBase('/insights')}>Insights</a></p>
+      <h1>{post.title}</h1>
+      <p class="lede"><time datetime={post.date}>{post.date}</time></p>
+    </div>
+  </header>
+  <section class="sec">
+    <div class="wrap prose-el">
+      <p>{post.description}</p>
+    </div>
+  </section>
+</BaseLayout>

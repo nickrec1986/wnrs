@@ -38,10 +38,20 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = [
   { href: withBase('/services'), label: 'Services' },
   { href: withBase('/about-us'), label: 'About Us' },
+  { href: withBase('/insights'), label: 'Insights' },
   { href: withBase('/#contact'), label: 'Contact' },
   { href: withBase('/terms'), label: 'Terms of service' },
   { href: withBase('/privacy'), label: 'Privacy policy' },
 ] as const;
+
+/** Blog posts for /insights/. Add entries here as articles ship. */
+export type InsightPost = {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+};
+export const INSIGHTS: InsightPost[] = [];
 
 /** Hero proof stats (homepage strip). */
 export const STATS = [

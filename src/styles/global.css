@@ -874,3 +874,21 @@ button { font-family: inherit; }
 .list-checks li { display: flex; gap: 10px; align-items: flex-start; }
 
 #contact { scroll-margin-top: 90px; }
+
+.insight-list { list-style: none; display: grid; gap: 16px; margin: 0; padding: 0; }
+.insight-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 28px 32px;
+}
+.insight-card time { font-size: 13px; color: #888; }
+.insight-card h2 { font-size: 22px; margin: 6px 0 8px; }
+.insight-card h2 a:hover { color: var(--primary); }
+.insight-card p { color: var(--text); margin: 0; }
+.insight-empty {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 36px 32px;
+  color: var(--text);
+}
+.insight-empty p { margin: 0; font-size: 16.5px; }
