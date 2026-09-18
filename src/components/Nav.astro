@@ -72,12 +72,12 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
   const nav = document.getElementById('nav');
   const burger = document.getElementById('nav-toggle');
   const items = Array.from(nav?.querySelectorAll('[data-menu]') ?? []);
-  const DESKTOP_HOVER = '(min-width: 901px) and (hover: hover) and (pointer: fine)';
+  const DESKTOP = '(min-width: 901px)';
   const CLOSE_MS = 220;
   const timers = new WeakMap();
 
   const panelOf = (item) => item.querySelector('.mega, .lang-menu');
-  const isDesktopHover = () => window.matchMedia(DESKTOP_HOVER).matches;
+  const isDesktop = () => window.matchMedia(DESKTOP).matches;
 
   const setOpen = (item, open) => {
     item.classList.toggle('open', open);
@@ -115,15 +115,15 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
   items.forEach((item) => {
     const btn = item.querySelector('.menu-btn');
 
-    item.addEventListener('pointerenter', () => {
-      if (!isDesktopHover()) return;
+    item.addEventListener('mouseenter', () => {
+      if (!isDesktop()) return;
       clearTimer(item);
       closeAll(item);
       setOpen(item, true);
     });
 
-    item.addEventListener('pointerleave', () => {
-      if (!isDesktopHover()) return;
+    item.addEventListener('mouseleave', () => {
+      if (!isDesktop()) return;
       clearTimer(item);
       timers.set(item, setTimeout(() => {
         setOpen(item, false);
