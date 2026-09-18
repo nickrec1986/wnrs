@@ -216,7 +216,16 @@ button { font-family: inherit; }
     margin-top: 12px;
     padding: 12px 22px;
     font-size: 15px;
+    font-weight: 500;
     justify-content: center;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 100px;
+  }
+  .site-header.open .nav-main > a.btn:hover,
+  .site-header.open .nav-main > a.btn:focus-visible {
+    background: var(--accent);
+    color: var(--white);
   }
   .nav-main .mega {
     position: static;
