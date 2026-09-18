@@ -3,7 +3,7 @@
 ## Mission
 Maintain the WNRS marketing site: a static Astro 4 site for a B2B debt-collection /
 accounts receivable management firm. Audience: finance, treasury, and ops leaders
-evaluating ARM partners.
+evaluating collection partners.
 
 ## Architecture (do not invent a CMS)
 - Content lives in `src/consts.ts` (SITE, STATS, SERVICES, INDUSTRIES, SECTORS, ABOUT, HOME, …).

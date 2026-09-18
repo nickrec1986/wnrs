@@ -81,7 +81,7 @@ export const CLIENT_LOGOS = [
   { src: withBase('/clients/ef.png'), alt: 'EF Education First' },
 ] as const;
 
-/** Homepage “pick your service” tiles — live Elementor labels, mapped to ARM slugs. */
+/** Homepage “pick your service” tiles — live Elementor labels, mapped to service slugs. */
 export const HOME_PICKER = [
   { href: withBase('/early-stage-arm'), label: 'Administrative Collection' },
   { href: withBase('/specialized-arm'), label: 'Specialized Collection' },
@@ -107,16 +107,16 @@ export interface Service {
 export const SERVICES: Service[] = [
   {
     slug: 'early-stage-arm',
-    name: 'Early Stage ARM',
+    name: 'Early Stage Collection',
     navLabel: 'Early Stage Collection',
     ic: '1–60 DAYS · FIRST-PARTY',
-    short: 'WNRS’s early stage ARM services are built for companies looking to target customers in the earlier life cycle stages.',
+    short: 'WNRS’s early stage collection services are built for companies looking to target customers in the earlier life cycle stages.',
     tagline: 'Stop delinquency early, without souring the relationship.',
     intro:
-      'WNRS’s early stage collection services are built for companies looking to target customers in the earlier life cycle stages. Our world-class ARM expertise provides a customer-oriented, cost-effective approach that greatly reduces the probability of balances moving to later aging buckets. For today’s globally competitive companies, there is no other choice – leverage world in class services – or be left behind.',
+      'WNRS’s early stage collection services are built for companies looking to target customers in the earlier life cycle stages. Our world-class collections expertise provides a customer-oriented, cost-effective approach that greatly reduces the probability of balances moving to later aging buckets. For today’s globally competitive companies, there is no other choice – leverage world in class services – or be left behind.',
     overview: [
-      'Early Stage ARM is built to maintain the client’s brand image. Handled strategically and diplomatically, by highly talented, multilingual ARM professionals, trained to maintain the utmost courtesy towards our client’s customers. By using proprietary segmentation, structuring, and analytic models, we are able to determine the best method of intervention and best agent to deal with and deploy the ARM strategy on every specific case.',
-      'Our trained professionals support our client’s ARM processes across multiple industries and geographies by performing a strategic one-on-one campaigns, (typically in the name of the client). We understand the key to our success is a customer service approach that works personally and firmly with every customer while concretely maintaining our client’s valued relationships.',
+      'Early Stage Collection is built to maintain the client’s brand image. Handled strategically and diplomatically, by highly talented, multilingual collections professionals, trained to maintain the utmost courtesy towards our client’s customers. By using proprietary segmentation, structuring, and analytic models, we are able to determine the best method of intervention and best agent to deal with and deploy the collections strategy on every specific case.',
+      'Our trained professionals support our client’s collections processes across multiple industries and geographies by performing a strategic one-on-one campaigns, (typically in the name of the client). We understand the key to our success is a customer service approach that works personally and firmly with every customer while concretely maintaining our client’s valued relationships.',
     ],
     benefits: [
       'Increased Cash Flow',
@@ -139,15 +139,15 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'late-stage-arm',
-    name: 'Late Stage ARM',
+    name: 'Late Stage Collection',
     navLabel: 'Late Stage Collection',
     ic: 'PRE-CHARGE-OFF · CONCENTRATED',
     short: 'Companies face a common problem on customer accounts as they near their charge off date.',
     tagline: 'A winning strategy for accounts that are about to age out.',
     intro:
-      'Companies face a familiar problem as customer accounts near charge-off: collectability falls, internal teams are stretched, and a generic call-center approach burns the file. WNRS late-stage ARM concentrates experienced collectors, industry-specific campaigns, skip tracing, and attorney backup on this segment.',
+      'Companies face a familiar problem as customer accounts near charge-off: collectability falls, internal teams are stretched, and a generic call-center approach burns the file. WNRS late-stage collection concentrates experienced collectors, industry-specific campaigns, skip tracing, and attorney backup on this segment.',
     overview: [
-      'After decades of industry-specific ARM systems, we do not staff late-stage work with high-turnover temps. Agents are trained on your industry, compliance requirements, and peak-performance playbooks.',
+      'After decades of industry-specific collections systems, we do not staff late-stage work with high-turnover temps. Agents are trained on your industry, compliance requirements, and peak-performance playbooks.',
       'Campaigns can include customized billing, national and international skip tracing, 24/7 tracking, and attorney intervention when the file warrants it.',
       'Stay focused on the core business. Do not let inaction tax the bottom line as accounts slide past recoverability.',
     ],
@@ -169,13 +169,13 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'specialized-arm',
-    name: 'Specialized ARM',
+    name: 'Specialized Collection',
     navLabel: 'Specialized Collection',
     ic: 'SENSITIVE · MULTIDISCIPLINARY',
-    short: 'Not all AR programs are created equal. WNRS’s SU (Specialized Unit) is a division of WNRS trained to conduct special purpose and sensitive ARM operations.',
+    short: 'Not all AR programs are created equal. WNRS’s SU (Specialized Unit) is a division of WNRS trained to conduct special purpose and sensitive collection operations.',
     tagline: 'A dedicated unit for matters that a standard desk cannot touch.',
     intro:
-      'Not every AR program is the same. WNRS Specialized Unit (SU) handles special-purpose and sensitive ARM — typically for government and select multinationals. Multidisciplinary professionals combine conventional and unconventional tactics on complex multi-party disputes with financial, legal, operational, political, and regulatory dimensions.',
+      'Not every AR program is the same. WNRS Specialized Unit (SU) handles special-purpose and sensitive collections — typically for government and select multinationals. Multidisciplinary professionals combine conventional and unconventional tactics on complex multi-party disputes with financial, legal, operational, political, and regulatory dimensions.',
     overview: [
       'SU teams mobilize wherever the file requires: complex bankruptcy and non-bankruptcy commercial disputes, government-related matters, and cases that need industry-specific expertise from assessment through settlement.',
       'The unit has supported market-shaping matters across the Americas — from large commercial settlements to government-related disputes in the U.S., Mexico, Canada, Brazil, and elsewhere.',
@@ -348,7 +348,7 @@ export interface Vertical {
   benefits: string[];
 }
 
-const ARM_BENEFITS = [
+const COLLECTION_BENEFITS = [
   'Early-stage and late-stage collections',
   'A/R management and invoice support',
   'Demand-letter campaigns',
@@ -363,13 +363,13 @@ export const SECTORS: Vertical[] = [
     name: 'Business',
     kind: 'sector',
     ic: 'MID-MARKET',
-    short: 'ARM programs sized for growing companies that need cash back without a full in-house desk.',
+    short: 'Collection programs sized for growing companies that need cash back without a full in-house desk.',
     intro:
       'Whether you collect from businesses or you are one, WNRS has the experience to put a definitive accounts receivable program around your book — without the overhead of standing up a recovery team.',
     overview:
-      'Mid-market companies often outgrow ad-hoc collections and under-invest in a dedicated ARM function. We plug in trained collectors, reporting, and skip tracing so finance leaders can stay on growth work. Clients in this sector typically see material cash-flow lift once outreach is consistent and professional.',
+      'Mid-market companies often outgrow ad-hoc collections and under-invest in a dedicated collections function. We plug in trained collectors, reporting, and skip tracing so finance leaders can stay on growth work. Clients in this sector typically see material cash-flow lift once outreach is consistent and professional.',
     audience: 'Privately held and mid-market companies across B2B and B2C books.',
-    benefits: ['Increased cash flow — clients in this sector have seen lifts around 85%', ...ARM_BENEFITS],
+    benefits: ['Increased cash flow — clients in this sector have seen lifts around 85%', ...COLLECTION_BENEFITS],
   },
   {
     slug: 'enterprise',
@@ -378,11 +378,11 @@ export const SECTORS: Vertical[] = [
     ic: 'GLOBAL · FORTUNE 500',
     short: 'Scale recovery across regions, languages, and legal regimes.',
     intro:
-      'Global enterprises need ARM that matches their footprint: multiple jurisdictions, languages, and brand standards. WNRS runs that program as an extension of corporate finance and legal.',
+      'Global enterprises need collections that match their footprint: multiple jurisdictions, languages, and brand standards. WNRS runs that program as an extension of corporate finance and legal.',
     overview:
       'Enterprise files are large, political, and visible. We staff multilingual teams, specialized units, and attorney networks so recovery does not stop at a country border. Reporting is built for treasury, shared services, and audit — not a spreadsheet dump.',
     audience: 'Multinationals and Fortune 500 finance organizations.',
-    benefits: ['Increased cash flow — clients in this sector have seen lifts around 80%', ...ARM_BENEFITS],
+    benefits: ['Increased cash flow — clients in this sector have seen lifts around 80%', ...COLLECTION_BENEFITS],
   },
   {
     slug: 'government',
@@ -391,11 +391,11 @@ export const SECTORS: Vertical[] = [
     ic: 'PUBLIC SECTOR',
     short: 'Sensitive recovery for public entities and government-related commercial claims.',
     intro:
-      'Public-sector and government-related receivables demand discretion, compliance, and reach. WNRS supports government entities and contractors with ARM that can move from administrative outreach to specialized and legal enforcement.',
+      'Public-sector and government-related receivables demand discretion, compliance, and reach. WNRS supports government entities and contractors with collections that can move from administrative outreach to specialized and legal enforcement.',
     overview:
       'Government files often mix commercial, regulatory, and political constraints. Our specialized unit and attorney network are used to that mix. We report clearly, document thoroughly, and escalate only when the file supports it.',
     audience: 'Government entities, agencies, and government contractors.',
-    benefits: ['Increased cash flow — clients in this sector have seen lifts around 75%', ...ARM_BENEFITS],
+    benefits: ['Increased cash flow — clients in this sector have seen lifts around 75%', ...COLLECTION_BENEFITS],
   },
   {
     slug: 'utilities',
@@ -408,7 +408,7 @@ export const SECTORS: Vertical[] = [
     overview:
       'From past-due residential and commercial accounts to complex B2B utility claims, we align to tariff rules, hardship programs, and brand standards. The aim is recovered revenue without unnecessary disconnection or reputational damage.',
     audience: 'Electric, gas, water, telecom-adjacent, and public-service operators.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
 ];
 
@@ -448,7 +448,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'We train on your tariffs, contracts, and customer mix — airlines, logistics, freight, passenger, and travel operators. Outreach happens in the debtor’s language. Skip tracing and attorney backup are available when a counterparty has relocated or is simply not paying.',
     audience: 'Airlines, freight and logistics, passenger transport, and travel operators.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'retail',
@@ -501,20 +501,20 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'Professional-services receivables are relationship-heavy. We work the file with your billing policies in mind, document every contact, and escalate only when the engagement is truly over. The firm stays focused on delivery; we stay focused on getting paid.',
     audience: 'Law firms, consultancies, accounting firms, and other fee-for-service practices.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'aerospace-defense',
     name: 'Defense & Security',
     kind: 'industry',
     ic: 'CONTRACT · COMPLIANCE',
-    short: 'Discreet ARM for aerospace, defense, and dual-use commercial claims.',
+    short: 'Discreet collections for aerospace, defense, and dual-use commercial claims.',
     intro:
       'Aerospace and defense receivables sit on long contracts, government flow-downs, and counterparties that may be anywhere in the supply chain. WNRS handles those files with the confidentiality and documentation the sector expects.',
     overview:
       'From commercial aviation suppliers to defense contractors, we align recovery to contract terms, offset rights, and jurisdictional complexity. Specialized unit and attorney resources are available on sensitive or cross-border matters.',
     audience: 'OEMs, suppliers, and contractors in aerospace and defense.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'construction-operations',
@@ -527,7 +527,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'We train on your contract forms and project structure, then pursue owners, GCs, and vendors as the file requires. Documentation-heavy disputes are a normal part of this book; we treat them as such rather than as simple past-due calls.',
     audience: 'General contractors, specialty trades, and facilities operators.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'banking',
@@ -536,11 +536,11 @@ export const INDUSTRIES: Vertical[] = [
     ic: 'REGULATED CREDIT',
     short: 'Compliant recovery support for banks and credit portfolios.',
     intro:
-      'Banks need ARM partners who understand regulated credit, documentation, and customer treatment. WNRS supports banking collections and related commercial recovery with trained, auditable processes.',
+      'Banks need collection partners who understand regulated credit, documentation, and customer treatment. WNRS supports banking collections and related commercial recovery with trained, auditable processes.',
     overview:
       'We work within your compliance framework — contact rules, hardship, and escalation — and report in a form credit-risk and collections leadership can use. Skip tracing and attorney intervention are available on commercial and charged-off files.',
     audience: 'Retail, commercial, and specialty banking collections teams.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'consumer-products',
@@ -553,7 +553,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'We handle trade deductions, slow-pay retail, and aged consumer accounts with industry-aware scripts and dispute workflows. The aim is cash back without a public fight that costs more than the invoice.',
     audience: 'CPG manufacturers, brands, and consumer-goods distributors.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'chemicals',
@@ -566,7 +566,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'Files in this sector often mix product, freight, and quality disputes. We separate collectible balances from genuine claims, then pursue the rest with the right mix of outreach, investigation, and legal backup.',
     audience: 'Commodity and specialty chemical companies and their distributors.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'engineering',
@@ -579,7 +579,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'We work from your SOWs and change-order trail, not a generic dunning letter. Where the relationship is over, we escalate; where it is not, we keep the tone professional and the file documented.',
     audience: 'Civil, industrial, and specialty engineering practices.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'gaming-hospitality-leisure',
@@ -592,7 +592,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'Tone and timing matter in hospitality. We recover what is owed without turning a guest or a group account into a public dispute, and we escalate through skip tracing or counsel when the file is no longer a guest-relations problem.',
     audience: 'Casinos, hotels, resorts, and leisure operators.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'government-contracting',
@@ -605,7 +605,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'We understand flow-downs, assignment, and the pace of public-sector payment. When a commercial dispute sits next to a government contract, specialized unit and attorney resources are available.',
     audience: 'Primes, subcontractors, and vendors on government work.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'healthcare',
@@ -636,7 +636,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'We work expired subscriptions, unpaid hardware, and distributor defaults without treating every file like a consumer debt. Channel and enterprise accounts get a B2B posture; consumer tech accounts get a CX-aware one.',
     audience: 'Software, hardware, and technology-services companies.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'industrial-machinery-components',
@@ -649,7 +649,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'These files often justify skip tracing and, if needed, attorney intervention. We assess recoverability before recommending legal spend, then execute the plan you approve.',
     audience: 'OEMs and distributors of industrial machinery and components.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'insurance',
@@ -662,7 +662,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'We work the file to your product rules and regulatory constraints, report in a form claims and finance can use, and escalate stubborn commercial recoveries through investigation or counsel.',
     audience: 'Carriers, MGAs, and related insurance operations.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'life-sciences',
@@ -675,7 +675,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'Contracts are long, counterparties are sophisticated, and some files are politically sensitive. Specialized unit support is available when a standard commercial desk is not enough.',
     audience: 'Pharma, medical device, biotech, and research organizations.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'media',
@@ -688,7 +688,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'We understand agency billing, make-goods, and subscription dunning. Collectors work the commercial file without treating a media buyer like a consumer debtor.',
     audience: 'Publishers, broadcasters, digital media, and production companies.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'mill-products',
@@ -701,7 +701,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'We work aged invoices, quality disputes, and slow-pay trade accounts so working capital is not trapped in finished goods. Skip tracing and attorney backup are available on stubborn files.',
     audience: 'Paper, packaging, lumber, and mill-product manufacturers and distributors.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'mining',
@@ -714,20 +714,20 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'We combine commercial collections with skip tracing and, when warranted, attorney intervention in the jurisdictions where assets actually sit.',
     audience: 'Producers, traders, and suppliers in mining.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'oil-gas',
     name: 'Oil & Gas',
     kind: 'industry',
     ic: 'UPSTREAM · MIDSTREAM · TRADE',
-    short: 'Energy-sector ARM for operators, service companies, and traders.',
+    short: 'Energy-sector collections for operators, service companies, and traders.',
     intro:
       'Oil and gas receivables are large, contractual, and often international. WNRS recovers them with collectors and investigators used to energy counterparties.',
     overview:
       'Joint-interest, services, and trade invoices each need a different posture. We scope the file, then apply early-stage, late-stage, specialized, or legal tools as recoverability demands.',
     audience: 'Operators, oilfield services, midstream, and energy traders.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'wholesale-distribution',
@@ -740,7 +740,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'We work aged invoices at volume, update customer records, and escalate skips and disputes without waiting for a quarter-end surprise. Reporting is built for credit managers.',
     audience: 'Wholesalers and distributors on open-account terms.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'sports-entertainment',
@@ -753,7 +753,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'A sponsorship dispute is not a utility bill. We match tone to the relationship, document the file, and use specialized or legal resources when a high-value counterparty will not close.',
     audience: 'Leagues, teams, venues, promoters, and entertainment companies.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
   {
     slug: 'telecommunications',
@@ -766,7 +766,7 @@ export const INDUSTRIES: Vertical[] = [
     overview:
       'We align to your disconnect rules, regulatory constraints, and brand. Carrier and enterprise files get a B2B desk; subscriber files get scaled, compliant outreach.',
     audience: 'Wireline, wireless, and wholesale telecom operators.',
-    benefits: ARM_BENEFITS,
+    benefits: COLLECTION_BENEFITS,
   },
 ];
 
@@ -803,7 +803,7 @@ export const ABOUT = {
   lede: 'WNRS is a leading global provider of customized debt collection and accounts receivable management services. For over half a century, WNRS has been helping companies in a diverse range of industries increase cash flow and reduce operating expenses through results-driven recovery solutions. Every step of the debt recovery process — design, implementation, management — is built to deliver results.',
   body: [
     'Through its headquarters in Miami, FL, WNRS oversees the company’s business operation centers in U.S., Canada, & Latin America. Get to know more about our services and find out what results WNRS can bring to you.',
-    'When it comes to choosing the appropriate company to handle your company’s account receivables, look no further than WNRS. Not only have our proven systems worked for thousands of clients for over thirty years, but also, our team of networked offices, subsidiaries, research & investigation experts, multi-lingual debt collection specialists, and governmental partners have provided our clients with a synergistic collection program that is unrivaled in the ARM industry.',
+    'When it comes to choosing the appropriate company to handle your company’s account receivables, look no further than WNRS. Not only have our proven systems worked for thousands of clients for over thirty years, but also, our team of networked offices, subsidiaries, research & investigation experts, multi-lingual debt collection specialists, and governmental partners have provided our clients with a synergistic collection program that is unrivaled in the collections industry.',
   ],
   vision: 'Our vision simply stated is to resolve account receivable issues through expert customer service.',
   mission:
