@@ -37,7 +37,8 @@ Two URL modes. **This branch is set up so Nicolas can scroll a live preview on g
 
 **Live preview:** https://nickrec1986.github.io/wnrs/ (after the first Actions deploy on this branch).
 
-- `astro.config.mjs` has `site: 'https://wnrs.com'` and **`base: '/wnrs/'`** so CSS, JS, images, and internal links resolve under `/wnrs/`.
+- `astro.config.mjs` has `site: 'https://nickrec1986.github.io'` and **`base: '/wnrs/'`**. Every public asset and internal link goes through `withBase()` (`import.meta.env.BASE_URL`) so logo, clients, illustrations, favicon, and nav are `/wnrs/brand/...` not `/brand/...`.
+- `npm run build` greps `dist/` and fails if HTML still uses root-absolute `/brand/` or `/clients/` paths.
 - Workflow: `.github/workflows/deploy-pages.yml` runs `npm ci` + `npm run build` and deploys `dist/` with `actions/upload-pages-artifact` + `actions/deploy-pages` on push to `cursor/wnrs-astro-marketing-site-2e72` and `main` (or **Actions → Deploy GitHub Pages → Run workflow**).
 - **Repo settings → Pages → Source: GitHub Actions** (not “Deploy from a branch”).
 - If deploy fails with “branch is not allowed to deploy to github-pages”, open **Settings → Environments → github-pages → Deployment branches** and add this PR branch (today only `main` is listed). Repo admins can also re-run the workflow; admin pushes bypass that rule, GitHub Actions does not.
@@ -48,7 +49,7 @@ Two URL modes. **This branch is set up so Nicolas can scroll a live preview on g
 
 When DNS for `wnrs.com` / `www` points at GitHub Pages:
 
-1. In `astro.config.mjs`, set **`base: '/'`** (leave `site: 'https://wnrs.com'`). Rebuild so asset URLs are root-absolute again.
+1. In `astro.config.mjs`, set **`site: 'https://wnrs.com'`** and **`base: '/'`**. Rebuild so asset URLs are root-absolute again.
 2. Add `public/CNAME` containing `wnrs.com`.
 3. In **Repo → Settings → Pages**, set custom domain `wnrs.com` and enable **Enforce HTTPS** after DNS checks pass.
 

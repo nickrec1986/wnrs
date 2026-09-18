@@ -24,8 +24,9 @@ const {
   lang = 'en',
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, SITE.url).href.replace(/\/$/, '') || SITE.url;
-const ogImage = new URL(withBase('/og-default.jpg'), SITE.url).href;
+const origin = Astro.site ?? new URL(SITE.url);
+const canonical = new URL(Astro.url.pathname, origin).href.replace(/\/$/, '') || origin.href;
+const ogImage = new URL(withBase('/og-default.jpg'), origin).href;
 const favicon = withBase('/brand/favicon.png');
 const sitemapHref = withBase('/sitemap-index.xml');
 const assetMotif = withBase('/brand/bg-motif.svg');
@@ -53,7 +54,7 @@ const org = {
 const ldBlocks = [org, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
 ---
 <!DOCTYPE html>
-<html lang={lang} style={`--asset-motif: url("${assetMotif}"); --asset-arrow: url("${assetArrow}");`}>
+<html lang={lang} style={`--asset-motif: url(${assetMotif}); --asset-arrow: url(${assetArrow});`}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />

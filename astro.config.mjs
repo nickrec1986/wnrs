@@ -4,9 +4,9 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://wnrs.com',
-  // Project Pages preview: https://nickrec1986.github.io/wnrs/
-  // Set to '/' when custom domains (wnrs.com) point at this Pages site.
+  // Preview origin so OG/canonical/sitemap resolve on github.io.
+  // At custom-domain cutover: site: 'https://wnrs.com', base: '/'.
+  site: 'https://nickrec1986.github.io',
   base: '/wnrs/',
   output: 'static',
   trailingSlash: 'ignore',
