@@ -25,10 +25,10 @@ import { withBase } from '../base';
       <div class="prose-el">
         <h2>Operation Centers</h2>
         {ABOUT.body.map((p) => <p>{p}</p>)}
+        <a class="text-link" href={withBase('/#contact')}>Contact Us <span aria-hidden="true">→</span></a>
       </div>
       <figure>
         <img class="ceo-photo" src={withBase('/brand/david-fridman.jpg')} alt="David Fridman, CEO of WNRS" />
-        <figcaption style="margin-top:10px;font-weight:600;color:var(--secondary)">David Fridman, CEO</figcaption>
       </figure>
     </div>
   </section>
@@ -67,7 +67,7 @@ import { withBase } from '../base';
   </section>
 
   <section class="sec" style="padding-top:0">
-    <div class="wrap center">
+    <div class="wrap recognized-split">
       <h2>Recognized by:</h2>
       <div class="press-grid">
         {PRESS_LOGOS.map((l) => (

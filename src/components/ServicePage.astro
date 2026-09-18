@@ -38,19 +38,19 @@ const jsonLd = {
         <button class="on" type="button" data-tab="overview">Overview</button>
         <button type="button" data-tab="benefits">Benefits</button>
       </div>
-      <div class="page-split" style="align-items:start">
-        <div class="prose-el">
+      <div class="tab-panel">
+        <div class="page-split" style="align-items:start">
+          <div class="prose-el">
           <div id="panel-overview">
             <p class="kicker" style="display:flex;align-items:center;gap:8px"><span class="check">✓</span> Overview</p>
             <h2>Overview</h2>
             {svc.overview.map((p) => <p>{p}</p>)}
           </div>
           <div id="panel-benefits" hidden>
-            <p class="kicker" style="display:flex;align-items:center;gap:8px"><span class="check">✓</span> Benefits</p>
             <h2>Benefits</h2>
-            <ul class="list-checks">
+            <ul class="list-arrows">
               {svc.benefits.map((b) => (
-                <li><span class="check">✓</span><span>{b}</span></li>
+                <li>{b}</li>
               ))}
             </ul>
           </div>
@@ -58,11 +58,12 @@ const jsonLd = {
         <div class="dash-art">
           <img
             id="aside-art"
-            src={withBase('/brand/results-analysis.webp')}
-            data-overview={withBase('/brand/results-analysis.webp')}
-            data-benefits={withBase('/brand/demand-gen.webp')}
+            src={withBase('/brand/results-analysis.png')}
+            data-overview={withBase('/brand/results-analysis.png')}
+            data-benefits={withBase('/brand/demand-gen.png')}
             alt="Campaign results analysis"
           />
+        </div>
         </div>
       </div>
     </div>

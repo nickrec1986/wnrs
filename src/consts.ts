@@ -872,6 +872,6 @@ export const HOME = {
 export const PRESS_LOGOS = [
   { src: withBase('/press/bloomberg.png'), alt: 'Bloomberg' },
   { src: withBase('/press/el-financiero.png'), alt: 'El Financiero' },
-  { src: withBase('/press/art-americas-society.png'), alt: 'Art / Americas Society' },
+  { src: withBase('/press/art-americas.png'), alt: 'Art / Americas Society' },
   { src: withBase('/press/latin-trade.webp'), alt: 'Latin Trade' },
 ] as const;
