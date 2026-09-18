@@ -173,7 +173,9 @@ nav.site .links button.drop-toggle:hover { color: var(--gold); }
 .locales a:hover { color: var(--gold); }
 .locales span { color: rgba(154, 173, 194, 0.4); }
 
-.nav-cta { display: flex; align-items: center; gap: 14px; }
+.nav-cta { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.mobile-locales,
+.menu-cta { display: none; }
 .hamburger {
   display: none;
   width: 40px;
@@ -204,6 +206,12 @@ nav.site .links button.drop-toggle:hover { color: var(--gold); }
 
 @media (max-width: 880px) {
   .hamburger { display: grid; place-items: center; }
+  .desktop-locales,
+  .bar-cta { display: none; }
+  .mobile-locales,
+  .menu-cta { display: flex; margin: 10px 0 4px; }
+  .menu-cta { display: inline-flex; width: fit-content; }
+  nav.site .bar { gap: 10px; }
   nav.site .links {
     display: none;
     position: absolute;
@@ -213,7 +221,7 @@ nav.site .links button.drop-toggle:hover { color: var(--gold); }
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    background: var(--ink);
+    background: var(--ink-deep);
     border-bottom: 1px solid var(--line-dark);
     padding: 8px 22px 18px;
   }
@@ -224,6 +232,8 @@ nav.site .links button.drop-toggle:hover { color: var(--gold); }
     text-align: left;
     width: 100%;
   }
+  .mobile-locales { gap: 16px; }
+  .mobile-locales a { width: auto !important; padding: 12px 4px; }
   .drop-menu {
     position: static;
     display: none;
@@ -236,6 +246,9 @@ nav.site .links button.drop-toggle:hover { color: var(--gold); }
   .drop:hover .drop-menu { display: block; }
   nav.site .nl-phone { display: none; }
 }
+
+#contact,
+.contact { scroll-margin-top: 80px; }
 
 /* ---------- hero ---------- */
 .hero {
