@@ -1,28 +1,31 @@
 ---
-import { TESTIMONIALS } from '../consts';
-interface Props {
-  eyebrow?: string;
-  heading?: string;
-  sub?: string;
-}
-const {
-  eyebrow = 'What our clients say',
-  heading = 'Results clients talk about',
-  sub,
-} = Astro.props;
+import { HOME, TESTIMONIALS } from '../consts';
+const t = TESTIMONIALS[0];
 ---
-<section class="block">
-  <div class="wrap reveal">
-    <div class="eyebrow">{eyebrow}</div>
-    <h2 class="disp">{heading}</h2>
-    {sub && <p class="sub">{sub}</p>}
-    <div class="quotes">
-      {TESTIMONIALS.map((t) => (
-        <blockquote class="quote">
-          <p>“{t.quote}”</p>
-          <div class="by"><b>{t.name}</b> · {t.title}, {t.company}</div>
-        </blockquote>
-      ))}
+<section class="quotes-el">
+  <div class="wrap">
+    <div class="quotes-head">
+      <div>
+        <h2>What our clients say</h2>
+        <p class="sub" style="max-width:48ch">
+          {HOME.quotesSub}
+        </p>
+      </div>
+      <div class="qnav" aria-hidden="true">
+        <button type="button">‹</button>
+        <button type="button">›</button>
+      </div>
     </div>
+    <blockquote class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p>“{t.quote}”</p>
+      <div class="who">
+        <img src="/brand/juan-romero.jpg" alt={t.name} width="52" height="52" />
+        <div>
+          <b>{t.name}</b>
+          <span>{t.title} {t.company}</span>
+        </div>
+      </div>
+    </blockquote>
   </div>
 </section>

@@ -3,15 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE, EMAIL, EMAIL_HREF } from '../consts';
 ---
 <BaseLayout title={`Privacy policy | ${SITE.name}`} description="Privacy policy for the WNRS marketing website.">
-  <header class="masthead">
+  <header class="page-hero">
     <div class="wrap">
-      <div class="crumb"><a href="/">Home</a> / Privacy</div>
+      <p class="kicker"><a href="/">Home</a> / Privacy</p>
       <h1>Privacy policy</h1>
-      <p>How the public WNRS marketing site handles information.</p>
+      <p class="lede">How the public WNRS marketing site handles information.</p>
     </div>
   </header>
-  <section class="block">
-    <div class="wrap prose">
+  <section class="sec">
+    <div class="wrap prose-el">
       <p>
         This static marketing site does not run a CMS, user accounts, or a collections database.
         If you email or call us, we use the contact details you send to respond to your inquiry.
@@ -20,9 +20,7 @@ import { SITE, EMAIL, EMAIL_HREF } from '../consts';
         Client-file data lives on the separate portal at online.wnrs.com, not on this site.
         We do not sell marketing-site visitor lists.
       </p>
-      <p>
-        Questions: <a href={EMAIL_HREF}>{EMAIL}</a>.
-      </p>
+      <p>Questions: <a href={EMAIL_HREF}>{EMAIL}</a>.</p>
     </div>
   </section>
 </BaseLayout>

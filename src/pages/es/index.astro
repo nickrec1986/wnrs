@@ -7,19 +7,16 @@ import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '../../consts';
   title={`WNRS México | Cobranza y gestión de cuentas por cobrar`}
   description="WNRS — expertos en cobranza y gestión de cuentas por cobrar. Sitio en español en construcción. Contáctenos."
 >
-  <section class="hero">
-    <div class="inner wrap">
-      <div class="kicker">wnrs.com.mx · ES</div>
-      <h1 class="disp">Sus cuentas por cobrar.<br /><span class="l2">Recuperadas.</span><br /><span class="l3">Rápido.</span></h1>
+  <section class="hero-el">
+    <div class="inner">
+      <p class="kicker">wnrs.com.mx · ES</p>
+      <h1>Sus cuentas por cobrar.<br />Recuperadas. Rápido.</h1>
       <p class="lede">
         La versión en español del sitio WNRS se está armando en este codebase (rutas <code>/es</code>).
         Mientras tanto, escriba al equipo o use el sitio en inglés.
       </p>
-      <div class="hero-cta">
-        <a class="btn btn-gold" href={EMAIL_HREF}>{EMAIL}</a>
-        <a class="btn btn-ghost" href={PHONE_HREF}>{PHONE}</a>
-        <a class="btn btn-ghost" href="/">English site →</a>
-      </div>
+      <a class="btn btn-lg" href={EMAIL_HREF}>{EMAIL}</a>
+      <p style="margin-top:16px"><a href="/">English site →</a> · <a href={PHONE_HREF}>{PHONE}</a></p>
     </div>
   </section>
 </BaseLayout>

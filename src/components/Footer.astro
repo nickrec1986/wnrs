@@ -1,53 +1,45 @@
 ---
-import { SITE, SERVICES, FEATURED_INDUSTRIES, PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, LOCALES, PORTAL_URL } from '../consts';
+import { SERVICES, FEATURED_INDUSTRIES, EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF, SITE } from '../consts';
 const year = new Date().getFullYear();
 ---
-<footer class="site">
-  <div class="wrap">
-    <div class="fcols">
-      <div class="fbrand">
-        <a href="/" class="brand logo" aria-label="WNRS home">
-          <span class="mark" aria-hidden="true">W</span>
-          WNRS
-        </a>
-        <p class="tagline">{SITE.tagline}</p>
-      </div>
-
-      <div class="fcol">
-        <div class="fh">Services</div>
-        {SERVICES.map((s) => (
-          <a href={`/${s.slug}`}>{s.navLabel}</a>
-        ))}
-      </div>
-
-      <div class="fcol">
-        <div class="fh">Industries</div>
-        {FEATURED_INDUSTRIES.map((i) => (
-          <a href={`/${i.slug}`}>{i.name}</a>
-        ))}
-        <a href="/services#industries">All industries</a>
-      </div>
-
-      <div class="fcol">
-        <div class="fh">Contact</div>
-        <a href={EMAIL_HREF}>{EMAIL}</a>
-        <a href={PHONE_HREF}>{PHONE}</a>
-        <a href="/#contact">Book a call</a>
-        <a href={PORTAL_URL}>Client login</a>
-        <div class="fh" style="margin-top:14px">Locales</div>
-        {LOCALES.map((l) => (
-          <a href={l.href} hreflang={l.code === 'pt' ? 'pt-BR' : l.code}>{l.label} · {l.host}</a>
-        ))}
+<footer class="site-footer">
+  <div class="wrap fgrid">
+    <div class="fbrand">
+      <a class="brand-logo" href="/" aria-label="WNRS home">
+        <img src="/brand/logo-wnrs.png" alt="WNRS" width="160" height="46" />
+      </a>
+      <div class="social" aria-label="Social">
+        <a href="https://www.linkedin.com/company/wnrs" aria-label="LinkedIn">in</a>
+        <a class="x" href="https://x.com" aria-label="X">X</a>
+        <a href="https://www.instagram.com" aria-label="Instagram">ig</a>
+        <a href="https://www.facebook.com" aria-label="Facebook">f</a>
       </div>
     </div>
-
-    <div class="legal">
-      <div>© {year} {SITE.name} · {SITE.url.replace('https://', '')}</div>
-      <div>
-        <a href="/terms">Terms of service</a>
-        {' · '}
-        <a href="/privacy">Privacy policy</a>
-      </div>
+    <div class="fcol">
+      <div class="fh">Types</div>
+      {SERVICES.map((s) => (
+        <a href={`/${s.slug}`}>{s.navLabel}</a>
+      ))}
+    </div>
+    <div class="fcol">
+      <div class="fh">Industry</div>
+      {FEATURED_INDUSTRIES.map((i) => (
+        <a href={`/${i.slug}`}>{i.name}</a>
+      ))}
+      <a href="/services#industries">More…</a>
+    </div>
+    <div class="fcol">
+      <div class="fh">Resources</div>
+      <a href={EMAIL_HREF}>{EMAIL}</a>
+      <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <div>Copyright © {year} {SITE.name}</div>
+    <div>
+      <a href="/terms">Terms of service</a>
+      {' · '}
+      <a href="/privacy">Privacy policy</a>
     </div>
   </div>
 </footer>

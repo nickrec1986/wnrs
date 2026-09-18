@@ -7,19 +7,16 @@ import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '../../consts';
   title={`WNRS Brasil | Cobrança e gestão de recebíveis`}
   description="WNRS — especialistas em cobrança e gestão de contas a receber. Site em português em construção. Fale conosco."
 >
-  <section class="hero">
-    <div class="inner wrap">
-      <div class="kicker">wnrs.com.br · pt-BR</div>
-      <h1 class="disp">Seus recebíveis.<br /><span class="l2">Recuperados.</span><br /><span class="l3">Rápido.</span></h1>
+  <section class="hero-el">
+    <div class="inner">
+      <p class="kicker">wnrs.com.br · pt-BR</p>
+      <h1>Seus recebíveis.<br />Recuperados. Rápido.</h1>
       <p class="lede">
-        A versão em português do site WNRS está em montagem neste codebase (pastas <code>/pt</code>).
+        A versão em português do site WNRS está em montagem neste codebase (rotas <code>/pt</code>).
         Enquanto isso, fale com a equipe ou use o site em inglês.
       </p>
-      <div class="hero-cta">
-        <a class="btn btn-gold" href={EMAIL_HREF}>{EMAIL}</a>
-        <a class="btn btn-ghost" href={PHONE_HREF}>{PHONE}</a>
-        <a class="btn btn-ghost" href="/">English site →</a>
-      </div>
+      <a class="btn btn-lg" href={EMAIL_HREF}>{EMAIL}</a>
+      <p style="margin-top:16px"><a href="/">English site →</a> · <a href={PHONE_HREF}>{PHONE}</a></p>
     </div>
   </section>
 </BaseLayout>

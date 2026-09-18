@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LogoMarquee from '../components/LogoMarquee.astro';
 import ContactSection from '../components/ContactSection.astro';
 import { ABOUT, SITE, SERVICES } from '../consts';
 ---
@@ -7,40 +8,47 @@ import { ABOUT, SITE, SERVICES } from '../consts';
   title={`About Us | ${SITE.name}`}
   description="WNRS is a leading global provider of customized debt collection and accounts receivable management, headquartered in Miami with operations across the Americas."
 >
-  <header class="masthead">
-    <div class="wrap">
-      <div class="crumb"><a href="/">Home</a> / About Us</div>
-      <div class="kicker">About WNRS</div>
-      <h1>Half a century of customized recovery.</h1>
-      <p>{ABOUT.lede}</p>
+  <header class="page-hero">
+    <div class="wrap center">
+      <p class="kicker">About WNRS</p>
+      <h1>About WNRS</h1>
+      <p class="lede" style="margin-left:auto;margin-right:auto">{ABOUT.lede}</p>
+      <a class="btn" href="/#contact">Get a quote</a>
     </div>
   </header>
 
-  <section class="block">
-    <div class="wrap split reveal">
-      <div class="prose">
+  <LogoMarquee label="Our Clients" />
+
+  <section class="sec">
+    <div class="wrap page-split">
+      <div class="prose-el">
+        <h2>Operation Centers</h2>
         {ABOUT.body.map((p) => <p>{p}</p>)}
-        <h2>Vision</h2>
+        <h2>Vision, Mission and Objective</h2>
         <p>{ABOUT.vision}</p>
-        <h2>Mission</h2>
         <p>{ABOUT.mission}</p>
       </div>
-      <aside class="panel">
-        <div class="ph">Objectives</div>
-        <ul>
-          {ABOUT.objectives.map((o) => <li>{o}</li>)}
-        </ul>
-      </aside>
+      <img src="/brand/illustration-1.png" alt="WNRS operation culture" />
     </div>
   </section>
 
-  <section class="block howwrap">
-    <div class="wrap reveal">
-      <div class="eyebrow">How we operate</div>
-      <h2 class="disp">People, process, and technology</h2>
-      <div class="why why-2">
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <h2>Objectives</h2>
+      <ul class="list-checks" style="margin-top:16px;max-width:720px">
+        {ABOUT.objectives.map((o) => (
+          <li><span class="check">✓</span><span>{o}</span></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <h2>Features &amp; Benefits</h2>
+      <div class="svc-grid" style="margin-top:22px">
         {ABOUT.features.map((f) => (
-          <div class="item">
+          <div class="svc-tile">
             <h3>{f.h}</h3>
             <p>{f.p}</p>
           </div>
@@ -49,17 +57,14 @@ import { ABOUT, SITE, SERVICES } from '../consts';
     </div>
   </section>
 
-  <section class="block">
-    <div class="wrap reveal">
-      <div class="eyebrow">Services</div>
-      <h2 class="disp">Everything you need for any stage of the receivable</h2>
-      <div class="svc-cards">
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <h2>Everything you need for any stage of the receivable experience. Pick your service.</h2>
+      <div class="svc-grid">
         {SERVICES.map((s) => (
-          <a class="svc-card" href={`/${s.slug}`}>
-            <div class="ic-label">{s.ic}</div>
+          <a class="svc-tile" href={`/${s.slug}`}>
             <h3>{s.name}</h3>
             <p>{s.short}</p>
-            <span class="more">Learn more <span class="ar">→</span></span>
           </a>
         ))}
       </div>

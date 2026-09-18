@@ -7,7 +7,7 @@ export const SITE = {
   name: 'WNRS',
   legalName: 'World Net Recovery Systems',
   url: 'https://wnrs.com',
-  title: 'WNRS — Debt Collection & Accounts Receivable Management',
+  title: 'WNRS - Debt Collection Experts',
   description:
     'WNRS recovers receivables at every stage of delinquency. 1,200+ professionals, 8 global hubs, and 50+ years of accounts receivable management for companies across the Americas.',
   tagline: 'Debt collection experts. Receivables recovered fast.',
@@ -49,35 +49,42 @@ export const STATS = [
   { n: '30+', k: 'Countries served' },
 ] as const;
 
-/** Expanded key stats (homepage panel). */
+/** Key stats as shown on the live homepage (check-list, not big numerals). */
 export const KEY_STATS = [
-  { n: '#1', k: 'Agency for Fortune 500 clients' },
-  { n: '50+', k: 'Years of proven performance' },
-  { n: '30+', k: 'Countries served' },
-  { n: '20+', k: 'Languages covered' },
-  { n: '500,000+', k: 'Interactions every month' },
-  { n: '99.9997%', k: 'System uptime' },
-  { n: '3x+', k: 'Recovery vs. typical in-house' },
-  { n: '10x', k: 'Faster than traditional teams' },
+  '#1 Agency for fortune 500 clients',
+  '50+ years of proven performance',
+  '30+ countries served',
+  '20+ languages covered',
+  '500,000+ interactions every month',
+  '99.9997% system uptime',
+  'People + Process + Technology = Total Integration',
+  'Top Rated Customer Satisfaction',
 ] as const;
 
-/**
- * Trust-wall names drawn from WNRS public case history and network clients.
- * Rendered as a text marquee — not a claim that every logo is a current retainer.
- */
-export const LOGOS = [
-  'Cemex',
-  'Ternium',
-  'Aeroméxico',
-  'Intertek',
-  'Carnival',
-  'Maersk',
-  'Avis',
-  'SAP',
-  'American Express',
-  'UPS',
-  'Procter & Gamble',
-  'Nike',
+/** Client marks used in the live Elementor carousel. */
+export const CLIENT_LOGOS = [
+  { src: '/clients/ups.png', alt: 'UPS' },
+  { src: '/clients/ternium.png', alt: 'Ternium' },
+  { src: '/clients/intertek.png', alt: 'Intertek' },
+  { src: '/clients/seaboard.png', alt: 'Seaboard Marine' },
+  { src: '/clients/sap.png', alt: 'SAP' },
+  { src: '/clients/pg.png', alt: 'Procter & Gamble' },
+  { src: '/clients/amex.png', alt: 'American Express' },
+  { src: '/clients/avis.png', alt: 'Avis' },
+  { src: '/clients/carnival.png', alt: 'Carnival' },
+  { src: '/clients/maersk.png', alt: 'Maersk' },
+  { src: '/clients/nike.png', alt: 'Nike' },
+  { src: '/clients/aeromexico.png', alt: 'Aeroméxico' },
+] as const;
+
+/** Homepage “pick your service” tiles — live Elementor labels, mapped to ARM slugs. */
+export const HOME_PICKER = [
+  { href: '/early-stage-arm', label: 'Administrative Collection' },
+  { href: '/specialized-arm', label: 'Specialized Collection' },
+  { href: '/late-stage-arm', label: 'Extrajudicial Collection' },
+  { href: '/financial-skip-tracing', label: 'Financial Investigation' },
+  { href: '/attorney-intervention', label: 'Judicial Collection' },
+  { href: '/#contact', label: 'Customer Experience Management' },
 ] as const;
 
 export interface Service {
@@ -102,22 +109,21 @@ export const SERVICES: Service[] = [
     short: 'Keep accounts current before they age — in your brand’s voice.',
     tagline: 'Stop delinquency early, without souring the relationship.',
     intro:
-      'WNRS early-stage ARM is built for companies that want to reach customers in the first aging buckets — before balances become charge-offs. Multilingual professionals work one-on-one, typically in your name, with a customer-service posture that protects the relationship while cash comes back in.',
+      'WNRS’s early stage collection services are built for companies looking to target customers in the earlier life cycle stages. Our world-class ARM expertise provides a customer-oriented, cost-effective approach that greatly reduces the probability of balances moving to later aging buckets. For today’s globally competitive companies, there is no other choice – leverage world in class services – or be left behind.',
     overview: [
-      'Early-stage work is designed to protect your brand. Outreach is diplomatic, courteous, and trained to your policies — not a blunt third-party script.',
-      'Proprietary segmentation and analytics pick the right intervention and the right agent for each account, across industries and geographies.',
-      'The goal is simple: recover faster, improve DSO, and keep far fewer accounts from rolling into late-stage delinquency.',
+      'Early Stage ARM is built to maintain the client’s brand image. Handled strategically and diplomatically, by highly talented, multilingual ARM professionals, trained to maintain the utmost courtesy towards our client’s customers. By using proprietary segmentation, structuring, and analytic models, we are able to determine the best method of intervention and best agent to deal with and deploy the ARM strategy on every specific case.',
+      'Our trained professionals support our client’s ARM processes across multiple industries and geographies by performing a strategic one-on-one campaigns, (typically in the name of the client). We understand the key to our success is a customer service approach that works personally and firmly with every customer while concretely maintaining our client’s valued relationships.',
     ],
     benefits: [
-      'Increased cash flow',
-      'Improved days sales outstanding (DSO)',
-      'Shorter turnover on aged invoices',
-      'Lower operating expense vs. building an in-house desk',
-      'Fewer accounts entering delinquency',
+      'Increased Cash Flow',
+      'Improved Days Sales Outstanding (DSO)',
+      'Shorter Turnover Rate',
+      'Reduction in Operating Expenses',
+      'Drastic Reduction in accounts that enter into delinquency status',
       'Reduced write-offs',
-      'Customer master-record updates',
-      'Add-ons: cash application, deductions, dispute resolution, O2C support',
-      '24/7 online account tracking and status',
+      'Customer master record updates',
+      'Add-ons: Cash Application, Deductions Management, Dispute Resolution, O2C Services',
+      '24/7 online account tracking, monitoring, and status updates',
     ],
     included: [
       'First-party, brand-safe outreach in the client’s name',
@@ -253,43 +259,46 @@ export const getService = (slug: string) => SERVICES.find((s) => s.slug === slug
 export const DIFFERENTIATORS = [
   {
     h: 'The first results within days',
-    p: 'On average, recovery starts hitting the books within the first 15 days — not after a long setup cycle.',
+    p: "On average within the first 15 days you'll start seeing recovery results hitting the books.",
+    img: '/brand/illustration-3.png',
   },
   {
     h: 'World-class talent',
-    p: 'We select and train expert teams to act as an extension of your brand: faster, transparent, predictable recovery that restores cash flow.',
+    p: "We carefully select and train expert teams to act as an extension of your own brand. Rest assured, you'll get faster, transparent, and predictable results that recover debt and restore cashflow.",
+    img: '/brand/illustration-2.png',
   },
   {
     h: 'Tailored expertise & strategies',
-    p: 'No cookie-cutter playbook. We build personalized strategies that match your brand, objectives, and 50+ years of ARM best practice.',
+    p: 'Unlike other agencies cookie-cutter approaches, we build hyper personalized go-to-market strategies that align perfectly with your unique brand, business objectives, and combine over 50 years of best practices.',
+    img: '/brand/illustration-strategy.png',
   },
 ] as const;
 
 export const PROCESS_STEPS = [
   {
     num: '01',
-    h: 'Unpaid invoice(s)',
-    p: 'You are losing money — and time. We step in fast.',
+    h: 'Unpaid Invoice(s)',
+    p: "You're losing money — and time. We step in fast.",
   },
   {
     num: '02',
-    h: 'Account assessment',
+    h: 'Account(s) Assessment',
     p: 'We vet the debtor, map the terrain, and execute the recovery plan.',
   },
   {
     num: '03',
     h: 'Negotiations',
-    p: 'We reach out directly — in their language, on their turf.',
+    p: 'We reach out directly— in their language, on their turf.',
   },
   {
     num: '04',
     h: 'Enforcement',
-    p: 'We always take the next appropriate step to advance recovery.',
+    p: 'We always take the next appropriate steps to advance recovery.',
   },
   {
     num: '05',
-    h: 'Funds recovered',
-    p: 'You get results with full transparency. CX services optional.',
+    h: 'Funds Recovered',
+    p: 'You get results — with full transparency, every step of the way. CX services optional.',
   },
 ] as const;
 
@@ -303,7 +312,7 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "I don't know how they do it, but WNRS was able to recover what my entire staff of 60 in-house lawyers was unable to recover for years. One thing is clear: every craftsman to his trade.",
+      "I don't know how they do it, but WNRS was able to recover what my entire staff of 60 in house lawyers was unable to recover for years. One thing is clear, every craftsman to his trade.",
     name: 'Juan Romero',
     title: 'President',
     company: 'Cemex',
@@ -737,22 +746,22 @@ export const FEATURED_INDUSTRIES = INDUSTRIES.filter((i) => i.featured);
 export const getVertical = (slug: string) => VERTICALS.find((v) => v.slug === slug);
 
 export const ABOUT = {
-  lede: 'WNRS is a leading global provider of customized debt collection and accounts receivable management services. For over half a century we have helped companies across industries increase cash flow and reduce operating expense through results-driven recovery.',
+  lede: 'WNRS is a leading global provider of customized debt collection and accounts receivable management services. For over half a century, WNRS has been helping companies in a diverse range of industries increase cash flow and reduce operating expenses through results-driven recovery solutions. Every step of the debt recovery process — design, implementation, management — is built to deliver results.',
   body: [
-    'Every step of the debt-recovery process — design, implementation, management — is built to deliver results. Headquarters in Miami, Florida oversees operation centers in the U.S., Canada, and Latin America.',
-    'Proven systems have worked for thousands of clients for decades. Networked offices, subsidiaries, research and investigation experts, multilingual collection specialists, and governmental partners give clients a synergistic program that is difficult to match in the ARM industry.',
+    'Through its headquarters in Miami, FL, WNRS oversees the company’s business operation centers in U.S., Canada, & Latin America. Get to know more about our services and find out what results WNRS can bring to you.',
+    'When it comes to choosing the appropriate company to handle your company’s account receivables, look no further than WNRS. Not only have our proven systems worked for thousands of clients for over thirty years, but also, our team of networked offices, subsidiaries, research & investigation experts, multi-lingual debt collection specialists, and governmental partners have provided our clients with a synergistic collection program that is unrivaled in the ARM industry.',
   ],
-  vision: 'Resolve accounts receivable issues through expert customer service.',
+  vision: 'Our vision simply stated is to resolve account receivable issues through expert customer service.',
   mission:
-    'Strengthen our worldwide position as the premier provider of customized accounts receivable management services to diversified client groups.',
+    'We have the mission to continue to strengthen our worldwide position as the premier provider of customized accounts receivable management services to our diversified client groups.',
   objectives: [
-    'Continuously improve, innovate, and stay ahead of market conditions affecting a global customer base',
-    'Reduce clients’ operating expenses',
-    'Maximize clients’ cash flow',
-    'Seek and offer tangible results',
-    'Shorten processing, billing, and collection times',
-    'Implement industry best practices that serve client needs',
-    'Protect clients’ prized customer and business relationships',
+    'To continuously improve, innovate, and stay on the forefront of market conditions affecting our global customer base',
+    'To reduce our customer’s operating expenses',
+    'To maximize our customer’s cash flow',
+    'To constantly seek and offer tangible results',
+    'To constantly seek faster and more efficient processing, billing, and collection times when servicing our customer’s accounts.',
+    'To implement and create industry best practices that serve our customer’s needs',
+    'To maintain firm our client’s prized customer and business relations',
   ],
   features: [
     {
@@ -771,6 +780,10 @@ export const ABOUT = {
       h: '24×7 account tracking',
       p: 'Clients log in to monitor listed accounts in real time. The portal is the same system operations use — full transparency on progress, not a delayed summary.',
     },
+    {
+      h: 'Global Leader',
+      p: 'WNRS has earned the title of “de-facto leader in accounts receivable management”. From innovative processes, to talented human capital and data-flow systems, WNRS generates continuous revenue for clients at all stages — from independently owned companies to Fortune 500 accounts.',
+    },
   ],
 } as const;
 
@@ -779,16 +792,16 @@ export const HOME = {
   h1a: 'Your Receivables.',
   h1b: 'Recovered.',
   h1c: 'Fast.',
-  lede: 'With over 1,200 professionals, 8 global recovery hubs, and half a century of experience, we address all stages of delinquency to manage risk, reduce expenses, and increase recovery rates — at scale.',
+  lede: 'With over 1,200 professionals, 8 global recovery hubs, and half a century of experience, we address all stages of delinquency to manage risk, reduce expenses, and increase recovery rates– at scale.',
   logosLabel: 'Finance leaders at top global and regional companies trust WNRS',
   servicesEyebrow: 'Services',
-  servicesH2: 'Custom-fit, hyper-specialized receivable and CX services — done for you',
+  servicesH2: 'Custom fit, Hyper specialized, receivable and CX services done for you',
   servicesSub:
-    'Built to outperform any market. Companies using our services recover 3× or more — 10× faster than traditional in-house teams — while preserving valued customer experiences.',
+    'Built to outperform any market, companies using our services recover 3x or more — 10x faster compared to traditional in-house teams. All while preserving valued customer experiences.',
   apartEyebrow: 'Why WNRS',
   apartH2: 'What sets us apart',
   apartSub:
-    'For 50 years, WNRS has been a top debt-collection and accounts receivable management agency for Fortune 500 companies throughout the Americas. Here is why.',
+    'For the last 50 years, WNRS has been the top debt collection and accounts receivable management agency for fortune 500 companies throughout the americas region. Here’s why:',
   processEyebrow: 'How it works',
   processH2: 'From debt to cashflow',
   processSub: 'We take care of the entire recovery journey — from unpaid invoices to recovered revenue. Real-time technology, data-driven decisions.',
@@ -796,7 +809,7 @@ export const HOME = {
   quotesEyebrow: 'What our clients say',
   quotesH2: 'Results clients talk about',
   quotesSub:
-    'For over 50 years, WNRS has been a top accounts receivable agency for B2B and B2C companies across 30+ industries.',
+    'For over 50 years, WNRS has been the top accounts receivable agency for B2B and B2C companies across 30+ industries. Here’s why:',
   ctaH: 'Recover and restore your cashflow now.',
-  ctaP: 'Book a meeting and find out why WNRS has been ranked a leading agency in accounts receivable and debt management for nearly half a century.',
+  ctaP: 'Book a meeting today and find out why WNRS has been ranked the #1 agency in the accounts receivable and debt management space for nearly half a decade.',
 } as const;

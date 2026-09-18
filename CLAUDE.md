@@ -10,8 +10,9 @@ evaluating ARM partners.
 - Pages are thin. Service URLs are dedicated files that render `ServicePage`.
   Industry/sector URLs come from `src/pages/[slug].astro` via `VERTICALS`.
 - Layout, SEO, JSON-LD: `src/layouts/BaseLayout.astro`.
-- Brand tokens: `src/styles/global.css` (`--ink` navy, `--gold` brass). Do **not**
-  restyle as Teleforce amber/waveform.
+- Brand tokens: `src/styles/global.css` Elementor kit-6 (`--primary` `#1A5B8C`,
+  `--accent` `#5888CC`, `--green` `#4EAB85`, `--gray` `#F5F5F5`). Recreate live
+  wnrs.com; do **not** restyle as Teleforce amber/navy.
 
 ## Voice
 Direct, concrete, professional. Rewrite WordPress copy cleanly — never paste Elementor HTML.

@@ -7,7 +7,7 @@ Static marketing site for **WNRS** (World Net Recovery Systems) — B2B debt col
 - **Mexico:** [wnrs.com.mx](https://wnrs.com.mx) (Spanish; stub routes live at `/es`)
 - **Client portal (do not touch):** [online.wnrs.com](https://online.wnrs.com)
 
-Stack matches [tryteleforce.com](https://tryteleforce.com): **Astro 4**, `@astrojs/sitemap`, `output: 'static'`. Brand identity is WNRS (navy / brass), not Teleforce amber.
+Stack matches [tryteleforce.com](https://tryteleforce.com): **Astro 4**, `@astrojs/sitemap`, `output: 'static'`. Visual design is a pixel-faithful recreation of live [wnrs.com](https://wnrs.com) (WordPress/Elementor): Inter, blues `#1A5B8C` / `#5888CC`, green `#4EAB85`, light gray `#F5F5F5`, white cards — not Teleforce amber/navy.
 
 ## Local development
 

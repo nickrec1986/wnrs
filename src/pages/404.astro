@@ -3,15 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../consts';
 ---
 <BaseLayout title={`Not found | ${SITE.name}`} description="That page is not on the WNRS site.">
-  <section class="hero">
-    <div class="inner wrap">
-      <div class="kicker">404</div>
-      <h1 class="disp">Page not found.</h1>
-      <p class="lede">That URL is not on the WNRS marketing site. Try services, about, or home.</p>
-      <div class="hero-cta">
-        <a class="btn btn-gold" href="/">Home</a>
-        <a class="btn btn-ghost" href="/services">Services</a>
-      </div>
+  <section class="hero-el">
+    <div class="inner">
+      <p class="kicker">404</p>
+      <h1>Page not found.</h1>
+      <p class="lede">That URL is not on the WNRS marketing site.</p>
+      <a class="btn" href="/">Home</a>
     </div>
   </section>
 </BaseLayout>
