@@ -56,8 +56,13 @@ const jsonLd = {
           </div>
         </div>
         <div class="dash-art">
-          <img id="aside-overview" src={withBase('/brand/results-analysis.webp')} alt="Campaign results analysis" />
-          <img id="aside-benefits" src={withBase('/brand/demand-gen.webp')} alt="Outreach and scheduling" hidden />
+          <img
+            id="aside-art"
+            src={withBase('/brand/results-analysis.webp')}
+            data-overview={withBase('/brand/results-analysis.webp')}
+            data-benefits={withBase('/brand/demand-gen.webp')}
+            alt="Campaign results analysis"
+          />
         </div>
       </div>
     </div>
@@ -70,8 +75,7 @@ const jsonLd = {
   const buttons = document.querySelectorAll('[data-tab]');
   const overview = document.getElementById('panel-overview');
   const benefits = document.getElementById('panel-benefits');
-  const asideOverview = document.getElementById('aside-overview');
-  const asideBenefits = document.getElementById('aside-benefits');
+  const art = document.getElementById('aside-art');
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
       buttons.forEach((b) => b.classList.remove('on'));
@@ -81,9 +85,10 @@ const jsonLd = {
         overview.hidden = tab !== 'overview';
         benefits.hidden = tab !== 'benefits';
       }
-      if (asideOverview && asideBenefits) {
-        asideOverview.hidden = tab !== 'overview';
-        asideBenefits.hidden = tab !== 'benefits';
+      if (art) {
+        const next = tab === 'benefits' ? art.dataset.benefits : art.dataset.overview;
+        if (next) art.src = next;
+        art.alt = tab === 'benefits' ? 'Outreach and scheduling' : 'Campaign results analysis';
       }
     });
   });

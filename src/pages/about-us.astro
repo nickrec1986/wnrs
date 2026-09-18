@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LogoMarquee from '../components/LogoMarquee.astro';
 import ContactSection from '../components/ContactSection.astro';
-import { ABOUT, SITE, SERVICES } from '../consts';
+import { ABOUT, SITE, SERVICES, PRESS_LOGOS } from '../consts';
 import { withBase } from '../base';
 ---
 <BaseLayout
@@ -25,11 +25,19 @@ import { withBase } from '../base';
       <div class="prose-el">
         <h2>Operation Centers</h2>
         {ABOUT.body.map((p) => <p>{p}</p>)}
-        <h2>Vision, Mission and Objective</h2>
-        <p>{ABOUT.vision}</p>
-        <p>{ABOUT.mission}</p>
       </div>
-      <img src={withBase('/brand/illustration-1.png')} alt="WNRS operation culture" />
+      <figure>
+        <img class="ceo-photo" src={withBase('/brand/david-fridman.jpg')} alt="David Fridman, CEO of WNRS" />
+        <figcaption style="margin-top:10px;font-weight:600;color:var(--secondary)">David Fridman, CEO</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap prose-el" style="max-width:720px">
+      <h2>Vision, Mission and Objective</h2>
+      <p>{ABOUT.vision}</p>
+      <p>{ABOUT.mission}</p>
     </div>
   </section>
 
@@ -53,6 +61,19 @@ import { withBase } from '../base';
             <h3>{f.h}</h3>
             <p>{f.p}</p>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap center">
+      <h2>Recognized by:</h2>
+      <div class="press-grid">
+        {PRESS_LOGOS.map((l) => (
+          <figure>
+            <img src={l.src} alt={l.alt} />
+          </figure>
         ))}
       </div>
     </div>

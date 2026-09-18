@@ -867,3 +867,11 @@ export const HOME = {
   ctaH: 'Recover and restore your cashflow now.',
   ctaP: 'Book a meeting today and find out why WNRS has been ranked the #1 agency in the accounts receivable and debt management space for nearly half a decade.',
 } as const;
+
+/** Live wnrs.com/about-us “Recognized by” marks. */
+export const PRESS_LOGOS = [
+  { src: withBase('/press/bloomberg.png'), alt: 'Bloomberg' },
+  { src: withBase('/press/el-financiero.png'), alt: 'El Financiero' },
+  { src: withBase('/press/art-americas-society.png'), alt: 'Art / Americas Society' },
+  { src: withBase('/press/latin-trade.webp'), alt: 'Latin Trade' },
+] as const;
