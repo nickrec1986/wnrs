@@ -1,0 +1,165 @@
+---
+import { SITE, PHONE, EMAIL, LINKEDIN_URL } from '../consts';
+import {
+  OG_IMAGE_URL,
+  LOGO_URL,
+  canonicalUrl,
+  hreflangLinks,
+  webPageJsonLd,
+  breadcrumbJsonLd,
+  type Crumb,
+} from '../seo';
+import { withBase } from '../base';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** JSON-LD object(s) to inject (Service, Blog, Article, etc.) */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** Override OG type (default website) */
+  ogType?: string;
+  /** Absolute production OG image URL (defaults to og-default.jpg on wnrs.com) */
+  ogImage?: string;
+  /** HTML lang attribute */
+  lang?: string;
+  /** Breadcrumb trail for inner pages (Home is prepended if missing). */
+  breadcrumbs?: Crumb[];
+  /** 404 and other noindex pages */
+  noindex?: boolean;
+  /** Rare override (locale stubs map themselves via canonicalUrl). */
+  canonicalOverride?: string;
+}
+
+const {
+  title = SITE.title,
+  description = SITE.description,
+  jsonLd,
+  ogType = 'website',
+  ogImage = OG_IMAGE_URL,
+  lang = 'en',
+  breadcrumbs,
+  noindex = false,
+  canonicalOverride,
+} = Astro.props;
+
+const canonical = canonicalUrl(Astro.url.pathname, canonicalOverride);
+const alternates = hreflangLinks(Astro.url.pathname);
+const favicon = withBase('/brand/favicon.png');
+const sitemapHref = withBase('/sitemap-index.xml');
+const assetMotif = withBase('/brand/bg-motif.svg');
+const assetArrow = withBase('/icons/right.svg');
+const ogLocale = lang.startsWith('pt') ? 'pt_BR' : lang.startsWith('es') ? 'es_MX' : 'en_US';
+
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE.name,
+  legalName: SITE.legalName,
+  url: SITE.url,
+  logo: LOGO_URL,
+  image: OG_IMAGE_URL,
+  description: SITE.description,
+  slogan: SITE.slogan,
+  email: EMAIL,
+  telephone: PHONE,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Miami',
+    addressRegion: 'FL',
+    addressCountry: 'US',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: PHONE,
+    email: EMAIL,
+    contactType: 'sales',
+    areaServed: ['US', 'CA', 'MX', 'BR', 'LATAM'],
+    availableLanguage: ['English', 'Spanish', 'Portuguese'],
+  },
+  sameAs: [LINKEDIN_URL],
+};
+
+const crumbs: Crumb[] | undefined = breadcrumbs?.length
+  ? breadcrumbs[0].path === '/'
+    ? breadcrumbs
+    : [{ name: 'Home', path: '/' }, ...breadcrumbs]
+  : undefined;
+
+const pageLd = webPageJsonLd({ title, description, url: canonical, lang });
+const extra = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const ldBlocks = [
+  org,
+  pageLd,
+  ...(crumbs && crumbs.length > 1 ? [breadcrumbJsonLd(crumbs)] : []),
+  ...extra,
+];
+---
+<!DOCTYPE html>
+<html lang={lang} style={`--asset-motif: url(${assetMotif}); --asset-arrow: url(${assetArrow});`}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" href={favicon} type="image/png" />
+
+  {alternates.map((l) => (
+    <link rel="alternate" hreflang={l.hreflang} href={l.href} />
+  ))}
+
+  <!-- Open Graph — production wnrs.com URLs, not github.io /wnrs -->
+  <meta property="og:type" content={ogType} />
+  <meta property="og:site_name" content={SITE.name} />
+  <meta property="og:locale" content={ogLocale} />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale:alternate" content="pt_BR" />
+  <meta property="og:locale:alternate" content="es_MX" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:alt" content={title} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image:alt" content={title} />
+
+  <link rel="sitemap" href={sitemapHref} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  {ldBlocks.map((block) => (
+    <script type="application/ld+json" set:html={JSON.stringify(block)} />
+  ))}
+</head>
+<body>
+  <Nav />
+  <slot />
+  <Footer />
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  </script>
+</body>
+</html>

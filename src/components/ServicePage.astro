@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TestimonialBlock from './TestimonialBlock.astro';
+import ContactSection from './ContactSection.astro';
+import { getService, SITE, getSeo } from '../consts';
+import { withBase, pageHero } from '../base';
+import { productionAssetUrl } from '../seo';
+
+interface Props { slug: string }
+const { slug } = Astro.props;
+const svc = getService(slug);
+if (!svc) throw new Error(`Unknown service slug: ${slug}`);
+const seo = getSeo(`/${slug}`);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `${svc.name} — ${SITE.name}`,
+  serviceType: svc.name,
+  description: seo.description,
+  url: `${SITE.url}/${slug}`,
+  provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  areaServed: ['US', 'CA', 'MX', 'BR', 'LATAM'],
+};
+---
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  ogImage={productionAssetUrl(`/heroes/${slug}.jpg`)}
+  breadcrumbs={[
+    { name: 'Services', path: '/services' },
+    { name: svc.navLabel, path: `/${slug}` },
+  ]}
+  jsonLd={jsonLd}
+>
+  <header class="page-hero">
+    <div class="wrap page-split">
+      <div>
+        <p class="kicker">Debt Collection Experts</p>
+        <h1>{svc.navLabel}</h1>
+        <p class="lede">{svc.intro}</p>
+        <a class="btn" href={withBase('/#contact')}>Talk to an expert</a>
+      </div>
+      <img class="hero-photo" src={pageHero(slug)} alt={`${svc.navLabel} at WNRS`} />
+    </div>
+  </header>
+
+  <section class="sec" style="padding-top:1.5rem">
+    <div class="wrap">
+      <div class="tabs" role="tablist">
+        <button class="on" type="button" data-tab="overview">Overview</button>
+        <button type="button" data-tab="benefits">Benefits</button>
+      </div>
+      <div class="tab-panel">
+        <div class="page-split" style="align-items:start">
+          <div class="prose-el">
+          <div id="panel-overview">
+            <p class="kicker" style="display:flex;align-items:center;gap:8px"><span class="check">✓</span> Overview</p>
+            <h2>Overview</h2>
+            {svc.overview.map((p) => <p>{p}</p>)}
+          </div>
+          <div id="panel-benefits" hidden>
+            <h2>Benefits</h2>
+            <ul class="list-arrows">
+              {svc.benefits.map((b) => (
+                <li>{b}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div class="dash-art">
+          <img
+            id="aside-art"
+            src={withBase('/brand/results-analysis.png')}
+            data-overview={withBase('/brand/results-analysis.png')}
+            data-benefits={withBase('/brand/demand-gen.png')}
+            alt="Campaign results analysis"
+          />
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TestimonialBlock />
+  <ContactSection />
+</BaseLayout>
+<script>
+  const buttons = document.querySelectorAll('[data-tab]');
+  const overview = document.getElementById('panel-overview');
+  const benefits = document.getElementById('panel-benefits');
+  const art = document.getElementById('aside-art');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => b.classList.remove('on'));
+      btn.classList.add('on');
+      const tab = btn.getAttribute('data-tab');
+      if (overview && benefits) {
+        overview.hidden = tab !== 'overview';
+        benefits.hidden = tab !== 'benefits';
+      }
+      if (art) {
+        const next = tab === 'benefits' ? art.dataset.benefits : art.dataset.overview;
+        if (next) art.src = next;
+        art.alt = tab === 'benefits' ? 'Outreach and scheduling' : 'Campaign results analysis';
+      }
+    });
+  });
+</script>

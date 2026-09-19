@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LogoMarquee from './LogoMarquee.astro';
+import TestimonialBlock from './TestimonialBlock.astro';
+import ContactSection from './ContactSection.astro';
+import { SERVICES, SITE, getSeo, type Vertical } from '../consts';
+import { withBase, pageHero } from '../base';
+import { productionAssetUrl } from '../seo';
+
+interface Props { vertical: Vertical }
+const { vertical } = Astro.props;
+const kindLabel = vertical.kind === 'sector' ? 'Sector' : 'Industry';
+const seo = getSeo(`/${vertical.slug}`);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `${vertical.name} accounts receivable management — ${SITE.name}`,
+  serviceType: `Accounts receivable management for ${vertical.name}`,
+  description: seo.description,
+  url: `${SITE.url}/${vertical.slug}`,
+  provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  audience: vertical.audience,
+  areaServed: ['US', 'CA', 'MX', 'BR', 'LATAM'],
+};
+---
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  ogImage={productionAssetUrl(`/heroes/${vertical.slug}.jpg`)}
+  breadcrumbs={[
+    { name: 'Services', path: '/services' },
+    { name: vertical.name, path: `/${vertical.slug}` },
+  ]}
+  jsonLd={jsonLd}
+>
+  <header class="page-hero">
+    <div class="wrap page-split">
+      <div>
+        <p class="kicker">{kindLabel}</p>
+        <h1>{vertical.name}</h1>
+        <p class="lede">{vertical.intro}</p>
+        <a class="btn" href={withBase('/#contact')}>Talk to an expert</a>
+      </div>
+      <img class="hero-photo" src={pageHero(vertical.slug)} alt={`${vertical.name} collections`} />
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="wrap page-split" style="align-items:start">
+      <div class="prose-el">
+        <h2>Collection services for {vertical.name}</h2>
+        <p>{vertical.overview}</p>
+        <p>
+          Pick the stage that matches the aging — early-stage collection, late-stage concentration,
+          skip tracing, attorney intervention, or specialized unit support.
+        </p>
+      </div>
+      <aside class="stats-card">
+        <h3>What you can expect</h3>
+        <ul class="list-checks" style="margin-top:12px">
+          {vertical.benefits.map((b) => (
+            <li><span class="check">✓</span><span>{b}</span></li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <h2>Collection services</h2>
+      <div class="svc-grid">
+        {SERVICES.map((s) => (
+          <a class="svc-tile" href={withBase(`/${s.slug}`)}>
+            <h3>{s.name}</h3>
+            <p>{s.short}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <LogoMarquee />
+  <TestimonialBlock />
+  <ContactSection />
+</BaseLayout>

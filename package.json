@@ -1,0 +1,17 @@
+{
+  "name": "wnrs",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build && node scripts/check-pages-base.mjs",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.2.1",
+    "astro": "^4.16.18"
+  }
+}

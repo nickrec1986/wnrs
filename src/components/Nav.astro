@@ -1,0 +1,160 @@
+---
+import { SERVICES, FEATURED_INDUSTRIES, LOCALES, PORTAL_URL } from '../consts';
+import { withBase } from '../base';
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const servicesPath = withBase('/services').replace(/\/$/, '');
+const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s.slug));
+---
+<header class="site-header" id="nav">
+  <div class="bar">
+    <a class="brand-logo" href={withBase('/')} aria-label="WNRS home">
+      <img src={withBase('/brand/logo-wnrs.png')} alt="WNRS — Accelerate your Cashflow" width="180" height="52" />
+    </a>
+
+    <nav class="nav-main" id="nav-links">
+      <div class="nav-item" data-menu>
+        <button
+          type="button"
+          class:list={['menu-btn', { on: servicesOn }]}
+          aria-expanded="false"
+          aria-controls="mega-services"
+          id="services-btn"
+        >
+          Services <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div class="mega" id="mega-services" hidden>
+          <div class="mega-types" aria-labelledby="mega-types-label">
+            <p class="mh" id="mega-types-label">By Type</p>
+            {SERVICES.map((s) => (
+              <a href={withBase(`/${s.slug}`)}>{s.navLabel}</a>
+            ))}
+            <a class="mega-more" href={withBase('/services')}>All services</a>
+          </div>
+          <div class="mega-industries" aria-labelledby="mega-industry-label">
+            <p class="mh" id="mega-industry-label">By Industry</p>
+            {FEATURED_INDUSTRIES.map((i) => (
+              <a href={withBase(`/${i.slug}`)}>{i.name}</a>
+            ))}
+            <a class="mega-more" href={withBase('/services#industries')}>More industries</a>
+          </div>
+        </div>
+      </div>
+      <a href={withBase('/about-us')}>About Us</a>
+      <a class="mobile-only" href={PORTAL_URL}>Login</a>
+      <a class="mobile-only btn" href={withBase('/#contact')}>Book a Call</a>
+    </nav>
+
+    <div class="nav-end">
+      <div class="nav-item lang" data-menu>
+        <button type="button" class="menu-btn" aria-expanded="false" aria-controls="lang-menu" id="lang-btn">
+          EN <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div class="lang-menu" id="lang-menu" hidden>
+          {LOCALES.map((l) => (
+            <a href={l.href} hreflang={l.hreflang}>{l.label} · {l.name}</a>
+          ))}
+        </div>
+      </div>
+      <a class="plain" href={PORTAL_URL}>Login</a>
+      <a class="btn" href={withBase('/#contact')}>Book a Call</a>
+      <button class="hamburger" type="button" id="nav-toggle" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<script>
+  const nav = document.getElementById('nav');
+  const burger = document.getElementById('nav-toggle');
+  const items = Array.from(nav?.querySelectorAll('[data-menu]') ?? []);
+  const DESKTOP = '(min-width: 901px)';
+  const CLOSE_MS = 220;
+  const timers = new WeakMap();
+
+  const panelOf = (item) => item.querySelector('.mega, .lang-menu');
+  const isDesktop = () => window.matchMedia(DESKTOP).matches;
+
+  const setOpen = (item, open) => {
+    item.classList.toggle('open', open);
+    const btn = item.querySelector(':scope > .menu-btn');
+    const panel = panelOf(item);
+    btn?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (panel) {
+      panel.hidden = !open;
+      if ('inert' in panel) panel.inert = !open;
+    }
+  };
+
+  const clearTimer = (item) => {
+    const t = timers.get(item);
+    if (t) clearTimeout(t);
+    timers.delete(item);
+  };
+
+  const closeAll = (except) => {
+    items.forEach((item) => {
+      if (item === except) return;
+      clearTimer(item);
+      setOpen(item, false);
+    });
+  };
+
+  items.forEach((item) => setOpen(item, false));
+
+  burger?.addEventListener('click', () => {
+    const on = nav?.classList.toggle('open');
+    burger.setAttribute('aria-expanded', on ? 'true' : 'false');
+    if (!on) closeAll();
+  });
+
+  items.forEach((item) => {
+    const btn = item.querySelector(':scope > .menu-btn');
+
+    item.addEventListener('mouseenter', () => {
+      if (!isDesktop()) return;
+      clearTimer(item);
+      closeAll(item);
+      setOpen(item, true);
+    });
+
+    item.addEventListener('mouseleave', () => {
+      if (!isDesktop()) return;
+      clearTimer(item);
+      timers.set(item, setTimeout(() => {
+        setOpen(item, false);
+        timers.delete(item);
+      }, CLOSE_MS));
+    });
+
+    btn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      clearTimer(item);
+      const next = !item.classList.contains('open');
+      closeAll(item);
+      setOpen(item, next);
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const openItem = items.find((item) => item.classList.contains('open'));
+    closeAll();
+    if (nav?.classList.contains('open')) {
+      nav.classList.remove('open');
+      burger?.setAttribute('aria-expanded', 'false');
+      burger?.focus();
+      return;
+    }
+    openItem?.querySelector('.menu-btn')?.focus();
+  });
+
+  document.addEventListener('click', (e) => {
+    const t = e.target;
+    items.forEach((item) => {
+      if (!item.contains(t)) {
+        clearTimer(item);
+        setOpen(item, false);
+      }
+    });
+  });
+</script>

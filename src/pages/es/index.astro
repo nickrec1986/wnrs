@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF, getSeo } from '../../consts';
+import { withBase } from '../../base';
+
+const seo = getSeo('/es');
+---
+<BaseLayout
+  lang="es"
+  title={seo.title}
+  description={seo.description}
+>
+  <section class="hero-el">
+    <div class="inner">
+      <p class="kicker">wnrs.com.mx · ES</p>
+      <h1>Sus cuentas por cobrar.<br />Recuperadas. Rápido.</h1>
+      <p class="lede">
+        La versión en español del sitio WNRS se está armando en este codebase (rutas <code>/es</code>).
+        Mientras tanto, escriba al equipo o use el sitio en inglés.
+      </p>
+      <a class="btn btn-lg" href={EMAIL_HREF}>{EMAIL}</a>
+      <p style="margin-top:16px"><a href={withBase('/')}>English site →</a> · <a href={PHONE_HREF}>{PHONE}</a></p>
+    </div>
+  </section>
+</BaseLayout>

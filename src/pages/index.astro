@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LogoMarquee from '../components/LogoMarquee.astro';
+import TestimonialBlock from '../components/TestimonialBlock.astro';
+import ContactSection from '../components/ContactSection.astro';
+import {
+  HOME,
+  KEY_STATS,
+  HOME_PICKER,
+  DIFFERENTIATORS,
+  PROCESS_STEPS,
+  PRESS_LOGOS,
+  getSeo,
+} from '../consts';
+import { withBase } from '../base';
+
+const seo = getSeo('/');
+---
+<BaseLayout title={seo.title} description={seo.description}>
+  <section class="hero-el">
+    <div class="inner">
+      <p class="kicker">Debt Collection Experts</p>
+      <h1>Your Receivables.<br />Recovered. Fast.</h1>
+      <p class="lede">{HOME.lede}</p>
+      <a class="btn btn-lg" href={withBase('/#contact')}>Talk to an expert</a>
+    </div>
+  </section>
+
+  <LogoMarquee />
+
+  <section class="sec">
+    <div class="wrap center">
+      <h2>Custom fit, Hyper specialized, receivable and CX services done for you</h2>
+      <p class="sub">{HOME.servicesSub}</p>
+    </div>
+    <div class="wrap split-home">
+      <div class="stats-card">
+        <img class="photo" src={withBase('/brand/hero.jpg')} alt="WNRS teams at work" />
+        <h3>Key Stats:</h3>
+        <div class="stat-grid">
+          <ul>
+            {KEY_STATS.slice(0, 4).map((s) => (
+              <li><span class="check" aria-hidden="true">✓</span><span>{s}</span></li>
+            ))}
+          </ul>
+          <ul>
+            {KEY_STATS.slice(4).map((s) => (
+              <li><span class="check" aria-hidden="true">✓</span><span>{s}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div class="picker">
+        <h3>Everything you need for any stage of the receivable experience. Pick your service.</h3>
+        <div class="picker-grid">
+          {HOME_PICKER.map((p) => (
+            <a class="pick" href={p.href}>{p.label}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec apart-pin" style="padding-top:1rem">
+    <div class="wrap apart">
+      <div class="apart-copy">
+        <h2>What sets us apart</h2>
+        <p class="sub">{HOME.apartSub}</p>
+        <a class="btn" href={withBase('/#contact')}>Talk to an expert</a>
+      </div>
+      <div class="apart-cards">
+        {DIFFERENTIATORS.map((d) => (
+          <article class="apart-card">
+            <img src={d.img} alt={d.h} />
+            <div class="body">
+              <h3>{d.h}</h3>
+              <p>{d.p}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="banner-3x">
+    <h2>Our Clients Recover 3x or more — 10x Faster.</h2>
+    <a class="btn" href={withBase('/#contact')}>Book a call</a>
+  </section>
+
+  <section class="sec journey" id="how-it-works">
+    <div class="wrap">
+      <div class="journey-panel">
+        <div class="journey-head">
+          <p class="kicker">{HOME.processEyebrow}</p>
+          <h2>From Debt to Cashflow</h2>
+          <p class="sub">A simplified visual showing how you turn unpaid cases into recovered revenue.</p>
+        </div>
+        <div class="journey-split">
+          <ol class="journey-steps">
+            {PROCESS_STEPS.map((st) => (
+              <li class="journey-step">
+                <span class="journey-num" aria-hidden="true">{st.num}</span>
+                <div>
+                  <h3>{st.h}</h3>
+                  <p>{st.p}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <figure class="journey-art">
+            <img src={withBase('/brand/illustration-1.png')} alt="WNRS specialists collaborating" />
+            <figcaption>Realtime technology and data driven decisions</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:1rem">
+    <div class="wrap center">
+      <h2>#1 agency for fortune 500 clients and government throughout the Americas</h2>
+      <p class="sub">As recognized by:</p>
+    </div>
+  </section>
+  <LogoMarquee label="" logos={PRESS_LOGOS} variant="press" />
+
+  <TestimonialBlock />
+  <ContactSection />
+</BaseLayout>

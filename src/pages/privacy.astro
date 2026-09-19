@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { EMAIL, EMAIL_HREF, getSeo } from '../consts';
+import { withBase } from '../base';
+
+const seo = getSeo('/privacy');
+---
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  breadcrumbs={[{ name: 'Privacy policy', path: '/privacy' }]}
+>
+  <header class="page-hero">
+    <div class="wrap">
+      <p class="kicker"><a href={withBase('/')}>Home</a> / Privacy</p>
+      <h1>Privacy policy</h1>
+      <p class="lede">How the public WNRS marketing site handles information.</p>
+    </div>
+  </header>
+  <section class="sec">
+    <div class="wrap prose-el">
+      <p>
+        This static marketing site does not run a CMS, user accounts, or a collections database.
+        If you email or call us, we use the contact details you send to respond to your inquiry.
+      </p>
+      <p>
+        Client-file data lives on the separate portal at online.wnrs.com, not on this site.
+        We do not sell marketing-site visitor lists.
+      </p>
+      <p>Questions: <a href={EMAIL_HREF}>{EMAIL}</a>.</p>
+    </div>
+  </section>
+</BaseLayout>
