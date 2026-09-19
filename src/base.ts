@@ -2,6 +2,10 @@
  * Prefix a site-relative path with Astro `base`.
  * Preview on GitHub project Pages uses `base: '/wnrs/'`.
  * Custom-domain cutover (wnrs.com) should set `base: '/'` in astro.config.mjs.
+ *
+ * Canonicals, Open Graph, hreflang, JSON-LD, and the sitemap do NOT use this
+ * helper — they stay on https://wnrs.com/{path} via `src/seo.ts` so preview
+ * URLs never become the indexed ones.
  */
 export function withBase(path: string): string {
   if (/^(https?:|mailto:|tel:)/i.test(path)) return path;

@@ -51,7 +51,7 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
         </button>
         <div class="lang-menu" id="lang-menu" hidden>
           {LOCALES.map((l) => (
-            <a href={l.href} hreflang={l.code === 'pt' ? 'pt-BR' : l.code}>{l.label} · {l.name}</a>
+            <a href={l.href} hreflang={l.hreflang}>{l.label} · {l.name}</a>
           ))}
         </div>
       </div>

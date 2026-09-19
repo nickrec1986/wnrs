@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE, INSIGHTS, type InsightPost } from '../../consts';
 import { withBase } from '../../base';
+import { canonicalUrl } from '../../seo';
 
 export function getStaticPaths() {
   return INSIGHTS.map((post) => ({ params: { slug: post.slug }, props: { post } }));
@@ -9,8 +10,26 @@ export function getStaticPaths() {
 
 interface Props { post: InsightPost }
 const { post } = Astro.props;
+const path = `/insights/${post.slug}`;
 ---
-<BaseLayout title={`${post.title} | ${SITE.name}`} description={post.description} ogType="article">
+<BaseLayout
+  title={`${post.title} | ${SITE.name}`}
+  description={post.description}
+  ogType="article"
+  breadcrumbs={[
+    { name: 'Insights', path: '/insights' },
+    { name: post.title, path },
+  ]}
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    url: canonicalUrl(path),
+    publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  }}
+>
   <header class="page-hero">
     <div class="wrap">
       <p class="kicker"><a href={withBase('/insights')}>Insights</a></p>

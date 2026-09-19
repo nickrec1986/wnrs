@@ -1,3 +1,5 @@
+# Preview on github.io uses base /wnrs/, but crawlers should index production.
+# Canonicals, OG URLs, and this sitemap stay on https://wnrs.com (no /wnrs path).
 User-agent: *
 Allow: /
 

@@ -18,12 +18,13 @@ npm run build    # writes ./dist
 npm run preview  # serve the static build (also under /wnrs/)
 ```
 
-Content is consts-driven. Edit copy in `src/consts.ts`; pages under `src/pages/` stay thin so bots can change the site via git.
+Content is consts-driven. Edit copy in `src/consts.ts`; pages under `src/pages/` stay thin so bots can change the site via git. Titles and meta descriptions live in `PAGE_SEO` in that file.
 
 | Path | Role |
 | --- | --- |
-| `src/consts.ts` | Stats, services, industries, sectors, testimonials, about |
-| `src/layouts/BaseLayout.astro` | SEO, OG, canonical, Organization JSON-LD, sitemap link |
+| `src/consts.ts` | Stats, services, industries, sectors, testimonials, about, **PAGE_SEO** |
+| `src/seo.ts` | Production canonical / hreflang / JSON-LD helpers (wnrs.com, no `/wnrs`) |
+| `src/layouts/BaseLayout.astro` | Title, description, OG, Twitter, canonical, hreflang, Organization + WebPage JSON-LD |
 | `src/components/` | Nav, footer, service/industry templates, contact |
 | `src/pages/[slug].astro` | All industry + sector URLs from `VERTICALS` |
 | `src/pages/early-stage-arm.astro` (etc.) | Core service URLs |
@@ -54,6 +55,18 @@ When DNS for `wnrs.com` / `www` points at GitHub Pages:
 3. In **Repo → Settings → Pages**, set custom domain `wnrs.com` and enable **Enforce HTTPS** after DNS checks pass.
 
 Until that cutover, keep `base: '/wnrs/'` so the github.io preview keeps working.
+
+## SEO (preview vs production)
+
+Internal links and assets use `withBase()` so the github.io preview works under `/wnrs/`. **Search-engine tags do not:**
+
+- `<link rel="canonical">`, `og:url`, `og:image`, Twitter image, and JSON-LD `@id`/`url` are always `https://wnrs.com/{path}` (or `wnrs.com.br` / `wnrs.com.mx` for locale stubs).
+- The `/wnrs` preview prefix is stripped. A page at `https://nickrec1986.github.io/wnrs/about-us/` canonicalizes to `https://wnrs.com/about-us`.
+- `@astrojs/sitemap` uses `site: 'https://wnrs.com'` and serializes locs the same way. `public/robots.txt` points at `https://wnrs.com/sitemap-index.xml`.
+- hreflang: `en` → wnrs.com, `pt-BR` → wnrs.com.br, `es` → wnrs.com.mx, same path on each host (locale sites may still be stubs).
+- Edit titles/descriptions in `PAGE_SEO` (`src/consts.ts`). Type and industry pages also emit Service JSON-LD; Insights emits Blog.
+
+After DNS cutover, set `base: '/'` as above. Canonicals do not need to change.
 
 `public/.nojekyll` is included because Astro emits `/_astro/` assets. Jekyll on Pages would otherwise ignore that folder.
 

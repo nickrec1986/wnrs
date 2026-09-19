@@ -1,9 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE, EMAIL, EMAIL_HREF } from '../consts';
+import { EMAIL, EMAIL_HREF, getSeo } from '../consts';
 import { withBase } from '../base';
+
+const seo = getSeo('/privacy');
 ---
-<BaseLayout title={`Privacy policy | ${SITE.name}`} description="Privacy policy for the WNRS marketing website.">
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  breadcrumbs={[{ name: 'Privacy policy', path: '/privacy' }]}
+>
   <header class="page-hero">
     <div class="wrap">
       <p class="kicker"><a href={withBase('/')}>Home</a> / Privacy</p>

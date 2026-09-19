@@ -2,24 +2,36 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TestimonialBlock from './TestimonialBlock.astro';
 import ContactSection from './ContactSection.astro';
-import { getService, SITE } from '../consts';
+import { getService, SITE, getSeo } from '../consts';
 import { withBase, pageHero } from '../base';
+import { productionAssetUrl } from '../seo';
 
 interface Props { slug: string }
 const { slug } = Astro.props;
 const svc = getService(slug);
 if (!svc) throw new Error(`Unknown service slug: ${slug}`);
+const seo = getSeo(`/${slug}`);
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: `${svc.name} — ${SITE.name}`,
   serviceType: svc.name,
-  description: svc.intro,
+  description: seo.description,
+  url: `${SITE.url}/${slug}`,
   provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
   areaServed: ['US', 'CA', 'MX', 'BR', 'LATAM'],
 };
 ---
-<BaseLayout title={`${svc.name} | ${SITE.name}`} description={svc.intro} jsonLd={jsonLd}>
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  ogImage={productionAssetUrl(`/heroes/${slug}.jpg`)}
+  breadcrumbs={[
+    { name: 'Services', path: '/services' },
+    { name: svc.navLabel, path: `/${slug}` },
+  ]}
+  jsonLd={jsonLd}
+>
   <header class="page-hero">
     <div class="wrap page-split">
       <div>

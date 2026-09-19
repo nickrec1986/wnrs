@@ -4,17 +4,19 @@ import LogoMarquee from '../components/LogoMarquee.astro';
 import TestimonialBlock from '../components/TestimonialBlock.astro';
 import ContactSection from '../components/ContactSection.astro';
 import {
-  SITE,
   HOME,
   KEY_STATS,
   HOME_PICKER,
   DIFFERENTIATORS,
   PROCESS_STEPS,
   PRESS_LOGOS,
+  getSeo,
 } from '../consts';
 import { withBase } from '../base';
+
+const seo = getSeo('/');
 ---
-<BaseLayout title={SITE.title} description={SITE.description}>
+<BaseLayout title={seo.title} description={seo.description}>
   <section class="hero-el">
     <div class="inner">
       <p class="kicker">Debt Collection Experts</p>
@@ -69,7 +71,7 @@ import { withBase } from '../base';
       <div class="apart-cards">
         {DIFFERENTIATORS.map((d) => (
           <article class="apart-card">
-            <img src={d.img} alt="" />
+            <img src={d.img} alt={d.h} />
             <div class="body">
               <h3>{d.h}</h3>
               <p>{d.p}</p>

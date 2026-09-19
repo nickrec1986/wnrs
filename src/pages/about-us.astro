@@ -2,12 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LogoMarquee from '../components/LogoMarquee.astro';
 import ContactSection from '../components/ContactSection.astro';
-import { ABOUT, SITE, SERVICES, PRESS_LOGOS } from '../consts';
+import { ABOUT, SERVICES, PRESS_LOGOS, getSeo } from '../consts';
 import { withBase } from '../base';
+
+const seo = getSeo('/about-us');
 ---
 <BaseLayout
-  title={`About Us | ${SITE.name}`}
-  description="WNRS is a leading global provider of customized debt collection and accounts receivable management, headquartered in Miami with operations across the Americas."
+  title={seo.title}
+  description={seo.description}
+  breadcrumbs={[{ name: 'About Us', path: '/about-us' }]}
 >
   <header class="page-hero">
     <div class="wrap center">

@@ -3,23 +3,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import LogoMarquee from './LogoMarquee.astro';
 import TestimonialBlock from './TestimonialBlock.astro';
 import ContactSection from './ContactSection.astro';
-import { SERVICES, SITE, type Vertical } from '../consts';
+import { SERVICES, SITE, getSeo, type Vertical } from '../consts';
 import { withBase, pageHero } from '../base';
+import { productionAssetUrl } from '../seo';
 
 interface Props { vertical: Vertical }
 const { vertical } = Astro.props;
 const kindLabel = vertical.kind === 'sector' ? 'Sector' : 'Industry';
+const seo = getSeo(`/${vertical.slug}`);
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: `${vertical.name} accounts receivable management — ${SITE.name}`,
   serviceType: `Accounts receivable management for ${vertical.name}`,
-  description: vertical.intro,
+  description: seo.description,
+  url: `${SITE.url}/${vertical.slug}`,
   provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
   audience: vertical.audience,
+  areaServed: ['US', 'CA', 'MX', 'BR', 'LATAM'],
 };
 ---
-<BaseLayout title={`${vertical.name} | ${SITE.name}`} description={vertical.intro} jsonLd={jsonLd}>
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  ogImage={productionAssetUrl(`/heroes/${vertical.slug}.jpg`)}
+  breadcrumbs={[
+    { name: 'Services', path: '/services' },
+    { name: vertical.name, path: `/${vertical.slug}` },
+  ]}
+  jsonLd={jsonLd}
+>
   <header class="page-hero">
     <div class="wrap page-split">
       <div>

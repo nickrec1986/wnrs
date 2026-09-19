@@ -9,9 +9,9 @@ export const SITE = {
   name: 'WNRS',
   legalName: 'World Net Recovery Systems',
   url: 'https://wnrs.com',
-  title: 'WNRS - Debt Collection Experts',
+  title: 'Debt Collection & Accounts Receivable Recovery | WNRS',
   description:
-    'WNRS recovers receivables at every stage of delinquency. 1,200+ professionals, 8 global hubs, and 50+ years of accounts receivable management for companies across the Americas.',
+    'WNRS recovers unpaid accounts receivable at every stage of delinquency. 1,200+ professionals, 8 hubs, and 50+ years across the Americas. Talk to an expert.',
   tagline: 'Debt collection experts. Receivables recovered fast.',
   slogan: 'Your Receivables. Recovered. Fast.',
 } as const;
@@ -25,9 +25,9 @@ export const PORTAL_URL = 'https://online.wnrs.com';
 export const HQ = 'Miami, FL';
 
 export const LOCALES = [
-  { code: 'en', label: 'EN', name: 'English', href: 'https://wnrs.com', host: 'wnrs.com' },
-  { code: 'pt', label: 'BR', name: 'Português', href: 'https://wnrs.com.br', host: 'wnrs.com.br' },
-  { code: 'es', label: 'ES', name: 'Español', href: 'https://wnrs.com.mx', host: 'wnrs.com.mx' },
+  { code: 'en', hreflang: 'en', label: 'EN', name: 'English', href: 'https://wnrs.com', host: 'wnrs.com' },
+  { code: 'pt', hreflang: 'pt-BR', label: 'BR', name: 'Português', href: 'https://wnrs.com.br', host: 'wnrs.com.br' },
+  { code: 'es', hreflang: 'es', label: 'ES', name: 'Español', href: 'https://wnrs.com.mx', host: 'wnrs.com.mx' },
 ] as const;
 
 export const NAV_LINKS = [
@@ -890,3 +890,240 @@ export const PRESS_LOGOS = [
   // Official Reuters wordmark (navy + dotted globe) from Wikimedia Commons PD-textlogo.
   { src: withBase('/press/reuters.png'), alt: 'Reuters', wide: true },
 ] as const;
+
+export const LINKEDIN_URL = 'https://www.linkedin.com/company/wnrscollections';
+
+export type SeoEntry = {
+  title: string;
+  description: string;
+};
+
+/**
+ * Unique `<title>` + meta description per route. Edit here; pages pass these
+ * into BaseLayout. Target ~150–160 characters on descriptions, with a soft CTA
+ * where it reads naturally.
+ *
+ * Keys are production paths (no `/wnrs` prefix).
+ */
+export const PAGE_SEO: Record<string, SeoEntry> = {
+  '/': {
+    title: SITE.title,
+    description: SITE.description,
+  },
+  '/about-us': {
+    title: 'About Us | Debt Collection Experts | WNRS',
+    description:
+      'WNRS is a Miami-based debt collection and accounts receivable firm: 50+ years, 1,200+ professionals, and recovery hubs across the Americas. Talk to an expert.',
+  },
+  '/services': {
+    title: 'Collection Services by Type & Industry | WNRS',
+    description:
+      'Explore WNRS collection and accounts receivable services by type, sector, and industry — early stage through attorney intervention. Talk to an expert.',
+  },
+  '/insights': {
+    title: 'Insights on Collections & Receivables | WNRS',
+    description:
+      'WNRS Insights: practical notes on debt collection, accounts receivable recovery, and cashflow for finance teams across the Americas. Read the latest.',
+  },
+  '/privacy': {
+    title: 'Privacy Policy | WNRS',
+    description:
+      'How the WNRS marketing site handles information. Client files stay on online.wnrs.com — this site does not host collections data. Questions welcome.',
+  },
+  '/terms': {
+    title: 'Terms of Service | WNRS',
+    description:
+      'Terms for the public WNRS marketing website. Collection work is governed by a separate client agreement, not these pages. Contact us with questions.',
+  },
+  '/404': {
+    title: 'Page Not Found | WNRS',
+    description:
+      'That URL is not on the WNRS marketing site. Return home for debt collection and accounts receivable services across the Americas.',
+  },
+  '/pt': {
+    title: 'WNRS Brasil | Cobrança e gestão de recebíveis',
+    description:
+      'WNRS — especialistas em cobrança e gestão de contas a receber nas Américas. Site em português em construção. Fale conosco.',
+  },
+  '/es': {
+    title: 'WNRS México | Cobranza y gestión de cuentas por cobrar',
+    description:
+      'WNRS — expertos en cobranza y gestión de cuentas por cobrar en las Américas. Sitio en español en construcción. Contáctenos.',
+  },
+  '/early-stage-arm': {
+    title: 'Early Stage Collection | Debt Collection | WNRS',
+    description:
+      'First-party early stage collection from WNRS — stop delinquency in the first 1–60 days without souring customer relationships. Talk to an expert.',
+  },
+  '/late-stage-arm': {
+    title: 'Late Stage Collection | Pre-Charge-Off Recovery | WNRS',
+    description:
+      'Late stage collection for accounts nearing charge-off. Seasoned collectors, skip tracing, and attorney backup from WNRS. Recover more before write-off. Talk to an expert.',
+  },
+  '/specialized-arm': {
+    title: 'Specialized Collection | Sensitive ARM | WNRS',
+    description:
+      'WNRS Specialized Unit handles sensitive, multi-party collections for government and multinationals. Complex disputes, discreet recovery. Talk to an expert.',
+  },
+  '/financial-skip-tracing': {
+    title: 'Financial Skip Tracing | Location & Assets | WNRS',
+    description:
+      'WNRS skip tracing locates debtors and assets when public databases fall short. International investigators plus field work. Talk to an expert.',
+  },
+  '/attorney-intervention': {
+    title: 'Attorney Intervention | Legal Collections | WNRS',
+    description:
+      'Litigation and judgment enforcement through WNRS’s international attorney network. One desk from recoverability analysis to execution. Talk to an expert.',
+  },
+  '/business': {
+    title: 'Business Debt Collection | Mid-Market ARM | WNRS',
+    description:
+      'Accounts receivable and debt collection sized for mid-market companies. WNRS plugs in collectors, reporting, and skip tracing. Talk to an expert.',
+  },
+  '/enterprise': {
+    title: 'Enterprise Debt Collection | Global ARM | WNRS',
+    description:
+      'Enterprise collections across regions, languages, and legal regimes. WNRS runs recovery as an extension of corporate finance. Talk to an expert.',
+  },
+  '/government': {
+    title: 'Government Debt Collection | Public Sector ARM | WNRS',
+    description:
+      'Discreet debt collection for public entities and government-related commercial claims. Compliant outreach through legal enforcement. Talk to an expert.',
+  },
+  '/utilities': {
+    title: 'Utilities Debt Collection | Regulated ARM | WNRS',
+    description:
+      'Accounts receivable programs for regulated utilities. WNRS recovers past-due balances with compliant, brand-safe outreach. Talk to an expert.',
+  },
+  '/education-research': {
+    title: 'Education & Research Debt Collection | WNRS',
+    description:
+      'Debt collection for schools, research programs, and education lenders. WNRS recovers tuition and loan balances while protecting the institution. Talk to an expert.',
+  },
+  '/travel-transportation': {
+    title: 'Travel & Transportation Debt Collection | WNRS',
+    description:
+      'Freight, corporate travel, and carrier receivables recovered across borders. WNRS collections for travel and transportation books. Talk to an expert.',
+  },
+  '/retail': {
+    title: 'Retail Debt Collection | Ecommerce & Store ARM | WNRS',
+    description:
+      'High-volume retail and ecommerce debt collection without choking working capital. WNRS collectors work as an extension of your brand. Talk to an expert.',
+  },
+  '/manufacturing': {
+    title: 'Manufacturing Debt Collection | Trade Credit ARM | WNRS',
+    description:
+      'Trade-credit recovery for manufacturers. WNRS lowers DSO, closes disputes, and collects delinquencies without adding plant overhead. Talk to an expert.',
+  },
+  '/professional-services': {
+    title: 'Professional Services Debt Collection | WNRS',
+    description:
+      'Collect aged WIP and unpaid invoices for law, accounting, and consulting firms — without damaging client relationships. Discretion first. Talk to an expert.',
+  },
+  '/aerospace-defense': {
+    title: 'Defense & Security Debt Collection | WNRS',
+    description:
+      'Discreet collections for aerospace, defense, and dual-use commercial claims. WNRS handles contract-heavy, cross-border files. Talk to an expert.',
+  },
+  '/construction-operations': {
+    title: 'Construction Debt Collection | Retainage & Billings | WNRS',
+    description:
+      'Recover progress billings, retainage, and vendor balances on project work. WNRS construction collections trained on contract forms. Talk to an expert.',
+  },
+  '/banking': {
+    title: 'Banking Debt Collection | Regulated Credit | WNRS',
+    description:
+      'Compliant recovery support for banks and credit portfolios. WNRS works inside your contact rules with auditable reporting. Talk to an expert.',
+  },
+  '/consumer-products': {
+    title: 'Consumer Products Debt Collection | CPG ARM | WNRS',
+    description:
+      'Trade and consumer receivables for CPG and branded goods. WNRS recovers distributor and retail balances while protecting brand equity. Talk to an expert.',
+  },
+  '/chemicals': {
+    title: 'Chemicals Debt Collection | B2B Trade Credit | WNRS',
+    description:
+      'B2B recovery for chemical producers and distributors. WNRS separates collectible balances from quality and freight claims. Talk to an expert.',
+  },
+  '/engineering': {
+    title: 'Engineering Debt Collection | Project Fees | WNRS',
+    description:
+      'Fee recovery for engineering firms on milestone and retainer work. WNRS works from your SOWs, not a generic dunning letter. Talk to an expert.',
+  },
+  '/gaming-hospitality-leisure': {
+    title: 'Hospitality & Gaming Debt Collection | WNRS',
+    description:
+      'Receivables for casinos, hotels, and leisure operators. WNRS recovers markers, folios, and group balances with discretion. Talk to an expert.',
+  },
+  '/government-contracting': {
+    title: 'Government Contracting Debt Collection | WNRS',
+    description:
+      'Commercial recovery around primes, subcontractors, and agency payment. WNRS understands flow-downs and public-sector pace. Talk to an expert.',
+  },
+  '/healthcare': {
+    title: 'Healthcare Debt Collection | Patient & Payer ARM | WNRS',
+    description:
+      'Healthcare A/R for hospitals and physician groups. WNRS works patient, payer, and third-party liability balances with trained collectors. Talk to an expert.',
+  },
+  '/high-tech': {
+    title: 'High-Tech Debt Collection | SaaS & Hardware ARM | WNRS',
+    description:
+      'Collections for software, hardware, and channel partners. WNRS recovers subscriptions and distributor defaults across borders. Talk to an expert.',
+  },
+  '/industrial-machinery-components': {
+    title: 'Industrial Machinery Debt Collection | WNRS',
+    description:
+      'Capex and spare-parts recovery for industrial equipment sellers. WNRS assesses recoverability before recommending legal spend. Talk to an expert.',
+  },
+  '/insurance': {
+    title: 'Insurance Debt Collection | Premium & Subrogation | WNRS',
+    description:
+      'Premium, deductible, and subrogation recovery for insurers and MGAs. A specialist desk with compliant contact and reporting. Talk to an expert.',
+  },
+  '/life-sciences': {
+    title: 'Life Sciences Debt Collection | Pharma & Device | WNRS',
+    description:
+      'Receivables for pharma, device, and research organizations. WNRS recovers hospital, distributor, and government balances discreetly. Talk to an expert.',
+  },
+  '/media': {
+    title: 'Media Debt Collection | Advertising & Licensing | WNRS',
+    description:
+      'Advertising, licensing, and subscription recovery for media companies. WNRS works agency billing without treating buyers like consumers. Talk to an expert.',
+  },
+  '/mill-products': {
+    title: 'Mill Products Debt Collection | Paper & Packaging | WNRS',
+    description:
+      'Trade-credit recovery for paper, packaging, and mill-product producers. WNRS works aged invoices, quality disputes, and slow-pay trade. Talk to an expert.',
+  },
+  '/mining': {
+    title: 'Mining Debt Collection | Cross-Border Trade | WNRS',
+    description:
+      'Cross-border commercial recovery for mining and related trade. WNRS brings international offices and investigation to large invoices. Talk to an expert.',
+  },
+  '/oil-gas': {
+    title: 'Oil & Gas Debt Collection | Energy ARM | WNRS',
+    description:
+      'Energy-sector collections for operators, service companies, and traders. WNRS scopes joint-interest, services, and trade invoices. Talk to an expert.',
+  },
+  '/wholesale-distribution': {
+    title: 'Wholesale Distribution Debt Collection | WNRS',
+    description:
+      'High-volume trade-credit recovery for wholesalers and distributors. WNRS works aged invoices at volume for credit managers. Talk to an expert.',
+  },
+  '/sports-entertainment': {
+    title: 'Sports & Entertainment Debt Collection | WNRS',
+    description:
+      'Recovery for rights, tickets, sponsorships, and venue receivables. WNRS matches tone to public brands, then escalates if needed. Talk to an expert.',
+  },
+  '/telecommunications': {
+    title: 'Telecommunications Debt Collection | WNRS',
+    description:
+      'Subscriber and carrier receivables for telecom operators. WNRS covers high-volume delinquency and wholesale claims with compliant outreach. Talk to an expert.',
+  },
+};
+
+/** Look up PAGE_SEO by production path (`/about-us`, `/retail`, …). */
+export function getSeo(path: string): SeoEntry {
+  const key = path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path;
+  return PAGE_SEO[key] ?? { title: SITE.title, description: SITE.description };
+}

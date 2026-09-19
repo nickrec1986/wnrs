@@ -1,12 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from '../../consts';
+import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF, getSeo } from '../../consts';
 import { withBase } from '../../base';
+
+const seo = getSeo('/pt');
 ---
 <BaseLayout
   lang="pt-BR"
-  title={`WNRS Brasil | Cobrança e gestão de recebíveis`}
-  description="WNRS — especialistas em cobrança e gestão de contas a receber. Site em português em construção. Fale conosco."
+  title={seo.title}
+  description={seo.description}
 >
   <section class="hero-el">
     <div class="inner">
