@@ -9,7 +9,7 @@ export const SITE = {
   name: 'WNRS',
   legalName: 'World Net Recovery Systems',
   url: 'https://wnrs.com',
-  title: 'Debt Collection & Accounts Receivable Recovery | WNRS',
+  title: 'Debt Collection & Accounts Receivable Management | WNRS',
   description:
     'WNRS recovers unpaid accounts receivable at every stage of delinquency. 1,200+ professionals, 8 hubs, and 50+ years across the Americas. Talk to an expert.',
   tagline: 'Debt collection experts. Receivables recovered fast.',
