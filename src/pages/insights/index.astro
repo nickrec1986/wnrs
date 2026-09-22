@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, INSIGHTS, getSeo } from '../../consts';
+import { withBase } from '../../base';
+import { canonicalUrl } from '../../seo';
+
+const seo = getSeo('/insights');
+---
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  ogType="website"
+  breadcrumbs={[{ name: 'Insights', path: '/insights' }]}
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'WNRS Insights',
+    description: seo.description,
+    url: canonicalUrl('/insights'),
+    inLanguage: 'en',
+    publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  }}
+>
+  <header class="page-hero">
+    <div class="wrap">
+      <p class="kicker"><a href={withBase('/')}>Home</a> / Insights</p>
+      <h1>Insights</h1>
+      <p class="lede">
+        Practical notes on receivables recovery, collections, and cashflow — written for credit and finance teams.
+      </p>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="wrap">
+      {INSIGHTS.length ? (
+        <ul class="insight-list">
+          {INSIGHTS.map((post) => (
+            <li>
+              <article class="insight-card">
+                <time datetime={post.date}>{post.date}</time>
+                <h2><a href={withBase(`/insights/${post.slug}`)}>{post.title}</a></h2>
+                <p>{post.description}</p>
+              </article>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div class="insight-list insight-empty" role="status">
+          <p>Articles are on the way. This is the WNRS blog index — new posts will appear here.</p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

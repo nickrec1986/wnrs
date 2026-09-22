@@ -1,0 +1,5 @@
+# Production crawlers: sitemap on https://wnrs.com (domain root, no /wnrs path).
+User-agent: *
+Allow: /
+
+Sitemap: https://wnrs.com/sitemap-index.xml

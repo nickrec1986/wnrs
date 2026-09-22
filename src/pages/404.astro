@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getSeo } from '../consts';
+import { withBase } from '../base';
+
+const seo = getSeo('/404');
+---
+<BaseLayout title={seo.title} description={seo.description} noindex>
+  <section class="hero-el">
+    <div class="inner">
+      <p class="kicker">404</p>
+      <h1>Page not found.</h1>
+      <p class="lede">That URL is not on the WNRS marketing site.</p>
+      <a class="btn" href={withBase('/')}>Home</a>
+    </div>
+  </section>
+</BaseLayout>

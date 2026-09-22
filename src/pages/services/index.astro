@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LogoMarquee from '../../components/LogoMarquee.astro';
+import TestimonialBlock from '../../components/TestimonialBlock.astro';
+import ContactSection from '../../components/ContactSection.astro';
+import { getServicesForHub, SECTORS, INDUSTRY_HUB, getVertical, getSeo } from '../../consts';
+import { withBase, pageHero } from '../../base';
+
+const types = getServicesForHub();
+const hubSectors = SECTORS.filter((s) => s.slug !== 'utilities');
+const sectorPhotos: Record<string, string> = {
+  business: pageHero('business'),
+  enterprise: pageHero('enterprise'),
+  government: pageHero('government'),
+};
+const sectorStats: Record<string, string> = {
+  business: 'Increased 85%',
+  enterprise: 'Increased 80%',
+  government: 'Increased 75%',
+};
+const industries = INDUSTRY_HUB.map((slug) => getVertical(slug)).filter(Boolean);
+const seo = getSeo('/services');
+---
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  breadcrumbs={[{ name: 'Services', path: '/services' }]}
+>
+  <header class="page-hero">
+    <div class="wrap center">
+      <p class="kicker">Explore</p>
+      <h1>WNRS Services</h1>
+      <p class="lede" style="margin-left:auto;margin-right:auto">
+        Sophisticated accounts receivable and collection services don’t have to be complicated.
+        At WNRS we believe in keeping it simple – and smart. Results are what make us the market leader in collections.
+        Explore our services by type, industry, or sector.
+      </p>
+      <a class="btn btn-lg" href={withBase('/#contact')}>Talk to an expert</a>
+    </div>
+  </header>
+
+  <LogoMarquee />
+
+  <section class="sec" id="sectors">
+    <div class="wrap center">
+      <h2>Services by Sector</h2>
+      <p class="sub">Have an existing collections need? From business to enterprise, to government services, we have what you need to collect.</p>
+    </div>
+    <div class="wrap svc-grid">
+      {hubSectors.map((s) => (
+        <a class="svc-photo" href={withBase(`/${s.slug}`)}>
+          <img src={sectorPhotos[s.slug] ?? pageHero(s.slug)} alt={`${s.name} collections`} />
+          <div class="body">
+            <h3>{s.name}</h3>
+            <p>{s.short}</p>
+            {sectorStats[s.slug] && (
+              <p style="margin-top:10px;font-weight:600;color:var(--secondary)">Cash-Flow {sectorStats[s.slug]}</p>
+            )}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec" id="types" style="padding-top:0">
+    <div class="wrap center">
+      <h2>Services by Type</h2>
+      <p class="sub">
+        Looking for ways to help your Accounts Receivable run better? Choose amongst our award-winning
+        accounts receivable management services.
+      </p>
+    </div>
+    <div class="wrap svc-grid">
+      {types.map((s) => (
+        <a class="svc-tile" href={withBase(`/${s.slug}`)}>
+          <h3>{s.name}</h3>
+          <p>{s.short}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec" id="industries" style="padding-top:0">
+    <div class="wrap center">
+      <h2>Services by Industry</h2>
+      <p class="sub">What differentiates world class accounts receivable management services from the average? Often it’s industry specific services. Leverage our best practices, processes, and industry-specific products.</p>
+    </div>
+    <div class="wrap ind-grid">
+      {industries.map((i) => (
+        <a class="pick" href={withBase(`/${i!.slug}`)}>{i!.name}</a>
+      ))}
+    </div>
+  </section>
+
+  <TestimonialBlock />
+  <ContactSection />
+</BaseLayout>

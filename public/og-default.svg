@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0C1B2A"/>
+  <rect x="0" y="0" width="8" height="630" fill="#C4A35A"/>
+  <text x="80" y="200" font-family="Georgia, serif" font-size="42" letter-spacing="8" fill="#C4A35A">WNRS</text>
+  <text x="80" y="310" font-family="Georgia, serif" font-size="64" fill="#F5F6F8">Your Receivables.</text>
+  <text x="80" y="390" font-family="Georgia, serif" font-size="64" fill="#C4A35A">Recovered. Fast.</text>
+  <text x="80" y="480" font-family="system-ui, sans-serif" font-size="24" fill="#9AADC2">Debt collection · Accounts receivable management</text>
+</svg>
