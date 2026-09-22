@@ -1,13 +1,13 @@
 /**
- * Fail the build if dist HTML/CSS still points at site-root assets/links.
- * GitHub project Pages is served at /wnrs/, so `/brand/...` 404s.
+ * Fail the build if dist still uses the GitHub project-Pages preview prefix
+ * `/wnrs/` or github.io hosts. Production is the domain root on wnrs.com.
  */
 import { readdirSync, readFileSync, writeFileSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const root = 'dist';
-const htmlRe = /(?:src|href)="(\/(?!wnrs\/)(?:[A-Za-z#][^"]*)?)"/g;
-const cssRe = /url\(\s*(['"]?)(\/(?!wnrs\/)(?:brand|clients|icons)[^'")\s]*)\1\s*\)/g;
+const leftoverHtml = /(?:src|href)="(\/wnrs\/[^"]*)"/g;
+const leftoverCss = /url\(\s*(['"]?)(\/wnrs\/[^'")\s]*)\1\s*\)/g;
 const bad = [];
 
 function walk(dir) {
@@ -19,9 +19,10 @@ function walk(dir) {
     }
     if (name.endsWith('.html')) {
       const html = readFileSync(p, 'utf8');
-      htmlRe.lastIndex = 0;
+      leftoverHtml.lastIndex = 0;
       let m;
-      while ((m = htmlRe.exec(html))) bad.push(`${p}: ${m[1]}`);
+      while ((m = leftoverHtml.exec(html))) bad.push(`${p}: leftover preview path ${m[1]}`);
+      if (html.includes('github.io')) bad.push(`${p}: github.io host in HTML`);
       const canon = html.match(/rel="canonical" href="([^"]+)"/);
       if (canon) {
         const href = canon[1];
@@ -43,16 +44,16 @@ function walk(dir) {
       }
     } else if (name.endsWith('.css')) {
       const css = readFileSync(p, 'utf8');
-      cssRe.lastIndex = 0;
+      leftoverCss.lastIndex = 0;
       let m;
-      while ((m = cssRe.exec(css))) bad.push(`${p}: ${m[2]}`);
+      while ((m = leftoverCss.exec(css))) bad.push(`${p}: leftover preview path ${m[2]}`);
     }
   }
 }
 
 walk(root);
 
-// Sitemap index locs still include Astro `base` (/wnrs/). Rewrite to production.
+// Safety: strip any leftover /wnrs/ from sitemap locs, then assert clean.
 for (const name of ['sitemap-0.xml', 'sitemap-index.xml']) {
   const sp = join(root, name);
   if (!existsSync(sp)) continue;
@@ -75,8 +76,15 @@ for (const sp of sitemapFiles) {
   }
 }
 
+if (!existsSync(join(root, 'CNAME'))) {
+  bad.push('dist/CNAME: missing (should copy public/CNAME → wnrs.com)');
+} else {
+  const cname = readFileSync(join(root, 'CNAME'), 'utf8').trim();
+  if (cname !== 'wnrs.com') bad.push(`dist/CNAME: expected wnrs.com, got ${JSON.stringify(cname)}`);
+}
+
 if (bad.length) {
-  console.error('Paths missing Astro base /wnrs/ (would 404 on github.io):\n' + bad.join('\n'));
+  console.error('Production URL check failed:\n' + bad.join('\n'));
   process.exit(1);
 }
-console.log('Pages base check passed: dist img/href/url paths use /wnrs/; canonicals + sitemap on wnrs.com');
+console.log('Pages check passed: domain-root paths, canonicals + sitemap on wnrs.com, CNAME present');

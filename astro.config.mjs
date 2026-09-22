@@ -3,9 +3,8 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 /**
- * Preview still uses `base: '/wnrs/'` so github.io project Pages works.
- * Sitemap locs are rewritten to https://wnrs.com/{path} with the preview
- * prefix stripped — same rule as canonicals in src/seo.ts.
+ * Normalize sitemap locs to https://wnrs.com/{path} with no trailing slash
+ * (except home) and no leftover `/wnrs` preview prefix.
  */
 function toProductionUrl(url) {
   const u = new URL(url);
@@ -26,10 +25,8 @@ function sitemapPriority(url) {
 
 // https://astro.build/config
 export default defineConfig({
-  // Production origin for sitemap + Astro.site. Preview assets still use base /wnrs/.
-  // At custom-domain cutover: keep site: 'https://wnrs.com' and set base: '/'.
   site: 'https://wnrs.com',
-  base: '/wnrs/',
+  base: '/',
   output: 'static',
   trailingSlash: 'ignore',
   integrations: [

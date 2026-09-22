@@ -26,7 +26,5 @@ Do not overclaim legal outcomes. Collections compliance: directional, not legal 
 
 ## Stack
 Astro 4, `@astrojs/sitemap`, `output: 'static'`, `site: 'https://wnrs.com'`,
-`base: '/wnrs/'` (GitHub project Pages preview). Switch `base` to `'/'` at
-custom-domain cutover. Deploy: `.github/workflows/deploy-pages.yml`.
-Do not add `public/CNAME` until wnrs.com points at Pages — it would redirect
-github.io/wnrs to the live WordPress site.
+`base: '/'`. `public/CNAME` is `wnrs.com`. Deploy from `main` via
+`.github/workflows/deploy-pages.yml`. Do not point `online.wnrs.com` at Pages.

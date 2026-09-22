@@ -13,9 +13,9 @@ Stack matches [tryteleforce.com](https://tryteleforce.com): **Astro 4**, `@astro
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321/wnrs/
+npm run dev      # http://localhost:4321/
 npm run build    # writes ./dist
-npm run preview  # serve the static build (also under /wnrs/)
+npm run preview  # serve the static build at /
 ```
 
 Content is consts-driven. Edit copy in `src/consts.ts`; pages under `src/pages/` stay thin so bots can change the site via git. Titles and meta descriptions live in `PAGE_SEO` in that file.
@@ -30,43 +30,23 @@ Content is consts-driven. Edit copy in `src/consts.ts`; pages under `src/pages/`
 | `src/pages/early-stage-arm.astro` (etc.) | Core service URLs |
 | `public/.nojekyll` | Lets GitHub Pages serve Astro’s `_astro/` folder |
 
-## GitHub Pages deploy
+## GitHub Pages deploy (wnrs.com)
 
-Two URL modes. **This branch is set up so Nicolas can scroll a live preview on github.io.** Custom-domain cutover is a later config change, not required for review.
+This branch is prepared for the **custom-domain cutover**. `astro.config.mjs` has `site: 'https://wnrs.com'` and **`base: '/'`**. `public/CNAME` is `wnrs.com`. Internal links and assets go through `withBase()` so they resolve at the domain root (`/brand/...`, `/services`).
 
-### Preview now (GitHub project Pages)
+**https://nickrec1986.github.io/wnrs/ will break or redirect after this build is what Pages serves** (expected). Production target is **https://wnrs.com**.
 
-**Live preview:** https://nickrec1986.github.io/wnrs/ (after the first Actions deploy on this branch).
-
-- `astro.config.mjs` has `site: 'https://nickrec1986.github.io'` and **`base: '/wnrs/'`**. Every public asset and internal link goes through `withBase()` (`import.meta.env.BASE_URL`) so logo, clients, illustrations, favicon, and nav are `/wnrs/brand/...` not `/brand/...`.
-- `npm run build` greps `dist/` and fails if HTML still uses root-absolute `/brand/` or `/clients/` paths.
-- Workflow: `.github/workflows/deploy-pages.yml` runs `npm ci` + `npm run build` and deploys `dist/` with `actions/upload-pages-artifact` + `actions/deploy-pages` on push to `cursor/wnrs-astro-marketing-site-2e72` and `main` (or **Actions → Deploy GitHub Pages → Run workflow**).
+- Workflow: `.github/workflows/deploy-pages.yml` runs `npm ci` + `npm run build` and deploys `dist/` on **push to `main`** (or **Actions → Deploy GitHub Pages → Run workflow**). The old PR-branch trigger is removed so this cutover does not publish until merge.
 - **Repo settings → Pages → Source: GitHub Actions** (not “Deploy from a branch”).
-- If deploy fails with “branch is not allowed to deploy to github-pages”, open **Settings → Environments → github-pages → Deployment branches** and add this PR branch (today only `main` is listed). Repo admins can also re-run the workflow; admin pushes bypass that rule, GitHub Actions does not.
+- After merge: **Settings → Pages → Custom domain `wnrs.com`**, wait for the DNS check, then enable **Enforce HTTPS**.
+- `npm run build` fails if dist still contains `/wnrs/` preview paths or a missing/wrong CNAME.
 
-`public/CNAME` is **not** on this branch. A CNAME of `wnrs.com` would force Pages onto the custom domain and redirect `github.io/wnrs` to the live WordPress site, which would hide this preview.
+## SEO
 
-### Custom domain later (wnrs.com)
-
-When DNS for `wnrs.com` / `www` points at GitHub Pages:
-
-1. In `astro.config.mjs`, set **`site: 'https://wnrs.com'`** and **`base: '/'`**. Rebuild so asset URLs are root-absolute again.
-2. Add `public/CNAME` containing `wnrs.com`.
-3. In **Repo → Settings → Pages**, set custom domain `wnrs.com` and enable **Enforce HTTPS** after DNS checks pass.
-
-Until that cutover, keep `base: '/wnrs/'` so the github.io preview keeps working.
-
-## SEO (preview vs production)
-
-Internal links and assets use `withBase()` so the github.io preview works under `/wnrs/`. **Search-engine tags do not:**
-
-- `<link rel="canonical">`, `og:url`, `og:image`, Twitter image, and JSON-LD `@id`/`url` are always `https://wnrs.com/{path}` (or `wnrs.com.br` / `wnrs.com.mx` for locale stubs).
-- The `/wnrs` preview prefix is stripped. A page at `https://nickrec1986.github.io/wnrs/about-us/` canonicalizes to `https://wnrs.com/about-us`.
-- `@astrojs/sitemap` uses `site: 'https://wnrs.com'` and serializes locs the same way. `public/robots.txt` points at `https://wnrs.com/sitemap-index.xml`.
+- `<link rel="canonical">`, `og:url`, `og:image`, Twitter image, and JSON-LD URLs are `https://wnrs.com/{path}` (or `wnrs.com.br` / `wnrs.com.mx` for locale stubs).
+- `@astrojs/sitemap` uses `site: 'https://wnrs.com'`. `public/robots.txt` points at `https://wnrs.com/sitemap-index.xml`.
 - hreflang: `en` → wnrs.com, `pt-BR` → wnrs.com.br, `es` → wnrs.com.mx, same path on each host (locale sites may still be stubs).
 - Edit titles/descriptions in `PAGE_SEO` (`src/consts.ts`). Type and industry pages also emit Service JSON-LD; Insights emits Blog.
-
-After DNS cutover, set `base: '/'` as above. Canonicals do not need to change.
 
 `public/.nojekyll` is included because Astro emits `/_astro/` assets. Jekyll on Pages would otherwise ignore that folder.
 
@@ -88,14 +68,17 @@ ALTERNATIVE: some registrars allow an apex **ALIAS/ANAME** to `<user>.github.io`
 
 ### Cutover sequence
 
-1. Merge this site, confirm the Pages workflow is green, and open **https://nickrec1986.github.io/wnrs/**.
-2. In GitHub: set custom domain `wnrs.com`, wait until the DNS check is no longer “incorrect”, then enable **Enforce HTTPS**.
+1. Merge this PR to `main`. Confirm the **Deploy GitHub Pages** workflow is green on `main`.
+2. In GitHub: **Settings → Pages → Custom domain `wnrs.com`**, wait until the DNS check is no longer “incorrect”, then enable **Enforce HTTPS**.
 3. In **GoDaddy DNS** for `wnrs.com`:
    - Remove records that point the apex/`www` at WordPress hosting, a parked page, or a CDN in front of WP (A records to the current host, CNAME to `www`, forwarding, etc.).
    - Add the GitHub A/AAAA records for `@` and CNAME for `www` as above.
    - **Leave `online.wnrs.com` alone** — that hostname is the client portal, not this marketing site. Do not point it at Pages.
+   - Leave `wnrs.com.br` and `wnrs.com.mx` alone (EN-only go-live).
 4. Lower TTL ahead of time (300s) if you can, so the cutover is not stuck on a 1-hour TTL.
 5. After HTTPS shows a padlock on `https://wnrs.com`, delete or archive the WordPress host. Do not leave the old site answering on a leftover A record.
+
+The github.io `/wnrs/` preview is expected to 404 or redirect once Pages serves this root-base build.
 
 Brazil and Mexico are separate zones (`wnrs.com.br`, `wnrs.com.mx`). Repeat the same Pages + DNS pattern per domain when those locales are more than stubs (or serve them from this same `dist/` with host-aware routing later). Until then, locale switcher links go to the existing `.br` / `.mx` hosts.
 

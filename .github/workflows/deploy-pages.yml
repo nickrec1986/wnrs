@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - cursor/wnrs-astro-marketing-site-2e72
   workflow_dispatch:
 
 permissions:
@@ -34,9 +33,11 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    # Do not bind this job to the github-pages environment: that environment
-    # currently allows only `main`, so Actions from this PR branch is rejected.
-    # actions/deploy-pages still publishes with pages:write + id-token:write.
+    # Production deploys from `main` only. The github-pages environment
+    # already allows `main`; binding it here is the standard Pages pattern.
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4

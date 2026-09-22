@@ -1,10 +1,9 @@
 /**
  * Production SEO helpers.
  *
- * Preview on GitHub Pages uses `base: '/wnrs/'` (nickrec1986.github.io/wnrs/...).
- * Canonicals, Open Graph URLs, hreflang, JSON-LD, and the sitemap stay on
- * https://wnrs.com/... with no `/wnrs` prefix so the preview does not compete
- * with production and cutover does not require rewriting meta tags.
+ * Canonicals, Open Graph URLs, hreflang, JSON-LD, and the sitemap use
+ * https://wnrs.com/... with no `/wnrs` prefix. `productionPath` still
+ * strips a leftover `/wnrs` pathname if a preview-era URL is passed in.
  */
 import { LOCALES, SITE } from './consts';
 
