@@ -1,5 +1,5 @@
 ---
-import { SITE, PHONE, EMAIL, LINKEDIN_URL } from '../consts';
+import { SITE, PHONE, EMAIL, SOCIAL, GA_MEASUREMENT_ID } from '../consts';
 import {
   OG_IMAGE_URL,
   LOGO_URL,
@@ -83,7 +83,7 @@ const org = {
     areaServed: ['US', 'CA', 'MX', 'BR', 'LATAM'],
     availableLanguage: ['English', 'Spanish', 'Portuguese'],
   },
-  sameAs: [LINKEDIN_URL],
+  sameAs: [SOCIAL.linkedin],
 };
 
 const crumbs: Crumb[] | undefined = breadcrumbs?.length
@@ -150,6 +150,13 @@ const ldBlocks = [
   {ldBlocks.map((block) => (
     <script type="application/ld+json" set:html={JSON.stringify(block)} />
   ))}
+
+  {GA_MEASUREMENT_ID && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+      <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`} />
+    </>
+  )}
 </head>
 <body>
   <Nav />

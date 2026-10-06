@@ -24,6 +24,17 @@ export const PHONE_HREF = 'tel:+18662523961';
 export const PORTAL_URL = 'https://online.wnrs.com';
 export const HQ = 'Miami, FL';
 
+/** Footer social profiles. Homepage URLs until WNRS accounts are confirmed. */
+export const SOCIAL = {
+  linkedin: 'https://www.linkedin.com/company/wnrscollections',
+  facebook: 'https://www.facebook.com',
+  instagram: 'https://www.instagram.com',
+  x: 'https://x.com',
+} as const;
+
+/** Paste a GA4 Measurement ID (G-XXXXXXXX) to enable gtag.js. Empty = no snippet. */
+export const GA_MEASUREMENT_ID = '';
+
 export const LOCALES = [
   { code: 'en', hreflang: 'en', label: 'EN', name: 'English', href: 'https://wnrs.com/', host: 'wnrs.com' },
   { code: 'pt', hreflang: 'pt-BR', label: 'BR', name: 'Português', href: 'https://wnrs.com.br/', host: 'wnrs.com.br' },
@@ -890,8 +901,6 @@ export const PRESS_LOGOS = [
   // Official Reuters wordmark (navy + dotted globe) from Wikimedia Commons PD-textlogo.
   { src: withBase('/press/reuters.png'), alt: 'Reuters', wide: true },
 ] as const;
-
-export const LINKEDIN_URL = 'https://www.linkedin.com/company/wnrscollections';
 
 export type SeoEntry = {
   title: string;
