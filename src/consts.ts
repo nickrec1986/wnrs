@@ -872,7 +872,7 @@ export const HOME = {
   servicesEyebrow: 'Services',
   servicesH2: 'Custom fit, Hyper specialized, receivable and CX services done for you',
   servicesSub:
-    'Built to outperform any market, companies using our services recover 3x or more — 10x faster compared to traditional in-house teams. All while preserving valued customer experiences.',
+    'Built to outperform any market, companies using our services recover 3x or more — 10x faster than conventional agencies. All while preserving valued customer experiences.',
   apartEyebrow: 'Why WNRS',
   apartH2: 'What sets us apart',
   apartSub:
