@@ -11,3 +11,6 @@ npm-debug.log*
 .env.production
 # macOS
 .DS_Store
+# Generated WordPress file redirects (scripts/write-html-redirects.mjs)
+public/*.html
+public/*.hmtl

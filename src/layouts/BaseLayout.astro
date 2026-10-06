@@ -4,7 +4,8 @@ import {
   OG_IMAGE_URL,
   LOGO_URL,
   canonicalUrl,
-  hreflangLinks,
+  homeHreflangLinks,
+  productionPath,
   webPageJsonLd,
   breadcrumbJsonLd,
   type Crumb,
@@ -46,8 +47,11 @@ const {
 } = Astro.props;
 
 const canonical = canonicalUrl(Astro.url.pathname, canonicalOverride);
-const alternates = hreflangLinks(Astro.url.pathname);
+const isHome = productionPath(Astro.url.pathname) === '/';
+const alternates = isHome ? homeHreflangLinks() : [];
 const favicon = withBase('/brand/favicon.png');
+const appleTouch = withBase('/apple-touch-icon.png');
+const faviconIco = withBase('/favicon.ico');
 const sitemapHref = withBase('/sitemap-index.xml');
 const assetMotif = withBase('/brand/bg-motif.svg');
 const assetArrow = withBase('/icons/right.svg');
@@ -107,7 +111,9 @@ const ldBlocks = [
   <meta name="description" content={description} />
   {noindex && <meta name="robots" content="noindex, nofollow" />}
   <link rel="canonical" href={canonical} />
+  <link rel="icon" href={faviconIco} sizes="any" />
   <link rel="icon" href={favicon} type="image/png" />
+  <link rel="apple-touch-icon" href={appleTouch} sizes="180x180" />
 
   {alternates.map((l) => (
     <link rel="alternate" hreflang={l.hreflang} href={l.href} />

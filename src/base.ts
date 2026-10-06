@@ -1,11 +1,8 @@
 /**
  * Prefix a site-relative path with Astro `base`.
  * Production (`site: 'https://wnrs.com'`, `base: '/'`) yields root-absolute
- * URLs (`/brand/...`, `/services`). Keep using this helper so a future
- * non-root base does not require hunting hardcoded paths.
- *
- * Canonicals, Open Graph, hreflang, JSON-LD, and the sitemap always use
- * https://wnrs.com/{path} via `src/seo.ts`.
+ * directory URLs (`/services/`, `/about-us/`). Asset paths keep their
+ * filename (no trailing slash). `/#contact` is unchanged.
  */
 export function withBase(path: string): string {
   if (/^(https?:|mailto:|tel:)/i.test(path)) return path;
@@ -14,9 +11,12 @@ export function withBase(path: string): string {
   const hash = hashIndex >= 0 ? path.slice(hashIndex) : '';
   const raw = hashIndex >= 0 ? path.slice(0, hashIndex) : path;
   const relative = raw.replace(/^\//, '');
-  if (!relative) return `${base}${hash}`;
+  if (!relative) return `${base === '/' ? '/' : base}${hash}`;
   const prefix = base.endsWith('/') ? base : `${base}/`;
-  return `${prefix}${relative}${hash}`;
+  let url = `${prefix}${relative}`;
+  const isFile = /\.[a-zA-Z0-9]+$/.test(url);
+  if (!isFile && !url.endsWith('/')) url += '/';
+  return `${url}${hash}`;
 }
 
 /** Live wnrs.com above-the-fold photo for a Type / Industry / sector slug. */
