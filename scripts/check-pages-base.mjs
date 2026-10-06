@@ -1,9 +1,15 @@
 /**
- * Fail the build if dist still uses the GitHub project-Pages preview prefix
- * `/wnrs/` or github.io hosts. Production is the domain root on wnrs.com.
+ * Production URL checks: no /wnrs/ preview prefix, trailing-slash canonicals
+ * and sitemap locs, and every WordPress redirect file present in dist/.
  */
 import { readdirSync, readFileSync, writeFileSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import {
+  ASTRO_REDIRECTS,
+  HTML_REDIRECTS,
+  ALL_REDIRECT_SOURCES,
+  expectedDistFile,
+} from '../src/legacy-redirects.mjs';
 
 const root = 'dist';
 const leftoverHtml = /(?:src|href)="(\/wnrs\/[^"]*)"/g;
@@ -17,7 +23,7 @@ function walk(dir) {
       walk(p);
       continue;
     }
-    if (name.endsWith('.html')) {
+    if (name.endsWith('.html') || name.endsWith('.hmtl')) {
       const html = readFileSync(p, 'utf8');
       leftoverHtml.lastIndex = 0;
       let m;
@@ -29,14 +35,13 @@ function walk(dir) {
         if (href.includes('github.io') || /wnrs\.com\/wnrs\b/.test(href)) {
           bad.push(`${p}: canonical is not production: ${href}`);
         }
-        if (
-          !href.startsWith('https://wnrs.com/') &&
-          href !== 'https://wnrs.com' &&
-          !href.startsWith('https://wnrs.com.br') &&
-          !href.startsWith('https://wnrs.com.mx')
-        ) {
-          bad.push(`${p}: unexpected canonical host: ${href}`);
-        }
+        const allowed =
+          href.startsWith('https://wnrs.com/') ||
+          href === 'https://wnrs.com' ||
+          href.startsWith('https://wnrs.com.br') ||
+          href.startsWith('https://wnrs.com.mx') ||
+          href.startsWith('https://online.wnrs.com');
+        if (!allowed) bad.push(`${p}: unexpected canonical host: ${href}`);
       }
       const ogUrl = html.match(/property="og:url" content="([^"]+)"/);
       if (ogUrl && (ogUrl[1].includes('github.io') || /wnrs\.com\/wnrs\b/.test(ogUrl[1]))) {
@@ -53,7 +58,6 @@ function walk(dir) {
 
 walk(root);
 
-// Safety: strip any leftover /wnrs/ from sitemap locs, then assert clean.
 for (const name of ['sitemap-0.xml', 'sitemap-index.xml']) {
   const sp = join(root, name);
   if (!existsSync(sp)) continue;
@@ -68,8 +72,14 @@ for (const sp of sitemapFiles) {
     if (xml.includes('github.io') || xml.includes('/wnrs/')) {
       bad.push(`${sp}: sitemap still has github.io or /wnrs/ preview paths`);
     }
-    if (sp.endsWith('sitemap-0.xml') && !xml.includes('https://wnrs.com/insights')) {
-      bad.push(`${sp}: insights URL missing from sitemap`);
+    if (sp.endsWith('sitemap-0.xml')) {
+      if (!xml.includes('https://wnrs.com/insights/')) {
+        bad.push(`${sp}: insights URL missing from sitemap`);
+      }
+      const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((x) => x[1]);
+      for (const loc of locs) {
+        if (!loc.endsWith('/')) bad.push(`${sp}: sitemap loc missing trailing slash: ${loc}`);
+      }
     }
   } catch {
     bad.push(`${sp}: missing`);
@@ -83,8 +93,50 @@ if (!existsSync(join(root, 'CNAME'))) {
   if (cname !== 'wnrs.com') bad.push(`dist/CNAME: expected wnrs.com, got ${JSON.stringify(cname)}`);
 }
 
+const home = readFileSync(join(root, 'index.html'), 'utf8');
+const homeCanon = home.match(/rel="canonical" href="([^"]+)"/)?.[1];
+if (homeCanon !== 'https://wnrs.com/') {
+  bad.push(`home canonical should be https://wnrs.com/, got ${homeCanon}`);
+}
+if (!home.includes('rel="alternate" hreflang="pt-BR"')) {
+  bad.push('home missing pt-BR hreflang alternate');
+}
+const about = readFileSync(join(root, 'about-us/index.html'), 'utf8');
+if (about.includes('rel="alternate" hreflang')) {
+  bad.push('about-us should not declare per-page hreflang alternates');
+}
+const aboutCanon = about.match(/rel="canonical" href="([^"]+)"/)?.[1];
+if (aboutCanon !== 'https://wnrs.com/about-us/') {
+  bad.push(`about-us canonical should end with slash, got ${aboutCanon}`);
+}
+
+const bareDirHref = /(?:href)="(\/[a-zA-Z0-9][-a-zA-Z0-9/]*[a-zA-Z0-9])"/g;
+for (const file of ['index.html', 'about-us/index.html', 'services/index.html']) {
+  const html = readFileSync(join(root, file), 'utf8');
+  bareDirHref.lastIndex = 0;
+  let m;
+  while ((m = bareDirHref.exec(html))) {
+    const href = m[1];
+    if (/\.[a-zA-Z0-9]+$/.test(href)) continue;
+    if (href.startsWith('/#')) continue;
+    bad.push(`${file}: internal href missing trailing slash: ${href}`);
+  }
+}
+
+for (const source of ALL_REDIRECT_SOURCES) {
+  const rel = expectedDistFile(source);
+  if (!existsSync(join(root, rel))) {
+    bad.push(`redirect missing in dist/: ${rel} (from ${source})`);
+  }
+}
+
+if (!existsSync(join(root, 'favicon.ico'))) bad.push('dist/favicon.ico missing');
+if (!existsSync(join(root, 'apple-touch-icon.png'))) bad.push('dist/apple-touch-icon.png missing');
+
 if (bad.length) {
   console.error('Production URL check failed:\n' + bad.join('\n'));
   process.exit(1);
 }
-console.log('Pages check passed: domain-root paths, canonicals + sitemap on wnrs.com, CNAME present');
+console.log(
+  `Pages check passed: trailing-slash canonicals/sitemap, ${Object.keys(ASTRO_REDIRECTS).length} Astro redirects + ${Object.keys(HTML_REDIRECTS).length} HTML redirects, CNAME present`,
+);

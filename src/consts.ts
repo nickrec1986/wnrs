@@ -19,15 +19,26 @@ export const SITE = {
 export const EMAIL = 'info@wnrs.com';
 export const EMAIL_HREF = 'mailto:info@wnrs.com';
 export const PHONE = '1-866-252-3961';
-export const PHONE_DISPLAY = '1866 252-3961';
+export const PHONE_DISPLAY = '1-866-252-3961';
 export const PHONE_HREF = 'tel:+18662523961';
 export const PORTAL_URL = 'https://online.wnrs.com';
 export const HQ = 'Miami, FL';
 
+/** Footer social profiles. Homepage URLs until WNRS accounts are confirmed. */
+export const SOCIAL = {
+  linkedin: 'https://www.linkedin.com/company/wnrscollections',
+  facebook: 'https://www.facebook.com',
+  instagram: 'https://www.instagram.com',
+  x: 'https://x.com',
+} as const;
+
+/** GA4 Measurement ID. Empty string disables the gtag.js snippet. */
+export const GA_MEASUREMENT_ID = 'G-H3VY5CTZ2S';
+
 export const LOCALES = [
-  { code: 'en', hreflang: 'en', label: 'EN', name: 'English', href: 'https://wnrs.com', host: 'wnrs.com' },
-  { code: 'pt', hreflang: 'pt-BR', label: 'BR', name: 'Português', href: 'https://wnrs.com.br', host: 'wnrs.com.br' },
-  { code: 'es', hreflang: 'es', label: 'ES', name: 'Español', href: 'https://wnrs.com.mx', host: 'wnrs.com.mx' },
+  { code: 'en', hreflang: 'en', label: 'EN', name: 'English', href: 'https://wnrs.com/', host: 'wnrs.com' },
+  { code: 'pt', hreflang: 'pt-BR', label: 'BR', name: 'Português', href: 'https://wnrs.com.br/', host: 'wnrs.com.br' },
+  { code: 'es', hreflang: 'es', label: 'ES', name: 'Español', href: 'https://wnrs.com.mx/', host: 'wnrs.com.mx' },
 ] as const;
 
 export const NAV_LINKS = [
@@ -891,8 +902,6 @@ export const PRESS_LOGOS = [
   { src: withBase('/press/reuters.png'), alt: 'Reuters', wide: true },
 ] as const;
 
-export const LINKEDIN_URL = 'https://www.linkedin.com/company/wnrscollections';
-
 export type SeoEntry = {
   title: string;
   description: string;
@@ -958,7 +967,7 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
   '/late-stage-arm': {
     title: 'Late Stage Collection | Pre-Charge-Off Recovery | WNRS',
     description:
-      'Late stage collection for accounts nearing charge-off. Seasoned collectors, skip tracing, and attorney backup from WNRS. Recover more before write-off. Talk to an expert.',
+      'Late stage collection for accounts nearing charge-off. Seasoned collectors, skip tracing, and attorney backup from WNRS. Talk to an expert.',
   },
   '/specialized-arm': {
     title: 'Specialized Collection | Sensitive ARM | WNRS',
@@ -998,7 +1007,7 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
   '/education-research': {
     title: 'Education & Research Debt Collection | WNRS',
     description:
-      'Debt collection for schools, research programs, and education lenders. WNRS recovers tuition and loan balances while protecting the institution. Talk to an expert.',
+      'Debt collection for schools, research programs, and education lenders. WNRS recovers tuition and loans while protecting the institution. Talk to an expert.',
   },
   '/travel-transportation': {
     title: 'Travel & Transportation Debt Collection | WNRS',

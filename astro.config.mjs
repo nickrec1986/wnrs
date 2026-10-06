@@ -1,10 +1,11 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { ASTRO_REDIRECTS } from './src/legacy-redirects.mjs';
 
 /**
- * Normalize sitemap locs to https://wnrs.com/{path} with no trailing slash
- * (except home) and no leftover `/wnrs` preview prefix.
+ * Sitemap locs on https://wnrs.com/{path}/ (home is https://wnrs.com/).
+ * Strips a leftover `/wnrs` preview prefix if one ever appears.
  */
 function toProductionUrl(url) {
   const u = new URL(url);
@@ -12,8 +13,8 @@ function toProductionUrl(url) {
   if (path === '/wnrs' || path.startsWith('/wnrs/')) {
     path = path.slice('/wnrs'.length) || '/';
   }
-  if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
-  return path === '/' ? 'https://wnrs.com/' : `https://wnrs.com${path}`;
+  if (path !== '/' && !path.endsWith('/')) path += '/';
+  return `https://wnrs.com${path}`;
 }
 
 function sitemapPriority(url) {
@@ -23,18 +24,28 @@ function sitemapPriority(url) {
   return 0.7;
 }
 
+const redirectSources = new Set(
+  Object.keys(ASTRO_REDIRECTS).map((p) => {
+    const trimmed = p.replace(/\/$/, '') || '/';
+    return trimmed;
+  }),
+);
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://wnrs.com',
   base: '/',
   output: 'static',
-  trailingSlash: 'ignore',
+  trailingSlash: 'always',
+  build: { format: 'directory' },
+  redirects: ASTRO_REDIRECTS,
   integrations: [
     sitemap({
       filter: (page) => {
-        const path = new URL(page).pathname.replace(/\/$/, '');
-        if (path.endsWith('404') || path.endsWith('/404')) return false;
-        if (path.endsWith('/pt') || path.endsWith('/es')) return false;
+        const path = new URL(page).pathname.replace(/\/$/, '') || '/';
+        if (path.endsWith('404') || path === '/404') return false;
+        if (path === '/pt' || path === '/es') return false;
+        if (redirectSources.has(path)) return false;
         return true;
       },
       serialize(item) {
