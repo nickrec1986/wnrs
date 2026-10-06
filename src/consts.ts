@@ -32,8 +32,8 @@ export const SOCIAL = {
   x: 'https://x.com',
 } as const;
 
-/** Paste a GA4 Measurement ID (G-XXXXXXXX) to enable gtag.js. Empty = no snippet. */
-export const GA_MEASUREMENT_ID = '';
+/** GA4 Measurement ID. Empty string disables the gtag.js snippet. */
+export const GA_MEASUREMENT_ID = 'G-H3VY5CTZ2S';
 
 export const LOCALES = [
   { code: 'en', hreflang: 'en', label: 'EN', name: 'English', href: 'https://wnrs.com/', host: 'wnrs.com' },
