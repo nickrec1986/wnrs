@@ -169,7 +169,7 @@ for (const loc of ['pt', 'es']) {
 }
 
 const ptHome = readFileSync(join(root, 'pt/index.html'), 'utf8');
-if (!ptHome.includes('Seus recebíveis')) bad.push('pt home missing translated hero');
+if (!ptHome.includes('Suas contas a receber')) bad.push('pt home missing translated hero');
 if (ptHome.includes('versão em português do site WNRS está em montagem')) {
   bad.push('pt home is still the stub');
 }
