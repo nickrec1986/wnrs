@@ -174,7 +174,7 @@ if (ptHome.includes('versão em português do site WNRS está em montagem')) {
   bad.push('pt home is still the stub');
 }
 const esHome = readFileSync(join(root, 'es/index.html'), 'utf8');
-if (!esHome.includes('Sus cuentas por cobrar')) bad.push('es home missing translated hero');
+if (!esHome.includes('Tus cuentas por cobrar')) bad.push('es home missing translated hero');
 if (esHome.includes('versión en español del sitio WNRS se está armando')) {
   bad.push('es home is still the stub');
 }

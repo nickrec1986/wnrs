@@ -4,7 +4,7 @@ Base: live [wnrs.com.mx](https://wnrs.com.mx/) (crawled 2026-10-07, 41 pages). N
 
 Menu names on `/es/` match the live .mx nav: Cobranza Administrativa, Cobranza Extrajudicial, Cobranza Especializada, Localización de deudores, Intervención Legal; featured industries Instituciones Educativas, Transporte y Logística, Minorista, Manufactura y Fabricación, Servicios Profesionales.
 
-Usted on new and tightened copy. The Cemex quote and “cada obrero con su chamba” are untouched except the accent on *jurídico*.
+**Tú throughout `/es/`.** Nicolas reversed the usted pass: Mexican B2B voice matches Cemex México / Accenture / BBVA Empresas. Verbs and possessives addressing the reader are tú (`recupera`, `elige`, `tu cartera`, `tus clientes`). Legal pages stay impersonal where natural, with no usted. The Cemex quote and “cada obrero con su chamba” are untouched except the accent on *jurídico*. Third-person *su* that is not the reader (WNRS *su sede*, the debtor *su obligación*, an industry *sus cuentas*) stays.
 
 ---
 
@@ -141,4 +141,17 @@ Live .mx on the left; tightened overlay on the right.
 
 ## Phase 2 (PT)
 
-`/pt/` was rebuilt from this finished Spanish, not from English. Live .br service menu names kept: Cobrança Administrativa, Cobrança Extrajudicial, Cobrança Especializada, Localização de Inadimplentes, Cobrança Judicial. Legal copy stays Brazil-specific (LGPD). The Cemex line is localized (`cada ofício com o seu especialista`) — *chamba* does not travel.
+`/pt/` was rebuilt from this finished Spanish, not from English. Live .br service menu names kept: Cobrança Administrativa, Cobrança Extrajudicial, Cobrança Especializada, Localização de Inadimplentes, Cobrança Judicial. Legal copy stays Brazil-specific (LGPD). The Cemex line is localized (`cada ofício com o seu especialista`) — *chamba* does not travel. Voice is consistent *você* (standard Brazilian business); no *o senhor / a senhora*.
+
+---
+
+## Tú switch (follow-up)
+
+All `/es/` copy addressing the reader is now tú. Sharper rewrites from the .mx pass stay; only the form changed.
+
+Restored .mx tú where he already had it, sentence case:
+
+- Before (usted pass): `Recupere su cartera antes de que se complique.`
+- After: `Recupera tu cartera antes de que se complique.`
+- CTAs: `Reserva tu llamada`, `Solicita tu presupuesto`, `Contáctanos` (his .mx: *Reserva tu llamada*, *Obtén / Solicita tu presupuesto*).
+- Hero: `Tus cuentas por cobrar. Recuperadas.` (live .mx used *Sus*; tú is now consistent site-wide).

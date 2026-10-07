@@ -2,14 +2,14 @@
 export const esSite = {
   title: 'WNRS — Expertos en cobranza en México',
   description:
-    'WNRS: líder global en cobranza y gestión de cuentas por cobrar a la medida. Más de 50 años protegiendo la imagen de su marca.',
+    'WNRS: líder global en cobranza y gestión de cuentas por cobrar a la medida. Más de 50 años protegiendo la imagen de tu marca.',
   tagline: 'Expertos en cobranzas. Cuentas por cobrar recuperadas.',
-  slogan: 'Sus cuentas por cobrar. Recuperadas.',
+  slogan: 'Tus cuentas por cobrar. Recuperadas.',
 };
 
 export const esHome = {
   kicker: 'Expertos en cobranzas',
-  h1a: 'Sus cuentas por cobrar.',
+  h1a: 'Tus cuentas por cobrar.',
   h1b: 'Recuperadas.',
   h1c: '',
   lede: 'Con más de 1,200 profesionales, 8 centros de recuperación globales y medio siglo de experiencia, cubrimos todas las etapas de la morosidad: gestionamos el riesgo, bajamos gastos y subimos las tasas de recuperación — a escala.',
@@ -25,8 +25,8 @@ export const esHome = {
   processH2: 'De deuda a flujo de caja',
   quotesSub:
     'Durante más de 50 años, WNRS ha sido la agencia líder en administración y recuperación de cuentas por cobrar para empresas B2B y B2C en más de 30 industrias.',
-  ctaH: 'Recupere y restablezca su flujo de caja ahora.',
-  ctaP: 'Reserve una reunión y descubra por qué WNRS se clasifica como la agencia número 1 en cuentas por cobrar y gestión de deudas desde hace casi medio siglo.',
+  ctaH: 'Recupera y restablece tu flujo de caja ahora.',
+  ctaP: 'Reserva una reunión y descubre por qué WNRS se clasifica como la agencia número 1 en cuentas por cobrar y gestión de deudas desde hace casi medio siglo.',
 };
 
 export const esKeyStats = [
@@ -52,22 +52,22 @@ export const esPicker: Record<string, string> = {
 export const esDifferentiators = [
   {
     h: 'Los primeros resultados en cuestión de días',
-    p: 'En promedio, en los primeros 15 días ya verá resultados de recuperación en los libros.',
+    p: 'En promedio, en los primeros 15 días ya verás resultados de recuperación en los libros.',
   },
   {
     h: 'Talento de clase mundial',
-    p: 'Seleccionamos y capacitamos equipos para que actúen como extensión de su marca. Obtendrá resultados más rápidos, transparentes y predecibles: recupera deuda y restablece el flujo de caja.',
+    p: 'Seleccionamos y capacitamos equipos para que actúen como extensión de tu marca. Obtendrás resultados más rápidos, transparentes y predecibles: recupera deuda y restablece el flujo de caja.',
   },
   {
     h: 'Experiencia y estrategias personalizadas',
-    p: 'A diferencia del enfoque estándar de otras agencias, armamos estrategias hiperpersonalizadas alineadas a su marca, a sus objetivos y a más de 50 años de mejores prácticas.',
+    p: 'A diferencia del enfoque estándar de otras agencias, armamos estrategias hiperpersonalizadas alineadas a tu marca, a tus objetivos y a más de 50 años de mejores prácticas.',
   },
 ];
 
 export const esProcess = [
   {
     h: 'Saldo en atraso',
-    p: 'Su cuenta entra en atraso, riesgo de vencimiento o mora. Cada día cuesta dinero y tiempo: intervenimos de inmediato.',
+    p: 'Tu cuenta entra en atraso, riesgo de vencimiento o mora. Cada día cuesta dinero y tiempo: intervenimos de inmediato.',
   },
   {
     h: 'Evaluación de casos',
@@ -75,7 +75,7 @@ export const esProcess = [
   },
   {
     h: 'Negociación',
-    p: 'Contactamos al deudor para hacer valer su obligación, según las normas culturales y legales de la región. Tecnología en tiempo real, protegiendo la imagen de su marca.',
+    p: 'Contactamos al deudor para hacer valer su obligación, según las normas culturales y legales de la región. Tecnología en tiempo real, protegiendo la imagen de tu marca.',
   },
   {
     h: 'Intervención',
@@ -99,8 +99,8 @@ export const esTestimonials = [
 export const esAbout = {
   lede: 'WNRS es un proveedor líder mundial de servicios personalizados de gestión de cuentas por cobrar. Durante más de tres décadas ha ayudado a empresas de diversos sectores a aumentar su flujo de caja y reducir gastos operativos con gestión de cartera orientada a resultados.',
   body: [
-    'Desde su sede en Miami, Florida, WNRS supervisa los centros de operaciones en Estados Unidos, Canadá y Latinoamérica. Conozca nuestros servicios y los resultados que podemos ofrecerle.',
-    'Si busca a quién confiar las cuentas por cobrar de su empresa, WNRS es la solución. Nuestros sistemas han servido a miles de clientes por más de cincuenta años. La red de oficinas, filiales, especialistas en investigación, expertos multilingües en cobro y socios gubernamentales arma un programa sinérgico sin paralelo en el sector.',
+    'Desde su sede en Miami, Florida, WNRS supervisa los centros de operaciones en Estados Unidos, Canadá y Latinoamérica. Conoce nuestros servicios y los resultados que podemos ofrecerte.',
+    'Si buscas a quién confiar las cuentas por cobrar de tu empresa, WNRS es la solución. Nuestros sistemas han servido a miles de clientes por más de cincuenta años. La red de oficinas, filiales, especialistas en investigación, expertos multilingües en cobro y socios gubernamentales arma un programa sinérgico sin paralelo en el sector.',
   ],
   features: [
     {
@@ -117,7 +117,7 @@ export const esAbout = {
     },
     {
       h: 'Seguimiento de cuentas 24×7',
-      p: 'Con un inicio de sesión ve el avance de las cuentas listadas en tiempo real, en el mismo sistema de la operación: transparencia total.',
+      p: 'Con un inicio de sesión ves el avance de las cuentas listadas en tiempo real, en el mismo sistema de la operación: transparencia total.',
     },
     {
       h: 'Líder mundial',
@@ -128,7 +128,7 @@ export const esAbout = {
 
 export const esLegal = {
   privacy: [
-    'Este sitio institucional estático no opera un CMS, cuentas de usuario ni una base de cobranza. Si nos escribe o llama, usamos los datos de contacto que nos envía para responder su consulta.',
+    'Este sitio institucional estático no opera un CMS, cuentas de usuario ni una base de cobranza. Si nos escribes o llamas, usamos los datos de contacto que nos envías para responder.',
     'Los expedientes de clientes viven en el portal separado online.wnrs.com, no en este sitio. No vendemos listas de visitantes del sitio institucional.',
     'WNRS (World Net Recovery Systems) es una empresa con sede en Miami, Florida, Estados Unidos. Este aviso describe el sitio de marketing. Las leyes de privacidad de México (incluido el aviso ARCO / LFPDPPP) pueden aplicar cuando tratamos datos de personas en México; esto no es asesoría legal.',
   ],
@@ -172,13 +172,13 @@ export const esServices: Record<string, Svc> = {
     navLabel: 'Cobranza Administrativa',
     ic: '1–60 DÍAS · FIRST-PARTY',
     short:
-      'Intervenga en las primeras etapas de morosidad, antes de que la cuenta se convierta en un problema mayor.',
-    tagline: 'Recupere su cartera antes de que se complique.',
+      'Interviene en las primeras etapas de morosidad, antes de que la cuenta se convierta en un problema mayor.',
+    tagline: 'Recupera tu cartera antes de que se complique.',
     intro:
       'Los servicios de cobranza administrativa de WNRS están diseñados para empresas que quieren actuar al inicio de la morosidad. Un enfoque rentable y centrado en el cliente, que reduce la probabilidad de que los saldos pasen a etapas más viejas. Para las empresas que compiten a nivel mundial, no hay otra opción: servicios de primera clase, o quedarse atrás.',
     overview: [
-      'La cobranza administrativa protege la imagen de marca de su empresa. La conducen profesionales multilingües, con estrategia y diplomacia, capacitados para tratar con cortesía a sus clientes. Con modelos propios de segmentación, estructuración y análisis, elegimos el método y el agente adecuados para cada caso.',
-      'Apoyamos procesos en varias industrias y geografías con campañas personalizadas — por lo general a nombre del cliente. La clave es un servicio personal y firme que conserva las relaciones que usted valora.',
+      'La cobranza administrativa protege la imagen de marca de tu empresa. La conducen profesionales multilingües, con estrategia y diplomacia, capacitados para tratar con cortesía a tus clientes. Con modelos propios de segmentación, estructuración y análisis, elegimos el método y el agente adecuados para cada caso.',
+      'Apoyamos procesos en varias industrias y geografías con campañas personalizadas — por lo general a nombre del cliente. La clave es un servicio personal y firme que conserva las relaciones que tú valoras.',
     ],
     benefits: [
       'Preservación de la relación y la lealtad del cliente',
@@ -211,9 +211,9 @@ export const esServices: Record<string, Svc> = {
     intro:
       'El servicio de cobranza extrajudicial de WNRS se concentra en este segmento y arma una estrategia de recuperación a la medida. Para las empresas que compiten a nivel mundial, no hay otra opción: servicios de primera clase, o quedarse atrás.',
     overview: [
-      'Nuestro enfoque de mejores prácticas está pensado para su sector. Tras 50 años, tenemos sistemas de cobranza por industria y tasas de éxito altas. No usamos el modelo de call center con alta rotación y temporales: formamos al agente para que entienda su industria.',
+      'Nuestro enfoque de mejores prácticas está pensado para tu sector. Tras 50 años, tenemos sistemas de cobranza por industria y tasas de éxito altas. No usamos el modelo de call center con alta rotación y temporales: formamos al agente para que entienda tu industria.',
       'Componentes del programa: profesionales con años de experiencia, campañas especializadas, facturación personalizada, localización e investigación nacional e internacional, seguimiento 24/7 e intervención de un abogado cuando haga falta.',
-      'Concéntrese en el negocio. Deje la gestión de cartera a los expertos. No permita que el tiempo o la inacción afecten el resultado. Actúe hoy.',
+      'Concéntrate en el negocio. Deja la gestión de cartera a los expertos. No permitas que el tiempo o la inacción afecten el resultado. Actúa hoy.',
     ],
     benefits: [
       'Mayor flujo de caja',
@@ -272,7 +272,7 @@ export const esServices: Record<string, Svc> = {
       'La globalización facilita que el deudor mude su actividad para no ser localizado. Nosotros vamos un paso adelante.',
     tagline: 'Localización de deudores y bienes.',
     intro:
-      'En WNRS combinamos tecnología avanzada y un equipo humano altamente cualificado para localizar y entablar las demandas de nuestros clientes contra quien intenta evadir la localización. Nuestro seguimiento ha dado resultados extraordinarios. Aproveche nuestros algoritmos y método — o se queda atrás.',
+      'En WNRS combinamos tecnología avanzada y un equipo humano altamente cualificado para localizar y entablar las demandas de nuestros clientes contra quien intenta evadir la localización. Nuestro seguimiento ha dado resultados extraordinarios. Aprovecha nuestros algoritmos y método — o te quedas atrás.',
     overview: [
       'Las investigaciones financieras complementan la cobranza. Otras empresas se apoyan en bases públicas nacionales; nosotros sabemos que, con deudores opacos o deudas de países con sistemas débiles, la experiencia es lo que cierra.',
       'Juntamos las tecnologías disponibles, nuestras oficinas internacionales y la formación de nuestros equipos para llegar al deudor y a sus bienes.',
@@ -308,7 +308,7 @@ export const esServices: Record<string, Svc> = {
     intro:
       'Con nuestra presencia global armamos una red de abogados para implementar mecanismos de ejecución legal en todo el mundo, a través del programa de Intervención Legal.',
     overview: [
-      'Del litigio a la ejecución de sentencias, la red aporta experiencia sólida en cobranzas. WNRS gestiona el proceso y lo mantiene informado en cada etapa.',
+      'Del litigio a la ejecución de sentencias, la red aporta experiencia sólida en cobranzas. WNRS gestiona el proceso y te mantiene informado en cada etapa.',
       'Consolidación, investigación, ejecución y planificación: analizamos con factores cuantificables si conviene litigar. Si se inicia, todo se rastrea y monitorea en un solo lugar, consolidado por WNRS.',
     ],
     benefits: [
@@ -357,7 +357,7 @@ export const esVerticals: Record<string, Vert> = {
     ic: 'MID-MARKET',
     short: 'Cobranza para empresas que necesitan caja sin armar un escritorio interno completo.',
     intro:
-      'Cobre a empresas o sea una de ellas: WNRS tiene la experiencia para alcanzar sus objetivos y dar resultados definitivos de gestión de cartera — sin el costo de levantar un equipo de recuperación.',
+      'Cobra a empresas o sé una de ellas: WNRS tiene la experiencia para alcanzar tus objetivos y dar resultados definitivos de gestión de cartera — sin el costo de levantar un equipo de recuperación.',
     overview:
       'Las empresas mid-market a menudo rebasan la cobranza improvisada y subinvierten en una función dedicada. Enchufamos cobradores capacitados, reporting y localización para que finanzas se quede en crecimiento. Algunas de las empresas más grandes del mundo confían en WNRS para resolver problemas complejos de cuentas por cobrar y de relación con el cliente.',
     audience: 'Empresas privadas y mid-market en books B2B y B2C.',
@@ -369,9 +369,9 @@ export const esVerticals: Record<string, Vert> = {
   enterprise: {
     name: 'Empresa',
     ic: 'GLOBAL · FORTUNE 500',
-    short: 'Escale la recuperación entre regiones, idiomas y regímenes jurídicos.',
+    short: 'Escala la recuperación entre regiones, idiomas y regímenes jurídicos.',
     intro:
-      'Ya sea que cobre a empresas globales o sea una de ellas: WNRS tiene la experiencia para alcanzar sus objetivos y dar resultados definitivos de cuentas por cobrar.',
+      'Ya sea que cobres a empresas globales o seas una de ellas: WNRS tiene la experiencia para alcanzar tus objetivos y dar resultados definitivos de cuentas por cobrar.',
     overview:
       'Algunas de las empresas más grandes del mundo confían en WNRS para resolver problemas complejos de relación con el cliente y de pagos atrasados. Asignamos equipos multilingües, unidades especializadas y redes legales para que la recuperación no se detenga en la frontera. El reporting sirve a tesorería, shared services y auditoría.',
     audience: 'Multinacionales y organizaciones financieras Fortune 500.',
@@ -385,7 +385,7 @@ export const esVerticals: Record<string, Vert> = {
     ic: 'SECTOR PÚBLICO',
     short: 'Recuperación discreta para entes públicos y créditos comerciales ligados a gobierno.',
     intro:
-      'Ya sea para entidades gubernamentales o de ellas: WNRS tiene la experiencia para alcanzar sus objetivos y dar resultados definitivos de cuentas por cobrar.',
+      'Ya sea para entidades gubernamentales o de ellas: WNRS tiene la experiencia para alcanzar tus objetivos y dar resultados definitivos de cuentas por cobrar.',
     overview:
       'Algunos de los gobiernos más importantes del mundo confían en WNRS para resolver problemas complejos de cuentas por cobrar y de relación con el ciudadano o el contratista. Nuestra unidad especializada y la red legal conocen la mezcla comercial, regulatoria y política. Reportamos con claridad y solo escalamos cuando el expediente lo sostiene.',
     audience: 'Entes públicos, agencias y contratistas de gobierno.',
@@ -399,9 +399,9 @@ export const esVerticals: Record<string, Vert> = {
     ic: 'REGULADO',
     short: 'Cuentas por cobrar para servicios públicos, públicos y privados.',
     intro:
-      'El equipo de servicios públicos de WNRS se especializa en las necesidades de la industria — pública o privada. Trabajamos directo con su departamento de cuentas por cobrar para que no tenga que gestionar varios proveedores. Regional, nacional o internacional: los asociados de WNRS están disponibles.',
+      'El equipo de servicios públicos de WNRS se especializa en las necesidades de la industria — pública o privada. Trabajamos directo con tu departamento de cuentas por cobrar para que no tengas que gestionar varios proveedores. Regional, nacional o internacional: los asociados de WNRS están disponibles.',
     overview:
-      'Personal capacitado, experiencia y tecnología para gestionar sus cuentas por cobrar, cobranzas y servicios administrativos. Ayudamos a obtener liquidez de cuentas morosas y canceladas, de la llamada de atención al cliente a la intervención legal.',
+      'Personal capacitado, experiencia y tecnología para gestionar tus cuentas por cobrar, cobranzas y servicios administrativos. Ayudamos a obtener liquidez de cuentas morosas y canceladas, de la llamada de atención al cliente a la intervención legal.',
     audience: 'Operadores de electricidad, gas, agua, telecom adyacente y servicios públicos.',
     benefits: [
       'Llamadas de atención al cliente',
@@ -418,9 +418,9 @@ export const esVerticals: Record<string, Vert> = {
     ic: 'COLEGIATURA · BECAS · CRÉDITO',
     short: 'Especialistas en cobranza y administración de cartera educativa.',
     intro:
-      'Universidad pública o privada, escuela técnica, de idiomas o de negocios, formación especializada, educación en línea, estudios en el extranjero o entidad de financiamiento educativo: tenemos la experiencia para gestionar su cartera.',
+      'Universidad pública o privada, escuela técnica, de idiomas o de negocios, formación especializada, educación en línea, estudios en el extranjero o entidad de financiamiento educativo: tenemos la experiencia para gestionar tu cartera.',
     overview:
-      'Cada institución y programa es único. Colaboramos con escuelas e instituciones para definir el enfoque correcto. El equipo está capacitado para entender las circunstancias de los alumnos que solicitan financiamiento y operar en cumplimiento. El programa se integra a la imagen y los valores de su institución: gestiona y recupera cartera, mejora el flujo de efectivo y deja más liquidez para la operación educativa.',
+      'Cada institución y programa es único. Colaboramos con escuelas e instituciones para definir el enfoque correcto. El equipo está capacitado para entender las circunstancias de los alumnos que solicitan financiamiento y operar en cumplimiento. El programa se integra a la imagen y los valores de tu institución: gestiona y recupera cartera, mejora el flujo de efectivo y deja más liquidez para la operación educativa.',
     audience: 'Universidades, escuelas técnicas, programas de investigación y acreditantes educativos.',
     benefits: [
       'Cobranza administrativa e intervención temprana',
@@ -461,7 +461,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'Electrónica, grandes almacenes, servicios de alimentación, productos de seguridad, ropa y más: el mercado minorista gestiona miles de transacciones al día. En persona o en línea, con tarjetas, arrendamientos, cheques o pagarés — es una de nuestras mayores categorías de clientes.',
     overview:
-      'No permita que la gestión de cuentas por cobrar abrume su negocio ni su capital de trabajo. WNRS gestiona la cartera; usted se concentra en vender. Los asociados entienden sus productos, políticas y cultura: son la extensión de su negocio. Resolvemos cobros y facturación a tiempo y con eficiencia.',
+      'No permitas que la gestión de cuentas por cobrar abrume tu negocio ni tu capital de trabajo. WNRS gestiona la cartera; tú te concentras en vender. Los asociados entienden tus productos, políticas y cultura: son la extensión de tu negocio. Resolvemos cobros y facturación a tiempo y con eficiencia.',
     audience: 'Minoristas físicos, omnichannel y ecommerce.',
     benefits: [
       'Experiencia en el sector',
@@ -480,7 +480,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'Fabricantes de electrónicos, materiales de construcción, automóviles y autopartes — y muchos más — usan nuestros servicios de gestión y cobro de cuentas por cobrar.',
     overview:
-      'Antes de empezar, nos aseguramos de que los representantes entiendan sus procesos, planes de pago, criterios de crédito e imagen de marca — y mantenemos bajos los costos generales. Administran cuentas, resuelven disputas, cobran mora y recuperan bienes cuando hace falta.',
+      'Antes de empezar, nos aseguramos de que los representantes entiendan tus procesos, planes de pago, criterios de crédito e imagen de marca — y mantenemos bajos los costos generales. Administran cuentas, resuelven disputas, cobran mora y recuperan bienes cuando hace falta.',
     audience: 'Fabricantes discretos y de proceso que venden a plazo.',
     benefits: [
       'Tiempos de cobro más rápidos',
@@ -498,7 +498,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'Una amplia gama de empresas de servicios profesionales confía en WNRS para gestionar sus deudas actuales y vencidas.',
     overview:
-      'En este sector las disputas sobre facturas son habituales. Con más de 25 años de mecanismos de resolución y el vocabulario de su oficio, resolvemos la mayoría y recuperamos lo que le corresponde — a tiempo. Tolerancia cero ante disputas ilegítimas; máxima recuperación, siempre con la relación con su cliente en mente.',
+      'En este sector las disputas sobre facturas son habituales. Con más de 25 años de mecanismos de resolución y el vocabulario de tu oficio, resolvemos la mayoría y recuperamos lo que te corresponde — a tiempo. Tolerancia cero ante disputas ilegítimas; máxima recuperación, siempre con la relación con tu cliente en mente.',
     audience: 'Técnico y científico, alquiler y arrendamiento, contabilidad, publicidad y marketing, arquitectura, legal, entretenimiento y más.',
     benefits: esIndustryBenefits,
   },
@@ -527,7 +527,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'Las constructoras enfrentan retos propios al expandirse y conservar una base de clientes leal. Cada vez más recurren a WNRS para negociar deudas complejas y administrar las cuentas por cobrar.',
     overview:
-      'La gama de soluciones está hecha para mejorar cómo dan soporte y facturan, prevenir la morosidad y cobrar cuentas con retrasos importantes. Analistas con experiencia en varios tipos de deuda y campañas en todas las etapas. Cuente con nosotros como socio estratégico.',
+      'La gama de soluciones está hecha para mejorar cómo dan soporte y facturan, prevenir la morosidad y cobrar cuentas con retrasos importantes. Analistas con experiencia en varios tipos de deuda y campañas en todas las etapas. Cuenta con nosotros como socio estratégico.',
     audience: 'Contratistas generales, especialidades y operadores de facilities.',
     benefits: esIndustryBenefits,
   },
@@ -538,7 +538,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'Hemos diseñado, implementado y gestionado soluciones de cuentas por cobrar orientadas al rendimiento para algunas de las mayores instituciones bancarias y de servicios financieros.',
     overview:
-      'Ayudamos a mejorar cómo atienden y facturan a clientes actuales, a prevenir la morosidad y a optimizar la operación. Analistas con experiencia en préstamos, arrendamientos y todas las etapas — consumidor y empresa. Cuente con nosotros como socio estratégico.',
+      'Ayudamos a mejorar cómo atienden y facturan a clientes actuales, a prevenir la morosidad y a optimizar la operación. Analistas con experiencia en préstamos, arrendamientos y todas las etapas — consumidor y empresa. Cuenta con nosotros como socio estratégico.',
     audience:
       'Emisores de tarjetas, préstamos personales e hipotecarios, financiamiento automotriz, préstamos a plazos, saldos de deficiencia, crédito educativo, cooperativas, cambio de cheques y crédito minorista — bancos de todos los tamaños.',
     benefits: esIndustryBenefits,
@@ -572,7 +572,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'Ante la tensión económica y la competencia mundial, las empresas de ingeniería confían en nuestros servicios de cobranza para salvaguardar sus ganancias.',
     overview:
-      'La gama está hecha para mejorar soporte y facturación, prevenir la morosidad y recuperar cuentas con atrasos importantes. Analistas con experiencia en varios tipos de empresas de ingeniería — crédito comercial y de consumo, en todas las etapas. Cuente con nosotros como socio estratégico.',
+      'La gama está hecha para mejorar soporte y facturación, prevenir la morosidad y recuperar cuentas con atrasos importantes. Analistas con experiencia en varios tipos de empresas de ingeniería — crédito comercial y de consumo, en todas las etapas. Cuenta con nosotros como socio estratégico.',
     audience: 'Prácticas de ingeniería civil, industrial y especializada.',
     benefits: esIndustryBenefits,
   },
@@ -583,7 +583,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'Con un enfoque intenso en el servicio al cliente, la industria hotelera confía en WNRS para operar y administrar sus cuentas por cobrar.',
     overview:
-      'La gama está hecha para mejorar la atención y la facturación, y prevenir problemas con los clientes actuales. Analistas con experiencia en todos los segmentos de la hostelería, en todas las etapas, con énfasis en el servicio al cliente. Cuente con nosotros como socio estratégico.',
+      'La gama está hecha para mejorar la atención y la facturación, y prevenir problemas con los clientes actuales. Analistas con experiencia en todos los segmentos de la hostelería, en todas las etapas, con énfasis en el servicio al cliente. Cuenta con nosotros como socio estratégico.',
     audience: 'Casinos, hoteles, resorts y operadores de ocio.',
     benefits: [
       'Mayor flujo de caja',
@@ -601,7 +601,7 @@ export const esVerticals: Record<string, Vert> = {
     ic: 'PRIME · SUB · FLOW-DOWN',
     short: 'Cuentas por cobrar de gobierno: del federal al municipal, y para contratistas.',
     intro:
-      'Permítanos optimizar su gestión de cuentas por cobrar gubernamental. Del federal al municipal, WNRS ha diseñado servicios para todo tipo de programa de gobierno y para contratistas de instituciones públicas.',
+      'Permítenos optimizar tu gestión de cuentas por cobrar gubernamental. Del federal al municipal, WNRS ha diseñado servicios para todo tipo de programa de gobierno y para contratistas de instituciones públicas.',
     overview:
       'No todos los programas de cuentas por cobrar están hechos igual. Trabajar en ambos extremos del espectro nos da una lectura clara de cómo son — y cómo deberían ser — los programas de servicio gubernamental.',
     audience: 'Primes, subcontratistas y vendors en obra y servicios públicos.',
@@ -630,7 +630,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'Las empresas tecnológicas buscan innovar y liderar. En todo el mundo confían en WNRS para gestionar e implementar prácticas de cobro igualmente innovadoras que controlen el resultado financiero.',
     overview:
-      'La gama está hecha para mejorar soporte y facturación, prevenir la morosidad y recuperar cuentas con atrasos importantes. Analistas con experiencia en crédito comercial y de consumo, en todas las etapas. Deje el cobro a los expertos.',
+      'La gama está hecha para mejorar soporte y facturación, prevenir la morosidad y recuperar cuentas con atrasos importantes. Analistas con experiencia en crédito comercial y de consumo, en todas las etapas. Deja el cobro a los expertos.',
     audience: 'Empresas de software, hardware y servicios de tecnología.',
     benefits: esIndustryBenefits,
   },
@@ -639,9 +639,9 @@ export const esVerticals: Record<string, Vert> = {
     ic: 'CAPEX · REFACCIONES',
     short: 'Gestión de cuentas por cobrar para fabricantes de maquinaria y componentes.',
     intro:
-      'Los fabricantes de maquinaria y componentes industriales confían en WNRS para gestionar y operar sus cuentas por cobrar. Incremente sus márgenes con WNRS.',
+      'Los fabricantes de maquinaria y componentes industriales confían en WNRS para gestionar y operar sus cuentas por cobrar. Incrementa tus márgenes con WNRS.',
     overview:
-      'La gama está hecha para mejorar soporte y facturación, prevenir la morosidad y recuperar cuentas con retrasos importantes. Analistas con experiencia en maquinaria industrial — crédito comercial y de consumo, en todas las etapas. Cuente con nosotros como socio estratégico.',
+      'La gama está hecha para mejorar soporte y facturación, prevenir la morosidad y recuperar cuentas con retrasos importantes. Analistas con experiencia en maquinaria industrial — crédito comercial y de consumo, en todas las etapas. Cuenta con nosotros como socio estratégico.',
     audience: 'OEMs y distribuidores de maquinaria y componentes industriales.',
     benefits: esIndustryBenefits,
   },
@@ -652,7 +652,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'WNRS lleva más de 25 años con compañías de seguros, corredores y agentes: seguros generales, automóviles, propiedad, responsabilidad civil, vida, salud y cobro de primas. Amplia experiencia en primas, sobrepagos, subrogación y acuerdos.',
     overview:
-      'Conocemos el sector, sus normas y reglamentos en constante cambio. Los programas de recuperación cobran con rapidez y eficiencia, sin romper la relación con el asegurado. Del envío de cartas a campañas completas: implementamos la solución que necesita.',
+      'Conocemos el sector, sus normas y reglamentos en constante cambio. Los programas de recuperación cobran con rapidez y eficiencia, sin romper la relación con el asegurado. Del envío de cartas a campañas completas: implementamos la solución que necesitas.',
     audience: 'Aseguradoras, corredores, agentes y operaciones correlatas.',
     benefits: [
       'Mayor flujo de caja',
@@ -669,7 +669,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'Hemos diseñado, implementado y gestionado soluciones de cobro y cuentas por cobrar orientadas al rendimiento para algunas de las mayores empresas de ciencias de la vida del mundo.',
     overview:
-      'La gama está hecha para mejorar soporte y facturación a clientes actuales, prevenir la morosidad y cobrar cuentas con retrasos importantes. Analistas con experiencia en crédito de consumo y empresarial, en todas las etapas. Cuente con nosotros como socio estratégico.',
+      'La gama está hecha para mejorar soporte y facturación a clientes actuales, prevenir la morosidad y cobrar cuentas con retrasos importantes. Analistas con experiencia en crédito de consumo y empresarial, en todas las etapas. Cuenta con nosotros como socio estratégico.',
     audience: 'Farma, devices, biotech y organizaciones de investigación.',
     benefits: esIndustryBenefits,
   },
@@ -680,7 +680,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'Hemos diseñado, implementado y gestionado servicios de cobro y cuentas por cobrar orientados al rendimiento para algunas de las mayores empresas de medios del mundo.',
     overview:
-      'La gama está hecha para mejorar soporte y facturación, prevenir la morosidad y cobrar cuentas con retrasos importantes. Analistas con experiencia en crédito de consumo y empresarial, en todas las etapas. Cuente con nosotros como socio estratégico.',
+      'La gama está hecha para mejorar soporte y facturación, prevenir la morosidad y cobrar cuentas con retrasos importantes. Analistas con experiencia en crédito de consumo y empresarial, en todas las etapas. Cuenta con nosotros como socio estratégico.',
     audience: 'Publishers, broadcasters, medios digitales y productoras.',
     benefits: esIndustryBenefits,
   },
@@ -691,7 +691,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'Pulp y papel, construcción, textiles, metales, plásticos o cemento: nuestras soluciones de cuentas por cobrar suben las ganancias y mantienen clientes satisfechos, con una cadena de suministro orientada a la rentabilidad.',
     overview:
-      'De la gestión de cuentas por cobrar a la resolución de disputas, WNRS ha ayudado a algunas de las mayores empresas de productos de molino a subir la rentabilidad con programas eficaces. Implemente los servicios y compruebe la diferencia.',
+      'De la gestión de cuentas por cobrar a la resolución de disputas, WNRS ha ayudado a algunas de las mayores empresas de productos de molino a subir la rentabilidad con programas eficaces. Implementa los servicios y comprueba la diferencia.',
     audience: 'Fabricantes y distribuidores de papel, empaque, madera y productos de molino.',
     benefits: ['Mayor flujo de caja', 'Mayor velocidad de cobro', ...esIndustryBenefits.slice(1)],
   },
@@ -702,7 +702,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'En un mercado de materias primas competitivo, las mineras del mundo recurren a WNRS para subir ganancias con cobranza y administración de cuentas por cobrar.',
     overview:
-      'El mercado minero es global: las transacciones internacionales son lo habitual. Las mineras globales nos piden gestionar y cobrar cuentas puntuales y atrasadas. Implemente los servicios de cobro y compruebe la diferencia.',
+      'El mercado minero es global: las transacciones internacionales son lo habitual. Las mineras globales nos piden gestionar y cobrar cuentas puntuales y atrasadas. Implementa los servicios de cobro y comprueba la diferencia.',
     audience: 'Productores, traders y proveedores de minería.',
     benefits: esIndustryBenefits,
   },
@@ -720,7 +720,7 @@ export const esVerticals: Record<string, Vert> = {
   'wholesale-distribution': {
     name: 'Venta al por mayor y distribución',
     ic: 'CRÉDITO COMERCIAL',
-    short: 'Cobre más rápido y baje el DSO con mejores procesos y talento.',
+    short: 'Cobra más rápido y baja el DSO con mejores procesos y talento.',
     intro:
       'Los distribuidores mayoristas enfrentan más demanda de clientes y proveedores. WNRS les ayuda a cobrar más rápido y a ser más eficientes, con procesos y talento para reducir los días de cobro pendientes.',
     overview:
@@ -746,7 +746,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'WNRS ha trabajado con operadores móviles, proveedores de internet, larga distancia, cable, revendedores, satélite y VoIP. Los programas mantienen cuentas por cobrar saludables y recuperan mora y vencidas.',
     overview:
-      'Implementamos el sistema completo o solo cobranza selecta en cuentas agotadas. Las herramientas para que sus clientes paguen a tiempo.',
+      'Implementamos el sistema completo o solo cobranza selecta en cuentas agotadas. Las herramientas para que tus clientes paguen a tiempo.',
     audience: 'Operadores wireline, wireless y wholesale de telecom.',
     benefits: [
       'Mayor flujo de caja',
@@ -769,7 +769,7 @@ export const esSeo: Record<string, { title: string; description: string }> = {
   '/services': {
     title: 'Servicios | WNRS',
     description:
-      'Explore los servicios de cobranza y cuentas por cobrar de WNRS por tipo, industria o sector — de la cobranza administrativa a la intervención legal.',
+      'Explora los servicios de cobranza y cuentas por cobrar de WNRS por tipo, industria o sector — de la cobranza administrativa a la intervención legal.',
   },
   '/insights': {
     title: 'Insights sobre cobranza y cuentas por cobrar | WNRS',
@@ -784,32 +784,32 @@ export const esSeo: Record<string, { title: string; description: string }> = {
   '/terms': {
     title: 'Términos de servicio | WNRS',
     description:
-      'Términos del sitio institucional de WNRS. El trabajo de cobranza se rige por un contrato de cliente separado. Contáctenos con dudas.',
+      'Términos del sitio institucional de WNRS. El trabajo de cobranza se rige por un contrato de cliente separado. Contáctanos con dudas.',
   },
   '/404': {
     title: 'Página no encontrada | WNRS',
     description:
-      'Esa URL no está en el sitio institucional de WNRS. Vuelva al inicio para servicios de cobranza y cuentas por cobrar en las Américas.',
+      'Esa URL no está en el sitio institucional de WNRS. Vuelve al inicio para servicios de cobranza y cuentas por cobrar en las Américas.',
   },
   '/early-stage-arm': {
-    title: 'Cobranza Administrativa: Recupere su cartera | WNRS',
+    title: 'Cobranza Administrativa: Recupera tu cartera | WNRS',
     description:
-      'Cobranza administrativa de WNRS: actúe al inicio de la morosidad, antes de que la cuenta se complique. Hable con un experto.',
+      'Cobranza administrativa de WNRS: actúa al inicio de la morosidad, antes de que la cuenta se complique. Habla con un experto.',
   },
   '/late-stage-arm': {
     title: 'Cobranza Extrajudicial | WNRS',
     description:
-      'Cobranza extrajudicial para cuentas cerca de la incobrabilidad. Estrategia a la medida, localización y respaldo legal. Hable con un experto.',
+      'Cobranza extrajudicial para cuentas cerca de la incobrabilidad. Estrategia a la medida, localización y respaldo legal. Habla con un experto.',
   },
   '/specialized-arm': {
     title: 'Cobranza Especializada | WNRS',
     description:
-      'La Unidad Especializada de WNRS atiende cobranzas sensibles y multipartes para gobierno y multinacionales. Hable con un experto.',
+      'La Unidad Especializada de WNRS atiende cobranzas sensibles y multipartes para gobierno y multinacionales. Habla con un experto.',
   },
   '/financial-skip-tracing': {
     title: 'Localización de deudores y bienes | WNRS',
     description:
-      'Localización de deudores y bienes cuando las bases públicas no bastan. Investigadores internacionales y campo. Hable con un experto.',
+      'Localización de deudores y bienes cuando las bases públicas no bastan. Investigadores internacionales y campo. Habla con un experto.',
   },
   '/attorney-intervention': {
     title: 'Intervención Legal | WNRS',
@@ -944,7 +944,7 @@ export const esSeo: Record<string, { title: string; description: string }> = {
   '/wholesale-distribution': {
     title: 'Venta al por mayor y distribución | WNRS',
     description:
-      'Cobre más rápido y baje el DSO. WNRS reduce pérdidas por impago para mayoristas y distribuidores.',
+      'Cobra más rápido y baja el DSO. WNRS reduce pérdidas por impago para mayoristas y distribuidores.',
   },
   '/sports-entertainment': {
     title: 'Deportes y entretenimiento | WNRS',
