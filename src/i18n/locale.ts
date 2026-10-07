@@ -53,8 +53,27 @@ export const LOCALE_META: Record<
  */
 export const LOCALE_DOMAINS_READY = false;
 
+/** Astro `base` without trailing slash (`''` when base is `/`). */
+function configuredBase(): string {
+  const raw = import.meta.env.BASE_URL || '/';
+  return String(raw).replace(/\/$/, '');
+}
+
+/**
+ * Drop Astro `base` and a leftover `/wnrs` preview prefix so locale
+ * detection still works on project Pages (`/wnrs-locale-preview/pt/…`).
+ */
+export function stripPreviewPrefix(pathname: string): string {
+  let p = pathname || '/';
+  const base = configuredBase();
+  if (base && (p === base || p === `${base}/`)) p = '/';
+  else if (base && p.startsWith(`${base}/`)) p = p.slice(base.length) || '/';
+  if (p === '/wnrs' || p.startsWith('/wnrs/')) p = p.slice('/wnrs'.length) || '/';
+  return p || '/';
+}
+
 export function localeFromPath(pathname: string): Locale {
-  const p = pathname.replace(/\/$/, '') || '/';
+  const p = stripPreviewPrefix(pathname).replace(/\/$/, '') || '/';
   if (p === '/pt' || p.startsWith('/pt/')) return 'pt';
   if (p === '/es' || p.startsWith('/es/')) return 'es';
   return 'en';
@@ -62,8 +81,7 @@ export function localeFromPath(pathname: string): Locale {
 
 /** Site path without `/pt` or `/es` prefix, always trailing-slashed except `/`. */
 export function barePath(pathname: string): string {
-  let p = pathname || '/';
-  if (p === '/wnrs' || p.startsWith('/wnrs/')) p = p.slice('/wnrs'.length) || '/';
+  let p = stripPreviewPrefix(pathname);
   const trimmed = p.replace(/\/$/, '') || '/';
   if (trimmed === '/pt' || trimmed === '/es') return '/';
   if (trimmed.startsWith('/pt/')) p = trimmed.slice(3);
@@ -109,7 +127,11 @@ export function switcherHref(target: Locale, pathname: string): string {
   const suffix = bare === '/' ? '/' : bare.endsWith('/') ? bare : `${bare}/`;
   if (LOCALE_DOMAINS_READY) return `${LOCALE_META[target].origin}${suffix}`;
   const prefix = localePrefix(target);
-  return prefix ? `${prefix}${suffix}` : suffix;
+  const path = prefix ? `${prefix}${suffix}` : suffix;
+  const base = configuredBase();
+  if (!base) return path;
+  if (path === '/') return `${base}/`;
+  return `${base}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
 export const MARKETING_PATHS = [

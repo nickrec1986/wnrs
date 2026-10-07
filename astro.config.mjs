@@ -31,10 +31,13 @@ const redirectSources = new Set(
   }),
 );
 
+// `ASTRO_BASE` is for one-off project-Pages previews only (default `/`).
+const previewBase = process.env.ASTRO_BASE || '/';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://wnrs.com',
-  base: '/',
+  base: previewBase,
   output: 'static',
   trailingSlash: 'always',
   build: { format: 'directory' },
