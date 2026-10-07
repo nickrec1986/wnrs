@@ -40,11 +40,11 @@ export const esKeyStats = [
 ];
 
 export const esPicker: Record<string, string> = {
-  'early-stage-arm': 'Cobranza administrativa',
-  'specialized-arm': 'Cobranza especializada',
-  'late-stage-arm': 'Cobranza extrajudicial',
-  'financial-skip-tracing': 'Investigación financiera',
-  'attorney-intervention': 'Cobranza judicial',
+  'early-stage-arm': 'Cobranza Administrativa',
+  'specialized-arm': 'Cobranza Especializada',
+  'late-stage-arm': 'Cobranza Extrajudicial',
+  'financial-skip-tracing': 'Localización de deudores',
+  'attorney-intervention': 'Intervención Legal',
   contact: 'Gestión de la experiencia del cliente',
 };
 
@@ -151,8 +151,8 @@ type Svc = {
 
 export const esServices: Record<string, Svc> = {
   'early-stage-arm': {
-    name: 'Cobranza en etapa temprana',
-    navLabel: 'Cobranza en etapa temprana',
+    name: 'Cobranza Administrativa',
+    navLabel: 'Cobranza Administrativa',
     ic: '1–60 DÍAS · FIRST-PARTY',
     short:
       'La cobranza en etapa temprana de WNRS está hecha para empresas que quieren actuar al inicio del ciclo de vida del cliente.',
@@ -183,8 +183,8 @@ export const esServices: Record<string, Svc> = {
     ],
   },
   'late-stage-arm': {
-    name: 'Cobranza en etapa avanzada',
-    navLabel: 'Cobranza en etapa avanzada',
+    name: 'Cobranza Extrajudicial',
+    navLabel: 'Cobranza Extrajudicial',
     ic: 'PRE-CASTIGO · CONCENTRADA',
     short: 'Las empresas enfrentan el mismo problema cuando las cuentas se acercan a la fecha de castigo.',
     tagline: 'Una estrategia ganadora para cuentas a punto de envejecer de más.',
@@ -212,8 +212,8 @@ export const esServices: Record<string, Svc> = {
     ],
   },
   'specialized-arm': {
-    name: 'Cobranza especializada',
-    navLabel: 'Cobranza especializada',
+    name: 'Cobranza Especializada',
+    navLabel: 'Cobranza Especializada',
     ic: 'SENSIBLE · MULTIDISCIPLINARIA',
     short:
       'No todos los programas de A/R son iguales. La Unidad Especializada (SU) de WNRS conduce operaciones de cobranza de propósito especial y sensibles.',
@@ -242,8 +242,8 @@ export const esServices: Record<string, Svc> = {
     ],
   },
   'financial-skip-tracing': {
-    name: 'Localización financiera',
-    navLabel: 'Localización financiera',
+    name: 'Localización de deudores',
+    navLabel: 'Localización de deudores',
     ic: 'INVESTIGACIÓN · LOCALIZACIÓN',
     short:
       'La economía globalizada facilita que el cliente genere problemas de O2C y luego relocalice la actividad para evitar ser ubicado.',
@@ -271,8 +271,8 @@ export const esServices: Record<string, Svc> = {
     ],
   },
   'attorney-intervention': {
-    name: 'Intervención legal',
-    navLabel: 'Intervención legal',
+    name: 'Intervención Legal',
+    navLabel: 'Intervención Legal',
     ic: 'LITIGIO · EJECUCIÓN',
     short:
       'A lo largo de los años y por nuestras oficinas globales, construimos una red internacional de abogados, incluidos concursales.',
@@ -670,27 +670,27 @@ export const esSeo: Record<string, { title: string; description: string }> = {
       'Esa URL no está en el sitio institucional de WNRS. Vuelva al inicio para servicios de cobranza y cuentas por cobrar en las Américas.',
   },
   '/early-stage-arm': {
-    title: 'Cobranza en etapa temprana | WNRS',
+    title: 'Cobranza Administrativa | WNRS',
     description:
       'Cobranza first-party en etapa temprana de WNRS — detenga la mora en los primeros 1–60 días sin agriar la relación. Hable con un experto.',
   },
   '/late-stage-arm': {
-    title: 'Cobranza en etapa avanzada | WNRS',
+    title: 'Cobranza Extrajudicial | WNRS',
     description:
       'Cobranza avanzada para cuentas cerca del castigo. Cobradores experimentados, localización y respaldo legal de WNRS. Hable con un experto.',
   },
   '/specialized-arm': {
-    title: 'Cobranza especializada | WNRS',
+    title: 'Cobranza Especializada | WNRS',
     description:
       'La Unidad Especializada de WNRS atiende cobranzas sensibles y multipartes para gobierno y multinacionales. Hable con un experto.',
   },
   '/financial-skip-tracing': {
-    title: 'Localización financiera | WNRS',
+    title: 'Localización de deudores | WNRS',
     description:
       'La localización de WNRS ubica deudores y activos cuando las bases públicas no bastan. Investigadores internacionales y campo. Hable con un experto.',
   },
   '/attorney-intervention': {
-    title: 'Intervención legal | WNRS',
+    title: 'Intervención Legal | WNRS',
     description:
       'Litigio y ejecución de sentencia a través de la red internacional de abogados de WNRS. Un escritorio del análisis a la ejecución. Hable con un experto.',
   },
