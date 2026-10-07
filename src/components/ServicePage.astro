@@ -17,6 +17,12 @@ const svc = localizedService(slug, locale);
 if (!svc) throw new Error(`Unknown service slug: ${slug}`);
 const seo = localizedSeo(`/${slug}`, locale);
 const site = localizedSite(locale);
+// ES/PT follow live .mx: blue eyebrow = service name, black H1 = distinct tagline.
+// EN keeps the existing hero (brand kicker + service-name H1).
+const useTaglineHero =
+  locale !== 'en' && Boolean(svc.tagline) && svc.tagline !== svc.navLabel && svc.tagline !== svc.name;
+const eyebrow = useTaglineHero ? svc.navLabel : t.debtCollectionExperts;
+const heading = useTaglineHero ? svc.tagline : svc.navLabel;
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -42,8 +48,8 @@ const jsonLd = {
   <header class="page-hero">
     <div class="wrap page-split">
       <div>
-        <p class="kicker">{t.debtCollectionExperts}</p>
-        <h1>{svc.navLabel}</h1>
+        <p class="kicker">{eyebrow}</p>
+        <h1>{heading}</h1>
         <p class="lede">{svc.intro}</p>
         <a class="btn" href={href('/#contact')}>{t.talkToExpert}</a>
       </div>

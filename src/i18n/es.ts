@@ -175,7 +175,7 @@ export const esServices: Record<string, Svc> = {
       'Interviene en las primeras etapas de morosidad, antes de que la cuenta se convierta en un problema mayor.',
     tagline: 'Recupera tu cartera antes de que se complique.',
     intro:
-      'Los servicios de cobranza administrativa de WNRS están diseñados para empresas que quieren actuar al inicio de la morosidad. Un enfoque rentable y centrado en el cliente, que reduce la probabilidad de que los saldos pasen a etapas más viejas. Para las empresas que compiten a nivel mundial, no hay otra opción: servicios de primera clase, o quedarse atrás.',
+      'Los servicios de cobranza administrativa de WNRS están diseñados para empresas que buscan intervenir en las primeras etapas de morosidad, antes de que una cuenta se convierta en un problema mayor. Nuestra experiencia de clase mundial en cobranza administrativa ofrece un enfoque rentable y centrado en el cliente que reduce la probabilidad de que los saldos pasen a etapas de mayor antigüedad. Para las empresas que compiten a nivel mundial, no hay otra opción: servicios de primera clase, o quedarse atrás.',
     overview: [
       'La cobranza administrativa protege la imagen de marca de tu empresa. La conducen profesionales multilingües, con estrategia y diplomacia, capacitados para tratar con cortesía a tus clientes. Con modelos propios de segmentación, estructuración y análisis, elegimos el método y el agente adecuados para cada caso.',
       'Apoyamos procesos en varias industrias y geografías con campañas personalizadas — por lo general a nombre del cliente. La clave es un servicio personal y firme que conserva las relaciones que tú valoras.',
@@ -209,7 +209,7 @@ export const esServices: Record<string, Svc> = {
     short: 'Un problema común: las cuentas se acercan a la fecha de incobrabilidad y hace falta una estrategia ganadora.',
     tagline: 'Expertos avanzados para etapas avanzadas.',
     intro:
-      'El servicio de cobranza extrajudicial de WNRS se concentra en este segmento y arma una estrategia de recuperación a la medida. Para las empresas que compiten a nivel mundial, no hay otra opción: servicios de primera clase, o quedarse atrás.',
+      'Las empresas se enfrentan a un problema común con las cuentas de clientes a medida que se acerca la fecha de incobrabilidad. El servicio de cobranza extrajudicial de WNRS para la etapa avanzada de gestión de cuentas por cobrar se concentra en este segmento y arma una estrategia ganadora de recuperación. Para las empresas que compiten a nivel mundial, no hay otra opción: servicios de primera clase, o quedarse atrás.',
     overview: [
       'Nuestro enfoque de mejores prácticas está pensado para tu sector. Tras 50 años, tenemos sistemas de cobranza por industria y tasas de éxito altas. No usamos el modelo de call center con alta rotación y temporales: formamos al agente para que entienda tu industria.',
       'Componentes del programa: profesionales con años de experiencia, campañas especializadas, facturación personalizada, localización e investigación nacional e internacional, seguimiento 24/7 e intervención de un abogado cuando haga falta.',
@@ -239,9 +239,9 @@ export const esServices: Record<string, Svc> = {
     ic: 'SENSIBLE · MULTIDISCIPLINARIA',
     short:
       'No todos los programas de cobranza son iguales. La Unidad Especializada (SU) de WNRS ejecuta operaciones complejas y delicadas.',
-    tagline: 'Una unidad para asuntos que un escritorio estándar no toca.',
+    tagline: 'Simplifica lo complejo.',
     intro:
-      'La SU está reservada sobre todo a gobiernos y multinacionales selectas. Profesionales multidisciplinarios, organizados y formados, combinan tácticas convencionales y no convencionales para lograr el objetivo cuando y donde haga falta.',
+      'No todos los programas de cobranza son iguales. La cobranza especializada de WNRS — la Unidad Especializada (SU) — ejecuta operaciones complejas y delicadas, reservadas sobre todo a gobiernos y multinacionales selectas. Profesionales multidisciplinarios combinan tácticas convencionales y no convencionales para lograr el objetivo cuando y donde haga falta.',
     overview: [
       'Nuestros expertos del sector resuelven conflictos con varias partes: financieros, legales, operativos, políticos, regulatorios y transaccionales. Las unidades de negocio se apoyan en servicios multidisciplinarios y se movilizan — con los recursos especiales que el caso pida.',
       'Disputa comercial concursal o no, o un asunto ligado a gobierno: analizamos y priorizamos los pasos para el resultado más positivo y oportuno. Desde la evaluación y el discovery hasta la estrategia, el análisis de daños y la conciliación.',
@@ -270,9 +270,9 @@ export const esServices: Record<string, Svc> = {
     ic: 'INVESTIGACIÓN · LOCALIZACIÓN',
     short:
       'La globalización facilita que el deudor mude su actividad para no ser localizado. Nosotros vamos un paso adelante.',
-    tagline: 'Localización de deudores y bienes.',
+    tagline: 'Localiza al deudor y a sus bienes.',
     intro:
-      'En WNRS combinamos tecnología avanzada y un equipo humano altamente cualificado para localizar y entablar las demandas de nuestros clientes contra quien intenta evadir la localización. Nuestro seguimiento ha dado resultados extraordinarios. Aprovecha nuestros algoritmos y método — o te quedas atrás.',
+      'La globalización facilita que el deudor mude su actividad para no ser localizado. La localización de deudores de WNRS combina tecnología avanzada y un equipo humano altamente cualificado para localizar y entablar las demandas contra quien intenta evadir el contacto. Nuestro seguimiento ha dado resultados extraordinarios. Aprovecha nuestros algoritmos y método — o te quedas atrás.',
     overview: [
       'Las investigaciones financieras complementan la cobranza. Otras empresas se apoyan en bases públicas nacionales; nosotros sabemos que, con deudores opacos o deudas de países con sistemas débiles, la experiencia es lo que cierra.',
       'Juntamos las tecnologías disponibles, nuestras oficinas internacionales y la formación de nuestros equipos para llegar al deudor y a sus bienes.',
@@ -306,7 +306,7 @@ export const esServices: Record<string, Svc> = {
       'Una red internacional de abogados — incluidos concursales — en EE. UU., Canadá, México, Latinoamérica, Centroamérica, el Caribe y Europa Occidental.',
     tagline: 'Litigio y ejecución de sentencia, en un solo lugar.',
     intro:
-      'Con nuestra presencia global armamos una red de abogados para implementar mecanismos de ejecución legal en todo el mundo, a través del programa de Intervención Legal.',
+      'Con los años y nuestra presencia global armamos una red internacional de abogados — incluidos concursales — en las jurisdicciones de EE. UU., Canadá, México, Latinoamérica, Centroamérica, el Caribe y Europa Occidental. Mediante el programa de Intervención Legal, esa red implementa mecanismos de ejecución legal en todo el mundo.',
     overview: [
       'Del litigio a la ejecución de sentencias, la red aporta experiencia sólida en cobranzas. WNRS gestiona el proceso y te mantiene informado en cada etapa.',
       'Consolidación, investigación, ejecución y planificación: analizamos con factores cuantificables si conviene litigar. Si se inicia, todo se rastrea y monitorea en un solo lugar, consolidado por WNRS.',
@@ -792,7 +792,7 @@ export const esSeo: Record<string, { title: string; description: string }> = {
       'Esa URL no está en el sitio institucional de WNRS. Vuelve al inicio para servicios de cobranza y cuentas por cobrar en las Américas.',
   },
   '/early-stage-arm': {
-    title: 'Cobranza Administrativa: Recupera tu cartera | WNRS',
+    title: 'Cobranza Administrativa | WNRS',
     description:
       'Cobranza administrativa de WNRS: actúa al inicio de la morosidad, antes de que la cuenta se complique. Habla con un experto.',
   },
@@ -804,17 +804,17 @@ export const esSeo: Record<string, { title: string; description: string }> = {
   '/specialized-arm': {
     title: 'Cobranza Especializada | WNRS',
     description:
-      'La Unidad Especializada de WNRS atiende cobranzas sensibles y multipartes para gobierno y multinacionales. Habla con un experto.',
+      'Cobranza especializada de WNRS: la Unidad Especializada atiende cobranzas sensibles y multipartes para gobierno y multinacionales. Habla con un experto.',
   },
   '/financial-skip-tracing': {
-    title: 'Localización de deudores y bienes | WNRS',
+    title: 'Localización de deudores | WNRS',
     description:
       'Localización de deudores y bienes cuando las bases públicas no bastan. Investigadores internacionales y campo. Habla con un experto.',
   },
   '/attorney-intervention': {
     title: 'Intervención Legal | WNRS',
     description:
-      'Litigio y ejecución de sentencia a través de la red internacional de abogados de WNRS. Un escritorio del análisis a la ejecución.',
+      'Intervención Legal de WNRS: litigio y ejecución de sentencia a través de una red internacional de abogados. Un escritorio del análisis a la ejecución.',
   },
   '/business': {
     title: 'Negocio | WNRS',

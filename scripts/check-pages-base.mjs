@@ -179,6 +179,101 @@ if (esHome.includes('versión en español del sitio WNRS se está armando')) {
   bad.push('es home is still the stub');
 }
 
+const serviceHeroes = {
+  es: {
+    'early-stage-arm': {
+      name: 'Cobranza Administrativa',
+      h1: 'Recupera tu cartera antes de que se complique.',
+    },
+    'late-stage-arm': {
+      name: 'Cobranza Extrajudicial',
+      h1: 'Expertos avanzados para etapas avanzadas.',
+    },
+    'specialized-arm': { name: 'Cobranza Especializada', h1: 'Simplifica lo complejo.' },
+    'financial-skip-tracing': {
+      name: 'Localización de deudores',
+      h1: 'Localiza al deudor y a sus bienes.',
+    },
+    'attorney-intervention': {
+      name: 'Intervención Legal',
+      h1: 'Litigio y ejecución de sentencia, en un solo lugar.',
+    },
+  },
+  pt: {
+    'early-stage-arm': {
+      name: 'Cobrança Administrativa',
+      h1: 'Recupere sua carteira antes que complique.',
+    },
+    'late-stage-arm': {
+      name: 'Cobrança Extrajudicial',
+      h1: 'Especialistas avançados para etapas avançadas.',
+    },
+    'specialized-arm': { name: 'Cobrança Especializada', h1: 'Simplifique o complexo.' },
+    'financial-skip-tracing': {
+      name: 'Localização de Inadimplentes',
+      h1: 'Localize o inadimplente e os seus bens.',
+    },
+    'attorney-intervention': {
+      name: 'Cobrança Judicial',
+      h1: 'Litígio e execução de sentença, num só lugar.',
+    },
+  },
+};
+
+for (const [loc, pages] of Object.entries(serviceHeroes)) {
+  for (const [slug, { name, h1 }] of Object.entries(pages)) {
+    const p = join(root, loc, slug, 'index.html');
+    if (!existsSync(p)) {
+      bad.push(`missing ${loc} service page: ${slug}`);
+      continue;
+    }
+    const html = readFileSync(p, 'utf8');
+    const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+    if (!title.startsWith(`${name} | WNRS`)) {
+      bad.push(`${loc}/${slug}: title should lead with "${name} | WNRS" (got "${title}")`);
+    }
+    const desc = html.match(/name="description" content="([^"]*)"/)?.[1] ?? '';
+    if (!desc.toLowerCase().includes(name.toLowerCase())) {
+      bad.push(`${loc}/${slug}: meta description missing service name "${name}"`);
+    }
+    const hero = html.match(
+      /<p class="kicker"([^>]*)>([^<]*)<\/p>\s*<h1>([^<]*)<\/h1>\s*<p class="lede">([\s\S]*?)<\/p>/,
+    );
+    if (!hero) {
+      bad.push(`${loc}/${slug}: missing real kicker+h1+lede hero stack`);
+    } else {
+      const [, kickerAttrs, kicker, heading, lede] = hero;
+      if (/\baria-hidden\b/.test(kickerAttrs)) {
+        bad.push(`${loc}/${slug}: kicker is aria-hidden`);
+      }
+      if (kicker.trim() !== name) bad.push(`${loc}/${slug}: kicker "${kicker.trim()}" ≠ "${name}"`);
+      if (heading.trim() !== h1) bad.push(`${loc}/${slug}: h1 "${heading.trim()}" ≠ "${h1}"`);
+      if (heading.trim() === name) bad.push(`${loc}/${slug}: h1 repeats the service name`);
+      if (!lede.toLowerCase().includes(name.toLowerCase())) {
+        bad.push(`${loc}/${slug}: intro missing service name "${name}"`);
+      }
+    }
+    const serviceLd = html.match(/"@type":"Service"[^}]*"name":"([^"]+)"/);
+    if (!serviceLd || !serviceLd[1].includes(name)) {
+      bad.push(`${loc}/${slug}: JSON-LD Service.name missing "${name}"`);
+    }
+    if (!html.includes(`"name":"${name}"`) && !html.includes(`"name": "${name}"`)) {
+      bad.push(`${loc}/${slug}: breadcrumb/JSON-LD missing exact service name`);
+    }
+  }
+}
+
+const enEarly = join(root, 'early-stage-arm', 'index.html');
+if (existsSync(enEarly)) {
+  const html = readFileSync(enEarly, 'utf8');
+  if (!html.includes('<h1>Early Stage Collection</h1>')) {
+    bad.push('en early-stage-arm: H1 should stay the service name');
+  }
+  if (!html.includes('Debt Collection Experts')) {
+    bad.push('en early-stage-arm: brand kicker missing');
+  }
+}
+
 if (bad.length) {
   console.error('Production URL check failed:\n' + bad.join('\n'));
   process.exit(1);

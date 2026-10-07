@@ -155,3 +155,28 @@ Restored .mx tú where he already had it, sentence case:
 - After: `Recupera tu cartera antes de que se complique.`
 - CTAs: `Reserva tu llamada`, `Solicita tu presupuesto`, `Contáctanos` (his .mx: *Reserva tu llamada*, *Obtén / Solicita tu presupuesto*).
 - Hero: `Tus cuentas por cobrar. Recuperadas.` (live .mx used *Sus*; tú is now consistent site-wide).
+
+---
+
+## Service heroes: eyebrow + tagline H1 (follow-up)
+
+Live `.mx` service pages put the **service name in the blue eyebrow** and a **different tagline in the black H1**. Our template had been repeating the name as H1 (`<h1>{svc.navLabel}</h1>`). `ServicePage.astro` now uses `tagline` as the H1 on `/es/` and `/pt/` only. English is unchanged (kicker stays “Debt Collection Experts”, H1 stays the service name).
+
+There is no dedicated CX service page on this site or on `.mx` (picker still goes to contact).
+
+| Service | Eyebrow | H1 | Source |
+| --- | --- | --- | --- |
+| Cobranza Administrativa | Cobranza Administrativa | Recupera tu cartera antes de que se complique. | live `.mx` (sentence case + period) |
+| Cobranza Extrajudicial | Cobranza Extrajudicial | Expertos avanzados para etapas avanzadas. | live `.mx` (sentence case + period) |
+| Cobranza Especializada | Cobranza Especializada | Simplifica lo complejo. | NEW — `.mx` H1 repeated the name; line from his page CTA (*Simplifiquemos lo complejo*), tú |
+| Localización de deudores | Localización de deudores | Localiza al deudor y a sus bienes. | NEW — `.mx` H1 repeated the name |
+| Intervención Legal | Intervención Legal | Litigio y ejecución de sentencia, en un solo lugar. | NEW — `.mx` H1 repeated the name |
+
+`/pt/` H1s are the Brazilian *você* translations of those Spanish taglines. Hero intros stay his (light polish); each first paragraph includes the service name.
+
+SEO guardrails on ES/PT service pages:
+
+1. `<title>` leads with the service name (`Cobranza Extrajudicial \| WNRS` / `Cobrança Extrajudicial \| WNRS`).
+2. Blue eyebrow is a real `<p class="kicker">` immediately above the H1 — not an image, not `aria-hidden`.
+3. Meta description and the first intro paragraph contain the service name.
+4. Breadcrumb and JSON-LD `Service.name` stay the service name (not the tagline).

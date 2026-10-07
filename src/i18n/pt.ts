@@ -175,7 +175,7 @@ export const ptServices: Record<string, Svc> = {
       'Intervenha nas primeiras etapas da inadimplência, antes que a conta vire um problema maior.',
     tagline: 'Recupere sua carteira antes que complique.',
     intro:
-      'Os serviços de cobrança administrativa da WNRS são feitos para empresas que querem agir no início da inadimplência. Um enfoque rentável e centrado no cliente, que reduz a probabilidade de os saldos passarem a faixas mais velhas. Para empresas que competem no mundo, não há outra opção: serviços de primeira classe, ou ficar para trás.',
+      'Os serviços de cobrança administrativa da WNRS são feitos para empresas que querem intervir nas primeiras etapas da inadimplência, antes que uma conta vire um problema maior. Nossa experiência de classe mundial em cobrança administrativa oferece um enfoque rentável e centrado no cliente que reduz a probabilidade de os saldos passarem a faixas mais antigas. Para empresas que competem no mundo, não há outra opção: serviços de primeira classe, ou ficar para trás.',
     overview: [
       'A cobrança administrativa protege a imagem de marca da sua empresa. É conduzida por profissionais multilíngues, com estratégia e diplomacia, capacitados para tratar com cortesia os seus clientes. Com modelos próprios de segmentação, estruturação e análise, escolhemos o método e o agente adequados para cada caso.',
       'Apoiamos processos em vários setores e geografias com campanhas personalizadas — em geral no nome do cliente. A chave é um serviço pessoal e firme que conserva as relações que você valoriza.',
@@ -209,7 +209,7 @@ export const ptServices: Record<string, Svc> = {
     short: 'Um problema comum: as contas se aproximam da data de incobrabilidade e falta uma estratégia vencedora.',
     tagline: 'Especialistas avançados para etapas avançadas.',
     intro:
-      'O serviço de cobrança extrajudicial da WNRS se concentra neste segmento e monta uma estratégia de recuperação sob medida. Para empresas que competem no mundo, não há outra opção: serviços de primeira classe, ou ficar para trás.',
+      'As empresas enfrentam um problema comum com as contas de clientes à medida que se aproxima a data de incobrabilidade. O serviço de cobrança extrajudicial da WNRS para a etapa avançada de gestão de contas a receber se concentra neste segmento e monta uma estratégia vencedora de recuperação. Para empresas que competem no mundo, não há outra opção: serviços de primeira classe, ou ficar para trás.',
     overview: [
       'Nosso enfoque de melhores práticas é pensado para o seu setor. Após 50 anos, temos sistemas de cobrança por indústria e taxas de sucesso altas. Não usamos o modelo de call center com alta rotatividade e temporários: formamos o agente para que entenda o seu setor.',
       'Componentes do programa: profissionais com anos de experiência, campanhas especializadas, faturamento personalizado, localização e investigação nacional e internacional, acompanhamento 24/7 e intervenção de um advogado quando for preciso.',
@@ -239,9 +239,9 @@ export const ptServices: Record<string, Svc> = {
     ic: 'SENSÍVEL · MULTIDISCIPLINAR',
     short:
       'Nem todo programa de cobrança é igual. A Unidade Especializada (SU) da WNRS executa operações complexas e delicadas.',
-    tagline: 'Uma unidade para assuntos que uma mesa padrão não toca.',
+    tagline: 'Simplifique o complexo.',
     intro:
-      'A SU é reservada sobretudo a governos e multinacionais selecionadas. Profissionais multidisciplinares, organizados e formados, combinam táticas convencionais e não convencionais para alcançar o objetivo quando e onde for preciso.',
+      'Nem todo programa de cobrança é igual. A cobrança especializada da WNRS — a Unidade Especializada (SU) — executa operações complexas e delicadas, reservadas sobretudo a governos e multinacionais selecionadas. Profissionais multidisciplinares combinam táticas convencionais e não convencionais para alcançar o objetivo quando e onde for preciso.',
     overview: [
       'Nossos especialistas do setor resolvem conflitos com várias partes: financeiros, jurídicos, operacionais, políticos, regulatórios e transacionais. As unidades de negócio se apoiam em serviços multidisciplinares e se mobilizam — com os recursos especiais que o caso pedir.',
       'Disputa comercial falimentar ou não, ou um assunto ligado a governo: analisamos e priorizamos os passos para o resultado mais positivo e oportuno. Da avaliação e do discovery à estratégia, à análise de danos e à conciliação.',
@@ -270,9 +270,9 @@ export const ptServices: Record<string, Svc> = {
     ic: 'INVESTIGAÇÃO · LOCALIZAÇÃO',
     short:
       'A globalização facilita que o devedor mude a atividade para não ser localizado. Nós vamos um passo à frente.',
-    tagline: 'Localização de inadimplentes e bens.',
+    tagline: 'Localize o inadimplente e os seus bens.',
     intro:
-      'Na WNRS combinamos tecnologia avançada e uma equipe humana altamente qualificada para localizar e formalizar as demandas dos nossos clientes contra quem tenta evadir a localização. Nosso acompanhamento deu resultados extraordinários. Aproveite nossos algoritmos e método — ou fica para trás.',
+      'A globalização facilita que o devedor mude a atividade para não ser localizado. A localização de inadimplentes da WNRS combina tecnologia avançada e uma equipe humana altamente qualificada para localizar e formalizar as demandas contra quem tenta evadir o contato. Nosso acompanhamento deu resultados extraordinários. Aproveite nossos algoritmos e método — ou fica para trás.',
     overview: [
       'As investigações financeiras complementam a cobrança. Outras empresas se apoiam em bases públicas nacionais; nós sabemos que, com devedores opacos ou dívidas de países com sistemas fracos, a experiência é o que fecha.',
       'Juntamos as tecnologias disponíveis, nossos escritórios internacionais e a formação das nossas equipes para chegar ao devedor e aos seus bens.',
@@ -306,7 +306,7 @@ export const ptServices: Record<string, Svc> = {
       'Uma rede internacional de advogados — inclusive falimentares — nos EUA, Canadá, México, América Latina, América Central, Caribe e Europa Ocidental.',
     tagline: 'Litígio e execução de sentença, num só lugar.',
     intro:
-      'Com a nossa presença global montamos uma rede de advogados para implementar mecanismos de execução legal no mundo todo, pelo programa de Cobrança Judicial.',
+      'Com os anos e a nossa presença global montamos uma rede internacional de advogados — inclusive falimentares — nas jurisdições dos EUA, Canadá, México, América Latina, América Central, Caribe e Europa Ocidental. Pelo programa de Cobrança Judicial, essa rede implementa mecanismos de execução legal no mundo todo.',
     overview: [
       'Do litígio à execução de sentenças, a rede traz experiência sólida em cobranças. A WNRS gere o processo e o mantém informado em cada etapa.',
       'Consolidação, investigação, execução e planejamento: analisamos com fatores quantificáveis se convém litigar. Se se inicia, tudo é rastreado e monitorado num só lugar, consolidado pela WNRS.',
@@ -791,7 +791,7 @@ export const ptSeo: Record<string, { title: string; description: string }> = {
       'Esse endereço não está no site institucional da WNRS. Volte ao início para serviços de cobrança e contas a receber nas Américas.',
   },
   '/early-stage-arm': {
-    title: 'Cobrança Administrativa: Recupere sua carteira | WNRS',
+    title: 'Cobrança Administrativa | WNRS',
     description:
       'Cobrança administrativa da WNRS: aja no início da inadimplência, antes que a conta complique. Fale com um especialista.',
   },
@@ -803,17 +803,17 @@ export const ptSeo: Record<string, { title: string; description: string }> = {
   '/specialized-arm': {
     title: 'Cobrança Especializada | WNRS',
     description:
-      'A Unidade Especializada da WNRS trata cobranças sensíveis e multipartes para governo e multinacionais. Fale com um especialista.',
+      'Cobrança especializada da WNRS: a Unidade Especializada trata cobranças sensíveis e multipartes para governo e multinacionais. Fale com um especialista.',
   },
   '/financial-skip-tracing': {
-    title: 'Localização de Inadimplentes e bens | WNRS',
+    title: 'Localização de Inadimplentes | WNRS',
     description:
-      'Localização de inadimplentes e bens quando as bases públicas não bastam. Investigadores internacionais e campo. Fale com um especialista.',
+      'Localização de Inadimplentes e bens quando as bases públicas não bastam. Investigadores internacionais e campo. Fale com um especialista.',
   },
   '/attorney-intervention': {
     title: 'Cobrança Judicial | WNRS',
     description:
-      'Litígio e execução de sentença pela rede internacional de advogados da WNRS. Uma mesa da análise à execução.',
+      'Cobrança Judicial da WNRS: litígio e execução de sentença pela rede internacional de advogados. Uma mesa da análise à execução.',
   },
   '/business': {
     title: 'Negócio | WNRS',
