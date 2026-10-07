@@ -17,7 +17,7 @@ export const ptHome = {
   servicesH2:
     'Serviços sob medida, hiperespecializados, de contas a receber e de experiência do cliente (CX).',
   servicesSub:
-    'Feitos para performar em qualquer mercado: empresas que usam nossos serviços recuperam 3 vezes ou mais, até 10 vezes mais rápido que equipes internas tradicionais, sem sacrificar a experiência do cliente.',
+    'Feitos para performar em qualquer mercado: empresas que usam nossos serviços recuperam 3 vezes ou mais, até 10x mais rápido que as agências convencionais, sem sacrificar a experiência do cliente.',
   apartH2: 'O que nos distingue',
   apartSub:
     'Durante 50 anos, a WNRS tem sido a principal agência de cobrança de dívidas e contas a receber para empresas Fortune 500 nas Américas.',

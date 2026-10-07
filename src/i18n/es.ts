@@ -17,7 +17,7 @@ export const esHome = {
   servicesH2:
     'Servicios a la medida, hiperespecializados, de cuentas por cobrar y de experiencia del cliente (CX).',
   servicesSub:
-    'Diseñados para rendir en cualquier mercado: las empresas que usan nuestros servicios recuperan 3 veces o más, hasta 10 veces más rápido que equipos internos tradicionales, sin sacrificar la experiencia del cliente.',
+    'Diseñados para rendir en cualquier mercado: las empresas que usan nuestros servicios recuperan 3 veces o más, hasta 10x más rápido que las agencias convencionales, sin sacrificar la experiencia del cliente.',
   apartH2: 'Lo que nos distingue',
   apartSub:
     'Durante 50 años, WNRS ha sido la principal agencia de cobro de deudas y cuentas por cobrar para empresas Fortune 500 en las Américas.',

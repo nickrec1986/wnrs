@@ -49,7 +49,7 @@ Live .mx on the left; tightened overlay on the right.
 
 **Services sub**
 - Before: `Diseñados para superar a cualquier mercado, las empresas que utilizan nuestros servicios recuperan 3 veces o más capital, hasta 10 veces más rápido, en comparación con los equipos internos tradicionales. Todo ello preservando valiosas experiencias de cliente.`
-- After: `Diseñados para rendir en cualquier mercado: las empresas que usan nuestros servicios recuperan 3 veces o más, hasta 10 veces más rápido que equipos internos tradicionales, sin sacrificar la experiencia del cliente.`
+- After: `Diseñados para rendir en cualquier mercado: las empresas que usan nuestros servicios recuperan 3 veces o más, hasta 10x más rápido que las agencias convencionales, sin sacrificar la experiencia del cliente.`
 
 **First results**
 - Before: `En promedio, dentro de los primeros 15 días comenzarás a ver resultados de recuperación en los libros.`
