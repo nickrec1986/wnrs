@@ -117,7 +117,7 @@ Live .mx on the left; tightened overlay on the right.
 
 **Servicios públicos**
 - Before: `Llamadas previas a Dirconnet` / `Colecciones en etapa temprana`
-- After: `Llamadas previas a la desconexión` / `Cobranza en etapa temprana`
+- After: `Llamadas previas a la desconexión` / `Cobranza Administrativa`
 
 **Negocio / Empresa / Gobierno**
 - Before: Spanish lede + English leftover + lorem body
@@ -198,6 +198,16 @@ ES hero/overview take the usable `.mx` Defensa y seguridad lede (personnel press
 
 ## ARM wording (ES/PT)
 
-Visible `/es/` and `/pt/` copy does not use the English acronym *ARM*. Stage paraphrases (*cobranza temprana*, *ARM en etapa avanzada*, *skip tracing*, *intervención de abogados* as a service label) were replaced with the live menu names. Service names or *gestión de cuentas por cobrar* / *gestão de contas a receber* are used instead.
+Visible `/es/` and `/pt/` copy does not use the English acronym *ARM*. Any stage paraphrase that stood in for a service — *ARM en etapa temprana/avanzada*, *cobranza temprana*, *cobrança inicial*, *skip tracing*, *intervención de un abogado*, *intervenção advocatícia*, *vía legal* — is the exact live-menu name, not a rewrite:
+
+| Id | ES | PT |
+| --- | --- | --- |
+| early-stage | Cobranza Administrativa | Cobrança Administrativa |
+| late-stage | Cobranza Extrajudicial | Cobrança Extrajudicial |
+| specialized | Cobranza Especializada | Cobrança Especializada |
+| skip tracing | Localización de deudores | Localização de Inadimplentes |
+| legal | Intervención Legal | Cobrança Judicial |
+
+Government *unidad especializada* / *unidade especializada* is the SU team, not a service card, and stays. EN copy is unchanged.
 
 ES/PT **URLs are localized** (no `arm` in the path): `/es/cobranza-administrativa/`, `/pt/cobranca-administrativa/`, `/es/seguridad-privada/`, etc. English slugs stay. Old `/es/*-arm/` and `/pt/*-arm/` paths redirect. Host-root `.mx` slugs (`/cobranza-administrativa/`, `/defensa-y-seguridad/`) redirect into `/es/…`.

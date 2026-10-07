@@ -209,10 +209,10 @@ export const ptServices: Record<string, Svc> = {
     short: 'Um problema comum: as contas se aproximam da data de incobrabilidade e falta uma estratégia vencedora.',
     tagline: 'Especialistas avançados para etapas avançadas.',
     intro:
-      'As empresas enfrentam um problema comum com as contas de clientes à medida que se aproxima a data de incobrabilidade. O serviço de cobrança extrajudicial da WNRS para a etapa avançada de gestão de contas a receber se concentra neste segmento e monta uma estratégia vencedora de recuperação. Para empresas que competem no mundo, não há outra opção: serviços de primeira classe, ou ficar para trás.',
+      'As empresas enfrentam um problema comum com as contas de clientes à medida que se aproxima a data de incobrabilidade. A Cobrança Extrajudicial da WNRS se concentra neste segmento e monta uma estratégia vencedora de recuperação. Para empresas que competem no mundo, não há outra opção: serviços de primeira classe, ou ficar para trás.',
     overview: [
       'Nosso enfoque de melhores práticas é pensado para o seu setor. Após 50 anos, temos sistemas de cobrança por indústria e taxas de sucesso altas. Não usamos o modelo de call center com alta rotatividade e temporários: formamos o agente para que entenda o seu setor.',
-      'Componentes do programa: profissionais com anos de experiência, campanhas especializadas, faturamento personalizado, localização e investigação nacional e internacional, acompanhamento 24/7 e intervenção de um advogado quando for preciso.',
+      'Componentes do programa: profissionais com anos de experiência, campanhas especializadas, faturamento personalizado, Localização de Inadimplentes e investigação nacional e internacional, acompanhamento 24/7 e Cobrança Judicial quando for preciso.',
       'Concentre-se no negócio. Deixe a gestão de carteira com os especialistas. Não permita que o tempo ou a inação afetem o resultado. Aja hoje.',
     ],
     benefits: [
@@ -220,7 +220,7 @@ export const ptServices: Record<string, Svc> = {
       'Máxima eficiência',
       'Menores prazos de entrega',
       'Maiores rendimentos',
-      'Melhor localização',
+      'Melhor Localização de Inadimplentes',
       'Satisfação do cliente',
       'Relações duradouras com os clientes',
       'Capital de giro otimizado',
@@ -228,9 +228,9 @@ export const ptServices: Record<string, Svc> = {
     included: [
       'Profissionais com anos de experiência — não um banco rotativo de call center',
       'Campanhas especializadas e de faturamento personalizado',
-      'Localização e investigação nacional e internacional',
+      'Localização de Inadimplentes e investigação nacional e internacional',
       'Acompanhamento, monitoramento e relatórios online 24/7',
-      'Intervenção de um advogado quando necessário',
+      'Cobrança Judicial quando necessário',
     ],
   },
   'specialized-arm': {
@@ -254,7 +254,7 @@ export const ptServices: Record<string, Svc> = {
       'Disputa e fraude: financeiro, jurídico, operacional, transacional, político e regulatório',
       'Investigadores, analistas e especialistas de campo, nacionais e internacionais',
       'Consultoria de litígio, perícia, valuation e julgamento quando se precisa',
-      'Intervenção de advogados quando se precisa',
+      'Cobrança Judicial quando se precisa',
     ],
     included: [
       'Avaliação inicial do caso e apoio a discovery',
@@ -294,7 +294,7 @@ export const ptServices: Record<string, Svc> = {
     included: [
       'Localização em pegada nacional e internacional',
       'Investigação de ativos e entidades em apoio à recuperação',
-      'Integração com cobrança administrativa, extrajudicial e judicial',
+      'Integração com Cobrança Administrativa, Cobrança Extrajudicial e Cobrança Judicial',
       'Trato discreto de dossiês comerciais sensíveis',
     ],
   },
@@ -358,7 +358,7 @@ export const ptVerticals: Record<string, Vert> = {
     intro:
       'Cobre de empresas ou é uma delas: a WNRS tem a experiência para alcançar seus objetivos e dar resultados definitivos de gestão de carteira — sem o custo de levantar um time de recuperação.',
     overview:
-      'Empresas mid-market muitas vezes ultrapassam a cobrança improvisada e subinvestem numa função dedicada. Encaixamos cobradores capacitados, reporting e localização para o financeiro ficar no crescimento. Algumas das maiores empresas do mundo confiam na WNRS para resolver problemas complexos de contas a receber e de relação com o cliente.',
+      'Empresas mid-market muitas vezes ultrapassam a cobrança improvisada e subinvestem numa função dedicada. Encaixamos cobradores capacitados, reporting e Localização de Inadimplentes para o financeiro ficar no crescimento. Algumas das maiores empresas do mundo confiam na WNRS para resolver problemas complexos de contas a receber e de relação com o cliente.',
     audience: 'Empresas privadas e mid-market em carteiras B2B e B2C.',
     benefits: [
       'Maior fluxo de caixa — clientes deste segmento viram ganhos em torno de 85%',
@@ -422,8 +422,8 @@ export const ptVerticals: Record<string, Vert> = {
       'Cada instituição e programa é único. Colaboramos com escolas e instituições para definir o enfoque correto. A equipe é capacitada para entender as circunstâncias dos alunos que pedem financiamento e operar em conformidade. O programa se integra à imagem e aos valores da sua instituição: gere e recupera carteira, melhora o fluxo de caixa e deixa mais liquidez para a operação educacional.',
     audience: 'Universidades, escolas técnicas, programas de pesquisa e credores educacionais.',
     benefits: [
-      'Cobrança administrativa e intervenção precoce',
-      'Cobrança extrajudicial',
+      'Cobrança Administrativa',
+      'Cobrança Extrajudicial',
       'Gestão íntegra de contas a receber',
       'Soluções administrativas',
       'Atendimento ao cliente',
@@ -780,7 +780,7 @@ export const ptSeo: Record<string, { title: string; description: string }> = {
   '/services': {
     title: 'Serviços | WNRS',
     description:
-      'Explore os serviços de cobrança e contas a receber da WNRS por tipo, setor ou segmento — da cobrança administrativa à cobrança judicial.',
+      'Explore os serviços de cobrança e contas a receber da WNRS por tipo, setor ou segmento — da Cobrança Administrativa à Cobrança Judicial.',
   },
   '/insights': {
     title: 'Insights sobre cobrança e contas a receber | WNRS',
@@ -810,7 +810,7 @@ export const ptSeo: Record<string, { title: string; description: string }> = {
   '/late-stage-arm': {
     title: 'Cobrança Extrajudicial | WNRS',
     description:
-      'Cobrança extrajudicial para contas perto da incobrabilidade. Estratégia sob medida, localização e respaldo advocatício. Fale com um especialista.',
+      'Cobrança Extrajudicial para contas perto da incobrabilidade. Estratégia sob medida, Localização de Inadimplentes e Cobrança Judicial. Fale com um especialista.',
   },
   '/specialized-arm': {
     title: 'Cobrança Especializada | WNRS',
@@ -830,7 +830,7 @@ export const ptSeo: Record<string, { title: string; description: string }> = {
   '/business': {
     title: 'Negócio | WNRS',
     description:
-      'Contas a receber e cobrança para empresas. A WNRS coloca cobradores, reporting e localização — sem montar uma mesa interna.',
+      'Contas a receber e cobrança para empresas. A WNRS coloca cobradores, reporting e Localização de Inadimplentes — sem montar uma mesa interna.',
   },
   '/enterprise': {
     title: 'Empresa | WNRS',
@@ -840,12 +840,12 @@ export const ptSeo: Record<string, { title: string; description: string }> = {
   '/government': {
     title: 'Governo | WNRS',
     description:
-      'Cobrança discreta para entes públicos e créditos comerciais ligados a governo. Do contato à intervenção advocatícia.',
+      'Cobrança discreta para entes públicos e créditos comerciais ligados a governo. Do contato à Cobrança Judicial.',
   },
   '/utilities': {
     title: 'Serviços públicos | WNRS',
     description:
-      'Contas a receber para serviços públicos. A WNRS recupera mora e baixadas, da ligação prévia ao desligamento à via judicial.',
+      'Contas a receber para serviços públicos. A WNRS recupera mora e baixadas, da ligação prévia ao desligamento à Cobrança Judicial.',
   },
   '/education-research': {
     title: 'Educação e pesquisa | WNRS',
