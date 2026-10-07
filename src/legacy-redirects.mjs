@@ -7,6 +7,7 @@ export const PORTAL = 'https://online.wnrs.com';
 
 const SAME_INDUSTRY = [
   'aerospace-defense',
+  'private-security',
   'banking',
   'chemicals',
   'construction-operations',
@@ -33,7 +34,8 @@ const SAME_INDUSTRY = [
 /** Astro `redirects` map. Keys are source paths (slash-normalized by Astro). */
 export const ASTRO_REDIRECTS = {
   ...Object.fromEntries(SAME_INDUSTRY.map((slug) => [`/industries/${slug}`, `/${slug}/`])),
-  '/industries/defense-security': '/aerospace-defense/',
+  '/industries/defense-security': '/private-security/',
+  '/defensa-y-seguridad': '/es/private-security/',
   '/industries/hightec': '/high-tech/',
   '/industries/gaming-hospitality-and-leisure': '/gaming-hospitality-leisure/',
   '/industries/industrial-machinery-and-components': '/industrial-machinery-components/',

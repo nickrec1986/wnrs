@@ -509,7 +509,7 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'Cadenas de suministro complejas, menor gasto militar y más volatilidad: el sector aeroespacial y de defensa necesita un socio que impulse el flujo de caja y sanee las cuentas gubernamentales antes de que se conviertan en un problema.',
     overview:
-      'Conocemos la industria y hemos trabajado con gobiernos y ministerios de defensa. Armamos programas a la medida que generan flujo de caja: programas gubernamentales, subvenciones, piezas o servicios, y resolución de disputas complejas.',
+      'Conocemos la industria y hemos trabajado con gobiernos y ministerios de defensa. Armamos programas a la medida que generan flujo de caja: programas gubernamentales, subvenciones, piezas o servicios, y resolución de disputas complejas. Esta página es para contratistas y OEMs — no para empresas de guardias.',
     audience: 'OEMs, proveedores y contratistas de aeroespacial y defensa.',
     benefits: [
       'Mayor flujo de caja',
@@ -519,6 +519,18 @@ export const esVerticals: Record<string, Vert> = {
       'Tiempos de orden a pago (O2C) más rápidos',
       'Experiencia gubernamental',
     ],
+  },
+  'private-security': {
+    name: 'Seguridad Privada',
+    ic: 'GUARDIAS · SITIOS · EVENTOS',
+    short: 'Cobra las facturas impagas de vigilancia: edificios, condominios, obras y eventos.',
+    intro:
+      'Con enormes exigencias de personal y responsabilidades críticas, las empresas de seguridad privada necesitan un socio de cuentas por cobrar que impulse el flujo de caja y resuelva los impagos de clientes — edificios, condominios, obras, eventos, corporativos — antes de que se conviertan en un problema.',
+    overview:
+      'Conocemos el sector: empresas de guardias cuyos clientes no pagan el servicio ya prestado. Armamos programas de cuentas por cobrar a la medida que generan flujo de caja — facturas de vigilancia en edificios y condominios, obras que no cubren la seguridad, eventos y clientes corporativos. WNRS tiene la solución para tu empresa de seguridad privada.',
+    audience:
+      'Empresas de seguridad privada, guardias y vigilancia para inmuebles, obras, eventos y corporativos.',
+    benefits: esIndustryBenefits,
   },
   'construction-operations': {
     name: 'Construcción y Operaciones',
@@ -865,6 +877,11 @@ export const esSeo: Record<string, { title: string; description: string }> = {
     title: 'Aeroespacial y Defensa | WNRS',
     description:
       'Cuentas por cobrar para aeroespacial y defensa. Flujo de caja y saneamiento de cuentas gubernamentales a tiempo.',
+  },
+  '/private-security': {
+    title: 'Seguridad Privada | WNRS',
+    description:
+      'Seguridad Privada: cobranza de facturas impagas de vigilancia — edificios, condominios, obras, eventos y clientes corporativos. Habla con un experto.',
   },
   '/construction-operations': {
     title: 'Construcción y Operaciones | WNRS',

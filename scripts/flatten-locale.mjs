@@ -89,6 +89,28 @@ for (const file of walk(out)) {
 const four = join(out, '404', 'index.html');
 if (existsSync(four)) cpSync(four, join(out, '404.html'));
 
+if (locale === 'es') {
+  const dest = `${origin}/private-security/`;
+  mkdirSync(join(out, 'defensa-y-seguridad'), { recursive: true });
+  writeFileSync(
+    join(out, 'defensa-y-seguridad', 'index.html'),
+    `<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting…</title>
+  <meta http-equiv="refresh" content="0;url=${dest}">
+  <link rel="canonical" href="${dest}">
+  <script>location.replace(${JSON.stringify(dest)});</script>
+</head>
+<body>
+  <p>Redirecting to <a href="${dest}">${dest}</a></p>
+</body>
+</html>
+`,
+  );
+}
+
 writeFileSync(join(out, 'CNAME'), `${host}\n`);
 writeFileSync(
   join(out, 'robots.txt'),

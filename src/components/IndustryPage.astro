@@ -21,11 +21,21 @@ const seo = localizedSeo(`/${vertical.slug}`, locale);
 const site = localizedSite(locale);
 const services = localizedServices(locale);
 const home = localizedHome(locale);
+const jsonLdName =
+  locale === 'es' || locale === 'pt'
+    ? `${vertical.name} — ${site.name}`
+    : `${vertical.name} collections — ${site.name}`;
+const jsonLdType =
+  locale === 'es'
+    ? `Gestión de cuentas por cobrar para ${vertical.name}`
+    : locale === 'pt'
+      ? `Gestão de contas a receber para ${vertical.name}`
+      : `Collections for ${vertical.name}`;
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: `${vertical.name} accounts receivable management — ${site.name}`,
-  serviceType: `Accounts receivable management for ${vertical.name}`,
+  name: jsonLdName,
+  serviceType: jsonLdType,
   description: seo.description,
   url: `${LOCALE_META[locale].origin}/${vertical.slug}/`,
   provider: { '@type': 'Organization', name: site.name, url: site.url },

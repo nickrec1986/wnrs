@@ -526,15 +526,29 @@ export const INDUSTRIES: Vertical[] = [
   },
   {
     slug: 'aerospace-defense',
-    name: 'Defense & Security',
+    name: 'Aerospace & Defense',
     kind: 'industry',
     ic: 'CONTRACT · COMPLIANCE',
-    short: 'Discreet collections for aerospace, defense, and dual-use commercial claims.',
+    short: 'Discreet collections for aerospace, defense contractors, and dual-use commercial claims.',
     intro:
       'Aerospace and defense receivables sit on long contracts, government flow-downs, and counterparties that may be anywhere in the supply chain. WNRS handles those files with the confidentiality and documentation the sector expects.',
     overview:
-      'From commercial aviation suppliers to defense contractors, we align recovery to contract terms, offset rights, and jurisdictional complexity. Specialized unit and attorney resources are available on sensitive or cross-border matters.',
+      'From commercial aviation suppliers to defense contractors, we align recovery to contract terms, offset rights, and jurisdictional complexity. Specialized unit and attorney resources are available on sensitive or cross-border matters. This page is for contractors and OEMs — not private guard companies.',
     audience: 'OEMs, suppliers, and contractors in aerospace and defense.',
+    benefits: COLLECTION_BENEFITS,
+  },
+  {
+    slug: 'private-security',
+    name: 'Private Security',
+    kind: 'industry',
+    featured: true,
+    ic: 'GUARDS · SITES · EVENTS',
+    short: 'Recover unpaid guard-service invoices from buildings, condos, job sites, and events.',
+    intro:
+      'Private security firms run labor-heavy books: buildings, condos, construction sites, events, and corporate clients that stop paying for the post. WNRS recovers those invoices before the file ages out — without souring the accounts you still want to keep.',
+    overview:
+      'This is not defense contracting. It is guard and patrol companies collecting on service that was already delivered. We work building management, HOAs, general contractors, event hosts, and corporate security buyers with documentation that matches the post and the contract. Early-stage outreach, late-stage concentration, skip tracing, and attorney backup are available when a site simply will not pay.',
+    audience: 'Private security, guard, and patrol firms serving properties, job sites, events, and corporate clients.',
     benefits: COLLECTION_BENEFITS,
   },
   {
@@ -800,6 +814,7 @@ export const INDUSTRY_HUB = [
   'consumer-products',
   'chemicals',
   'aerospace-defense',
+  'private-security',
   'education-research',
   'engineering',
   'gaming-hospitality-leisure',
@@ -1030,9 +1045,14 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
       'Collect aged WIP and unpaid invoices for law, accounting, and consulting firms — without damaging client relationships. Discretion first. Talk to an expert.',
   },
   '/aerospace-defense': {
-    title: 'Defense & Security Debt Collection | WNRS',
+    title: 'Aerospace & Defense Debt Collection | WNRS',
     description:
-      'Discreet collections for aerospace, defense, and dual-use commercial claims. WNRS handles contract-heavy, cross-border files. Talk to an expert.',
+      'Discreet collections for aerospace, defense contractors, and dual-use commercial claims. WNRS handles contract-heavy, cross-border files. Talk to an expert.',
+  },
+  '/private-security': {
+    title: 'Private Security | WNRS',
+    description:
+      'Private Security debt collection for guard and patrol firms — unpaid invoices from buildings, condos, construction sites, events, and corporate clients. Talk to an expert.',
   },
   '/construction-operations': {
     title: 'Construction Debt Collection | Retainage & Billings | WNRS',

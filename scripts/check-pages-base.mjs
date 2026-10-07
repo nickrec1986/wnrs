@@ -145,6 +145,7 @@ const localePages = [
   'services/index.html',
   'early-stage-arm/index.html',
   'banking/index.html',
+  'private-security/index.html',
   'privacy/index.html',
   'terms/index.html',
   'insights/index.html',
@@ -285,6 +286,43 @@ if (existsSync(enEarly)) {
   }
   if (!html.includes('Debt Collection Experts')) {
     bad.push('en early-stage-arm: brand kicker missing');
+  }
+}
+
+const newIndustry = {
+  en: { name: 'Private Security', file: join(root, 'private-security', 'index.html') },
+  es: { name: 'Seguridad Privada', file: join(root, 'es', 'private-security', 'index.html') },
+  pt: { name: 'Segurança Privada', file: join(root, 'pt', 'private-security', 'index.html') },
+};
+for (const [loc, { name, file }] of Object.entries(newIndustry)) {
+  if (!existsSync(file)) {
+    bad.push(`missing ${loc} private-security page`);
+    continue;
+  }
+  const html = readFileSync(file, 'utf8');
+  const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+  if (!title.startsWith(name)) bad.push(`${loc}/private-security: title should lead with "${name}" (got "${title}")`);
+  const desc = html.match(/name="description" content="([^"]*)"/)?.[1] ?? '';
+  if (!desc.toLowerCase().includes(name.toLowerCase())) {
+    bad.push(`${loc}/private-security: meta description missing "${name}"`);
+  }
+  if (!html.includes(`<h1>${name}</h1>`)) bad.push(`${loc}/private-security: H1 should be "${name}"`);
+}
+
+function walkHtml(dir, acc = []) {
+  if (!existsSync(dir)) return acc;
+  for (const name of readdirSync(dir)) {
+    const p = join(dir, name);
+    if (statSync(p).isDirectory()) walkHtml(p, acc);
+    else if (name.endsWith('.html')) acc.push(p);
+  }
+  return acc;
+}
+const armRe = /\bARM\b/;
+for (const loc of ['es', 'pt']) {
+  for (const file of walkHtml(join(root, loc))) {
+    const html = readFileSync(file, 'utf8');
+    if (armRe.test(html)) bad.push(`${file}: leftover ARM acronym`);
   }
 }
 

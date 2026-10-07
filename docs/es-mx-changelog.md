@@ -25,7 +25,7 @@ Menu names on `/es/` match the live .mx nav: Cobranza Administrativa, Cobranza E
 | Servicios públicos “Llamadas previas a Dirconnet” | Broken EN *pre-disconnect* |
 | Insights, privacy, terms, 404 chrome | Not on .mx |
 
-`.mx` also has a separate **Defensa y seguridad** page. This site only has the `aerospace-defense` slug; it uses the **Aeroespacial y Defensa** name and copy (the page that matches the slug). Defensa y seguridad was not given its own URL.
+`.mx` also has a separate **Defensa y seguridad** page. That is now its own industry URL (`/es/private-security/`, **Seguridad Privada**): private guard companies collecting unpaid invoices — not defense contractors. `aerospace-defense` stays **Aeroespacial y Defensa**. The old `.mx` path `/defensa-y-seguridad/` redirects to the new page.
 
 ---
 
@@ -180,3 +180,22 @@ SEO guardrails on ES/PT service pages:
 2. Blue eyebrow is a real `<p class="kicker">` immediately above the H1 — not an image, not `aria-hidden`.
 3. Meta description and the first intro paragraph contain the service name.
 4. Breadcrumb and JSON-LD `Service.name` stay the service name (not the tagline).
+
+---
+
+## Seguridad Privada (new industry)
+
+Nicolas split two `.mx` labels that had been collapsed onto `aerospace-defense`:
+
+| Page | Who it is |
+| --- | --- |
+| Aeroespacial y Defensa (`aerospace-defense`) | Defense contractors / OEMs |
+| Seguridad Privada (`private-security`) | Private guard companies whose clients do not pay (buildings, condos, construction sites, events, corporates) |
+
+ES hero/overview take the usable `.mx` Defensa y seguridad lede (personnel pressure, cash-flow partner) after stripping MT wreckage (*AR*, *realidad aumentada / RA*). The rest is new copy about unpaid guard invoices, tú. PT is *você* from that Spanish. EN is **Private Security**, same industry template. Featured in the Industries nav. `/defensa-y-seguridad/` → `/es/private-security/` (flattened `.mx` → `/private-security/`). `/industries/defense-security` now points at Private Security, not Aerospace & Defense.
+
+---
+
+## ARM wording (ES/PT)
+
+Visible `/es/` and `/pt/` copy does not use the English acronym *ARM*. Service names or *gestión de cuentas por cobrar* / *gestão de contas a receber* are used instead. URL slugs such as `early-stage-arm` stay (not visible copy). Industry JSON-LD on ES/PT no longer embeds the English “accounts receivable management” phrase.

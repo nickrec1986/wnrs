@@ -508,7 +508,7 @@ export const ptVerticals: Record<string, Vert> = {
     intro:
       'Cadeias de suprimento complexas, menor gasto militar e mais volatilidade: o setor aeroespacial e de defesa precisa de um sócio que impulsione o fluxo de caixa e saneie as contas governamentais antes que virem um problema.',
     overview:
-      'Conhecemos a indústria e trabalhamos com governos e ministérios de defesa. Montamos programas sob medida que geram fluxo de caixa: programas governamentais, subsídios, peças ou serviços, e resolução de disputas complexas.',
+      'Conhecemos a indústria e trabalhamos com governos e ministérios de defesa. Montamos programas sob medida que geram fluxo de caixa: programas governamentais, subsídios, peças ou serviços, e resolução de disputas complexas. Esta página é para contratados e OEMs — não para empresas de vigilantes.',
     audience: 'OEMs, fornecedores e contratados de aeroespacial e defesa.',
     benefits: [
       'Maior fluxo de caixa',
@@ -518,6 +518,18 @@ export const ptVerticals: Record<string, Vert> = {
       'Prazos de pedido a pagamento (O2C) mais rápidos',
       'Experiência governamental',
     ],
+  },
+  'private-security': {
+    name: 'Segurança Privada',
+    ic: 'VIGILANTES · SÍTIOS · EVENTOS',
+    short: 'Cobre as faturas em aberto da vigilância: edifícios, condomínios, obras e eventos.',
+    intro:
+      'Com enormes exigências de pessoal e responsabilidades críticas, as empresas de segurança privada precisam de um sócio de contas a receber que impulsione o fluxo de caixa e resolva os impagos dos clientes — edifícios, condomínios, obras, eventos, corporativos — antes que virem um problema.',
+    overview:
+      'Conhecemos o setor: empresas de vigilantes cujos clientes não pagam o serviço já prestado. Montamos programas de contas a receber sob medida que geram fluxo de caixa — faturas de vigilância em edifícios e condomínios, obras que não cobrem a segurança, eventos e clientes corporativos. A WNRS tem a solução para a sua empresa de segurança privada.',
+    audience:
+      'Empresas de segurança privada, vigilantes e vigilância para imóveis, obras, eventos e corporativos.',
+    benefits: ptIndustryBenefits,
   },
   'construction-operations': {
     name: 'Construção e Operações',
@@ -864,6 +876,11 @@ export const ptSeo: Record<string, { title: string; description: string }> = {
     title: 'Aeroespacial e Defesa | WNRS',
     description:
       'Contas a receber para aeroespacial e defesa. Fluxo de caixa e saneamento de contas governamentais a tempo.',
+  },
+  '/private-security': {
+    title: 'Segurança Privada | WNRS',
+    description:
+      'Segurança Privada: cobrança de faturas em aberto da vigilância — edifícios, condomínios, obras, eventos e clientes corporativos. Fale com um especialista.',
   },
   '/construction-operations': {
     title: 'Construção e Operações | WNRS',
