@@ -1,3 +1,5 @@
+import { localizePath, slashedPath } from './slugs.mjs';
+
 /**
  * Locale routing for the EN / pt-BR / es-MX marketing sites.
  *
@@ -101,17 +103,19 @@ export function localeHref(path: string, locale: Locale): string {
   if (/^(https?:|mailto:|tel:)/i.test(path)) return path;
   if (path.startsWith('/#')) return `${prefix}/${path.slice(1)}` || path;
   if (path === '/') return prefix || '/';
-  return `${prefix}${path}`;
+  return `${prefix}${localizePath(path, locale)}`;
 }
 
 export function pageHreflangLinks(pathname: string): { hreflang: string; href: string }[] {
   const bare = barePath(pathname);
-  const suffix = bare === '/' ? '/' : bare.endsWith('/') ? bare : `${bare}/`;
+  const en = slashedPath(localizePath(bare, 'en'));
+  const pt = slashedPath(localizePath(bare, 'pt'));
+  const es = slashedPath(localizePath(bare, 'es'));
   return [
-    { hreflang: 'en', href: `https://wnrs.com${suffix}` },
-    { hreflang: 'pt-BR', href: `https://wnrs.com.br${suffix}` },
-    { hreflang: 'es', href: `https://wnrs.com.mx${suffix}` },
-    { hreflang: 'x-default', href: `https://wnrs.com${suffix}` },
+    { hreflang: 'en', href: `https://wnrs.com${en}` },
+    { hreflang: 'pt-BR', href: `https://wnrs.com.br${pt}` },
+    { hreflang: 'es', href: `https://wnrs.com.mx${es}` },
+    { hreflang: 'x-default', href: `https://wnrs.com${en}` },
   ];
 }
 
@@ -124,7 +128,7 @@ export function localeCanonical(pathname: string): string {
 
 export function switcherHref(target: Locale, pathname: string): string {
   const bare = barePath(pathname);
-  const suffix = bare === '/' ? '/' : bare.endsWith('/') ? bare : `${bare}/`;
+  const suffix = slashedPath(localizePath(bare, target));
   if (LOCALE_DOMAINS_READY) return `${LOCALE_META[target].origin}${suffix}`;
   const prefix = localePrefix(target);
   const path = prefix ? `${prefix}${suffix}` : suffix;

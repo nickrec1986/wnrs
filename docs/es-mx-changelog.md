@@ -198,4 +198,6 @@ ES hero/overview take the usable `.mx` Defensa y seguridad lede (personnel press
 
 ## ARM wording (ES/PT)
 
-Visible `/es/` and `/pt/` copy does not use the English acronym *ARM*. Service names or *gestión de cuentas por cobrar* / *gestão de contas a receber* are used instead. URL slugs such as `early-stage-arm` stay (not visible copy). Industry JSON-LD on ES/PT no longer embeds the English “accounts receivable management” phrase.
+Visible `/es/` and `/pt/` copy does not use the English acronym *ARM*. Stage paraphrases (*cobranza temprana*, *ARM en etapa avanzada*, *skip tracing*, *intervención de abogados* as a service label) were replaced with the live menu names. Service names or *gestión de cuentas por cobrar* / *gestão de contas a receber* are used instead.
+
+ES/PT **URLs are localized** (no `arm` in the path): `/es/cobranza-administrativa/`, `/pt/cobranca-administrativa/`, `/es/seguridad-privada/`, etc. English slugs stay. Old `/es/*-arm/` and `/pt/*-arm/` paths redirect. Host-root `.mx` slugs (`/cobranza-administrativa/`, `/defensa-y-seguridad/`) redirect into `/es/…`.

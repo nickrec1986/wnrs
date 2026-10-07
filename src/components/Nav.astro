@@ -2,6 +2,7 @@
 import { PORTAL_URL } from '../consts';
 import { withBase } from '../base';
 import { LOCALES, localeFromPath, localeHref, switcherHref, LOCALE_META } from '../i18n/locale';
+import { toLocaleSlug } from '../i18n/slugs.mjs';
 import { ui } from '../i18n/ui';
 import { localizedServices, localizedFeatured } from '../i18n/content';
 
@@ -12,7 +13,7 @@ const featured = localizedFeatured(locale);
 const href = (path: string) => withBase(localeHref(path, locale));
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const servicesPath = href('/services').replace(/\/$/, '');
-const servicesOn = path === servicesPath || services.some((s) => path.includes(s.slug));
+const servicesOn = path === servicesPath || services.some((s) => path.includes(toLocaleSlug(s.slug, locale)));
 ---
 <header class="site-header" id="nav">
   <div class="bar">

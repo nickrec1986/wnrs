@@ -33,7 +33,7 @@ export function canonicalUrl(pathname: string, override?: string): string {
   return localeCanonical(pathname);
 }
 
-/** Per-page hreflang: same slug on wnrs.com / wnrs.com.br / wnrs.com.mx. */
+/** Per-page hreflang: EN content id on wnrs.com; localized slugs on .br / .mx. */
 export function homeHreflangLinks(pathname = '/'): { hreflang: string; href: string }[] {
   return pageHreflangLinks(pathname);
 }

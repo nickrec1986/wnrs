@@ -146,11 +146,11 @@ export const esSectorStats: Record<string, string> = {
 };
 
 export const esBenefitsCommon = [
-  'Cobranza temprana y en mora',
-  'Gestión de A/R y soporte a facturas',
+  'Cobranza Administrativa y Cobranza Extrajudicial',
+  'Gestión de cuentas por cobrar y soporte a facturas',
   'Campañas de carta de requerimiento',
-  'Localización financiera (skip tracing)',
-  'Intervención legal cuando corresponda',
+  'Localización de deudores',
+  'Intervención Legal cuando corresponda',
   'Seguimiento en línea 24/7',
 ];
 
@@ -401,15 +401,15 @@ export const esVerticals: Record<string, Vert> = {
     intro:
       'El equipo de servicios públicos de WNRS se especializa en las necesidades de la industria — pública o privada. Trabajamos directo con tu departamento de cuentas por cobrar para que no tengas que gestionar varios proveedores. Regional, nacional o internacional: los asociados de WNRS están disponibles.',
     overview:
-      'Personal capacitado, experiencia y tecnología para gestionar tus cuentas por cobrar, cobranzas y servicios administrativos. Ayudamos a obtener liquidez de cuentas morosas y canceladas, de la llamada de atención al cliente a la intervención legal.',
+      'Personal capacitado, experiencia y tecnología para gestionar tus cuentas por cobrar, cobranzas y servicios administrativos. Ayudamos a obtener liquidez de cuentas morosas y canceladas, de la llamada de atención al cliente a la Intervención Legal.',
     audience: 'Operadores de electricidad, gas, agua, telecom adyacente y servicios públicos.',
     benefits: [
       'Llamadas de atención al cliente',
       'Llamadas previas a la desconexión',
       'Campañas de recordatorio de pago final',
-      'Cobranza en etapa temprana',
+      'Cobranza Administrativa',
       'Cobranzas posteriores a la desconexión',
-      'Cobranzas con intervención de abogados',
+      'Intervención Legal',
       'Procesamiento de pagos y facturación (en línea y en papel)',
     ],
   },

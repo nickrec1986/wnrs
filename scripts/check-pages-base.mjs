@@ -10,6 +10,7 @@ import {
   ALL_REDIRECT_SOURCES,
   expectedDistFile,
 } from '../src/legacy-redirects.mjs';
+import { toLocaleSlug } from '../src/i18n/slugs.mjs';
 
 const root = 'dist';
 const leftoverHtml = /(?:src|href)="(\/wnrs\/[^"]*)"/g;
@@ -139,20 +140,33 @@ for (const source of ALL_REDIRECT_SOURCES) {
 if (!existsSync(join(root, 'favicon.ico'))) bad.push('dist/favicon.ico missing');
 if (!existsSync(join(root, 'apple-touch-icon.png'))) bad.push('dist/apple-touch-icon.png missing');
 
-const localePages = [
-  'index.html',
-  'about-us/index.html',
-  'services/index.html',
-  'early-stage-arm/index.html',
-  'banking/index.html',
-  'private-security/index.html',
-  'privacy/index.html',
-  'terms/index.html',
-  'insights/index.html',
-];
+const localePageSets = {
+  es: [
+    'index.html',
+    'about-us/index.html',
+    'services/index.html',
+    'cobranza-administrativa/index.html',
+    'bancario/index.html',
+    'seguridad-privada/index.html',
+    'privacy/index.html',
+    'terms/index.html',
+    'insights/index.html',
+  ],
+  pt: [
+    'index.html',
+    'about-us/index.html',
+    'services/index.html',
+    'cobranca-administrativa/index.html',
+    'bancario/index.html',
+    'seguranca-privada/index.html',
+    'privacy/index.html',
+    'terms/index.html',
+    'insights/index.html',
+  ],
+};
 for (const loc of ['pt', 'es']) {
   const host = loc === 'pt' ? 'https://wnrs.com.br' : 'https://wnrs.com.mx';
-  for (const rel of localePages) {
+  for (const rel of localePageSets[loc]) {
     const p = join(root, loc, rel);
     if (!existsSync(p)) {
       bad.push(`missing ${loc} page: ${rel}`);
@@ -223,7 +237,7 @@ const serviceHeroes = {
 
 for (const [loc, pages] of Object.entries(serviceHeroes)) {
   for (const [slug, { name, h1 }] of Object.entries(pages)) {
-    const p = join(root, loc, slug, 'index.html');
+    const p = join(root, loc, toLocaleSlug(slug, loc), 'index.html');
     if (!existsSync(p)) {
       bad.push(`missing ${loc} service page: ${slug}`);
       continue;
@@ -291,8 +305,8 @@ if (existsSync(enEarly)) {
 
 const newIndustry = {
   en: { name: 'Private Security', file: join(root, 'private-security', 'index.html') },
-  es: { name: 'Seguridad Privada', file: join(root, 'es', 'private-security', 'index.html') },
-  pt: { name: 'Segurança Privada', file: join(root, 'pt', 'private-security', 'index.html') },
+  es: { name: 'Seguridad Privada', file: join(root, 'es', 'seguridad-privada', 'index.html') },
+  pt: { name: 'Segurança Privada', file: join(root, 'pt', 'seguranca-privada', 'index.html') },
 };
 for (const [loc, { name, file }] of Object.entries(newIndustry)) {
   if (!existsSync(file)) {

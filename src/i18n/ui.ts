@@ -206,7 +206,7 @@ const pt: Ui = {
   industryKind: 'Setor',
   collectionServicesFor: (name) => `Cobrança para ${name}`,
   pickTheStage:
-    'Escolha o estágio da carteira — cobrança inicial, concentração em atraso, localização, intervenção advocatícia ou unidade especializada.',
+    'Escolha o serviço que corresponde à carteira — Cobrança Administrativa, Cobrança Extrajudicial, Localização de Inadimplentes, Cobrança Judicial ou Cobrança Especializada.',
   whatYouCanExpect: 'O que você pode esperar',
   collectionServices: 'Serviços de cobrança',
   campaignResultsAlt: 'Análise de resultados da campanha',
@@ -292,7 +292,7 @@ const es: Ui = {
   industryKind: 'Industria',
   collectionServicesFor: (name) => `Cobranza para ${name}`,
   pickTheStage:
-    'Elige la etapa que corresponde al atraso: cobranza temprana, concentración en mora, localización, intervención legal o unidad especializada.',
+    'Elige el servicio que corresponde al atraso: Cobranza Administrativa, Cobranza Extrajudicial, Localización de deudores, Intervención Legal o Cobranza Especializada.',
   whatYouCanExpect: 'Qué puedes esperar',
   collectionServices: 'Servicios de cobranza',
   campaignResultsAlt: 'Análisis de resultados de campaña',

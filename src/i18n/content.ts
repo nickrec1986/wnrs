@@ -19,6 +19,7 @@ import {
 import { esAbout, esDifferentiators, esHome, esKeyStats, esLegal, esPicker, esProcess, esSectorStats, esSeo, esServices, esSite, esTestimonials, esVerticals } from './es';
 import type { Locale } from './locale';
 import { ptAbout, ptDifferentiators, ptHome, ptKeyStats, ptLegal, ptPicker, ptProcess, ptSectorStats, ptSeo, ptServices, ptSite, ptTestimonials, ptVerticals } from './pt';
+import { toLocaleSlug } from './slugs.mjs';
 
 export function localizedSite(locale: Locale) {
   if (locale === 'pt') return { ...SITE, ...ptSite, url: 'https://wnrs.com.br' };
@@ -130,7 +131,7 @@ export function localizedSeo(path: string, locale: Locale): SeoEntry {
   return PAGE_SEO[key] ?? { title: SITE.title, description: SITE.description };
 }
 
-export function marketingSlugs(): string[] {
+export function marketingSlugs(locale: Locale = 'en'): string[] {
   return [
     'about-us',
     'services',
@@ -138,8 +139,8 @@ export function marketingSlugs(): string[] {
     'privacy',
     'terms',
     '404',
-    ...SERVICES.map((s) => s.slug),
-    ...VERTICALS.map((v) => v.slug),
+    ...SERVICES.map((s) => toLocaleSlug(s.slug, locale)),
+    ...VERTICALS.map((v) => toLocaleSlug(v.slug, locale)),
   ];
 }
 

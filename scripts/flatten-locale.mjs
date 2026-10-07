@@ -90,7 +90,7 @@ const four = join(out, '404', 'index.html');
 if (existsSync(four)) cpSync(four, join(out, '404.html'));
 
 if (locale === 'es') {
-  const dest = `${origin}/private-security/`;
+  const dest = `${origin}/seguridad-privada/`;
   mkdirSync(join(out, 'defensa-y-seguridad'), { recursive: true });
   writeFileSync(
     join(out, 'defensa-y-seguridad', 'index.html'),

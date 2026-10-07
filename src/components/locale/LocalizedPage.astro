@@ -2,6 +2,7 @@
 import IndustryPage from '../IndustryPage.astro';
 import ServicePage from '../ServicePage.astro';
 import { getService, getVertical } from '../../consts';
+import { resolveEnId } from '../../i18n/slugs.mjs';
 import HomeView from './HomeView.astro';
 import AboutView from './AboutView.astro';
 import ServicesHubView from './ServicesHubView.astro';
@@ -15,6 +16,7 @@ interface Props {
 }
 const raw = Astro.props.path ?? '';
 const path = raw.replace(/^\/+|\/+$/g, '');
+const id = resolveEnId(path);
 ---
 {!path ? (
   <HomeView />
@@ -30,10 +32,10 @@ const path = raw.replace(/^\/+|\/+$/g, '');
   <TermsView />
 ) : path === '404' ? (
   <NotFoundView />
-) : getService(path) ? (
-  <ServicePage slug={path} />
-) : getVertical(path) ? (
-  <IndustryPage vertical={getVertical(path)!} />
+) : getService(id) ? (
+  <ServicePage slug={id} />
+) : getVertical(id) ? (
+  <IndustryPage vertical={getVertical(id)!} />
 ) : (
   <NotFoundView />
 )}

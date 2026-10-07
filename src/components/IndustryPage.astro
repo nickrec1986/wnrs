@@ -6,6 +6,7 @@ import ContactSection from './ContactSection.astro';
 import { withBase, pageHero } from '../base';
 import { productionAssetUrl } from '../seo';
 import { localeFromPath, localeHref, LOCALE_META } from '../i18n/locale';
+import { localizePath, slashedPath } from '../i18n/slugs.mjs';
 import { ui } from '../i18n/ui';
 import { localizedHome, localizedSeo, localizedServices, localizedSite, localizedVertical } from '../i18n/content';
 import type { Vertical } from '../consts';
@@ -37,7 +38,7 @@ const jsonLd = {
   name: jsonLdName,
   serviceType: jsonLdType,
   description: seo.description,
-  url: `${LOCALE_META[locale].origin}/${vertical.slug}/`,
+  url: `${LOCALE_META[locale].origin}${slashedPath(localizePath(`/${vertical.slug}`, locale))}`,
   provider: { '@type': 'Organization', name: site.name, url: site.url },
   audience: vertical.audience,
   areaServed: ['US', 'CA', 'MX', 'BR', 'LATAM'],
@@ -50,7 +51,7 @@ const jsonLd = {
   ogImage={productionAssetUrl(`/heroes/${vertical.slug}.jpg`)}
   breadcrumbs={[
     { name: t.services, path: '/services' },
-    { name: vertical.name, path: `/${vertical.slug}` },
+    { name: vertical.name, path: slashedPath(localizePath(`/${vertical.slug}`, locale)) },
   ]}
   jsonLd={jsonLd}
 >

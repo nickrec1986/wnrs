@@ -146,11 +146,11 @@ export const ptSectorStats: Record<string, string> = {
 };
 
 export const ptBenefitsCommon = [
-  'Cobrança inicial e em atraso',
-  'Gestão de A/R e suporte a faturas',
+  'Cobrança Administrativa e Cobrança Extrajudicial',
+  'Gestão de contas a receber e suporte a faturas',
   'Campanhas de carta de cobrança',
-  'Localização financeira (skip tracing)',
-  'Intervenção advocatícia quando cabível',
+  'Localização de Inadimplentes',
+  'Cobrança Judicial quando couber',
   'Acompanhamento online 24/7',
 ];
 
@@ -400,15 +400,15 @@ export const ptVerticals: Record<string, Vert> = {
     intro:
       'A equipe de serviços públicos da WNRS se especializa nas necessidades da indústria — pública ou privada. Trabalhamos direto com o seu departamento de contas a receber para você não ter de gerir vários fornecedores. Regional, nacional ou internacional: os associados da WNRS estão disponíveis.',
     overview:
-      'Pessoal capacitado, experiência e tecnologia para gerir contas a receber, cobranças e serviços administrativos. Ajudamos a obter liquidez de contas inadimplentes e baixadas, da ligação de atendimento à intervenção advocatícia.',
+      'Pessoal capacitado, experiência e tecnologia para gerir contas a receber, cobranças e serviços administrativos. Ajudamos a obter liquidez de contas inadimplentes e baixadas, da ligação de atendimento à Cobrança Judicial.',
     audience: 'Operadores de eletricidade, gás, água, telecom adjacente e serviços públicos.',
     benefits: [
       'Ligações de atendimento ao cliente',
       'Ligações prévias ao desligamento',
       'Campanhas de lembrete de pagamento final',
-      'Cobrança em estágio inicial',
+      'Cobrança Administrativa',
       'Cobranças posteriores ao desligamento',
-      'Cobranças com intervenção de advogados',
+      'Cobrança Judicial',
       'Processamento de pagamentos e faturamento (online e em papel)',
     ],
   },
