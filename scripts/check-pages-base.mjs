@@ -253,12 +253,26 @@ for (const [loc, pages] of Object.entries(serviceHeroes)) {
         bad.push(`${loc}/${slug}: intro missing service name "${name}"`);
       }
     }
-    const serviceLd = html.match(/"@type":"Service"[^}]*"name":"([^"]+)"/);
-    if (!serviceLd || !serviceLd[1].includes(name)) {
-      bad.push(`${loc}/${slug}: JSON-LD Service.name missing "${name}"`);
+    const ldBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(
+      (m) => {
+        try {
+          return JSON.parse(m[1]);
+        } catch {
+          return null;
+        }
+      },
+    );
+    const serviceLd = ldBlocks.find((b) => b?.['@type'] === 'Service');
+    if (!serviceLd || !String(serviceLd.name).includes(name) || serviceLd.serviceType !== name) {
+      bad.push(`${loc}/${slug}: JSON-LD Service.name/serviceType missing "${name}"`);
     }
-    if (!html.includes(`"name":"${name}"`) && !html.includes(`"name": "${name}"`)) {
-      bad.push(`${loc}/${slug}: breadcrumb/JSON-LD missing exact service name`);
+    if (serviceLd && String(serviceLd.name).includes(h1.replace(/\.$/, ''))) {
+      bad.push(`${loc}/${slug}: JSON-LD Service.name used the tagline`);
+    }
+    const crumbs = ldBlocks.find((b) => b?.['@type'] === 'BreadcrumbList');
+    const crumbNames = crumbs?.itemListElement?.map((i) => i.name) ?? [];
+    if (!crumbNames.includes(name)) {
+      bad.push(`${loc}/${slug}: breadcrumb JSON-LD missing "${name}"`);
     }
   }
 }
