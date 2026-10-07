@@ -957,7 +957,7 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
   '/es': {
     title: 'WNRS México | Cobranza y gestión de cuentas por cobrar',
     description:
-      'WNRS — expertos en cobranza y gestión de cuentas por cobrar en las Américas. Sitio en español en construcción. Contáctenos.',
+      'WNRS — expertos en cobranza y gestión de cuentas por cobrar en las Américas. Sitio en español en construcción. Contáctanos.',
   },
   '/early-stage-arm': {
     title: 'Early Stage Collection | Debt Collection | WNRS',
