@@ -1,42 +1,43 @@
-/** Brazilian Portuguese (pt-BR) overlays. Slugs stay English. */
+/** Brazilian Portuguese overlays. Rebuilt from finished /es/ (.mx base). .br menu names kept. */
 export const ptSite = {
-  title: 'Cobrança e gestão de contas a receber | WNRS',
+  title: 'WNRS — Especialistas em cobrança no Brasil',
   description:
-    'A WNRS recupera contas a receber em todos os estágios de atraso. Mais de 1.200 profissionais, 8 hubs e 50+ anos nas Américas. Fale com um especialista.',
-  tagline: 'Especialistas em cobrança. Recebíveis recuperados com rapidez.',
-  slogan: 'Seus recebíveis. Recuperados. Rápido.',
+    'WNRS: líder global em cobrança e gestão de contas a receber sob medida. Mais de 50 anos protegendo a imagem da sua marca.',
+  tagline: 'Especialistas em cobranças. Contas a receber recuperadas.',
+  slogan: 'Suas contas a receber. Recuperadas.',
 };
 
 export const ptHome = {
-  kicker: 'Especialistas em cobrança',
-  h1a: 'Seus recebíveis.',
-  h1b: 'Recuperados.',
-  h1c: 'Rápido.',
-  lede: 'Com mais de 1.200 profissionais, 8 hubs globais de recuperação e meio século de experiência, atuamos em todos os estágios de atraso para gerir risco, reduzir despesas e elevar as taxas de recuperação — em escala.',
-  logosLabel: 'Líderes financeiros de empresas globais e regionais confiam na WNRS',
-  servicesH2: 'Sob medida, hiperespecializados: recebíveis e experiência do cliente feitos para você',
+  kicker: 'Especialistas em cobranças',
+  h1a: 'Suas contas a receber.',
+  h1b: 'Recuperadas.',
+  h1c: '',
+  lede: 'Com mais de 1.200 profissionais, 8 centros de recuperação globais e meio século de experiência, cobrimos todas as etapas da inadimplência: gerimos o risco, baixamos despesas e subimos as taxas de recuperação — em escala.',
+  logosLabel: 'Os líderes financeiros das principais empresas globais e regionais confiam na WNRS.',
+  servicesH2:
+    'Serviços sob medida, hiperespecializados, de contas a receber e de experiência do cliente (CX).',
   servicesSub:
-    'Feito para performar em qualquer mercado, empresas que usam nossos serviços recuperam 3x ou mais — 10x mais rápido que agências convencionais. Tudo isso preservando a experiência do cliente.',
-  apartH2: 'O que nos diferencia',
+    'Feitos para performar em qualquer mercado: empresas que usam nossos serviços recuperam 3 vezes ou mais, até 10 vezes mais rápido que equipes internas tradicionais, sem sacrificar a experiência do cliente.',
+  apartH2: 'O que nos distingue',
   apartSub:
-    'Há 50 anos, a WNRS é a principal agência de cobrança e gestão de contas a receber para empresas Fortune 500 nas Américas. Veja por quê:',
-  processEyebrow: 'Como funciona',
+    'Durante 50 anos, a WNRS tem sido a principal agência de cobrança de dívidas e contas a receber para empresas Fortune 500 nas Américas.',
+  processEyebrow: 'Da dívida ao fluxo de caixa',
   processH2: 'Da dívida ao fluxo de caixa',
   quotesSub:
-    'Há mais de 50 anos, a WNRS é a principal agência de contas a receber para empresas B2B e B2C em mais de 30 setores. Veja por quê:',
-  ctaH: 'Recupere e restaure seu fluxo de caixa agora.',
-  ctaP: 'Agende uma conversa e entenda por que a WNRS é ranqueada como a agência nº 1 em contas a receber e gestão de dívida há quase meia década.',
+    'Há mais de 50 anos, a WNRS é a agência líder em administração e recuperação de contas a receber para empresas B2B e B2C em mais de 30 setores.',
+  ctaH: 'Recupere e restabeleça seu fluxo de caixa agora.',
+  ctaP: 'Agende uma reunião e descubra por que a WNRS se classifica como a agência número 1 em contas a receber e gestão de dívidas há quase meio século.',
 };
 
 export const ptKeyStats = [
-  'Agência nº 1 para clientes Fortune 500',
+  'Agência número 1 para clientes Fortune 500',
   'Mais de 50 anos de desempenho comprovado',
-  'Mais de 30 países atendidos',
+  'Operando em mais de 30 países',
   'Mais de 20 idiomas cobertos',
-  'Mais de 500 mil interações por mês',
-  '99,9997% de disponibilidade dos sistemas',
-  'Pessoas + Processo + Tecnologia = Integração total',
-  'Satisfação do cliente no topo do mercado',
+  'Mais de 500.000 interações a cada mês',
+  '99,9997% de tempo de atividade do sistema',
+  'Pessoas + Processos + Tecnologia = Integração total',
+  'Máxima satisfação do cliente',
 ];
 
 export const ptPicker: Record<string, string> = {
@@ -50,75 +51,91 @@ export const ptPicker: Record<string, string> = {
 
 export const ptDifferentiators = [
   {
-    h: 'Os primeiros resultados em poucos dias',
-    p: 'Em média, nos primeiros 15 dias você já começa a ver recuperação entrando no caixa.',
+    h: 'Os primeiros resultados em questão de dias',
+    p: 'Em média, nos primeiros 15 dias você já vê resultados de recuperação nos livros.',
   },
   {
     h: 'Talento de classe mundial',
-    p: 'Selecionamos e treinamos equipes para atuar como extensão da sua marca. Você obtém resultados mais rápidos, transparentes e previsíveis — que recuperam dívida e restauram fluxo de caixa.',
+    p: 'Selecionamos e capacitamos equipes para atuar como extensão da sua marca. Você obtém resultados mais rápidos, transparentes e previsíveis: recupera dívida e restabelece o fluxo de caixa.',
   },
   {
-    h: 'Estratégias e expertise sob medida',
-    p: 'Diferente da abordagem genérica de outras agências, montamos estratégias hiperpersonalizadas alinhadas à sua marca, aos seus objetivos e a mais de 50 anos de melhores práticas.',
+    h: 'Experiência e estratégias personalizadas',
+    p: 'Diferente do enfoque padrão de outras agências, montamos estratégias hiperpersonalizadas alinhadas à sua marca, aos seus objetivos e a mais de 50 anos de melhores práticas.',
   },
 ];
 
 export const ptProcess = [
-  { h: 'Fatura(s) em aberto', p: 'Você está perdendo dinheiro — e tempo. Entramos rápido.' },
-  { h: 'Avaliação da(s) conta(s)', p: 'Analisamos o devedor, mapeamos o terreno e executamos o plano de recuperação.' },
-  { h: 'Negociação', p: 'Falamos direto — no idioma deles, no terreno deles.' },
-  { h: 'Execução', p: 'Sempre damos o próximo passo adequado para avançar a recuperação.' },
-  { h: 'Recursos recuperados', p: 'Você vê resultado — com transparência em cada etapa. Serviços de CX opcionais.' },
+  {
+    h: 'Saldo em atraso',
+    p: 'Sua conta entra em atraso, risco de vencimento ou mora. Cada dia custa dinheiro e tempo: intervimos na hora.',
+  },
+  {
+    h: 'Avaliação de casos',
+    p: 'Analisamos o devedor, o contexto de cada caso e desenhamos o plano de recuperação mais efetivo.',
+  },
+  {
+    h: 'Negociação',
+    p: 'Contatamos o devedor para fazer valer a obrigação, segundo as normas culturais e legais da região. Tecnologia em tempo real, protegendo a imagem da sua marca.',
+  },
+  {
+    h: 'Intervenção',
+    p: 'Se for preciso, escalamos: reportes ao birô de crédito, investigações financeiras ou ação legal, para assegurar a cobrança.',
+  },
+  {
+    h: 'Fundos recuperados',
+    p: 'Resultados contundentes, com transparência em cada passo.',
+  },
 ];
 
 export const ptTestimonials = [
   {
     quote:
-      'Não sei como eles fazem, mas a WNRS recuperou o que minha equipe interna de 60 advogados não conseguiu recuperar por anos. Uma coisa é clara: cada ofício com o seu especialista.',
+      'Não sei como fizeram, mas a WNRS conseguiu recuperar o que todo o meu aparato jurídico de 60 advogados internos não pôde recuperar durante anos. Uma coisa me fica clara: cada ofício com o seu especialista.',
     title: 'Presidente',
+    company: 'Cemex',
   },
 ];
 
 export const ptAbout = {
-  lede: 'A WNRS é uma provedora global de cobrança e gestão de contas a receber sob medida. Há mais de meio século, ajudamos empresas de diversos setores a aumentar o fluxo de caixa e reduzir despesas operacionais com recuperação orientada a resultado. Cada etapa do processo — desenho, implementação, gestão — existe para entregar resultado.',
+  lede: 'A WNRS é um provedor líder mundial de serviços personalizados de gestão de contas a receber. Há mais de três décadas ajuda empresas de diversos setores a aumentar o fluxo de caixa e reduzir despesas operacionais com gestão de carteira orientada a resultado.',
   body: [
-    'Pela sede em Miami, FL, a WNRS supervisiona os centros de operação nos EUA, no Canadá e na América Latina. Conheça nossos serviços e veja o que a WNRS pode gerar para você.',
-    'Na hora de escolher quem cuida das contas a receber da sua empresa, a WNRS é o destino. Nossos sistemas comprovados atendem milhares de clientes há décadas. A rede de escritórios, subsidiárias, especialistas em pesquisa e investigação, cobradores multilíngues e parceiros governamentais monta um programa sinérgico sem paralelo no mercado.',
+    'Pela sede em Miami, Flórida, a WNRS supervisiona os centros de operações nos Estados Unidos, no Canadá e na América Latina. Conheça nossos serviços e os resultados que podemos oferecer.',
+    'Se busca a quem confiar as contas a receber da sua empresa, a WNRS é a solução. Nossos sistemas servem milhares de clientes há mais de cinquenta anos. A rede de escritórios, filiais, especialistas em investigação, especialistas multilíngues em cobrança e parceiros governamentais monta um programa sinérgico sem paralelo no setor.',
   ],
   features: [
     {
-      h: 'Processos de negócio de alto nível',
-      p: 'Processos por conta, pessoas e sistemas de dados geram receita contínua em todos os estágios — de empresas independentes a contas Fortune 500.',
+      h: 'Processos empresariais-chave',
+      p: 'Anos de planos de jogo por setor: processos em nível de conta, pessoal e fluxo de dados que geram receita contínua em todas as etapas, de empresas independentes a contas Fortune 500.',
     },
     {
       h: 'Capital humano talentoso',
-      p: 'Especialistas treinados nas práticas e objetivos do cliente. Programas de retenção se traduzem em serviço consistente e de alta qualidade. Não há substituto para quem conhece este ofício.',
+      p: 'Especialistas orientados a resultado, formados nas práticas e objetivos do cliente. Os programas de retenção se traduzem em serviço personalizado e de alta qualidade. Não há substituto para quem conhece este ofício.',
     },
     {
       h: 'Tecnologia inovadora',
-      p: 'Os centros se conectam em rede fechada para que os associados trabalhem com dados atuais. Operações em software proprietário com VoIP, discadores preditivos, gravação, transporte seguro, WAN, armazenamento espelhado e processadores automatizados — feitos para escalar.',
+      p: 'Os centros se conectam em rede fechada para trabalhar com dados em tempo real. Software próprio, VoIP, discadores preditivos, gravação, transporte seguro, WAN, armazenamento espelhado e processadores automatizados — feitos para escalar.',
     },
     {
-      h: 'Acompanhamento 24×7',
-      p: 'O cliente entra no portal e acompanha as contas listadas em tempo real. É o mesmo sistema da operação — transparência total, não um resumo atrasado.',
+      h: 'Acompanhamento de contas 24×7',
+      p: 'Com um login você vê o andamento das contas listadas em tempo real, no mesmo sistema da operação: transparência total.',
     },
     {
-      h: 'Liderança global',
-      p: 'A WNRS conquistou o título de “líder de fato em gestão de contas a receber”. De processos inovadores a capital humano e sistemas de dados, geramos receita contínua em todos os estágios — de empresas independentes a contas Fortune 500.',
+      h: 'Líder mundial',
+      p: 'A WNRS conquistou o título de líder de fato em gestão de contas a receber. Processos, capital humano e sistemas de dados que geram receita contínua em todas as etapas.',
     },
   ],
 };
 
 export const ptLegal = {
   privacy: [
-    'Este site institucional estático não opera CMS, contas de usuário nem base de cobrança. Se você nos envia e-mail ou liga, usamos os dados de contato que você informa para responder à solicitação.',
-    'Os dados de carteira de clientes ficam no portal separado online.wnrs.com, não neste site. Não vendemos listas de visitantes do site institucional.',
-    'A WNRS (World Net Recovery Systems) é uma empresa sediada em Miami, Flórida, Estados Unidos. Este aviso descreve o site de marketing. Leis de privacidade do Brasil (incluindo a LGPD) podem se aplicar quando tratamos dados de pessoas no Brasil; não se trata de aconselhamento jurídico.',
+    'Este site institucional estático não opera CMS, contas de usuário nem base de cobrança. Se você nos escreve ou liga, usamos os dados de contato que envia para responder à consulta.',
+    'Os dossiês de clientes ficam no portal separado online.wnrs.com, não neste site. Não vendemos listas de visitantes do site institucional.',
+    'A WNRS (World Net Recovery Systems) é uma empresa com sede em Miami, Flórida, Estados Unidos. Este aviso descreve o site de marketing. As leis de privacidade do Brasil (incluindo a LGPD) podem aplicar quando tratamos dados de pessoas no Brasil; isto não é aconselhamento jurídico.',
   ],
   terms: [
-    'O conteúdo deste site é informação geral sobre os serviços de contas a receber e cobrança da WNRS. Nada aqui é aconselhamento jurídico, decisão de crédito ou compromisso de assumir um caso específico.',
-    'O mandato de cobrança é regido por contrato escrito separado entre a WNRS e o cliente. O uso do portal online.wnrs.com segue os termos daquele portal.',
-    'A WNRS é uma empresa dos EUA, com sede em Miami, FL. Estes termos regem o site institucional. Contratos de serviço com clientes no Brasil podem ter condições adicionais no acordo de mandato — não inventamos obrigações legais nestas páginas.',
+    'O conteúdo deste site é informação geral sobre os serviços de contas a receber e cobrança da WNRS. Nada aqui é aconselhamento jurídico, decisão de crédito nem compromisso de assumir um dossiê específico.',
+    'O mandato de cobrança é regido por contrato escrito separado entre a WNRS e o cliente. O uso do portal online.wnrs.com é regido pelos termos daquele portal.',
+    'A WNRS é uma empresa dos EUA, com sede em Miami, FL. Estes termos regem o site institucional. Contratos com clientes no Brasil podem ter condições adicionais no acordo de mandato; não inventamos obrigações legais nestas páginas.',
   ],
 };
 
@@ -155,60 +172,65 @@ export const ptServices: Record<string, Svc> = {
     navLabel: 'Cobrança Administrativa',
     ic: '1–60 DIAS · FIRST-PARTY',
     short:
-      'A cobrança em estágio inicial da WNRS é feita para empresas que querem agir no começo do ciclo de vida do cliente.',
-    tagline: 'Interrompa a inadimplência cedo, sem desgastar o relacionamento.',
+      'Intervenha nas primeiras etapas da inadimplência, antes que a conta vire um problema maior.',
+    tagline: 'Recupere sua carteira antes que complique.',
     intro:
-      'A cobrança em estágio inicial da WNRS é feita para empresas que querem agir no começo do ciclo. Nossa expertise oferece uma abordagem orientada ao cliente e eficiente em custo, que reduz fortemente a chance de saldos migrarem para faixas mais tardias. Para empresas globais, não há outra opção: usar serviços de classe mundial — ou ficar para trás.',
+      'Os serviços de cobrança administrativa da WNRS são feitos para empresas que querem agir no início da inadimplência. Um enfoque rentável e centrado no cliente, que reduz a probabilidade de os saldos passarem a faixas mais velhas. Para empresas que competem no mundo, não há outra opção: serviços de primeira classe, ou ficar para trás.',
     overview: [
-      'A cobrança inicial preserva a imagem da marca do cliente. É conduzida com estratégia e diplomacia por profissionais multilíngues treinados para tratar o cliente do nosso contratante com cortesia. Com segmentação, estruturação e modelos analíticos próprios, definimos o melhor método e o melhor agente para cada caso.',
-      'Nossos profissionais apoiam processos em vários setores e geografias com campanhas one-to-one (em geral no nome do cliente). O sucesso está em um atendimento firme e pessoal, que protege o relacionamento que o cliente valoriza.',
+      'A cobrança administrativa protege a imagem de marca da sua empresa. É conduzida por profissionais multilíngues, com estratégia e diplomacia, capacitados para tratar com cortesia os seus clientes. Com modelos próprios de segmentação, estruturação e análise, escolhemos o método e o agente adequados para cada caso.',
+      'Apoiamos processos em vários setores e geografias com campanhas personalizadas — em geral no nome do cliente. A chave é um serviço pessoal e firme que conserva as relações que você valoriza.',
     ],
     benefits: [
-      'Mais fluxo de caixa',
-      'Melhora no DSO (prazo médio de recebimento)',
-      'Ciclo de giro mais curto',
+      'Preservação da relação e da lealdade do cliente',
+      'Intervenção desde o primeiro dia de atraso',
+      'Maior fluxo de caixa',
+      'Escalabilidade imediata',
+      'Melhora do prazo médio de recebimento (DSO)',
+      'Menor taxa de rotatividade',
       'Redução de despesas operacionais',
-      'Queda forte nas contas que entram em inadimplência',
-      'Menos baixas (write-offs)',
-      'Atualização do cadastro do cliente',
-      'Adicionais: aplicação de caixa, gestão de deduções, resolução de disputas, serviços O2C',
-      'Acompanhamento, monitoramento e status online 24/7',
+      'Menos contas que entram em inadimplência',
+      'Menos contas incobráveis (baixas de carteira)',
+      'Atualizações do cadastro mestre de clientes',
+      'Complementares: aplicação de pagamentos, gestão de deduções, resolução de disputas e processos de pedido a pagamento (O2C)',
+      'Acompanhamento e status online 24/7',
     ],
     included: [
       'Contato first-party, seguro para a marca, no nome do cliente',
-      'Segmentação, score e matching de agente por conta',
+      'Segmentação e alocação do agente por conta',
       'Cobertura multilíngue alinhada ao idioma do devedor',
-      'Lembretes de pagamento, dúvidas de faturamento e follow-up precoce',
-      'Reporting, QA e ponto de contato nomeado',
+      'Lembretes de pagamento, dúvidas de faturamento e acompanhamento precoce',
+      'Reporting, QA e um ponto de contato nomeado',
     ],
   },
   'late-stage-arm': {
     name: 'Cobrança Extrajudicial',
     navLabel: 'Cobrança Extrajudicial',
     ic: 'PRÉ-BAIXA · CONCENTRADA',
-    short: 'Empresas enfrentam o mesmo problema quando as contas se aproximam da data de baixa.',
-    tagline: 'Uma estratégia vencedora para contas prestes a envelhecer demais.',
+    short: 'Um problema comum: as contas se aproximam da data de incobrabilidade e falta uma estratégia vencedora.',
+    tagline: 'Especialistas avançados para etapas avançadas.',
     intro:
-      'Quando a conta se aproxima da baixa, a recuperabilidade cai, o time interno estica e um call center genérico queima o dossiê. A cobrança avançada da WNRS concentra cobradores experientes, campanhas setoriais, localização e respaldo advocatício neste segmento.',
+      'O serviço de cobrança extrajudicial da WNRS se concentra neste segmento e monta uma estratégia de recuperação sob medida. Para empresas que competem no mundo, não há outra opção: serviços de primeira classe, ou ficar para trás.',
     overview: [
-      'Depois de décadas de sistemas setoriais, não alocamos temporários de alta rotatividade neste estágio. Os agentes são treinados no seu setor, nas regras de compliance e em playbooks de alta performance.',
-      'As campanhas podem incluir faturamento sob medida, localização nacional e internacional, acompanhamento 24/7 e intervenção advocatícia quando o caso exige.',
-      'Foque no negócio. Não deixe a inação tributar o resultado enquanto as contas saem da zona recuperável.',
+      'Nosso enfoque de melhores práticas é pensado para o seu setor. Após 50 anos, temos sistemas de cobrança por indústria e taxas de sucesso altas. Não usamos o modelo de call center com alta rotatividade e temporários: formamos o agente para que entenda o seu setor.',
+      'Componentes do programa: profissionais com anos de experiência, campanhas especializadas, faturamento personalizado, localização e investigação nacional e internacional, acompanhamento 24/7 e intervenção de um advogado quando for preciso.',
+      'Concentre-se no negócio. Deixe a gestão de carteira com os especialistas. Não permita que o tempo ou a inação afetem o resultado. Aja hoje.',
     ],
     benefits: [
-      'Mais fluxo de caixa',
-      'Maior retorno sobre estoque envelhecido',
-      'Melhor localização em contas skip',
+      'Maior fluxo de caixa',
+      'Máxima eficiência',
+      'Menores prazos de entrega',
+      'Maiores rendimentos',
+      'Melhor localização',
+      'Satisfação do cliente',
+      'Relações duradouras com os clientes',
       'Capital de giro otimizado',
-      'Relações duradouras quando a recuperação ainda é relacional',
-      'Satisfação do cliente com reporting transparente',
     ],
     included: [
-      'Cobradores experientes — não um banco rotativo de call center',
-      'Campanhas de faturamento especializadas e sob medida',
+      'Profissionais com anos de experiência — não um banco rotativo de call center',
+      'Campanhas especializadas e de faturamento personalizado',
       'Localização e investigação nacional e internacional',
-      'Acompanhamento, monitoramento e reporting online 24/7',
-      'Intervenção advocatícia quando necessário',
+      'Acompanhamento, monitoramento e relatórios online 24/7',
+      'Intervenção de um advogado quando necessário',
     ],
   },
   'specialized-arm': {
@@ -216,27 +238,28 @@ export const ptServices: Record<string, Svc> = {
     navLabel: 'Cobrança Especializada',
     ic: 'SENSÍVEL · MULTIDISCIPLINAR',
     short:
-      'Nem todo programa de A/R é igual. A Unidade Especializada (SU) da WNRS conduz operações de cobrança de propósito especial e sensíveis.',
-    tagline: 'Uma unidade dedicada a matérias que uma mesa padrão não toca.',
+      'Nem todo programa de cobrança é igual. A Unidade Especializada (SU) da WNRS executa operações complexas e delicadas.',
+    tagline: 'Uma unidade para assuntos que uma mesa padrão não toca.',
     intro:
-      'A Unidade Especializada (SU) da WNRS trata cobranças de propósito especial e sensíveis — em geral para governo e multinacionais selecionadas. Profissionais multidisciplinares combinam táticas convencionais e não convencionais em disputas complexas com dimensões financeiras, jurídicas, operacionais, políticas e regulatórias.',
+      'A SU é reservada sobretudo a governos e multinacionais selecionadas. Profissionais multidisciplinares, organizados e formados, combinam táticas convencionais e não convencionais para alcançar o objetivo quando e onde for preciso.',
     overview: [
-      'As equipes da SU se deslocam para onde o caso exige: disputas comerciais falimentares e não falimentares, matérias ligadas a governo e casos que pedem expertise setorial da avaliação ao acordo.',
-      'A unidade apoiou matérias relevantes nas Américas — de grandes acordos comerciais a disputas governamentais nos EUA, México, Canadá, Brasil e outros países.',
-      'Trazemos clareza sobre forças, fraquezas, danos e timing para o cliente decidir até onde pressionar — e então executamos.',
+      'Nossos especialistas do setor resolvem conflitos com várias partes: financeiros, jurídicos, operacionais, políticos, regulatórios e transacionais. As unidades de negócio se apoiam em serviços multidisciplinares e se mobilizam — com os recursos especiais que o caso pedir.',
+      'Disputa comercial falimentar ou não, ou um assunto ligado a governo: analisamos e priorizamos os passos para o resultado mais positivo e oportuno. Da avaliação e do discovery à estratégia, à análise de danos e à conciliação.',
+      'A unidade apoiou assuntos que marcaram mercado: o acordo Repsol-YPF, Alcatel-Lucent FCPA, cassinos na República Dominicana, JBS, Odebrecht e disputas governamentais nos EUA, México, Canadá, Brasil e mais. Simplifiquemos o complexo.',
     ],
     benefits: [
-      'Especialistas multidisciplinares e setoriais',
-      'Alcance e mobilização mundial',
-      'Cobertura de disputa e fraude: financeira, jurídica, operacional, transacional, política, regulatória',
-      'Investigadores e especialistas de campo nacionais e internacionais',
-      'Consultoria de litígio, valuation e suporte a julgamento quando necessário',
-      'Intervenção advocatícia quando necessário',
+      'Especialistas multidisciplinares e de setor',
+      'Deslocamento e alcance mundial',
+      'Serviços de apoio integral',
+      'Disputa e fraude: financeiro, jurídico, operacional, transacional, político e regulatório',
+      'Investigadores, analistas e especialistas de campo, nacionais e internacionais',
+      'Consultoria de litígio, perícia, valuation e julgamento quando se precisa',
+      'Intervenção de advogados quando se precisa',
     ],
     included: [
-      'Avaliação inicial do caso e apoio à discovery',
-      'Estratégia, análise de danos e serviços de acordo',
-      'Tratamento discreto para governo e multinacionais',
+      'Avaliação inicial do caso e apoio a discovery',
+      'Estratégia, análise de danos e conciliação',
+      'Trato discreto para governo e multinacionais',
       'Coordenação com recursos jurídicos, investigativos e de campo',
       'Reporting consolidado pela WNRS',
     ],
@@ -246,28 +269,33 @@ export const ptServices: Record<string, Svc> = {
     navLabel: 'Localização de Inadimplentes',
     ic: 'INVESTIGAÇÃO · LOCALIZAÇÃO',
     short:
-      'A economia globalizada facilita ao cliente gerar problemas de O2C e simplesmente realocar a atividade para evitar localização.',
-    tagline: 'Localização e investigação financeira que uma busca em base pública não substitui.',
+      'A globalização facilita que o devedor mude a atividade para não ser localizado. Nós vamos um passo à frente.',
+    tagline: 'Localização de inadimplentes e bens.',
     intro:
-      'Uma economia global facilita à contraparte se deslocar e evitar contato. A localização da WNRS combina tecnologia com investigadores, escritórios internacionais e campo — sobretudo onde as bases públicas são fracas ou o devedor é deliberadamente opaco.',
+      'Na WNRS combinamos tecnologia avançada e uma equipe humana altamente qualificada para localizar e formalizar as demandas dos nossos clientes contra quem tenta evadir a localização. Nosso acompanhamento deu resultados extraordinários. Aproveite nossos algoritmos e método — ou fica para trás.',
     overview: [
-      'A investigação financeira complementa a cobrança: não paramos no último endereço conhecido. Buscamos a pessoa, a entidade e os ativos que podem satisfazer o crédito.',
-      'Experiência importa em dossiês opacos e em dívidas originadas em mercados com infraestrutura de comunicação fraca. Algoritmos ajudam; investigadores treinados fecham.',
+      'As investigações financeiras complementam a cobrança. Outras empresas se apoiam em bases públicas nacionais; nós sabemos que, com devedores opacos ou dívidas de países com sistemas fracos, a experiência é o que fecha.',
+      'Juntamos as tecnologias disponíveis, nossos escritórios internacionais e a formação das nossas equipes para chegar ao devedor e aos seus bens.',
     ],
     benefits: [
+      'Estudos de viabilidade de cobrança jurídica',
       'Decomposição da estrutura societária',
-      'Análise de desconsideração da personalidade jurídica',
-      'Dados bancários corporativos',
-      'Histórico de emprego',
-      'Imóveis, veículos e ônus',
-      'Informações de sentença e falência',
+      'Desconsideração da personalidade jurídica',
+      'Detalhes de bancos e contas corporativas',
+      'Histórico laboral',
+      'Relatórios de imóveis, veículos e equipamentos',
+      'Ônus, penhoras e concursos',
+      'Informação de julgamentos',
+      'Análise financeira',
       'Localização pessoal, contato e dados bancários',
+      'Verificações de campo',
+      'Resumo e detalhe operacional',
     ],
     included: [
       'Localização em pegada nacional e internacional',
       'Investigação de ativos e entidades em apoio à recuperação',
-      'Integração com frentes inicial, avançada e advocatícia',
-      'Tratamento discreto de dossiês comerciais sensíveis',
+      'Integração com cobrança administrativa, extrajudicial e judicial',
+      'Trato discreto de dossiês comerciais sensíveis',
     ],
   },
   'attorney-intervention': {
@@ -275,27 +303,27 @@ export const ptServices: Record<string, Svc> = {
     navLabel: 'Cobrança Judicial',
     ic: 'LITÍGIO · EXECUÇÃO',
     short:
-      'Ao longo dos anos e pelos nossos escritórios globais, construímos uma rede internacional de advogados, inclusive falimentares.',
-    tagline: 'Litígio e execução de sentença, geridos em um só lugar.',
+      'Uma rede internacional de advogados — inclusive falimentares — nos EUA, Canadá, México, América Latina, América Central, Caribe e Europa Ocidental.',
+    tagline: 'Litígio e execução de sentença, num só lugar.',
     intro:
-      'A WNRS construiu uma rede internacional de advogados de cobrança e falência em jurisdições dos EUA, Canadá, México, América Latina, América Central, Caribe e Europa Ocidental. A intervenção advocatícia aplica enforcement legal quando o caso precisa de mais do que contato.',
+      'Com a nossa presença global montamos uma rede de advogados para implementar mecanismos de execução legal no mundo todo, pelo programa de Cobrança Judicial.',
     overview: [
-      'Do litígio à execução da sentença, os advogados da rede trazem experiência comprovada. A WNRS gerencia o progresso e mantém você atualizado em cada etapa.',
-      'Analisamos se o litígio vale a pena — consolidação, investigação, execução e timing — e, se você seguir, acompanhamos o caso em uma visão consolidada.',
+      'Do litígio à execução de sentenças, a rede traz experiência sólida em cobranças. A WNRS gere o processo e o mantém informado em cada etapa.',
+      'Consolidação, investigação, execução e planejamento: analisamos com fatores quantificáveis se convém litigar. Se se inicia, tudo é rastreado e monitorado num só lugar, consolidado pela WNRS.',
     ],
     benefits: [
-      'Consolidação one-stop da recuperação jurídica',
-      'Reporting detalhado ao longo do processo',
-      'Penhora e execução de ativos',
-      'Apoio a sanções cíveis (e, quando aplicável, criminais)',
-      'Penhora de salários, contas bancárias e de investimento',
-      'Apreensão de imóveis e veículos quando lícito',
-      'Ações de desconsideração da personalidade jurídica',
+      'Consolidação integral',
+      'Relatórios detalhados',
+      'Penhora e execução de bens',
+      'Sanções cíveis e, quando couber, penais',
+      'Penhora de salário, bancária e de conta de investimento',
+      'Apreensão de imóveis e veículos quando é lícito',
+      'Desconsideração da personalidade jurídica',
     ],
     included: [
-      'Análise pré-litígio de recuperabilidade e custo',
-      'Alocação de advogado na jurisdição certa',
-      'Execução de sentença e de ativos',
+      'Análise de se procede o litígio, com fatores quantificáveis',
+      'Alocação de advogado na jurisdição correta',
+      'Execução de sentença e de bens',
       'Cobertura falimentar em mercados-chave',
       'Acompanhamento centralizado pela WNRS',
     ],
@@ -312,214 +340,283 @@ type Vert = {
   benefits?: string[];
 };
 
+const ptIndustryBenefits = [
+  'Maior fluxo de caixa',
+  'Conhecimento profundo do setor',
+  'Conformidade',
+  'Redução das baixas',
+  'Prazos de cobrança mais rápidos',
+  'Gestão de conflitos',
+  'Acompanhamento online em tempo real',
+];
+
 export const ptVerticals: Record<string, Vert> = {
   business: {
-    name: 'Empresas',
+    name: 'Negócio',
     ic: 'MID-MARKET',
-    short: 'Programas de cobrança dimensionados para empresas em crescimento que precisam de caixa sem montar uma mesa interna completa.',
+    short: 'Cobrança para empresas que precisam de caixa sem montar uma mesa interna completa.',
     intro:
-      'Cobre de empresas ou é uma delas: a WNRS tem experiência para colocar um programa definitivo de contas a receber em volta do seu book — sem o custo de criar um time de recuperação.',
+      'Cobre de empresas ou é uma delas: a WNRS tem a experiência para alcançar seus objetivos e dar resultados definitivos de gestão de carteira — sem o custo de levantar um time de recuperação.',
     overview:
-      'Empresas mid-market muitas vezes ultrapassam a cobrança ad hoc e subinvestem em uma função dedicada. Encaixamos cobradores treinados, reporting e localização para que o financeiro foque em crescimento. Clientes deste segmento costumam ver ganho material de caixa quando o contato é consistente e profissional.',
-    audience: 'Empresas de capital fechado e mid-market em carteiras B2B e B2C.',
-    benefits: ['Mais fluxo de caixa — clientes deste segmento viram ganhos em torno de 85%', ...ptBenefitsCommon],
+      'Empresas mid-market muitas vezes ultrapassam a cobrança improvisada e subinvestem numa função dedicada. Encaixamos cobradores capacitados, reporting e localização para o financeiro ficar no crescimento. Algumas das maiores empresas do mundo confiam na WNRS para resolver problemas complexos de contas a receber e de relação com o cliente.',
+    audience: 'Empresas privadas e mid-market em carteiras B2B e B2C.',
+    benefits: [
+      'Maior fluxo de caixa — clientes deste segmento viram ganhos em torno de 85%',
+      ...ptIndustryBenefits.slice(1),
+    ],
   },
   enterprise: {
-    name: 'Grandes empresas',
+    name: 'Empresa',
     ic: 'GLOBAL · FORTUNE 500',
     short: 'Escale a recuperação entre regiões, idiomas e regimes jurídicos.',
     intro:
-      'Grandes empresas precisam de cobrança à altura do footprint: várias jurisdições, idiomas e padrões de marca. A WNRS opera esse programa como extensão do financeiro e do jurídico corporativo.',
+      'Cobre de empresas globais ou é uma delas: a WNRS tem a experiência para alcançar seus objetivos e dar resultados definitivos de contas a receber.',
     overview:
-      'Dossiês enterprise são grandes, políticos e visíveis. Alocamos equipes multilíngues, unidades especializadas e redes advocatícias para que a recuperação não pare na fronteira. O reporting serve tesouraria, shared services e auditoria — não um dump de planilha.',
+      'Algumas das maiores empresas do mundo confiam na WNRS para resolver problemas complexos de relação com o cliente e de pagamentos atrasados. Alocamos equipes multilíngues, unidades especializadas e redes advocatícias para a recuperação não parar na fronteira. O reporting serve tesouraria, shared services e auditoria.',
     audience: 'Multinacionais e organizações financeiras Fortune 500.',
-    benefits: ['Mais fluxo de caixa — clientes deste segmento viram ganhos em torno de 80%', ...ptBenefitsCommon],
+    benefits: [
+      'Maior fluxo de caixa — clientes deste segmento viram ganhos em torno de 80%',
+      ...ptIndustryBenefits.slice(1),
+    ],
   },
   government: {
     name: 'Governo',
     ic: 'SETOR PÚBLICO',
-    short: 'Recuperação sensível para entes públicos e créditos comerciais ligados a governo.',
+    short: 'Recuperação discreta para entes públicos e créditos comerciais ligados a governo.',
     intro:
-      'Recebíveis públicos e relacionados a governo exigem discrição, compliance e alcance. A WNRS apoia entes e contratados com cobrança que vai do contato administrativo à enforcement especializada e jurídica.',
+      'Para entidades governamentais ou delas: a WNRS tem a experiência para alcançar seus objetivos e dar resultados definitivos de contas a receber.',
     overview:
-      'Dossiês de governo misturam restrições comerciais, regulatórias e políticas. Nossa unidade especializada e a rede advocatícia conhecem esse mix. Reportamos com clareza, documentamos e só escalamos quando o caso sustenta.',
+      'Alguns dos governos mais importantes do mundo confiam na WNRS para resolver problemas complexos de contas a receber e de relação com o cidadão ou o contratado. Nossa unidade especializada e a rede advocatícia conhecem a mistura comercial, regulatória e política. Reportamos com clareza e só escalamos quando o dossiê sustenta.',
     audience: 'Entes públicos, agências e contratados do governo.',
-    benefits: ['Mais fluxo de caixa — clientes deste segmento viram ganhos em torno de 75%', ...ptBenefitsCommon],
+    benefits: [
+      'Maior fluxo de caixa — clientes deste segmento viram ganhos em torno de 75%',
+      ...ptIndustryBenefits.slice(1),
+    ],
   },
   utilities: {
-    name: 'Utilities',
+    name: 'Serviços públicos',
     ic: 'REGULADO',
-    short: 'Programas de contas a receber para utilities e serviços públicos regulados.',
+    short: 'Contas a receber para serviços públicos, públicos e privados.',
     intro:
-      'Utilities operam recebíveis de alto volume e regulados, em que tratamento do cliente e documentação importam tanto quanto o valor recuperado. A WNRS apoia essa carteira com contato treinado e escalada em conformidade.',
+      'A equipe de serviços públicos da WNRS se especializa nas necessidades da indústria — pública ou privada. Trabalhamos direto com o seu departamento de contas a receber para você não ter de gerir vários fornecedores. Regional, nacional ou internacional: os associados da WNRS estão disponíveis.',
     overview:
-      'De contas residenciais e comerciais vencidas a créditos B2B complexos, alinhamos a regras tarifárias, programas de hardship e padrões de marca. O objetivo é receita recuperada sem corte desnecessário nem dano reputacional.',
-    audience: 'Operadores de energia, gás, água, telecom adjacente e serviços públicos.',
+      'Pessoal capacitado, experiência e tecnologia para gerir contas a receber, cobranças e serviços administrativos. Ajudamos a obter liquidez de contas inadimplentes e baixadas, da ligação de atendimento à intervenção advocatícia.',
+    audience: 'Operadores de eletricidade, gás, água, telecom adjacente e serviços públicos.',
+    benefits: [
+      'Ligações de atendimento ao cliente',
+      'Ligações prévias ao desligamento',
+      'Campanhas de lembrete de pagamento final',
+      'Cobrança em estágio inicial',
+      'Cobranças posteriores ao desligamento',
+      'Cobranças com intervenção de advogados',
+      'Processamento de pagamentos e faturamento (online e em papel)',
+    ],
   },
   'education-research': {
-    name: 'Educação e pesquisa',
+    name: 'Instituições Educacionais',
     ic: 'MENSALIDADE · CONVÊNIOS · CRÉDITO',
-    short: 'Programas de recebíveis para escolas, pesquisa e credores educacionais.',
+    short: 'Especialistas em cobrança e administração de carteira educacional.',
     intro:
-      'Escolas de idiomas, cursos especializados, pesquisa, intercâmbio, EAD, universidades públicas e privadas, escolas técnicas e credores educacionais têm carteiras distintas. A WNRS tem experiência para atendê-las.',
+      'Universidade pública ou privada, escola técnica, de idiomas ou de negócios, formação especializada, educação online, intercâmbio ou entidade de financiamento educacional: temos a experiência para gerir a sua carteira.',
     overview:
-      'Nenhum programa educacional é igual. Trabalhamos com escolas e centros de pesquisa para escolher a mistura certa de intervenção precoce, servicing de crédito e recuperação de terceiros. Os cobradores são treinados nas circunstâncias do estudante-devedor e nas normas aplicáveis, e o programa protege a imagem da instituição.',
+      'Cada instituição e programa é único. Colaboramos com escolas e instituições para definir o enfoque correto. A equipe é capacitada para entender as circunstâncias dos alunos que pedem financiamento e operar em conformidade. O programa se integra à imagem e aos valores da sua instituição: gere e recupera carteira, melhora o fluxo de caixa e deixa mais liquidez para a operação educacional.',
     audience: 'Universidades, escolas técnicas, programas de pesquisa e credores educacionais.',
     benefits: [
-      'Cobrança de intervenção precoce',
-      'Cobrança de terceiros',
-      'Gestão de A/R e servicing de crédito',
-      'Faturamento (impresso, correio e eletrônico)',
-      'Atendimento e cartas de cobrança',
-      'Apoio de back-office',
-      'Intervenção advocatícia e localização',
+      'Cobrança administrativa e intervenção precoce',
+      'Cobrança extrajudicial',
+      'Gestão íntegra de contas a receber',
+      'Soluções administrativas',
+      'Atendimento ao cliente',
+      'Cartas de cobrança',
+      'Suporte administrativo',
       'Processamento de pagamentos',
     ],
   },
   'travel-transportation': {
-    name: 'Viagens e transporte',
+    name: 'Transporte e Logística',
     ic: 'TRANSPORTADORAS · FROTAS · RESERVAS',
-    short: 'Recuperação para transportadoras, logística, operadores de viagem e redes de transporte.',
+    short: 'Cobrança sob medida para logística, viagens e transporte.',
     intro:
-      'Carteiras de viagem e transporte se movem rápido: frete não pago, viagem corporativa, tours e encargos de equipamento envelhecem enquanto ativos e contrapartes continuam em movimento. A WNRS recupera esses recebíveis entre fronteiras e idiomas.',
+      'A incerteza no preço do combustível e a concorrência em logística, viagens e transporte pressionam as empresas — por navio, avião, ferrovia, caminhão ou uma combinação.',
     overview:
-      'Treinamos nas suas tarifas, contratos e mix de clientes — aéreas, logística, frete, passageiros e operadores de viagem. O contato acontece no idioma do devedor. Localização e respaldo advocatício entram quando a contraparte se mudou ou simplesmente não paga.',
+      'Com mais de 25 anos em contas a receber e cobrança de terceiros para Transporte e Logística, a WNRS implementa e gere o suporte posterior ao conhecimento de embarque, o faturamento e as cobranças em atraso. Faturamento, contas a receber e cobrança orientados a resultado, para manter a vantagem competitiva.',
     audience: 'Aéreas, frete e logística, transporte de passageiros e operadores de viagem.',
+    benefits: [
+      'Maior arrecadação',
+      'Maior fluxo de caixa',
+      'Redução das baixas',
+      'Gestão de conflitos',
+      'Redução da inadimplência',
+      'Satisfação do cliente',
+      'Base de dados proprietária de devedores reincidentes',
+      'Gestão de processos',
+      'Décadas de experiência',
+    ],
   },
   retail: {
     name: 'Varejo',
     ic: 'LOJA · ECOMMERCE · CRÉDITO',
-    short: 'Recebíveis de varejo e ecommerce em alto volume, sem sufocar o capital de giro.',
+    short: 'Contas a receber de alto volume, sem sufocar o capital de giro.',
     intro:
-      'Eletrônicos, mercearia, food service, segurança, vestuário e mais: o varejo roda milhares de transações por dia — presencial e online, em cartão, leasing, cheque e notas. É uma das maiores categorias de clientes da WNRS.',
+      'Eletrônicos, grandes lojas, food service, produtos de segurança, vestuário e mais: o varejo gere milhares de transações por dia. Presencial ou online, com cartões, arrendamentos, cheques ou notas — é uma das nossas maiores categorias de clientes.',
     overview:
-      'Não deixe a gestão de recebíveis sufocar o capital de giro. Os associados da WNRS aprendem seus produtos, políticas e cultura para funcionar como extensão da loja e da marca. Resolvemos cobrança e faturamento no prazo, protegemos a imagem em dossiês de cliente e reportamos status em tempo real.',
+      'Não permita que a gestão de contas a receber abafe o seu negócio nem o capital de giro. A WNRS gere a carteira; você se concentra em vender. Os associados entendem seus produtos, políticas e cultura: são a extensão do seu negócio. Resolvemos cobranças e faturamento no prazo e com eficiência.',
     audience: 'Varejistas físicos, omnichannel e ecommerce.',
     benefits: [
-      'Experiência em vários formatos de varejo',
-      'Resolução que protege a imagem da empresa',
-      'Entrada de contas, auditorias, faturas e status em tempo real',
-      'Gama completa de gestão de A/R e cobrança',
-      'Mais fluxo de caixa, menos baixas, menos inadimplência',
+      'Experiência no setor',
+      'Resolução de problemas e preservação da imagem da empresa',
+      'Entrada de contas online, auditorias, faturas e relatórios de status em tempo real',
+      'Ampla gama de serviços de gestão e cobrança de contas a receber',
+      'Maior fluxo de caixa',
+      'Redução das baixas',
+      'Redução da inadimplência',
     ],
   },
   manufacturing: {
-    name: 'Manufatura',
+    name: 'Manufatura e Fabricação',
     ic: 'B2B · CRÉDITO COMERCIAL',
-    short: 'Recuperação de crédito comercial para fabricantes que precisam baixar DSO e fechar disputas.',
+    short: 'Gestão e cobrança de contas a receber para fabricantes.',
     intro:
-      'Eletrônicos, materiais de construção, auto e autopeças e outros fabricantes usam a WNRS para gestão de A/R e cobrança em carteiras de crédito comercial.',
+      'Fabricantes de eletrônicos, materiais de construção, automóveis e autopeças — e muitos mais — usam nossos serviços de gestão e cobrança de contas a receber.',
     overview:
-      'Antes de começar, garantimos que os representantes entendam seus processos, planos de pagamento, critérios de crédito e marca. Depois eles gerem recebíveis, resolvem disputas, cobram atrasos e apoiam a recuperação de mercadorias quando necessário — sem acrescentar overhead à planta.',
+      'Antes de começar, garantimos que os representantes entendam seus processos, planos de pagamento, critérios de crédito e imagem de marca — e mantemos baixos os custos gerais. Administram contas, resolvem disputas, cobram mora e recuperam bens quando for preciso.',
     audience: 'Fabricantes discretos e de processo que vendem a prazo.',
     benefits: [
-      'Cobrança mais rápida',
-      'Mais receita e fluxo de caixa',
-      'Maior satisfação em disputas resolvidas',
-      'Menor DSO e menos baixas',
+      'Prazos de cobrança mais rápidos',
+      'Aumento da receita',
+      'Maior satisfação do cliente',
+      'Diminuição do DSO',
+      'Diminuição das baixas',
+      'Maior fluxo de caixa',
     ],
   },
   'professional-services': {
-    name: 'Serviços profissionais',
+    name: 'Serviços Profissionais',
     ic: 'HONORÁRIOS · RETAINERS',
-    short: 'Cobre para escritórios que vendem expertise — sem danificar o relacionamento com o cliente.',
+    short: 'Gestão de dívidas atuais e vencidas para escritórios que vendem expertise.',
     intro:
-      'Direito, contabilidade, consultoria, engenharia e outros escritórios carregam WIP envelhecido e faturas que o time interno hesita em cobrar. A WNRS recupera esses honorários com a discrição que o relacionamento exige.',
+      'Uma ampla gama de empresas de serviços profissionais confia na WNRS para gerir suas dívidas atuais e vencidas.',
     overview:
-      'Recebíveis de serviços profissionais são relacionais. Trabalhamos o dossiê com as políticas de billing em mente, documentamos cada contato e só escalamos quando o engagement realmente acabou. O escritório foca na entrega; nós, em receber.',
-    audience: 'Escritórios de advocacia, consultorias, contábeis e outras práticas fee-for-service.',
+      'Neste setor as disputas sobre faturas são habituais. Com mais de 25 anos de mecanismos de resolução e o vocabulário do seu ofício, resolvemos a maioria e recuperamos o que lhe corresponde — no prazo. Tolerância zero a disputas ilegítimas; máxima recuperação, sempre com a relação com o seu cliente em mente.',
+    audience: 'Técnico e científico, aluguel e arrendamento, contabilidade, publicidade e marketing, arquitetura, jurídico, entretenimento e mais.',
+    benefits: ptIndustryBenefits,
   },
   'aerospace-defense': {
-    name: 'Defesa e segurança',
+    name: 'Aeroespacial e Defesa',
     ic: 'CONTRATO · COMPLIANCE',
-    short: 'Cobrança discreta para créditos comerciais de aeroespacial, defesa e dual-use.',
+    short: 'Um sócio de contas a receber que impulsione o fluxo de caixa e saneie as contas governamentais a tempo.',
     intro:
-      'Recebíveis de aeroespacial e defesa estão em contratos longos, flow-downs governamentais e contrapartes em qualquer ponto da cadeia. A WNRS trata esses dossiês com a confidencialidade e a documentação que o setor espera.',
+      'Cadeias de suprimento complexas, menor gasto militar e mais volatilidade: o setor aeroespacial e de defesa precisa de um sócio que impulsione o fluxo de caixa e saneie as contas governamentais antes que virem um problema.',
     overview:
-      'De fornecedores de aviação comercial a contratados de defesa, alinhamos a recuperação a termos contratuais, direitos de compensação e complexidade jurisdicional. Unidade especializada e recursos advocatícios entram em matérias sensíveis ou transfronteiriças.',
+      'Conhecemos a indústria e trabalhamos com governos e ministérios de defesa. Montamos programas sob medida que geram fluxo de caixa: programas governamentais, subsídios, peças ou serviços, e resolução de disputas complexas.',
     audience: 'OEMs, fornecedores e contratados de aeroespacial e defesa.',
+    benefits: [
+      'Maior fluxo de caixa',
+      'Conhecimento profundo do setor',
+      'Conformidade',
+      'Redução das baixas',
+      'Prazos de pedido a pagamento (O2C) mais rápidos',
+      'Experiência governamental',
+    ],
   },
   'construction-operations': {
-    name: 'Construção e operações',
+    name: 'Construção e Operações',
     ic: 'OBRAS · RETENÇÃO',
-    short: 'Recupere medições, retenções e saldos de fornecedores em obras.',
+    short: 'Negociações complexas de dívida e gestão de carteira para construtoras.',
     intro:
-      'Construção e operações vivem de medições, aditivos e retenção — tudo isso pode travar. A WNRS trabalha esses recebíveis para o caixa não ficar preso em obra concluída.',
+      'As construtoras enfrentam desafios próprios ao expandir e conservar uma base de clientes leal. Cada vez mais recorrem à WNRS para negociar dívidas complexas e administrar as contas a receber.',
     overview:
-      'Treinamos nas suas minutas e na estrutura do projeto, depois perseguimos owners, GCs e fornecedores conforme o dossiê. Disputas documentais são normais neste book; tratamos como tal, não como um simples atraso.',
+      'A gama de soluções é feita para melhorar como dão suporte e faturam, prevenir a inadimplência e cobrar contas com atrasos importantes. Analistas com experiência em vários tipos de dívida e campanhas em todas as etapas. Conte conosco como sócio estratégico.',
     audience: 'Construtoras, especialidades e operadores de facilities.',
+    benefits: ptIndustryBenefits,
   },
   banking: {
-    name: 'Bancos',
+    name: 'Bancário',
     ic: 'CRÉDITO REGULADO',
-    short: 'Apoio de recuperação em conformidade para bancos e carteiras de crédito.',
+    short: 'Contas a receber orientadas a desempenho para bancos e serviços financeiros.',
     intro:
-      'Bancos precisam de parceiros que entendam crédito regulado, documentação e tratamento do cliente. A WNRS apoia cobrança bancária e recuperação comercial correlata com processos treinados e auditáveis.',
+      'Desenhamos, implementamos e gerimos soluções de contas a receber orientadas a desempenho para algumas das maiores instituições bancárias e de serviços financeiros.',
     overview:
-      'Trabalhamos dentro do seu framework de compliance — regras de contato, hardship e escalada — e reportamos em formato que risco de crédito e cobrança usam. Localização e intervenção advocatícia entram em dossiês comerciais e baixados.',
-    audience: 'Times de cobrança varejo, comercial e especialidades bancárias.',
+      'Ajudamos a melhorar como atendem e faturam clientes atuais, a prevenir a inadimplência e a otimizar a operação. Analistas com experiência em empréstimos, arrendamentos e todas as etapas — consumidor e empresa. Conte conosco como sócio estratégico.',
+    audience:
+      'Emissores de cartões, empréstimos pessoais e hipotecários, financiamento automotivo, empréstimos a prazo, saldos de deficiência, crédito educacional, cooperativas, câmbio de cheques e crédito varejista — bancos de todos os tamanhos.',
+    benefits: ptIndustryBenefits,
   },
   'consumer-products': {
-    name: 'Bens de consumo',
+    name: 'Produtos de Consumo',
     ic: 'CPG · TRADE',
-    short: 'Recebíveis trade e consumer para CPG e marcas.',
+    short: 'Mais fluxo de caixa e melhor relação com o cliente num mercado global.',
     intro:
-      'Empresas de bens de consumo carregam saldos de distribuidor, varejo e, às vezes, direto ao consumidor. A WNRS recupera essas carteiras protegendo o equity da marca na gôndola e no digital.',
+      'Empresas de produtos de consumo buscam maximizar lucro e participação num ambiente globalmente competitivo. Com uma gestão eficaz de contas a receber, a WNRS ajudou muitas a subir o fluxo de caixa e a resolver problemas de relação com o cliente em todas as etapas.',
     overview:
-      'Tratamos deduções de trade, varejo slow-pay e contas consumer envelhecidas com scripts setoriais e fluxos de disputa. O objetivo é caixa de volta sem uma briga pública que custa mais que a fatura.',
+      'Conhecemos o setor e trabalhamos com multinacionais de consumo no mundo todo. Montamos programas de contas a receber sob medida que geram fluxo de caixa substancial.',
     audience: 'Fabricantes de CPG, marcas e distribuidores de bens de consumo.',
+    benefits: ptIndustryBenefits,
   },
   chemicals: {
-    name: 'Químicos',
+    name: 'Produtos Químicos',
     ic: 'CRÉDITO COMERCIAL · B2B',
-    short: 'Recuperação B2B para produtores e distribuidores químicos que vendem a prazo.',
+    short: 'O equilíbrio entre reter o cliente e cobrar de verdade.',
     intro:
-      'Produtores e distribuidores químicos concedem crédito comercial relevante. Quando as faturas envelhecem, a WNRS entra com cobradores B2B que entendem contratos, sinistros de logística e contrapartes internacionais.',
+      'A indústria química enfrenta desafios próprios de crédito e cobrança. Diferente de outros fabricantes, os produtos são únicos e os clientes importantes são poucos, estão dispersos no mundo e são cruciais. O equilíbrio entre retenção e cobrança efetiva é vital.',
     overview:
-      'Neste setor, os dossiês misturam produto, frete e qualidade. Separamos o saldo cobrável da reclamação genuína e perseguimos o restante com a mistura certa de contato, investigação e respaldo jurídico.',
+      'Trabalhamos com os maiores produtores químicos do mundo. De polímeros e plásticos a especialidades e consumo: experiência e trajetória em gestão eficaz de contas a receber.',
     audience: 'Empresas de commodities e especialidades químicas e seus distribuidores.',
+    benefits: ptIndustryBenefits,
   },
   engineering: {
     name: 'Engenharia',
     ic: 'HONORÁRIOS DE PROJETO',
-    short: 'Recuperação de honorários para escritórios de engenharia em projeto e retainer.',
+    short: 'Cobrança de primeira classe para salvaguardar os lucros do escritório.',
     intro:
-      'Escritórios de engenharia faturam marcos e retainers que o cliente atrasa. A WNRS recupera esses honorários com o cuidado que um projeto em curso exige.',
+      'Diante da tensão econômica e da concorrência mundial, as empresas de engenharia confiam nos nossos serviços de cobrança para salvaguardar seus lucros.',
     overview:
-      'Trabalhamos a partir dos seus SOWs e trilha de aditivos, não de uma carta genérica. Onde o relacionamento acabou, escalamos; onde não, mantemos o tom profissional e o dossiê documentado.',
+      'A gama é feita para melhorar suporte e faturamento, prevenir a inadimplência e recuperar contas com atrasos importantes. Analistas com experiência em vários tipos de empresas de engenharia — crédito comercial e de consumo, em todas as etapas. Conte conosco como sócio estratégico.',
     audience: 'Práticas de engenharia civil, industrial e especializada.',
+    benefits: ptIndustryBenefits,
   },
   'gaming-hospitality-leisure': {
-    name: 'Games, hospitalidade e lazer',
+    name: 'Jogos, hotelaria e lazer',
     ic: 'MARKERS · FOLIOS · EVENTOS',
-    short: 'Recebíveis de cassinos, hotéis, operadores de lazer e venues relacionados.',
+    short: 'Contas a receber para uma indústria que vive do serviço ao cliente.',
     intro:
-      'Games, hospitalidade e lazer geram markers, folios, eventos de grupo e saldos de fornecedor que pedem recuperação discreta e rápida. A WNRS atua neste setor nas Américas.',
+      'Com um enfoque intenso no serviço ao cliente, a indústria hoteleira confia na WNRS para operar e administrar suas contas a receber.',
     overview:
-      'Tom e timing importam na hospitalidade. Recuperamos o devido sem transformar hóspede ou conta de grupo em disputa pública, e escalamos via localização ou advocacia quando o caso deixa de ser um problema de guest relations.',
+      'A gama é feita para melhorar o atendimento e o faturamento, e prevenir problemas com os clientes atuais. Analistas com experiência em todos os segmentos da hotelaria, em todas as etapas, com ênfase no serviço ao cliente. Conte conosco como sócio estratégico.',
     audience: 'Cassinos, hotéis, resorts e operadores de lazer.',
+    benefits: [
+      'Maior fluxo de caixa',
+      'Conhecimento profundo do setor',
+      'Conformidade',
+      'Retenção de clientes',
+      'Redução das baixas',
+      'Resultados mais rápidos',
+      'Gestão de conflitos',
+      'Acompanhamento online em tempo real',
+    ],
   },
   'government-contracting': {
-    name: 'Contratos governamentais',
+    name: 'Contratação governamental',
     ic: 'PRIME · SUB · FLOW-DOWN',
-    short: 'Recuperação comercial em torno de contratos públicos e cadeias de subcontratados.',
+    short: 'Contas a receber de governo: do federal ao municipal, e para contratados.',
     intro:
-      'Contratados do governo carregam recebíveis contra primes, subs e agências que não se comportam como crédito comercial comum. A WNRS apoia essa carteira com disciplina documental e recursos especializados.',
+      'Permita-nos otimizar a sua gestão de contas a receber governamental. Do federal ao municipal, a WNRS desenhou serviços para todo tipo de programa de governo e para contratados de instituições públicas.',
     overview:
-      'Entendemos flow-downs, cessão e o ritmo do pagamento público. Quando uma disputa comercial senta ao lado de um contrato governamental, unidade especializada e recursos advocatícios estão disponíveis.',
+      'Nem todo programa de contas a receber é feito igual. Trabalhar nos dois extremos do espectro nos dá uma leitura clara de como são — e como deveriam ser — os programas de serviço governamental.',
     audience: 'Primes, subcontratados e vendors em obras e serviços públicos.',
+    benefits: ptIndustryBenefits,
   },
   healthcare: {
     name: 'Saúde',
     ic: 'PACIENTE · PAGADOR',
-    short: 'A/R de saúde para hospitais, grupos médicos e facilities relacionadas.',
+    short: 'Cobranças e gestão de carteira para um mercado médico complexo.',
     intro:
-      'Clientes de saúde da WNRS incluem hospitais públicos, comunitários sem fins lucrativos, afiliados religiosos, grandes grupos médicos e facilities de investidores.',
+      'Nossa clientela sanitária inclui hospitais de propriedade governamental, comunitários sem fins lucrativos, afiliados a organizações religiosas, grandes grupos médicos e instalações de investidores.',
     overview:
-      'A/R médico é complexo: reembolso de managed care, regras de Medicare e Medicaid, e responsabilidade de terceiros. Gerimos dossiês de paciente e pagador em dia, em aberto e em baixa, com cobradores treinados para este mercado.',
-    audience: 'Hospitais, grupos médicos e facilities de saúde.',
+      'Cobra neste mercado complexo: reembolso de managed care, conformidade de Medicare e Medicaid, e responsabilidade de terceiros. Gerimos dossiês de pacientes em dia, pendentes ou baixados — e o impacto se vê no resultado.',
+    audience: 'Hospitais, grupos médicos e instalações de saúde.',
     benefits: [
-      'Follow-up de paciente e pagador em saldos envelhecidos',
+      'Acompanhamento de paciente e pagador em saldos envelhecidos',
       'Apoio em dossiês de managed care, Medicare e Medicaid',
       'Cobrança de responsabilidade de terceiros',
       'Menos baixas e mais caixa em self-pay e saldos residuais',
@@ -528,141 +625,165 @@ export const ptVerticals: Record<string, Vert> = {
   'high-tech': {
     name: 'Alta tecnologia',
     ic: 'SAAS · HARDWARE · CANAL',
-    short: 'Cobrança para empresas de tecnologia com carteiras de canal, SaaS e hardware.',
+    short: 'Práticas de cobrança à altura de empresas que vivem de inovar.',
     intro:
-      'Recebíveis de high-tech misturam assinaturas, hardware e parceiros de canal — muitas vezes entre fronteiras. A WNRS recupera esses saldos com equipes multilíngues e reporting moderno.',
+      'As empresas tecnológicas buscam inovar e liderar. No mundo todo confiam na WNRS para gerir e implementar práticas de cobrança igualmente inovadoras que controlem o resultado financeiro.',
     overview:
-      'Trabalhamos assinaturas vencidas, hardware não pago e defaults de distribuidor sem tratar cada dossiê como dívida de consumidor. Contas de canal e enterprise têm postura B2B; contas consumer tech, postura de CX.',
+      'A gama é feita para melhorar suporte e faturamento, prevenir a inadimplência e recuperar contas com atrasos importantes. Analistas com experiência em crédito comercial e de consumo, em todas as etapas. Deixe a cobrança com os especialistas.',
     audience: 'Empresas de software, hardware e serviços de tecnologia.',
+    benefits: ptIndustryBenefits,
   },
   'industrial-machinery-components': {
     name: 'Máquinas e componentes industriais',
     ic: 'CAPEX · PEÇAS',
-    short: 'Recuperação de capex e peças para vendedores de equipamentos industriais.',
+    short: 'Gestão de contas a receber para fabricantes de máquinas e componentes.',
     intro:
-      'Fornecedores de máquinas e componentes faturam equipamentos de capital e peças contínuas. Quando qualquer um envelhece, a WNRS persegue o crédito comercial — inclusive contrapartes reorganizadas ou realocadas.',
+      'Os fabricantes de máquinas e componentes industriais confiam na WNRS para gerir e operar suas contas a receber. Aumente suas margens com a WNRS.',
     overview:
-      'Esses dossiês frequentemente justificam localização e, se preciso, intervenção advocatícia. Avaliamos recuperabilidade antes de recomendar gasto jurídico e então executamos o plano que você aprova.',
+      'A gama é feita para melhorar suporte e faturamento, prevenir a inadimplência e recuperar contas com atrasos importantes. Analistas com experiência em máquinas industriais — crédito comercial e de consumo, em todas as etapas. Conte conosco como sócio estratégico.',
     audience: 'OEMs e distribuidores de máquinas e componentes industriais.',
+    benefits: ptIndustryBenefits,
   },
   insurance: {
     name: 'Seguros',
     ic: 'PRÊMIO · SUB-ROGAÇÃO',
-    short: 'Recuperação de prêmio, franquia e sub-rogação para seguradoras e MGAs.',
+    short: 'Prêmios, pagamentos a maior, sub-rogação e acordos — mais de 25 anos com o setor.',
     intro:
-      'Seguradoras e managing agents carregam saldos de prêmio, franquia e sub-rogação que pedem uma mesa especialista. A WNRS oferece essa mesa com contato e documentação em conformidade.',
+      'A WNRS leva mais de 25 anos com seguradoras, corretores e agentes: seguros gerais, automóveis, propriedade, responsabilidade civil, vida, saúde e cobrança de prêmios. Ampla experiência em prêmios, pagamentos a maior, sub-rogação e acordos.',
     overview:
-      'Trabalhamos o dossiê nas regras do seu produto e nas restrições regulatórias, reportamos em formato que sinistros e financeiro usam, e escalamos recuperações comerciais teimosas via investigação ou advocacia.',
-    audience: 'Seguradoras, MGAs e operações correlatas.',
+      'Conhecemos o setor, suas normas e regulamentos em constante mudança. Os programas de recuperação cobram com rapidez e eficiência, sem romper a relação com o segurado. Do envio de cartas a campanhas completas: implementamos a solução de que você precisa.',
+    audience: 'Seguradoras, corretores, agentes e operações correlatas.',
+    benefits: [
+      'Maior fluxo de caixa',
+      'Gestão eficaz de alto volume',
+      'Conformidade com as leis de proteção ao consumidor e de cobrança',
+      'Processos de contas a receber melhorados',
+      'Aumento das arrecadações',
+    ],
   },
   'life-sciences': {
-    name: 'Life sciences',
+    name: 'Ciências da vida',
     ic: 'FARMA · DEVICE · PESQUISA',
-    short: 'Recebíveis para farma, devices e organizações de pesquisa em life science.',
+    short: 'Contas a receber orientadas a desempenho para life sciences.',
     intro:
-      'Empresas de life sciences faturam hospitais, distribuidores, parceiros de pesquisa e governos. A WNRS recupera essas carteiras com a confidencialidade que o setor exige.',
+      'Desenhamos, implementamos e gerimos soluções de cobrança e contas a receber orientadas a desempenho para algumas das maiores empresas de ciências da vida do mundo.',
     overview:
-      'Contratos são longos, contrapartes sofisticadas e alguns dossiês politicamente sensíveis. Apoio da unidade especializada entra quando uma mesa comercial padrão não basta.',
+      'A gama é feita para melhorar suporte e faturamento a clientes atuais, prevenir a inadimplência e cobrar contas com atrasos importantes. Analistas com experiência em crédito de consumo e empresarial, em todas as etapas. Conte conosco como sócio estratégico.',
     audience: 'Farma, devices, biotech e organizações de pesquisa.',
+    benefits: ptIndustryBenefits,
   },
   media: {
-    name: 'Mídia',
-    ic: 'PUBLICIDADE · LICENCIAMENTO',
-    short: 'Recuperação de publicidade, licenciamento e assinatura para empresas de mídia.',
+    name: 'Meios de comunicação',
+    ic: 'PUBLICIDADE · LICENÇAS',
+    short: 'Cobro e contas a receber para as maiores empresas de mídia.',
     intro:
-      'Recebíveis de mídia — publicidade, licenciamento, assinaturas, produção — envelhecem enquanto o próximo ciclo já está vendendo. A WNRS mantém essa carteira em movimento.',
+      'Desenhamos, implementamos e gerimos serviços de cobrança e contas a receber orientados a desempenho para algumas das maiores empresas de mídia do mundo.',
     overview:
-      'Entendemos billing de agência, make-goods e dunning de assinatura. Os cobradores trabalham o dossiê comercial sem tratar o buyer de mídia como um devedor consumer.',
+      'A gama é feita para melhorar suporte e faturamento, prevenir a inadimplência e cobrar contas com atrasos importantes. Analistas com experiência em crédito de consumo e empresarial, em todas as etapas. Conte conosco como sócio estratégico.',
     audience: 'Publishers, broadcasters, mídia digital e produtoras.',
+    benefits: ptIndustryBenefits,
   },
   'mill-products': {
-    name: 'Produtos de mill',
+    name: 'Produtos de moinho',
     ic: 'PAPEL · EMBALAGEM · FLORESTA',
-    short: 'Recuperação de crédito comercial para papel, embalagem e produtores de mill.',
+    short: 'Mais lucro, clientes satisfeitos e excelência operacional na planta.',
     intro:
-      'Empresas de mill faturam distribuidores e conversores em prazos que travam quando o preço da commodity se move. A WNRS recupera esses saldos comerciais com uma mesa B2B habituada a este book.',
+      'Celulose e papel, construção, têxteis, metais, plásticos ou cimento: nossas soluções de contas a receber sobem os lucros e mantêm clientes satisfeitos, com uma cadeia de suprimento orientada à rentabilidade.',
     overview:
-      'Trabalhamos faturas envelhecidas, disputas de qualidade e trade slow-pay para o capital de giro não ficar preso em produto acabado. Localização e respaldo advocatício entram em dossiês teimosos.',
-    audience: 'Fabricantes e distribuidores de papel, embalagem, madeira e mill products.',
+      'Da gestão de contas a receber à resolução de disputas, a WNRS ajudou algumas das maiores empresas de produtos de moinho a subir a rentabilidade com programas eficazes. Implemente os serviços e comprove a diferença.',
+    audience: 'Fabricantes e distribuidores de papel, embalagem, madeira e produtos de moinho.',
+    benefits: ['Maior fluxo de caixa', 'Maior velocidade de cobrança', ...ptIndustryBenefits.slice(1)],
   },
   mining: {
     name: 'Mineração',
     ic: 'COMMODITY · TRADE',
-    short: 'Recuperação comercial transfronteiriça para mineração e trade correlato.',
+    short: 'Cobrança e administração de carteira num mercado de matérias-primas difícil.',
     intro:
-      'Mineradoras e seus fornecedores operam entre fronteiras com faturas grandes e contrapartes difíceis de localizar. A WNRS leva escritórios internacionais e investigação a esses dossiês.',
+      'Num mercado de matérias-primas competitivo, as mineradoras do mundo recorrem à WNRS para subir lucros com cobrança e administração de contas a receber.',
     overview:
-      'Combinamos cobrança comercial com localização e, quando cabível, intervenção advocatícia nas jurisdições em que os ativos realmente estão.',
+      'O mercado mineral é global: as transações internacionais são o habitual. As mineradoras globais nos pedem gerir e cobrar contas pontuais e atrasadas. Implemente os serviços de cobrança e comprove a diferença.',
     audience: 'Produtores, traders e fornecedores de mineração.',
+    benefits: ptIndustryBenefits,
   },
   'oil-gas': {
-    name: 'Óleo e gás',
+    name: 'Petróleo e Gás',
     ic: 'UPSTREAM · MIDSTREAM · TRADE',
-    short: 'Cobrança do setor de energia para operadores, empresas de serviço e traders.',
+    short: 'Um sócio de cobrança que entende que a qualidade do serviço vale tanto quanto a rapidez.',
     intro:
-      'Recebíveis de óleo e gás são grandes, contratuais e muitas vezes internacionais. A WNRS os recupera com cobradores e investigadores habituados a contrapartes de energia.',
+      'Dada a volatilidade do petróleo e do gás, nossos clientes precisam de um sócio que entenda que a qualidade do serviço é tão essencial quanto a rapidez e o talento. Parte do sucesso está em monitorar de perto os resultados e recuperar contas estagnadas ou de pagamento lento.',
     overview:
-      'Joint-interest, serviços e faturas de trade pedem posturas diferentes. Escopamos o dossiê e aplicamos ferramentas de estágio inicial, avançado, especializadas ou jurídicas conforme a recuperabilidade.',
+      'Da gestão de contas a receber à cobrança complexa, a WNRS ajudou algumas das companhias de petróleo e gás mais grandes do mundo a subir a rentabilidade com programas eficazes.',
     audience: 'Operadores, oilfield services, midstream e traders de energia.',
+    benefits: ['Maior fluxo de caixa', 'Maior velocidade de cobrança', ...ptIndustryBenefits.slice(1)],
   },
   'wholesale-distribution': {
     name: 'Atacado e distribuição',
     ic: 'CRÉDITO COMERCIAL',
-    short: 'Recuperação de crédito comercial em alto volume para atacadistas e distribuidores.',
+    short: 'Cobre mais rápido e baixe o DSO com melhores processos e talento.',
     intro:
-      'Distribuidores atacadistas vivem de crédito comercial. Quando o cliente atrasa ou desaparece, o capital de giro aperta na hora. A WNRS foi feita para essa carteira.',
+      'Os distribuidores atacadistas enfrentam mais demanda de clientes e fornecedores. A WNRS os ajuda a cobrar mais rápido e a ser mais eficientes, com processos e talento para reduzir os dias de cobrança pendentes.',
     overview:
-      'Trabalhamos faturas envelhecidas em volume, atualizamos cadastros e escalamos skips e disputas sem esperar a surpresa de fim de trimestre. O reporting é feito para gestores de crédito.',
+      'Empresas com visão de futuro confiam na WNRS para controlar o DSO, reduzir perdas por impago e subir os lucros.',
     audience: 'Atacadistas e distribuidores em conta aberta.',
+    benefits: ptIndustryBenefits,
   },
   'sports-entertainment': {
     name: 'Esportes e entretenimento',
     ic: 'DIREITOS · INGRESSOS · PATROCÍNIO',
-    short: 'Recuperação de direitos, ingressos, patrocínios e recebíveis de venue.',
+    short: 'Cobro de primeira classe para uma indústria que depende de canais e revendedores.',
     intro:
-      'Empresas de esportes e entretenimento faturam patrocinadores, venues, talentos e compradores de ingresso. A WNRS recupera esses saldos com discrição em torno de marcas públicas.',
+      'Pela dependência de revendedores e canais de distribuição-chave, o esporte e o entretenimento confiam na WNRS para gerir e implementar serviços de cobrança de primeira classe.',
     overview:
-      'Uma disputa de patrocínio não é uma conta de utility. Ajustamos o tom ao relacionamento, documentamos o dossiê e usamos recursos especializados ou jurídicos quando uma contraparte de alto valor não fecha.',
+      'A experiência com clientes globais do setor nos permitiu montar programas personalizados de cobrança e contas a receber que geram fluxo de caixa substancial.',
     audience: 'Ligas, times, venues, promoters e empresas de entretenimento.',
+    benefits: ['Maior fluxo de caixa', 'Maior velocidade de cobrança', ...ptIndustryBenefits.slice(1)],
   },
   telecommunications: {
     name: 'Telecomunicações',
     ic: 'ASSINANTE · CARRIER',
-    short: 'Recebíveis de assinante e carrier para operadoras de telecom.',
+    short: 'Contas a receber sadias e recuperação de mora para operadoras.',
     intro:
-      'Carteiras de telecom combinam inadimplência de assinante em alto volume com créditos wholesale de carrier. A WNRS cobre os dois com processo, cobertura de idioma e reporting.',
+      'A WNRS trabalhou com operadoras móveis, provedores de internet, longa distância, cabo, revendedores, satélite e VoIP. Os programas mantêm contas a receber saudáveis e recuperam mora e vencidas.',
     overview:
-      'Alinhamos às suas regras de desconexão, restrições regulatórias e marca. Dossiês de carrier e enterprise vão para uma mesa B2B; assinantes, para contato escalado e em conformidade.',
+      'Implementamos o sistema completo ou só cobrança seletiva em contas esgotadas. As ferramentas para que seus clientes paguem no prazo.',
     audience: 'Operadoras wireline, wireless e wholesale de telecom.',
+    benefits: [
+      'Maior fluxo de caixa',
+      'Maior arrecadação',
+      'Maior satisfação do cliente',
+      'Diminuição do DSO',
+      'Diminuição das baixas',
+      'Processos de cobrança eficazes',
+    ],
   },
 };
 
 export const ptSeo: Record<string, { title: string; description: string }> = {
   '/': { title: ptSite.title, description: ptSite.description },
   '/about-us': {
-    title: 'Sobre nós | Especialistas em cobrança | WNRS',
+    title: 'Sobre nós | WNRS',
     description:
-      'A WNRS é uma empresa de cobrança e contas a receber sediada em Miami: 50+ anos, 1.200+ profissionais e hubs nas Américas. Fale com um especialista.',
+      'A WNRS é um provedor líder mundial de gestão de contas a receber sob medida. Mais de 50 anos, 1.200 profissionais e centros nas Américas.',
   },
   '/services': {
-    title: 'Serviços de cobrança por tipo e setor | WNRS',
+    title: 'Serviços | WNRS',
     description:
-      'Explore os serviços de cobrança e contas a receber da WNRS por tipo, segmento e setor — do estágio inicial à intervenção advocatícia. Fale com um especialista.',
+      'Explore os serviços de cobrança e contas a receber da WNRS por tipo, setor ou segmento — da cobrança administrativa à cobrança judicial.',
   },
   '/insights': {
-    title: 'Insights sobre cobrança e recebíveis | WNRS',
+    title: 'Insights sobre cobrança e contas a receber | WNRS',
     description:
       'WNRS Insights: notas práticas sobre cobrança, recuperação de contas a receber e fluxo de caixa para times de finanças nas Américas.',
   },
   '/privacy': {
     title: 'Política de privacidade | WNRS',
     description:
-      'Como o site institucional da WNRS trata informações. Arquivos de cliente ficam em online.wnrs.com — este site não hospeda dados de cobrança.',
+      'Como o site institucional da WNRS trata informações. Dossiês de cliente ficam em online.wnrs.com — este site não hospeda dados de cobrança.',
   },
   '/terms': {
     title: 'Termos de serviço | WNRS',
     description:
-      'Termos do site institucional da WNRS. O trabalho de cobrança é regido por contrato de cliente separado. Dúvidas: fale conosco.',
+      'Termos do site institucional da WNRS. O trabalho de cobrança é regido por contrato de cliente separado. Fale conosco.',
   },
   '/404': {
     title: 'Página não encontrada | WNRS',
@@ -670,14 +791,14 @@ export const ptSeo: Record<string, { title: string; description: string }> = {
       'Esse endereço não está no site institucional da WNRS. Volte ao início para serviços de cobrança e contas a receber nas Américas.',
   },
   '/early-stage-arm': {
-    title: 'Cobrança Administrativa | WNRS',
+    title: 'Cobrança Administrativa: Recupere sua carteira | WNRS',
     description:
-      'Cobrança first-party em estágio inicial da WNRS — interrompa a inadimplência nos primeiros 1–60 dias sem desgastar o relacionamento. Fale com um especialista.',
+      'Cobrança administrativa da WNRS: aja no início da inadimplência, antes que a conta complique. Fale com um especialista.',
   },
   '/late-stage-arm': {
     title: 'Cobrança Extrajudicial | WNRS',
     description:
-      'Cobrança avançada para contas próximas da baixa. Cobradores experientes, localização e respaldo advocatício da WNRS. Fale com um especialista.',
+      'Cobrança extrajudicial para contas perto da incobrabilidade. Estratégia sob medida, localização e respaldo advocatício. Fale com um especialista.',
   },
   '/specialized-arm': {
     title: 'Cobrança Especializada | WNRS',
@@ -685,158 +806,158 @@ export const ptSeo: Record<string, { title: string; description: string }> = {
       'A Unidade Especializada da WNRS trata cobranças sensíveis e multipartes para governo e multinacionais. Fale com um especialista.',
   },
   '/financial-skip-tracing': {
-    title: 'Localização de Inadimplentes | WNRS',
+    title: 'Localização de Inadimplentes e bens | WNRS',
     description:
-      'A localização da WNRS encontra devedores e ativos quando as bases públicas não bastam. Investigadores internacionais e campo. Fale com um especialista.',
+      'Localização de inadimplentes e bens quando as bases públicas não bastam. Investigadores internacionais e campo. Fale com um especialista.',
   },
   '/attorney-intervention': {
     title: 'Cobrança Judicial | WNRS',
     description:
-      'Litígio e execução de sentença pela rede internacional de advogados da WNRS. Uma mesa da análise à execução. Fale com um especialista.',
+      'Litígio e execução de sentença pela rede internacional de advogados da WNRS. Uma mesa da análise à execução.',
   },
   '/business': {
-    title: 'Cobrança para empresas | Mid-market | WNRS',
+    title: 'Negócio | WNRS',
     description:
-      'Contas a receber e cobrança para empresas mid-market. A WNRS encaixa cobradores, reporting e localização. Fale com um especialista.',
+      'Contas a receber e cobrança para empresas. A WNRS coloca cobradores, reporting e localização — sem montar uma mesa interna.',
   },
   '/enterprise': {
-    title: 'Cobrança enterprise | Global | WNRS',
+    title: 'Empresa | WNRS',
     description:
-      'Cobrança enterprise entre regiões, idiomas e regimes jurídicos. A WNRS opera a recuperação como extensão do financeiro. Fale com um especialista.',
+      'Contas a receber para empresas globais. A WNRS opera a recuperação como extensão do financeiro e do jurídico corporativo.',
   },
   '/government': {
-    title: 'Cobrança para governo | Setor público | WNRS',
+    title: 'Governo | WNRS',
     description:
-      'Cobrança discreta para entes públicos e créditos comerciais ligados a governo. Do contato à enforcement jurídica. Fale com um especialista.',
+      'Cobrança discreta para entes públicos e créditos comerciais ligados a governo. Do contato à intervenção advocatícia.',
   },
   '/utilities': {
-    title: 'Cobrança para utilities | WNRS',
+    title: 'Serviços públicos | WNRS',
     description:
-      'Programas de contas a receber para utilities reguladas. A WNRS recupera saldos vencidos com contato em conformidade. Fale com um especialista.',
+      'Contas a receber para serviços públicos. A WNRS recupera mora e baixadas, da ligação prévia ao desligamento à via judicial.',
   },
   '/education-research': {
-    title: 'Cobrança em educação e pesquisa | WNRS',
+    title: 'Educação e pesquisa | WNRS',
     description:
-      'Cobrança para escolas, pesquisa e credores educacionais. A WNRS recupera mensalidades e créditos protegendo a instituição. Fale com um especialista.',
+      'Especialistas em cobrança e administração de carteira educacional. A WNRS recupera mensalidades e créditos protegendo a instituição.',
   },
   '/travel-transportation': {
-    title: 'Cobrança em viagens e transporte | WNRS',
+    title: 'Viagens e transporte | WNRS',
     description:
-      'Frete, viagem corporativa e recebíveis de transportadoras entre fronteiras. Cobrança WNRS para travel e transporte. Fale com um especialista.',
+      'Cobrança sob medida para logística, viagens e transporte: faturamento, mora e suporte posterior ao conhecimento de embarque.',
   },
   '/retail': {
-    title: 'Cobrança no varejo | Ecommerce e loja | WNRS',
+    title: 'Varejo | WNRS',
     description:
-      'Cobrança de varejo e ecommerce em alto volume sem sufocar o capital de giro. Cobradores WNRS como extensão da marca. Fale com um especialista.',
+      'Contas a receber de varejo em alto volume, sem sufocar o capital de giro. Cobradores WNRS como extensão da marca.',
   },
   '/manufacturing': {
-    title: 'Cobrança na manufatura | Crédito comercial | WNRS',
+    title: 'Fabricação | WNRS',
     description:
-      'Recuperação de crédito comercial para fabricantes. A WNRS reduz DSO, fecha disputas e cobra atrasos sem overhead na planta. Fale com um especialista.',
+      'Gestão e cobrança de contas a receber para fabricantes. A WNRS baixa DSO, fecha disputas e cobra mora.',
   },
   '/professional-services': {
-    title: 'Cobrança para serviços profissionais | WNRS',
+    title: 'Serviços Profissionais | WNRS',
     description:
-      'Cobre WIP e faturas de escritórios de advocacia, contábeis e consultorias — sem danificar o relacionamento. Discrição primeiro. Fale com um especialista.',
+      'Gestão de dívidas atuais e vencidas para escritórios. Resolução de disputas e máxima recuperação, sem danificar a relação.',
   },
   '/aerospace-defense': {
-    title: 'Cobrança em defesa e segurança | WNRS',
+    title: 'Aeroespacial e Defesa | WNRS',
     description:
-      'Cobrança discreta para créditos de aeroespacial, defesa e dual-use. A WNRS trata dossiês contratuais e transfronteiriços. Fale com um especialista.',
+      'Contas a receber para aeroespacial e defesa. Fluxo de caixa e saneamento de contas governamentais a tempo.',
   },
   '/construction-operations': {
-    title: 'Cobrança em construção | Retenção e medições | WNRS',
+    title: 'Construção e Operações | WNRS',
     description:
-      'Recupere medições, retenções e saldos de fornecedor em obras. Cobrança WNRS treinada nas minutas do contrato. Fale com um especialista.',
+      'Negociações complexas de dívida e gestão de carteira para construtoras. Prevenção de mora e cobrança de atrasos importantes.',
   },
   '/banking': {
-    title: 'Cobrança bancária | Crédito regulado | WNRS',
+    title: 'Bancário | WNRS',
     description:
-      'Apoio de recuperação em conformidade para bancos e carteiras de crédito. A WNRS opera nas suas regras de contato com reporting auditável. Fale com um especialista.',
+      'Contas a receber orientadas a desempenho para bancos e serviços financeiros. Empréstimos, arrendamentos, consumidor e empresa.',
   },
   '/consumer-products': {
-    title: 'Cobrança em bens de consumo | CPG | WNRS',
+    title: 'Produtos de Consumo | WNRS',
     description:
-      'Recebíveis trade e consumer para CPG e marcas. A WNRS recupera saldos de distribuidor e varejo protegendo a marca. Fale com um especialista.',
+      'Mais fluxo de caixa e melhor relação com o cliente para empresas de produtos de consumo.',
   },
   '/chemicals': {
-    title: 'Cobrança em químicos | Crédito B2B | WNRS',
+    title: 'Produtos Químicos | WNRS',
     description:
-      'Recuperação B2B para produtores e distribuidores químicos. A WNRS separa saldo cobrável de reclamações de qualidade e frete. Fale com um especialista.',
+      'Crédito e cobrança para a indústria química: retenção do cliente e cobrança efetiva, em equilíbrio.',
   },
   '/engineering': {
-    title: 'Cobrança em engenharia | Honorários de projeto | WNRS',
+    title: 'Engenharia | WNRS',
     description:
-      'Recuperação de honorários para escritórios de engenharia em marcos e retainers. A WNRS trabalha a partir dos seus SOWs. Fale com um especialista.',
+      'Cobrança de primeira classe para empresas de engenharia. Suporte, faturamento e recuperação de atrasos.',
   },
   '/gaming-hospitality-leisure': {
-    title: 'Cobrança em hospitalidade e games | WNRS',
+    title: 'Jogos, hotelaria e lazer | WNRS',
     description:
-      'Recebíveis de cassinos, hotéis e operadores de lazer. A WNRS recupera markers, folios e saldos de grupo com discrição. Fale com um especialista.',
-  },
-  '/government-contracting': {
-    title: 'Cobrança em contratos governamentais | WNRS',
-    description:
-      'Recuperação comercial em torno de primes, subs e pagamento de agências. A WNRS entende flow-downs e o ritmo do setor público. Fale com um especialista.',
+      'Contas a receber para hotelaria, jogos e lazer, com o serviço ao cliente no centro.',
   },
   '/healthcare': {
-    title: 'Cobrança em saúde | Paciente e pagador | WNRS',
+    title: 'Saúde | WNRS',
     description:
-      'A/R de saúde para hospitais e grupos médicos. A WNRS trabalha saldos de paciente, pagador e terceiros com cobradores treinados. Fale com um especialista.',
+      'Cobranças para hospitais e grupos médicos: managed care, Medicare, Medicaid e responsabilidade de terceiros.',
   },
   '/high-tech': {
-    title: 'Cobrança em high-tech | SaaS e hardware | WNRS',
+    title: 'Alta tecnologia | WNRS',
     description:
-      'Cobrança para software, hardware e canal. A WNRS recupera assinaturas e defaults de distribuidor entre fronteiras. Fale com um especialista.',
+      'Práticas de cobrança para empresas tecnológicas: suporte, faturamento e recuperação de atrasos.',
   },
   '/industrial-machinery-components': {
-    title: 'Cobrança em máquinas industriais | WNRS',
+    title: 'Máquinas e componentes industriais | WNRS',
     description:
-      'Recuperação de capex e peças para vendedores de equipamentos. A WNRS avalia recuperabilidade antes de recomendar gasto jurídico. Fale com um especialista.',
+      'Gestão de contas a receber para fabricantes de máquinas e componentes industriais.',
   },
   '/insurance': {
-    title: 'Cobrança em seguros | Prêmio e sub-rogação | WNRS',
+    title: 'Seguros | WNRS',
     description:
-      'Recuperação de prêmio, franquia e sub-rogação para seguradoras e MGAs. Mesa especialista com contato e reporting em conformidade. Fale com um especialista.',
+      'Prêmios, pagamentos a maior, sub-rogação e acordos. Mais de 25 anos com seguradoras, corretores e agentes.',
   },
   '/life-sciences': {
-    title: 'Cobrança em life sciences | Farma e device | WNRS',
+    title: 'Ciências da vida | WNRS',
     description:
-      'Recebíveis para farma, devices e pesquisa. A WNRS recupera saldos de hospitais, distribuidores e governo com discrição. Fale com um especialista.',
+      'Contas a receber orientadas a desempenho para empresas de ciências da vida.',
   },
   '/media': {
-    title: 'Cobrança em mídia | Publicidade e licenciamento | WNRS',
+    title: 'Meios de comunicação | WNRS',
     description:
-      'Recuperação de publicidade, licenciamento e assinatura para mídia. A WNRS trabalha billing de agência sem tratar o buyer como consumidor. Fale com um especialista.',
+      'Cobro e contas a receber para empresas de mídia: suporte, faturamento e recuperação de atrasos.',
   },
   '/mill-products': {
-    title: 'Cobrança em mill products | Papel e embalagem | WNRS',
+    title: 'Produtos de moinho | WNRS',
     description:
-      'Recuperação de crédito comercial para papel, embalagem e mill. A WNRS trabalha faturas, disputas de qualidade e trade slow-pay. Fale com um especialista.',
+      'Contas a receber para celulose e papel, construção, têxteis, metais, plásticos e cimento.',
   },
   '/mining': {
-    title: 'Cobrança em mineração | Trade transfronteiriço | WNRS',
+    title: 'Mineração | WNRS',
     description:
-      'Recuperação comercial transfronteiriça para mineração e trade. A WNRS leva escritórios internacionais e investigação a faturas grandes. Fale com um especialista.',
+      'Cobrança e administração de carteira para mineradoras num mercado global de matérias-primas.',
   },
   '/oil-gas': {
-    title: 'Cobrança em óleo e gás | Energia | WNRS',
+    title: 'Petróleo e Gás | WNRS',
     description:
-      'Cobrança do setor de energia para operadores, serviços e traders. A WNRS escopa joint-interest, serviços e faturas de trade. Fale com um especialista.',
+      'Cobrança para petróleo e gás: qualidade de serviço, rapidez e recuperação de contas estagnadas.',
   },
   '/wholesale-distribution': {
-    title: 'Cobrança em atacado e distribuição | WNRS',
+    title: 'Atacado e distribuição | WNRS',
     description:
-      'Recuperação de crédito comercial em alto volume para atacadistas e distribuidores. A WNRS trabalha faturas em volume para gestores de crédito. Fale com um especialista.',
+      'Cobre mais rápido e baixe o DSO. A WNRS reduz perdas por impago para atacadistas e distribuidores.',
   },
   '/sports-entertainment': {
-    title: 'Cobrança em esportes e entretenimento | WNRS',
+    title: 'Esportes e entretenimento | WNRS',
     description:
-      'Recuperação de direitos, ingressos, patrocínios e venues. A WNRS ajusta o tom a marcas públicas e escala se preciso. Fale com um especialista.',
+      'Cobro de primeira classe para esporte e entretenimento: revendedores, canais e fluxo de caixa.',
   },
   '/telecommunications': {
-    title: 'Cobrança em telecomunicações | WNRS',
+    title: 'Telecomunicações | WNRS',
     description:
-      'Recebíveis de assinante e carrier para operadoras. A WNRS cobre inadimplência em volume e créditos wholesale com contato em conformidade. Fale com um especialista.',
+      'Contas a receber sadias e recuperação de mora para operadoras móveis, internet, cabo e VoIP.',
+  },
+  '/government-contracting': {
+    title: 'Contratação governamental | WNRS',
+    description:
+      'Contas a receber de governo: do federal ao municipal, e para contratados de instituições públicas.',
   },
 };
