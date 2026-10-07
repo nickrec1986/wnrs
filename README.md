@@ -3,8 +3,8 @@
 Static marketing site for **WNRS** (World Net Recovery Systems) — B2B debt collection and accounts receivable management.
 
 - **Primary domain:** [wnrs.com](https://wnrs.com) (English)
-- **Brazil:** [wnrs.com.br](https://wnrs.com.br) (pt-BR; stub routes live at `/pt` until that host is cut over)
-- **Mexico:** [wnrs.com.mx](https://wnrs.com.mx) (Spanish; stub routes live at `/es`)
+- **Brazil:** [wnrs.com.br](https://wnrs.com.br) (pt-BR; full site, preview at `/pt/` until DNS)
+- **Mexico:** [wnrs.com.mx](https://wnrs.com.mx) (es-MX; full site, preview at `/es/` until DNS)
 - **Client portal (do not touch):** [online.wnrs.com](https://online.wnrs.com)
 
 Stack matches [tryteleforce.com](https://tryteleforce.com): **Astro 4**, `@astrojs/sitemap`, `output: 'static'`. Visual design is a pixel-faithful recreation of live [wnrs.com](https://wnrs.com) (WordPress/Elementor): Inter, blues `#1A5B8C` / `#5888CC`, green `#4EAB85`, light gray `#F5F5F5`, white cards — not Teleforce amber/navy.
@@ -13,21 +13,24 @@ Stack matches [tryteleforce.com](https://tryteleforce.com): **Astro 4**, `@astro
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321/
-npm run build    # writes ./dist
-npm run preview  # serve the static build at /
+npm run dev        # http://localhost:4321/  (EN)  /pt/  /es/
+npm run build      # writes ./dist (EN at root + full PT/ES preview trees)
+npm run preview    # serve the static build at /
+npm run build:br   # flatten PT to ./dist-br (wnrs.com.br root)
+npm run build:mx   # flatten ES to ./dist-mx (wnrs.com.mx root)
 ```
 
-Content is consts-driven. Edit copy in `src/consts.ts`; pages under `src/pages/` stay thin so bots can change the site via git. Titles and meta descriptions live in `PAGE_SEO` in that file.
+English copy lives in `src/consts.ts`. Portuguese and Spanish overlays live in `src/i18n/pt.ts` and `src/i18n/es.ts` (same slugs). UI chrome is in `src/i18n/ui.ts`.
 
 | Path | Role |
 | --- | --- |
-| `src/consts.ts` | Stats, services, industries, sectors, testimonials, about, **PAGE_SEO** |
-| `src/seo.ts` | Production canonical / hreflang / JSON-LD helpers (wnrs.com, no `/wnrs`) |
+| `src/consts.ts` | EN stats, services, industries, sectors, testimonials, about, **PAGE_SEO** |
+| `src/i18n/` | Locale routing, UI chrome, pt-BR / es-MX overlays |
+| `src/seo.ts` | Production canonical / hreflang / JSON-LD helpers |
 | `src/layouts/BaseLayout.astro` | Title, description, OG, Twitter, canonical, hreflang, Organization + WebPage JSON-LD |
 | `src/components/` | Nav, footer, service/industry templates, contact |
-| `src/pages/[slug].astro` | All industry + sector URLs from `VERTICALS` |
-| `src/pages/early-stage-arm.astro` (etc.) | Core service URLs |
+| `src/pages/[slug].astro` | EN industry + sector URLs from `VERTICALS` |
+| `src/pages/pt/` `src/pages/es/` | Full locale trees (same slugs) |
 | `public/.nojekyll` | Lets GitHub Pages serve Astro’s `_astro/` folder |
 
 ## GitHub Pages deploy (wnrs.com)
@@ -43,10 +46,10 @@ This branch is prepared for the **custom-domain cutover**. `astro.config.mjs` ha
 
 ## SEO
 
-- `<link rel="canonical">`, `og:url`, `og:image`, Twitter image, and JSON-LD URLs are `https://wnrs.com/{path}` (or `wnrs.com.br` / `wnrs.com.mx` for locale stubs).
-- `@astrojs/sitemap` uses `site: 'https://wnrs.com'`. `public/robots.txt` points at `https://wnrs.com/sitemap-index.xml`.
-- hreflang: `en` → wnrs.com, `pt-BR` → wnrs.com.br, `es` → wnrs.com.mx, same path on each host (locale sites may still be stubs).
-- Edit titles/descriptions in `PAGE_SEO` (`src/consts.ts`). Type and industry pages also emit Service JSON-LD; Insights emits Blog.
+- `<link rel="canonical">`, `og:url`, `og:image`, Twitter image, and JSON-LD URLs use the locale host: `https://wnrs.com/{path}/`, `https://wnrs.com.br/{path}/`, `https://wnrs.com.mx/{path}/`.
+- `@astrojs/sitemap` on this repo lists **English** URLs only (`site: 'https://wnrs.com'`). `/pt/` and `/es/` preview paths are filtered out.
+- hreflang on **every** marketing page: `en` → wnrs.com, `pt-BR` → wnrs.com.br, `es` → wnrs.com.mx, `x-default` → wnrs.com (same slug).
+- Edit EN titles/descriptions in `PAGE_SEO` (`src/consts.ts`); PT/ES in `src/i18n/pt.ts` / `es.ts`.
 
 `public/.nojekyll` is included because Astro emits `/_astro/` assets. Jekyll on Pages would otherwise ignore that folder.
 
@@ -80,7 +83,7 @@ ALTERNATIVE: some registrars allow an apex **ALIAS/ANAME** to `<user>.github.io`
 
 The github.io `/wnrs/` preview is expected to 404 or redirect once Pages serves this root-base build.
 
-Brazil and Mexico are separate zones (`wnrs.com.br`, `wnrs.com.mx`). Repeat the same Pages + DNS pattern per domain when those locales are more than stubs (or serve them from this same `dist/` with host-aware routing later). Until then, locale switcher links go to the existing `.br` / `.mx` hosts.
+Brazil and Mexico are separate DNS zones. GitHub Pages allows **one custom domain per repo**, so `.br` and `.mx` need their own Pages sites (sibling repos `wnrs-br` / `wnrs-mx` recommended). See **i18n** below. Do not point `online.wnrs.com` at Pages.
 
 ## SSL is free on GitHub Pages
 
@@ -110,7 +113,40 @@ Keep normal account hygiene: GitHub 2FA, limited Actions permissions (this workf
 
 ## i18n
 
-Phase 1 ships English as default. `LOCALES` in `src/consts.ts` drives the EN / BR / ES switcher (links to `wnrs.com`, `wnrs.com.br`, `wnrs.com.mx`). Minimal home stubs exist at `/pt/` and `/es/` so folder routing is ready when those hosts point here.
+English stays at the root of this repo and deploys to **wnrs.com**. Full pt-BR and es-MX sites are generated at `/pt/…` and `/es/…` in the same `dist/` so they are previewable before DNS (local `npm run preview`, or `https://wnrs.com/pt/` / `https://wnrs.com/es/` after this PR is merged).
+
+Public URLs after cutover are host-rooted — `https://wnrs.com.br/banking/`, not `https://wnrs.com/pt/banking/`. `npm run build:br` / `build:mx` flatten those trees into `dist-br/` / `dist-mx/` with `CNAME` and sitemaps for a second and third Pages repo.
+
+The language switcher stays **path-based** (`/`, `/pt/`, `/es/` + same slug) until `LOCALE_DOMAINS_READY` in `src/i18n/locale.ts` is flipped `true` at DNS cutover. hreflang/canonicals already use the production hosts.
+
+### Preview before DNS
+
+1. `npm run build && npm run preview` → http://localhost:4321/pt/ and http://localhost:4321/es/
+2. After merge to `main`: https://wnrs.com/pt/ and https://wnrs.com/es/ (same layout as EN).
+3. Optional: Actions → **Build wnrs.com.br artifact** / **Build wnrs.com.mx artifact** downloads a host-rooted zip (`dist-br` / `dist-mx`).
+
+### DNS cutover (GoDaddy → GitHub Pages) for .br and .mx
+
+Mirror the wnrs.com cutover. GitHub Pages IPv4/IPv6 and `www` CNAME targets are in [Managing a custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-github-pages/managing-a-custom-domain-for-github-pages). Confirm in **each Pages repo → Settings → Pages**.
+
+| Host | Type | Value |
+| --- | --- | --- |
+| `@` (apex) | **A** | GitHub Pages IPv4 (four records) |
+| `@` | **AAAA** | GitHub Pages IPv6 |
+| `www` | **CNAME** | `nickrec1986.github.io` (or the Pages user/org of that repo) |
+
+Sequence per domain (`wnrs.com.br`, then `wnrs.com.mx`):
+
+1. Create empty public repo `nickrec1986/wnrs-br` (then `wnrs-mx`). Enable **Pages → GitHub Actions** (or deploy from a branch after the first publish).
+2. Add a fine-grained token with contents write on that repo as `GH_PAGES_BR_TOKEN` / `GH_PAGES_MX_TOKEN` on **this** repo, uncomment the publish step in `.github/workflows/deploy-pages-br.yml` / `deploy-pages-mx.yml`.
+3. Run the workflow on `main`. Confirm the artifact site on `https://nickrec1986.github.io/wnrs-br/` (or the Pages URL GitHub shows).
+4. **Settings → Pages → Custom domain** `wnrs.com.br` (or `.mx`). Wait for the DNS check, then **Enforce HTTPS**.
+5. In **GoDaddy DNS** for that zone: remove WordPress/parked A/CNAME records for `@` and `www`. Add the GitHub A/AAAA + `www` CNAME. Lower TTL beforehand if you can.
+6. **Do not cancel WordPress** on .br/.mx until HTTPS is green and you have spot-checked the new site.
+7. Flip `LOCALE_DOMAINS_READY` to `true` so the switcher on all three hosts uses `wnrs.com` / `wnrs.com.br` / `wnrs.com.mx` + the equivalent slug.
+8. Leave `online.wnrs.com` and the live **wnrs.com** Pages settings alone.
+
+Cloudflare Pages (one project, three custom domains, host-based rewrite) is an alternative if you do not want two extra GitHub repos. It is not required: GitHub Pages + two sibling repos matches the existing wnrs.com cutover.
 
 ## License
 

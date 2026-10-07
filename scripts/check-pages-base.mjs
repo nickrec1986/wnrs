@@ -79,6 +79,9 @@ for (const sp of sitemapFiles) {
       const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((x) => x[1]);
       for (const loc of locs) {
         if (!loc.endsWith('/')) bad.push(`${sp}: sitemap loc missing trailing slash: ${loc}`);
+        if (loc.includes('/pt/') || loc.endsWith('/pt/') || loc.includes('/es/') || loc.endsWith('/es/')) {
+          bad.push(`${sp}: sitemap should not include preview locale paths: ${loc}`);
+        }
       }
     }
   } catch {
@@ -102,8 +105,11 @@ if (!home.includes('rel="alternate" hreflang="pt-BR"')) {
   bad.push('home missing pt-BR hreflang alternate');
 }
 const about = readFileSync(join(root, 'about-us/index.html'), 'utf8');
-if (about.includes('rel="alternate" hreflang')) {
-  bad.push('about-us should not declare per-page hreflang alternates');
+if (!about.includes('rel="alternate" hreflang="pt-BR" href="https://wnrs.com.br/about-us/"')) {
+  bad.push('about-us missing per-page pt-BR hreflang');
+}
+if (!about.includes('rel="alternate" hreflang="es" href="https://wnrs.com.mx/about-us/"')) {
+  bad.push('about-us missing per-page es hreflang');
 }
 const aboutCanon = about.match(/rel="canonical" href="([^"]+)"/)?.[1];
 if (aboutCanon !== 'https://wnrs.com/about-us/') {
@@ -132,6 +138,46 @@ for (const source of ALL_REDIRECT_SOURCES) {
 
 if (!existsSync(join(root, 'favicon.ico'))) bad.push('dist/favicon.ico missing');
 if (!existsSync(join(root, 'apple-touch-icon.png'))) bad.push('dist/apple-touch-icon.png missing');
+
+const localePages = [
+  'index.html',
+  'about-us/index.html',
+  'services/index.html',
+  'early-stage-arm/index.html',
+  'banking/index.html',
+  'privacy/index.html',
+  'terms/index.html',
+  'insights/index.html',
+];
+for (const loc of ['pt', 'es']) {
+  const host = loc === 'pt' ? 'https://wnrs.com.br' : 'https://wnrs.com.mx';
+  for (const rel of localePages) {
+    const p = join(root, loc, rel);
+    if (!existsSync(p)) {
+      bad.push(`missing ${loc} page: ${rel}`);
+      continue;
+    }
+    const html = readFileSync(p, 'utf8');
+    const canon = html.match(/rel="canonical" href="([^"]+)"/)?.[1];
+    const expectedPath = rel === 'index.html' ? '/' : `/${rel.replace(/\/index\.html$/, '/')}`;
+    const expected = `${host}${expectedPath}`;
+    if (canon !== expected) bad.push(`${loc}/${rel}: canonical ${canon} (expected ${expected})`);
+    if (!html.includes('rel="alternate" hreflang="en"')) {
+      bad.push(`${loc}/${rel}: missing en hreflang`);
+    }
+  }
+}
+
+const ptHome = readFileSync(join(root, 'pt/index.html'), 'utf8');
+if (!ptHome.includes('Seus recebíveis')) bad.push('pt home missing translated hero');
+if (ptHome.includes('versão em português do site WNRS está em montagem')) {
+  bad.push('pt home is still the stub');
+}
+const esHome = readFileSync(join(root, 'es/index.html'), 'utf8');
+if (!esHome.includes('Sus cuentas por cobrar')) bad.push('es home missing translated hero');
+if (esHome.includes('versión en español del sitio WNRS se está armando')) {
+  bad.push('es home is still the stub');
+}
 
 if (bad.length) {
   console.error('Production URL check failed:\n' + bad.join('\n'));

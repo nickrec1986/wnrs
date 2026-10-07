@@ -44,7 +44,7 @@ export default defineConfig({
       filter: (page) => {
         const path = new URL(page).pathname.replace(/\/$/, '') || '/';
         if (path.endsWith('404') || path === '/404') return false;
-        if (path === '/pt' || path === '/es') return false;
+        if (path === '/pt' || path.startsWith('/pt/') || path === '/es' || path.startsWith('/es/')) return false;
         if (redirectSources.has(path)) return false;
         return true;
       },

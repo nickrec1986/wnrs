@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LogoMarquee from '../LogoMarquee.astro';
+import TestimonialBlock from '../TestimonialBlock.astro';
+import ContactSection from '../ContactSection.astro';
+import { INDUSTRY_HUB, SERVICE_HUB_ORDER } from '../../consts';
+import { withBase, pageHero } from '../../base';
+import { localeFromPath, localeHref, LOCALE_META } from '../../i18n/locale';
+import { ui } from '../../i18n/ui';
+import {
+  localizedHome,
+  localizedSectorStats,
+  localizedSeo,
+  localizedService,
+  localizedVertical,
+} from '../../i18n/content';
+
+const locale = localeFromPath(Astro.url.pathname);
+const t = ui(locale);
+const home = localizedHome(locale);
+const seo = localizedSeo('/services', locale);
+const href = (path: string) => withBase(localeHref(path, locale));
+const types = SERVICE_HUB_ORDER.map((slug) => localizedService(slug, locale)).filter(Boolean);
+const hubSectors = ['business', 'enterprise', 'government']
+  .map((slug) => localizedVertical(slug, locale))
+  .filter(Boolean);
+const sectorPhotos: Record<string, string> = {
+  business: pageHero('business'),
+  enterprise: pageHero('enterprise'),
+  government: pageHero('government'),
+};
+const sectorStats = localizedSectorStats(locale);
+const industries = INDUSTRY_HUB.map((slug) => localizedVertical(slug, locale)).filter(Boolean);
+---
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  lang={LOCALE_META[locale].htmlLang}
+  breadcrumbs={[{ name: t.services, path: '/services' }]}
+>
+  <header class="page-hero">
+    <div class="wrap center">
+      <p class="kicker">{t.servicesKicker}</p>
+      <h1>{t.servicesH1}</h1>
+      <p class="lede" style="margin-left:auto;margin-right:auto">{t.servicesLede}</p>
+      <a class="btn btn-lg" href={href('/#contact')}>{t.talkToExpert}</a>
+    </div>
+  </header>
+
+  <LogoMarquee label={home.logosLabel} />
+
+  <section class="sec" id="sectors">
+    <div class="wrap center">
+      <h2>{t.bySectorH2}</h2>
+      <p class="sub">{t.bySectorSub}</p>
+    </div>
+    <div class="wrap svc-grid">
+      {hubSectors.map((s) => (
+        <a class="svc-photo" href={href(`/${s!.slug}`)}>
+          <img src={sectorPhotos[s!.slug] ?? pageHero(s!.slug)} alt={t.collectionsAlt(s!.name)} />
+          <div class="body">
+            <h3>{s!.name}</h3>
+            <p>{s!.short}</p>
+            {sectorStats[s!.slug] && (
+              <p style="margin-top:10px;font-weight:600;color:var(--secondary)">{t.cashFlow} {sectorStats[s!.slug]}</p>
+            )}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec" id="types" style="padding-top:0">
+    <div class="wrap center">
+      <h2>{t.byTypeH2}</h2>
+      <p class="sub">{t.byTypeSub}</p>
+    </div>
+    <div class="wrap svc-grid">
+      {types.map((s) => (
+        <a class="svc-tile" href={href(`/${s!.slug}`)}>
+          <h3>{s!.name}</h3>
+          <p>{s!.short}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec" id="industries" style="padding-top:0">
+    <div class="wrap center">
+      <h2>{t.byIndustryH2}</h2>
+      <p class="sub">{t.byIndustrySub}</p>
+    </div>
+    <div class="wrap ind-grid">
+      {industries.map((i) => (
+        <a class="pick" href={href(`/${i!.slug}`)}>{i!.name}</a>
+      ))}
+    </div>
+  </section>
+
+  <TestimonialBlock />
+  <ContactSection />
+</BaseLayout>

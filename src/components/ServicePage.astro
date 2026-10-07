@@ -2,32 +2,39 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TestimonialBlock from './TestimonialBlock.astro';
 import ContactSection from './ContactSection.astro';
-import { getService, SITE, getSeo } from '../consts';
 import { withBase, pageHero } from '../base';
 import { productionAssetUrl } from '../seo';
+import { localeFromPath, localeHref, LOCALE_META } from '../i18n/locale';
+import { ui } from '../i18n/ui';
+import { localizedService, localizedSeo, localizedSite } from '../i18n/content';
 
 interface Props { slug: string }
 const { slug } = Astro.props;
-const svc = getService(slug);
+const locale = localeFromPath(Astro.url.pathname);
+const t = ui(locale);
+const href = (path: string) => withBase(localeHref(path, locale));
+const svc = localizedService(slug, locale);
 if (!svc) throw new Error(`Unknown service slug: ${slug}`);
-const seo = getSeo(`/${slug}`);
+const seo = localizedSeo(`/${slug}`, locale);
+const site = localizedSite(locale);
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: `${svc.name} — ${SITE.name}`,
+  name: `${svc.name} — ${site.name}`,
   serviceType: svc.name,
   description: seo.description,
-  url: `${SITE.url}/${slug}/`,
-  provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  url: `${LOCALE_META[locale].origin}/${slug}/`,
+  provider: { '@type': 'Organization', name: site.name, url: site.url },
   areaServed: ['US', 'CA', 'MX', 'BR', 'LATAM'],
 };
 ---
 <BaseLayout
   title={seo.title}
   description={seo.description}
+  lang={LOCALE_META[locale].htmlLang}
   ogImage={productionAssetUrl(`/heroes/${slug}.jpg`)}
   breadcrumbs={[
-    { name: 'Services', path: '/services' },
+    { name: t.services, path: '/services' },
     { name: svc.navLabel, path: `/${slug}` },
   ]}
   jsonLd={jsonLd}
@@ -35,31 +42,31 @@ const jsonLd = {
   <header class="page-hero">
     <div class="wrap page-split">
       <div>
-        <p class="kicker">Debt Collection Experts</p>
+        <p class="kicker">{t.debtCollectionExperts}</p>
         <h1>{svc.navLabel}</h1>
         <p class="lede">{svc.intro}</p>
-        <a class="btn" href={withBase('/#contact')}>Talk to an expert</a>
+        <a class="btn" href={href('/#contact')}>{t.talkToExpert}</a>
       </div>
-      <img class="hero-photo" src={pageHero(slug)} alt={`${svc.navLabel} at WNRS`} />
+      <img class="hero-photo" src={pageHero(slug)} alt={t.serviceHeroAlt(svc.navLabel)} />
     </div>
   </header>
 
   <section class="sec" style="padding-top:1.5rem">
     <div class="wrap">
       <div class="tabs" role="tablist">
-        <button class="on" type="button" data-tab="overview">Overview</button>
-        <button type="button" data-tab="benefits">Benefits</button>
+        <button class="on" type="button" data-tab="overview">{t.overview}</button>
+        <button type="button" data-tab="benefits">{t.benefits}</button>
       </div>
       <div class="tab-panel">
         <div class="page-split" style="align-items:start">
           <div class="prose-el">
           <div id="panel-overview">
-            <p class="kicker" style="display:flex;align-items:center;gap:8px"><span class="check">✓</span> Overview</p>
-            <h2>Overview</h2>
+            <p class="kicker" style="display:flex;align-items:center;gap:8px"><span class="check">✓</span> {t.overview}</p>
+            <h2>{t.overview}</h2>
             {svc.overview.map((p) => <p>{p}</p>)}
           </div>
           <div id="panel-benefits" hidden>
-            <h2>Benefits</h2>
+            <h2>{t.benefits}</h2>
             <ul class="list-arrows">
               {svc.benefits.map((b) => (
                 <li>{b}</li>
@@ -73,7 +80,9 @@ const jsonLd = {
             src={withBase('/brand/results-analysis.png')}
             data-overview={withBase('/brand/results-analysis.png')}
             data-benefits={withBase('/brand/demand-gen.png')}
-            alt="Campaign results analysis"
+            data-overview-alt={t.campaignResultsAlt}
+            data-benefits-alt={t.outreachAlt}
+            alt={t.campaignResultsAlt}
           />
         </div>
         </div>
@@ -101,7 +110,7 @@ const jsonLd = {
       if (art) {
         const next = tab === 'benefits' ? art.dataset.benefits : art.dataset.overview;
         if (next) art.src = next;
-        art.alt = tab === 'benefits' ? 'Outreach and scheduling' : 'Campaign results analysis';
+        art.alt = tab === 'benefits' ? (art.dataset.benefitsAlt || art.alt) : (art.dataset.overviewAlt || art.alt);
       }
     });
   });

@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LogoMarquee from '../LogoMarquee.astro';
+import TestimonialBlock from '../TestimonialBlock.astro';
+import ContactSection from '../ContactSection.astro';
+import { PRESS_LOGOS } from '../../consts';
+import { withBase } from '../../base';
+import { localeFromPath, localeHref, LOCALE_META } from '../../i18n/locale';
+import { ui } from '../../i18n/ui';
+import {
+  localizedDifferentiators,
+  localizedHome,
+  localizedKeyStats,
+  localizedPicker,
+  localizedProcess,
+  localizedSeo,
+} from '../../i18n/content';
+
+const locale = localeFromPath(Astro.url.pathname);
+const t = ui(locale);
+const home = localizedHome(locale);
+const seo = localizedSeo('/', locale);
+const href = (path: string) => withBase(localeHref(path, locale));
+const stats = localizedKeyStats(locale);
+const picker = localizedPicker(locale);
+const diffs = localizedDifferentiators(locale);
+const steps = localizedProcess(locale);
+---
+<BaseLayout title={seo.title} description={seo.description} lang={LOCALE_META[locale].htmlLang}>
+  <section class="hero-el">
+    <div class="inner">
+      <p class="kicker">{t.debtCollectionExperts}</p>
+      <h1>{home.h1a}<br />{home.h1b} {home.h1c}</h1>
+      <p class="lede">{home.lede}</p>
+      <a class="btn btn-lg" href={href('/#contact')}>{t.talkToExpert}</a>
+    </div>
+  </section>
+
+  <LogoMarquee label={home.logosLabel} />
+
+  <section class="sec">
+    <div class="wrap center">
+      <h2>{home.servicesH2}</h2>
+      <p class="sub">{home.servicesSub}</p>
+    </div>
+    <div class="wrap split-home">
+      <div class="stats-card">
+        <img class="photo" src={withBase('/brand/hero.jpg')} alt={t.teamsAtWorkAlt} />
+        <h3>{t.keyStats}</h3>
+        <div class="stat-grid">
+          <ul>
+            {stats.slice(0, 4).map((s) => (
+              <li><span class="check" aria-hidden="true">✓</span><span>{s}</span></li>
+            ))}
+          </ul>
+          <ul>
+            {stats.slice(4).map((s) => (
+              <li><span class="check" aria-hidden="true">✓</span><span>{s}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div class="picker">
+        <h3>{t.pickYourService}</h3>
+        <div class="picker-grid">
+          {picker.map((p) => (
+            <a class="pick" href={href(p.href)}>{p.label}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec apart-pin" style="padding-top:1rem">
+    <div class="wrap apart">
+      <div class="apart-copy">
+        <h2>{home.apartH2}</h2>
+        <p class="sub">{home.apartSub}</p>
+        <a class="btn" href={href('/#contact')}>{t.talkToExpert}</a>
+      </div>
+      <div class="apart-cards">
+        {diffs.map((d) => (
+          <article class="apart-card">
+            <img src={d.img} alt={d.h} />
+            <div class="body">
+              <h3>{d.h}</h3>
+              <p>{d.p}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="banner-3x">
+    <h2>{t.banner3x}</h2>
+    <a class="btn" href={href('/#contact')}>{t.bookACallCta}</a>
+  </section>
+
+  <section class="sec journey" id="how-it-works">
+    <div class="wrap">
+      <div class="journey-panel">
+        <div class="journey-head">
+          <p class="kicker">{home.processEyebrow}</p>
+          <h2>{home.processH2}</h2>
+          <p class="sub">{t.journeySub}</p>
+        </div>
+        <div class="journey-split">
+          <ol class="journey-steps">
+            {steps.map((st) => (
+              <li class="journey-step">
+                <span class="journey-num" aria-hidden="true">{st.num}</span>
+                <div>
+                  <h3>{st.h}</h3>
+                  <p>{st.p}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <figure class="journey-art">
+            <img src={withBase('/brand/illustration-1.png')} alt={t.journeyArtAlt} />
+            <figcaption>{t.journeyCaption}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:1rem">
+    <div class="wrap center">
+      <h2>{t.recognizedH2}</h2>
+      <p class="sub">{t.recognizedBy}</p>
+    </div>
+  </section>
+  <LogoMarquee label="" logos={PRESS_LOGOS} variant="press" />
+
+  <TestimonialBlock />
+  <ContactSection />
+</BaseLayout>

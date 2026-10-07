@@ -5,11 +5,13 @@ import {
   LOGO_URL,
   canonicalUrl,
   homeHreflangLinks,
-  productionPath,
   webPageJsonLd,
   breadcrumbJsonLd,
   type Crumb,
 } from '../seo';
+import { localeFromPath, LOCALE_META } from '../i18n/locale';
+import { localizedSite } from '../i18n/content';
+import { ui } from '../i18n/ui';
 import { withBase } from '../base';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
@@ -34,28 +36,30 @@ interface Props {
   canonicalOverride?: string;
 }
 
+const locale = localeFromPath(Astro.url.pathname);
+const site = localizedSite(locale);
+const copy = ui(locale);
 const {
-  title = SITE.title,
-  description = SITE.description,
+  title = site.title,
+  description = site.description,
   jsonLd,
   ogType = 'website',
   ogImage = OG_IMAGE_URL,
-  lang = 'en',
+  lang = LOCALE_META[locale].htmlLang,
   breadcrumbs,
   noindex = false,
   canonicalOverride,
 } = Astro.props;
 
 const canonical = canonicalUrl(Astro.url.pathname, canonicalOverride);
-const isHome = productionPath(Astro.url.pathname) === '/';
-const alternates = isHome ? homeHreflangLinks() : [];
+const alternates = homeHreflangLinks(Astro.url.pathname);
 const favicon = withBase('/brand/favicon.png');
 const appleTouch = withBase('/apple-touch-icon.png');
 const faviconIco = withBase('/favicon.ico');
 const sitemapHref = withBase('/sitemap-index.xml');
 const assetMotif = withBase('/brand/bg-motif.svg');
 const assetArrow = withBase('/icons/right.svg');
-const ogLocale = lang.startsWith('pt') ? 'pt_BR' : lang.startsWith('es') ? 'es_MX' : 'en_US';
+const ogLocale = LOCALE_META[locale].og;
 
 const org = {
   '@context': 'https://schema.org',
@@ -65,8 +69,8 @@ const org = {
   url: SITE.url,
   logo: LOGO_URL,
   image: OG_IMAGE_URL,
-  description: SITE.description,
-  slogan: SITE.slogan,
+  description: site.description,
+  slogan: site.slogan,
   email: EMAIL,
   telephone: PHONE,
   address: {
@@ -89,7 +93,7 @@ const org = {
 const crumbs: Crumb[] | undefined = breadcrumbs?.length
   ? breadcrumbs[0].path === '/'
     ? breadcrumbs
-    : [{ name: 'Home', path: '/' }, ...breadcrumbs]
+    : [{ name: copy.home, path: '/' }, ...breadcrumbs]
   : undefined;
 
 const pageLd = webPageJsonLd({ title, description, url: canonical, lang });
@@ -97,7 +101,7 @@ const extra = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 const ldBlocks = [
   org,
   pageLd,
-  ...(crumbs && crumbs.length > 1 ? [breadcrumbJsonLd(crumbs)] : []),
+  ...(crumbs && crumbs.length > 1 ? [breadcrumbJsonLd(crumbs, LOCALE_META[locale].origin)] : []),
   ...extra,
 ];
 ---

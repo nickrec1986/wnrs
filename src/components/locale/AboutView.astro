@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LogoMarquee from '../LogoMarquee.astro';
+import ContactSection from '../ContactSection.astro';
+import { PRESS_LOGOS } from '../../consts';
+import { withBase } from '../../base';
+import { localeFromPath, localeHref, LOCALE_META } from '../../i18n/locale';
+import { ui } from '../../i18n/ui';
+import { localizedAbout, localizedSeo, localizedServices } from '../../i18n/content';
+
+const locale = localeFromPath(Astro.url.pathname);
+const t = ui(locale);
+const about = localizedAbout(locale);
+const seo = localizedSeo('/about-us', locale);
+const services = localizedServices(locale);
+const href = (path: string) => withBase(localeHref(path, locale));
+---
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  lang={LOCALE_META[locale].htmlLang}
+  breadcrumbs={[{ name: t.aboutUs, path: '/about-us' }]}
+>
+  <header class="page-hero">
+    <div class="wrap center">
+      <p class="kicker">{t.aboutKicker}</p>
+      <h1>{t.aboutH1}</h1>
+      <p class="lede" style="margin-left:auto;margin-right:auto">{about.lede}</p>
+      <a class="btn" href={href('/#contact')}>{t.talkToExpert}</a>
+    </div>
+  </header>
+
+  <LogoMarquee label={t.ourClients} />
+
+  <section class="sec">
+    <div class="wrap page-split">
+      <div class="prose-el">
+        <h2>{t.operationCenters}</h2>
+        {about.body.map((p) => <p>{p}</p>)}
+        <a class="text-link" href={href('/#contact')}>{t.contactUs} <span aria-hidden="true">→</span></a>
+      </div>
+      <figure>
+        <img class="ceo-photo" src={withBase('/brand/david-fridman.jpg')} alt={t.ceoAlt} />
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <h2>{t.featuresBenefits}</h2>
+      <div class="svc-grid" style="margin-top:22px">
+        {about.features.map((f) => (
+          <div class="svc-tile">
+            <h3>{f.h}</h3>
+            <p>{f.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap recognized-split">
+      <h2>{t.recognizedBy}</h2>
+      <div class="press-grid">
+        {PRESS_LOGOS.map((l) => (
+          <figure>
+            <img class:list={[{ wide: 'wide' in l && l.wide }]} src={l.src} alt={l.alt} />
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <h2>{t.pickServiceAbout}</h2>
+      <div class="svc-grid">
+        {services.map((s) => (
+          <a class="svc-tile" href={href(`/${s.slug}`)}>
+            <h3>{s.name}</h3>
+            <p>{s.short}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactSection />
+</BaseLayout>

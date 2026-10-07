@@ -1,0 +1,35 @@
+# Host-rooted Portuguese site for wnrs.com.br.
+# Does not deploy to this repo's Pages (that remains English wnrs.com).
+# After creating nickrec1986/wnrs-br with Pages + custom domain wnrs.com.br,
+# add a GH_PAGES_BR_TOKEN secret and uncomment the publish step.
+name: Build wnrs.com.br artifact
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-br:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build:br
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wnrs-com-br
+          path: dist-br
+      # - name: Publish to wnrs-br Pages repo
+      #   if: github.ref == 'refs/heads/main'
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   with:
+      #     personal_token: ${{ secrets.GH_PAGES_BR_TOKEN }}
+      #     external_repository: nickrec1986/wnrs-br
+      #     publish_dir: ./dist-br
+      #     cname: wnrs.com.br
