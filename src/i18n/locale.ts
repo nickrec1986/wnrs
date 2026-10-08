@@ -53,7 +53,7 @@ export const LOCALE_META: Record<
  * sites are previewable before .br/.mx DNS. When true, it uses
  * wnrs.com / wnrs.com.br / wnrs.com.mx with the same slug.
  */
-export const LOCALE_DOMAINS_READY = false;
+export const LOCALE_DOMAINS_READY = true;
 
 /** Astro `base` without trailing slash (`''` when base is `/`). */
 function configuredBase(): string {

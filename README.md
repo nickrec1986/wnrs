@@ -113,16 +113,16 @@ Keep normal account hygiene: GitHub 2FA, limited Actions permissions (this workf
 
 ## i18n
 
-English stays at the root of this repo and deploys to **wnrs.com**. Full pt-BR and es-MX sites are generated at `/pt/…` and `/es/…` in the same `dist/` so they are previewable before DNS (local `npm run preview`, or `https://wnrs.com/pt/` / `https://wnrs.com/es/` after this PR is merged).
+English stays at the root of this repo and deploys to **wnrs.com**. The pt-BR and es-MX sites are built in the same `dist/` at `/pt/…` and `/es/…`, then `npm run build` replaces those trees with redirect stubs to `https://wnrs.com.br/…` and `https://wnrs.com.mx/…`. `npm run build:br` / `build:mx` copy the full pages to `dist-br/` / `dist-mx/` before that replacement.
 
 Public URLs after cutover are host-rooted — `https://wnrs.com.br/banking/`, not `https://wnrs.com/pt/banking/`. `npm run build:br` / `build:mx` flatten those trees into `dist-br/` / `dist-mx/` with `CNAME` and sitemaps for a second and third Pages repo.
 
-The language switcher stays **path-based** (`/`, `/pt/`, `/es/` + same slug) until `LOCALE_DOMAINS_READY` in `src/i18n/locale.ts` is flipped `true` at DNS cutover. hreflang/canonicals already use the production hosts.
+With `LOCALE_DOMAINS_READY` true, the language switcher, hreflang, and canonicals use `wnrs.com`, `wnrs.com.br`, and `wnrs.com.mx`.
 
 ### Preview before DNS
 
 1. `npm run build && npm run preview` → http://localhost:4321/pt/ and http://localhost:4321/es/
-2. After merge to `main`: https://wnrs.com/pt/ and https://wnrs.com/es/ (same layout as EN).
+2. On wnrs.com, `/pt/…` and `/es/…` are redirect stubs to `https://wnrs.com.br/…` and `https://wnrs.com.mx/…`. The full pages live on those hosts.
 3. Project Pages test sites (no CNAME, base `/wnrs-br/` and `/wnrs-mx/`, language at the site root):
 
    ```bash
