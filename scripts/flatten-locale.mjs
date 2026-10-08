@@ -3,10 +3,12 @@
  * host-rooted folder (`dist-br` / `dist-mx`) for a separate GitHub Pages site.
  *
  * Rewrites `/pt/…` or `/es/…` hrefs to `/…` so the locale is the domain root.
- * Does not copy English pages or WordPress redirects (those stay on wnrs.com).
+ * Does not copy English pages. Spanish WordPress `.html` stubs that target `/es/`
+ * are copied into the Mexico build and pointed at wnrs.com.mx.
  */
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { dirname, join, relative } from 'node:path';
+import { HTML_REDIRECTS } from '../src/legacy-redirects.mjs';
 
 const args = process.argv.slice(2);
 const locale = args[0];
@@ -93,10 +95,16 @@ for (const file of walk(out)) {
   html = html.replace(prefixHashRe, '$1="/#');
   html = html.replace(prefixHomeRe, '$1="/"');
   html = html.replace(prefixRe, (_, attr, _pre, rest) => `${attr}="${rest}"`);
+  if (html.includes('http-equiv="refresh"')) {
+    html = html
+      .replaceAll('https://wnrs.com/es/', 'https://wnrs.com.mx/')
+      .replaceAll('https://wnrs.com/pt/', 'https://wnrs.com.br/');
+  }
   html = prefixPreview(html);
   writeFileSync(file, html);
 
   const rel = relative(out, file).replace(/\\/g, '/');
+  if (html.includes('http-equiv="refresh"')) continue;
   if (rel === '404.html' || rel.endsWith('/404/index.html')) continue;
   let path = rel.endsWith('/index.html')
     ? `/${rel.slice(0, -'/index.html'.length)}/`
@@ -132,6 +140,42 @@ function writeHostRedirect(fromSlug, toPath, lang) {
 `,
   );
 }
+
+function legacyHostRedirects() {
+  const prefix = `/${locale}/`;
+  let copied = 0;
+  for (const [source, dest] of Object.entries(HTML_REDIRECTS)) {
+    if (dest !== `/${locale}` && dest !== prefix && !dest.startsWith(prefix)) continue;
+    const from = join(srcRoot, source.replace(/^\//, ''));
+    if (!existsSync(from)) continue;
+    let path = dest.replace(new RegExp(`^/${locale}`), '') || '/';
+    if (!path.startsWith('/')) path = `/${path}`;
+    if (path !== '/' && !path.endsWith('/')) path += '/';
+    const abs = `${origin}${path}`;
+    const file = join(out, source.replace(/^\//, ''));
+    mkdirSync(dirname(file), { recursive: true });
+    writeFileSync(file, `<!DOCTYPE html>
+<html lang="${locale === 'pt' ? 'pt-BR' : 'es-MX'}">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting…</title>
+  <meta http-equiv="refresh" content="0;url=${abs}">
+  <link rel="canonical" href="${abs}">
+  <meta name="robots" content="noindex">
+  <script>location.replace(${JSON.stringify(abs)});</script>
+</head>
+<body>
+  <p>Redirecting to <a href="${abs}">${abs}</a></p>
+</body>
+</html>
+`);
+    copied += 1;
+  }
+  if (!copied) console.log(`No legacy /${locale}/ WordPress HTML redirects to copy into ${out}`);
+  else console.log(`Copied ${copied} legacy /${locale}/ WordPress HTML redirects into ${out}`);
+}
+
+legacyHostRedirects();
 
 if (locale === 'es') {
   writeHostRedirect('defensa-y-seguridad', '/seguridad-privada/', 'es-MX');
