@@ -1,0 +1,11 @@
+---
+import LocalizedPage from '../../components/locale/LocalizedPage.astro';
+import { marketingSlugs } from '../../i18n/content';
+
+export function getStaticPaths() {
+  return marketingSlugs('pt').map((path) => ({ params: { path } }));
+}
+
+const { path } = Astro.params;
+---
+<LocalizedPage path={path} />

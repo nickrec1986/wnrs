@@ -1,14 +1,24 @@
 ---
-import { SERVICES, FEATURED_INDUSTRIES, LOCALES, PORTAL_URL } from '../consts';
+import { PORTAL_URL } from '../consts';
 import { withBase } from '../base';
+import { LOCALES, localeFromPath, localeHref, switcherHref, LOCALE_META } from '../i18n/locale';
+import { toLocaleSlug } from '../i18n/slugs.mjs';
+import { ui } from '../i18n/ui';
+import { localizedServices, localizedFeatured } from '../i18n/content';
+
+const locale = localeFromPath(Astro.url.pathname);
+const t = ui(locale);
+const services = localizedServices(locale);
+const featured = localizedFeatured(locale);
+const href = (path: string) => withBase(localeHref(path, locale));
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const servicesPath = withBase('/services').replace(/\/$/, '');
-const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s.slug));
+const servicesPath = href('/services').replace(/\/$/, '');
+const servicesOn = path === servicesPath || services.some((s) => path.includes(toLocaleSlug(s.slug, locale)));
 ---
 <header class="site-header" id="nav">
   <div class="bar">
-    <a class="brand-logo" href={withBase('/')} aria-label="WNRS home">
-      <img src={withBase('/brand/logo-wnrs.png')} alt="WNRS — Accelerate your Cashflow" width="180" height="52" />
+    <a class="brand-logo" href={href('/')} aria-label={t.homeAria}>
+      <img src={withBase('/brand/logo-wnrs.png')} alt={t.logoAlt} width="180" height="52" />
     </a>
 
     <nav class="nav-main" id="nav-links">
@@ -20,44 +30,46 @@ const servicesOn = path === servicesPath || SERVICES.some((s) => path.includes(s
           aria-controls="mega-services"
           id="services-btn"
         >
-          Services <span class="caret" aria-hidden="true"></span>
+          {t.services} <span class="caret" aria-hidden="true"></span>
         </button>
         <div class="mega" id="mega-services" hidden>
           <div class="mega-types" aria-labelledby="mega-types-label">
-            <p class="mh" id="mega-types-label">By Type</p>
-            {SERVICES.map((s) => (
-              <a href={withBase(`/${s.slug}`)}>{s.navLabel}</a>
+            <p class="mh" id="mega-types-label">{t.byType}</p>
+            {services.map((s) => (
+              <a href={href(`/${s.slug}`)}>{s.navLabel}</a>
             ))}
-            <a class="mega-more" href={withBase('/services')}>All services</a>
+            <a class="mega-more" href={href('/services')}>{t.allServices}</a>
           </div>
           <div class="mega-industries" aria-labelledby="mega-industry-label">
-            <p class="mh" id="mega-industry-label">By Industry</p>
-            {FEATURED_INDUSTRIES.map((i) => (
-              <a href={withBase(`/${i.slug}`)}>{i.name}</a>
+            <p class="mh" id="mega-industry-label">{t.byIndustry}</p>
+            {featured.map((i) => (
+              <a href={href(`/${i.slug}`)}>{i.name}</a>
             ))}
-            <a class="mega-more" href={withBase('/services#industries')}>More industries</a>
+            <a class="mega-more" href={href('/services#industries')}>{t.moreIndustries}</a>
           </div>
         </div>
       </div>
-      <a href={withBase('/about-us')}>About Us</a>
-      <a class="mobile-only" href={PORTAL_URL}>Login</a>
-      <a class="mobile-only btn" href={withBase('/#contact')}>Book a Call</a>
+      <a href={href('/about-us')}>{t.aboutUs}</a>
+      <a class="mobile-only" href={PORTAL_URL}>{t.login}</a>
+      <a class="mobile-only btn" href={href('/#contact')}>{t.bookACall}</a>
     </nav>
 
     <div class="nav-end">
       <div class="nav-item lang" data-menu>
         <button type="button" class="menu-btn" aria-expanded="false" aria-controls="lang-menu" id="lang-btn">
-          EN <span class="caret" aria-hidden="true"></span>
+          {LOCALE_META[locale].label} <span class="caret" aria-hidden="true"></span>
         </button>
         <div class="lang-menu" id="lang-menu" hidden>
-          {LOCALES.map((l) => (
-            <a href={l.href} hreflang={l.hreflang}>{l.label} · {l.name}</a>
+          {LOCALES.map((code) => (
+            <a href={switcherHref(code, Astro.url.pathname)} hreflang={LOCALE_META[code].hreflang}>
+              {LOCALE_META[code].label} · {LOCALE_META[code].name}
+            </a>
           ))}
         </div>
       </div>
-      <a class="plain" href={PORTAL_URL}>Login</a>
-      <a class="btn" href={withBase('/#contact')}>Book a Call</a>
-      <button class="hamburger" type="button" id="nav-toggle" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
+      <a class="plain" href={PORTAL_URL}>{t.login}</a>
+      <a class="btn" href={href('/#contact')}>{t.bookACall}</a>
+      <button class="hamburger" type="button" id="nav-toggle" aria-label={t.openMenu} aria-controls="nav-links" aria-expanded="false">
         <span></span>
       </button>
     </div>

@@ -1,10 +1,16 @@
 ---
-import { HOME } from '../consts';
+import { localeFromPath } from '../i18n/locale';
+import { ui } from '../i18n/ui';
+import { localizedHome } from '../i18n/content';
+
+const locale = localeFromPath(Astro.url.pathname);
+const home = localizedHome(locale);
+const t = ui(locale);
 ---
 <section class="cta-band" id="contact">
   <div class="wrap">
-    <h2>{HOME.ctaH}</h2>
-    <p>{HOME.ctaP}</p>
-    <a class="btn btn-white btn-lg" href="mailto:info@wnrs.com">Book a call</a>
+    <h2>{home.ctaH}</h2>
+    <p>{home.ctaP}</p>
+    <a class="btn btn-white btn-lg" href="mailto:info@wnrs.com">{t.bookACallCta}</a>
   </div>
 </section>

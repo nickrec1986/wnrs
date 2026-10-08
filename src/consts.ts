@@ -363,6 +363,8 @@ export interface Vertical {
   featured?: boolean;
   ic: string;
   short: string;
+  /** ES/PT industry hero eyebrow. Unused on EN. */
+  kicker?: string;
   intro: string;
   overview: string;
   audience: string;
@@ -526,15 +528,29 @@ export const INDUSTRIES: Vertical[] = [
   },
   {
     slug: 'aerospace-defense',
-    name: 'Defense & Security',
+    name: 'Aerospace & Defense',
     kind: 'industry',
     ic: 'CONTRACT · COMPLIANCE',
-    short: 'Discreet collections for aerospace, defense, and dual-use commercial claims.',
+    short: 'Discreet collections for aerospace, defense contractors, and dual-use commercial claims.',
     intro:
       'Aerospace and defense receivables sit on long contracts, government flow-downs, and counterparties that may be anywhere in the supply chain. WNRS handles those files with the confidentiality and documentation the sector expects.',
     overview:
-      'From commercial aviation suppliers to defense contractors, we align recovery to contract terms, offset rights, and jurisdictional complexity. Specialized unit and attorney resources are available on sensitive or cross-border matters.',
+      'From commercial aviation suppliers to defense contractors, we align recovery to contract terms, offset rights, and jurisdictional complexity. Specialized unit and attorney resources are available on sensitive or cross-border matters. This page is for contractors and OEMs — not private guard companies.',
     audience: 'OEMs, suppliers, and contractors in aerospace and defense.',
+    benefits: COLLECTION_BENEFITS,
+  },
+  {
+    slug: 'private-security',
+    name: 'Private Security',
+    kind: 'industry',
+    featured: true,
+    ic: 'GUARDS · SITES · EVENTS',
+    short: 'Recover unpaid guard-service invoices from buildings, condos, job sites, and events.',
+    intro:
+      'Private security firms run labor-heavy books: buildings, condos, construction sites, events, and corporate clients that stop paying for the post. WNRS recovers those invoices before the file ages out — without souring the accounts you still want to keep.',
+    overview:
+      'This is not defense contracting. It is guard and patrol companies collecting on service that was already delivered. We work building management, HOAs, general contractors, event hosts, and corporate security buyers with documentation that matches the post and the contract. Early-stage outreach, late-stage concentration, skip tracing, and attorney backup are available when a site simply will not pay.',
+    audience: 'Private security, guard, and patrol firms serving properties, job sites, events, and corporate clients.',
     benefits: COLLECTION_BENEFITS,
   },
   {
@@ -800,6 +816,7 @@ export const INDUSTRY_HUB = [
   'consumer-products',
   'chemicals',
   'aerospace-defense',
+  'private-security',
   'education-research',
   'engineering',
   'gaming-hospitality-leisure',
@@ -824,7 +841,7 @@ export const ABOUT = {
   lede: 'WNRS is a leading global provider of customized debt collection and accounts receivable management services. For over half a century, WNRS has been helping companies in a diverse range of industries increase cash flow and reduce operating expenses through results-driven recovery solutions. Every step of the debt recovery process — design, implementation, management — is built to deliver results.',
   body: [
     'Through its headquarters in Miami, FL, WNRS oversees the company’s business operation centers in U.S., Canada, & Latin America. Get to know more about our services and find out what results WNRS can bring to you.',
-    'When it comes to choosing the appropriate company to handle your company’s account receivables, look no further than WNRS. Not only have our proven systems worked for thousands of clients for over thirty years, but also, our team of networked offices, subsidiaries, research & investigation experts, multi-lingual debt collection specialists, and governmental partners have provided our clients with a synergistic collection program that is unrivaled in the collections industry.',
+    'When it comes to choosing the appropriate company to handle your company’s account receivables, look no further than WNRS. Not only have our proven systems worked for thousands of clients for half a century, but also, our team of networked offices, subsidiaries, research & investigation experts, multi-lingual debt collection specialists, and governmental partners have provided our clients with a synergistic collection program that is unrivaled in the collections industry.',
   ],
   vision: 'Our vision simply stated is to resolve account receivable issues through expert customer service.',
   mission:
@@ -886,7 +903,7 @@ export const HOME = {
   quotesSub:
     'For over 50 years, WNRS has been the top accounts receivable agency for B2B and B2C companies across 30+ industries. Here’s why:',
   ctaH: 'Recover and restore your cashflow now.',
-  ctaP: 'Book a meeting today and find out why WNRS has been ranked the #1 agency in the accounts receivable and debt management space for nearly half a decade.',
+  ctaP: 'Book a meeting today and find out why WNRS has been ranked the #1 agency in the accounts receivable and debt management space for nearly half a century.',
 } as const;
 
 /** Live wnrs.com/about-us “Recognized by” marks, plus WSJ and Reuters (not on the live WP page). */
@@ -937,7 +954,7 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
   '/privacy': {
     title: 'Privacy Policy | WNRS',
     description:
-      'How the WNRS marketing site handles information. Client files stay on online.wnrs.com — this site does not host collections data. Questions welcome.',
+      'How the WNRS marketing site handles information. Client account data is kept in a separate, secure client portal. This site does not host collections data.',
   },
   '/terms': {
     title: 'Terms of Service | WNRS',
@@ -957,7 +974,7 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
   '/es': {
     title: 'WNRS México | Cobranza y gestión de cuentas por cobrar',
     description:
-      'WNRS — expertos en cobranza y gestión de cuentas por cobrar en las Américas. Sitio en español en construcción. Contáctenos.',
+      'WNRS — expertos en cobranza y gestión de cuentas por cobrar en las Américas. Sitio en español en construcción. Contáctanos.',
   },
   '/early-stage-arm': {
     title: 'Early Stage Collection | Debt Collection | WNRS',
@@ -1030,9 +1047,14 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
       'Collect aged WIP and unpaid invoices for law, accounting, and consulting firms — without damaging client relationships. Discretion first. Talk to an expert.',
   },
   '/aerospace-defense': {
-    title: 'Defense & Security Debt Collection | WNRS',
+    title: 'Aerospace & Defense Debt Collection | WNRS',
     description:
-      'Discreet collections for aerospace, defense, and dual-use commercial claims. WNRS handles contract-heavy, cross-border files. Talk to an expert.',
+      'Discreet collections for aerospace, defense contractors, and dual-use commercial claims. WNRS handles contract-heavy, cross-border files. Talk to an expert.',
+  },
+  '/private-security': {
+    title: 'Private Security | WNRS',
+    description:
+      'Private Security debt collection for guard and patrol firms — unpaid invoices from buildings, condos, construction sites, events, and corporate clients. Talk to an expert.',
   },
   '/construction-operations': {
     title: 'Construction Debt Collection | Retainage & Billings | WNRS',

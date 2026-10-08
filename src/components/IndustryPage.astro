@@ -3,22 +3,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import LogoMarquee from './LogoMarquee.astro';
 import TestimonialBlock from './TestimonialBlock.astro';
 import ContactSection from './ContactSection.astro';
-import { SERVICES, SITE, getSeo, type Vertical } from '../consts';
 import { withBase, pageHero } from '../base';
 import { productionAssetUrl } from '../seo';
+import { localeFromPath, localeHref, LOCALE_META } from '../i18n/locale';
+import { localizePath, slashedPath } from '../i18n/slugs.mjs';
+import { ui } from '../i18n/ui';
+import { localizedHome, localizedSeo, localizedServices, localizedSite, localizedVertical } from '../i18n/content';
+import type { Vertical } from '../consts';
 
 interface Props { vertical: Vertical }
-const { vertical } = Astro.props;
-const kindLabel = vertical.kind === 'sector' ? 'Sector' : 'Industry';
-const seo = getSeo(`/${vertical.slug}`);
+const { vertical: incoming } = Astro.props;
+const locale = localeFromPath(Astro.url.pathname);
+const t = ui(locale);
+const href = (path: string) => withBase(localeHref(path, locale));
+const vertical = localizedVertical(incoming.slug, locale) ?? incoming;
+const kindLabel = vertical.kind === 'sector' ? t.sector : t.industryKind;
+// ES/PT industry heroes follow live .mx education: descriptive SEO line above the H1.
+const eyebrow =
+  (locale === 'es' || locale === 'pt') && vertical.kind === 'industry' && vertical.kicker
+    ? vertical.kicker
+    : kindLabel;
+const seo = localizedSeo(`/${vertical.slug}`, locale);
+const site = localizedSite(locale);
+const services = localizedServices(locale);
+const home = localizedHome(locale);
+const jsonLdName =
+  locale === 'es' || locale === 'pt'
+    ? `${vertical.name} — ${site.name}`
+    : `${vertical.name} collections — ${site.name}`;
+const jsonLdType =
+  locale === 'es'
+    ? `Gestión de cuentas por cobrar para ${vertical.name}`
+    : locale === 'pt'
+      ? `Gestão de contas a receber para ${vertical.name}`
+      : `Collections for ${vertical.name}`;
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: `${vertical.name} accounts receivable management — ${SITE.name}`,
-  serviceType: `Accounts receivable management for ${vertical.name}`,
+  name: jsonLdName,
+  serviceType: jsonLdType,
   description: seo.description,
-  url: `${SITE.url}/${vertical.slug}/`,
-  provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  url: `${LOCALE_META[locale].origin}${slashedPath(localizePath(`/${vertical.slug}`, locale))}`,
+  provider: { '@type': 'Organization', name: site.name, url: site.url },
   audience: vertical.audience,
   areaServed: ['US', 'CA', 'MX', 'BR', 'LATAM'],
 };
@@ -26,37 +52,35 @@ const jsonLd = {
 <BaseLayout
   title={seo.title}
   description={seo.description}
+  lang={LOCALE_META[locale].htmlLang}
   ogImage={productionAssetUrl(`/heroes/${vertical.slug}.jpg`)}
   breadcrumbs={[
-    { name: 'Services', path: '/services' },
-    { name: vertical.name, path: `/${vertical.slug}` },
+    { name: t.services, path: '/services' },
+    { name: vertical.name, path: slashedPath(localizePath(`/${vertical.slug}`, locale)) },
   ]}
   jsonLd={jsonLd}
 >
   <header class="page-hero">
     <div class="wrap page-split">
       <div>
-        <p class="kicker">{kindLabel}</p>
+        <p class="kicker">{eyebrow}</p>
         <h1>{vertical.name}</h1>
         <p class="lede">{vertical.intro}</p>
-        <a class="btn" href={withBase('/#contact')}>Talk to an expert</a>
+        <a class="btn" href={href('/#contact')}>{t.talkToExpert}</a>
       </div>
-      <img class="hero-photo" src={pageHero(vertical.slug)} alt={`${vertical.name} collections`} />
+      <img class="hero-photo" src={pageHero(vertical.slug)} alt={t.collectionsAlt(vertical.name)} />
     </div>
   </header>
 
   <section class="sec">
     <div class="wrap page-split" style="align-items:start">
       <div class="prose-el">
-        <h2>Collection services for {vertical.name}</h2>
+        <h2>{t.collectionServicesFor(vertical.name)}</h2>
         <p>{vertical.overview}</p>
-        <p>
-          Pick the stage that matches the aging — early-stage collection, late-stage concentration,
-          skip tracing, attorney intervention, or specialized unit support.
-        </p>
+        <p>{t.pickTheStage}</p>
       </div>
       <aside class="stats-card">
-        <h3>What you can expect</h3>
+        <h3>{t.whatYouCanExpect}</h3>
         <ul class="list-checks" style="margin-top:12px">
           {vertical.benefits.map((b) => (
             <li><span class="check">✓</span><span>{b}</span></li>
@@ -68,10 +92,10 @@ const jsonLd = {
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">
-      <h2>Collection services</h2>
+      <h2>{t.collectionServices}</h2>
       <div class="svc-grid">
-        {SERVICES.map((s) => (
-          <a class="svc-tile" href={withBase(`/${s.slug}`)}>
+        {services.map((s) => (
+          <a class="svc-tile" href={href(`/${s.slug}`)}>
             <h3>{s.name}</h3>
             <p>{s.short}</p>
           </a>
@@ -80,7 +104,7 @@ const jsonLd = {
     </div>
   </section>
 
-  <LogoMarquee />
+  <LogoMarquee label={home.logosLabel} />
   <TestimonialBlock />
   <ContactSection />
 </BaseLayout>

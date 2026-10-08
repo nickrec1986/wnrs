@@ -7,6 +7,10 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "node scripts/write-html-redirects.mjs && astro build && node scripts/check-pages-base.mjs",
+    "build:br": "npm run build && node scripts/flatten-locale.mjs pt",
+    "build:mx": "npm run build && node scripts/flatten-locale.mjs es",
+    "build:br:preview": "npm run build && node scripts/flatten-locale.mjs pt --preview-base /wnrs-br",
+    "build:mx:preview": "npm run build && node scripts/flatten-locale.mjs es --preview-base /wnrs-mx",
     "preview": "astro preview",
     "astro": "astro"
   },

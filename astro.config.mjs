@@ -31,10 +31,13 @@ const redirectSources = new Set(
   }),
 );
 
+// `ASTRO_BASE` is for one-off project-Pages previews only (default `/`).
+const previewBase = process.env.ASTRO_BASE || '/';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://wnrs.com',
-  base: '/',
+  base: previewBase,
   output: 'static',
   trailingSlash: 'always',
   build: { format: 'directory' },
@@ -44,7 +47,7 @@ export default defineConfig({
       filter: (page) => {
         const path = new URL(page).pathname.replace(/\/$/, '') || '/';
         if (path.endsWith('404') || path === '/404') return false;
-        if (path === '/pt' || path === '/es') return false;
+        if (path === '/pt' || path.startsWith('/pt/') || path === '/es' || path.startsWith('/es/')) return false;
         if (redirectSources.has(path)) return false;
         return true;
       },

@@ -3,10 +3,32 @@
  * Directory-style sources go through Astro `redirects` (meta-refresh pages).
  * File-like sources (.html, .hmtl) are written to public/ as static HTML.
  */
+import { SLUG_BY_LOCALE } from './i18n/slugs.mjs';
+
 export const PORTAL = 'https://online.wnrs.com';
+
+function localeSlugRedirects() {
+  /** @type {Record<string, string>} */
+  const out = {};
+  for (const locale of ['es', 'pt']) {
+    for (const [en, loc] of Object.entries(SLUG_BY_LOCALE[locale])) {
+      if (en !== loc) out[`/${locale}/${en}`] = `/${locale}/${loc}/`;
+    }
+  }
+  for (const [en, loc] of Object.entries(SLUG_BY_LOCALE.es)) {
+    if (en !== loc) out[`/${loc}`] = `/es/${loc}/`;
+  }
+  out['/defensa-y-seguridad'] = '/es/seguridad-privada/';
+  out['/es/productos-de-molino'] = '/es/acero-papel-y-madera/';
+  out['/productos-de-molino'] = '/es/acero-papel-y-madera/';
+  out['/pt/produtos-de-laminacao'] = '/pt/aco-papel-e-madeira/';
+  out['/pt/produtos-de-moinho'] = '/pt/aco-papel-e-madeira/';
+  return out;
+}
 
 const SAME_INDUSTRY = [
   'aerospace-defense',
+  'private-security',
   'banking',
   'chemicals',
   'construction-operations',
@@ -32,8 +54,9 @@ const SAME_INDUSTRY = [
 
 /** Astro `redirects` map. Keys are source paths (slash-normalized by Astro). */
 export const ASTRO_REDIRECTS = {
+  ...localeSlugRedirects(),
   ...Object.fromEntries(SAME_INDUSTRY.map((slug) => [`/industries/${slug}`, `/${slug}/`])),
-  '/industries/defense-security': '/aerospace-defense/',
+  '/industries/defense-security': '/private-security/',
   '/industries/hightec': '/high-tech/',
   '/industries/gaming-hospitality-and-leisure': '/gaming-hospitality-leisure/',
   '/industries/industrial-machinery-and-components': '/industrial-machinery-components/',

@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { INSIGHTS } from '../../consts';
+import { withBase } from '../../base';
+import { canonicalUrl } from '../../seo';
+import { localeFromPath, localeHref, LOCALE_META } from '../../i18n/locale';
+import { ui } from '../../i18n/ui';
+import { localizedSeo, localizedSite } from '../../i18n/content';
+
+const locale = localeFromPath(Astro.url.pathname);
+const t = ui(locale);
+const seo = localizedSeo('/insights', locale);
+const site = localizedSite(locale);
+const href = (path: string) => withBase(localeHref(path, locale));
+---
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  lang={LOCALE_META[locale].htmlLang}
+  ogType="website"
+  breadcrumbs={[{ name: t.insights, path: '/insights' }]}
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: `${site.name} Insights`,
+    description: seo.description,
+    url: canonicalUrl(Astro.url.pathname),
+    inLanguage: LOCALE_META[locale].htmlLang,
+    publisher: { '@type': 'Organization', name: site.name, url: site.url },
+  }}
+>
+  <header class="page-hero">
+    <div class="wrap">
+      <p class="kicker"><a href={href('/')}>{t.home}</a> / {t.insightsKicker}</p>
+      <h1>{t.insightsH1}</h1>
+      <p class="lede">{t.insightsLede}</p>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="wrap">
+      {INSIGHTS.length ? (
+        <ul class="insight-list">
+          {INSIGHTS.map((post) => (
+            <li>
+              <article class="insight-card">
+                <time datetime={post.date}>{post.date}</time>
+                <h2><a href={href(`/insights/${post.slug}`)}>{post.title}</a></h2>
+                <p>{post.description}</p>
+              </article>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div class="insight-list insight-empty" role="status">
+          <p>{t.insightsEmpty}</p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

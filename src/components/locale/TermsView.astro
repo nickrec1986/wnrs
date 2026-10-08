@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { EMAIL, EMAIL_HREF } from '../../consts';
+import { withBase } from '../../base';
+import { localeFromPath, localeHref, LOCALE_META } from '../../i18n/locale';
+import { ui } from '../../i18n/ui';
+import { localizedLegal, localizedSeo } from '../../i18n/content';
+
+const locale = localeFromPath(Astro.url.pathname);
+const t = ui(locale);
+const seo = localizedSeo('/terms', locale);
+const legal = localizedLegal(locale);
+const href = (path: string) => withBase(localeHref(path, locale));
+---
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  lang={LOCALE_META[locale].htmlLang}
+  breadcrumbs={[{ name: t.terms, path: '/terms' }]}
+>
+  <header class="page-hero">
+    <div class="wrap">
+      <p class="kicker"><a href={href('/')}>{t.home}</a> / {t.termsKicker}</p>
+      <h1>{t.termsH1}</h1>
+      <p class="lede">{t.termsLede}</p>
+    </div>
+  </header>
+  <section class="sec">
+    <div class="wrap prose-el">
+      {legal.terms.map((p) => <p>{p}</p>)}
+      <p>{locale === 'pt' ? 'Dúvidas:' : 'Preguntas:'} <a href={EMAIL_HREF}>{EMAIL}</a>.</p>
+    </div>
+  </section>
+</BaseLayout>
