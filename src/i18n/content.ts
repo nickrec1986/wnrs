@@ -77,11 +77,11 @@ export function localizedLegal(locale: Locale) {
   return {
     privacy: [
       'This static marketing site does not run a CMS, user accounts, or a collections database. If you email or call us, we use the contact details you send to respond to your inquiry.',
-      'Client-file data lives on the separate portal at online.wnrs.com, not on this site. We do not sell marketing-site visitor lists.',
+      'Client account data is kept in a separate, secure client portal, not on this site. We do not sell marketing-site visitor lists.',
     ],
     terms: [
       'The content on this site is for general information about WNRS accounts receivable and collection services. Nothing here is legal advice, a credit decision, or a commitment to take a specific file.',
-      'Engagement for collection work is governed by a separate written agreement between WNRS and the client. Use of the client portal at online.wnrs.com is governed by that portal’s own terms.',
+      'Engagement for collection work is governed by a separate written agreement between WNRS and the client. Use of the separate, secure client portal is governed by that portal’s own terms.',
     ],
   };
 }

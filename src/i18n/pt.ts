@@ -97,7 +97,7 @@ export const ptTestimonials = [
 ];
 
 export const ptAbout = {
-  lede: 'A WNRS é um provedor líder mundial de serviços personalizados de gestão de contas a receber. Há mais de três décadas ajuda empresas de diversos setores a aumentar o fluxo de caixa e reduzir despesas operacionais com gestão de carteira orientada a resultado.',
+  lede: 'A WNRS é um provedor líder mundial de serviços personalizados de gestão de contas a receber. Há meio século ajuda empresas de diversos setores a aumentar o fluxo de caixa e reduzir despesas operacionais com gestão de carteira orientada a resultado.',
   body: [
     'Pela sede em Miami, Flórida, a WNRS supervisiona os centros de operações nos Estados Unidos, no Canadá e na América Latina. Conheça nossos serviços e os resultados que podemos oferecer.',
     'Se busca a quem confiar as contas a receber da sua empresa, a WNRS é a solução. Nossos sistemas servem milhares de clientes há mais de cinquenta anos. A rede de escritórios, filiais, especialistas em investigação, especialistas multilíngues em cobrança e parceiros governamentais monta um programa sinérgico sem paralelo no setor.',
@@ -129,13 +129,13 @@ export const ptAbout = {
 export const ptLegal = {
   privacy: [
     'Este site institucional estático não opera CMS, contas de usuário nem base de cobrança. Se você nos escreve ou liga, usamos os dados de contato que envia para responder à consulta.',
-    'Os dossiês de clientes ficam no portal separado online.wnrs.com, não neste site. Não vendemos listas de visitantes do site institucional.',
-    'A WNRS (World Net Recovery Systems) é uma empresa com sede em Miami, Flórida, Estados Unidos. Este aviso descreve o site de marketing. As leis de privacidade do Brasil (incluindo a LGPD) podem aplicar quando tratamos dados de pessoas no Brasil; isto não é aconselhamento jurídico.',
+    'Os dados de contas de clientes ficam em um portal de clientes separado e seguro, não neste site. Não vendemos listas de visitantes do site institucional.',
+    'Este aviso descreve o site de marketing da WNRS e suas subsidiárias. As leis de privacidade do Brasil (incluindo a LGPD) podem aplicar quando tratamos dados de pessoas no Brasil; isto não é aconselhamento jurídico.',
   ],
   terms: [
     'O conteúdo deste site é informação geral sobre os serviços de contas a receber e cobrança da WNRS. Nada aqui é aconselhamento jurídico, decisão de crédito nem compromisso de assumir um dossiê específico.',
-    'O mandato de cobrança é regido por contrato escrito separado entre a WNRS e o cliente. O uso do portal online.wnrs.com é regido pelos termos daquele portal.',
-    'A WNRS é uma empresa dos EUA, com sede em Miami, FL. Estes termos regem o site institucional. Contratos com clientes no Brasil podem ter condições adicionais no acordo de mandato; não inventamos obrigações legais nestas páginas.',
+    'O mandato de cobrança é regido por contrato escrito separado entre a WNRS e o cliente. O uso do portal de clientes separado e seguro é regido pelos termos daquele portal.',
+    'Estes termos da WNRS e suas subsidiárias regem o site institucional. Contratos com clientes no Brasil podem ter condições adicionais no acordo de mandato; não inventamos obrigações legais nestas páginas.',
   ],
 };
 
@@ -817,7 +817,7 @@ export const ptSeo: Record<string, { title: string; description: string }> = {
   '/privacy': {
     title: 'Política de privacidade | WNRS',
     description:
-      'Como o site institucional da WNRS trata informações. Dossiês de cliente ficam em online.wnrs.com — este site não hospeda dados de cobrança.',
+      'Como o site institucional da WNRS trata informações. Os dados de contas de clientes ficam em um portal de clientes separado e seguro.',
   },
   '/terms': {
     title: 'Termos de serviço | WNRS',

@@ -97,7 +97,7 @@ export const esTestimonials = [
 ];
 
 export const esAbout = {
-  lede: 'WNRS es un proveedor líder mundial de servicios personalizados de gestión de cuentas por cobrar. Durante más de tres décadas ha ayudado a empresas de diversos sectores a aumentar su flujo de caja y reducir gastos operativos con gestión de cartera orientada a resultados.',
+  lede: 'WNRS es un proveedor líder mundial de servicios personalizados de gestión de cuentas por cobrar. Durante medio siglo ha ayudado a empresas de diversos sectores a aumentar su flujo de caja y reducir gastos operativos con gestión de cartera orientada a resultados.',
   body: [
     'Desde su sede en Miami, Florida, WNRS supervisa los centros de operaciones en Estados Unidos, Canadá y Latinoamérica. Conoce nuestros servicios y los resultados que podemos ofrecerte.',
     'Si buscas a quién confiar las cuentas por cobrar de tu empresa, WNRS es la solución. Nuestros sistemas han servido a miles de clientes por más de cincuenta años. La red de oficinas, filiales, especialistas en investigación, expertos multilingües en cobro y socios gubernamentales arma un programa sinérgico sin paralelo en el sector.',
@@ -129,13 +129,13 @@ export const esAbout = {
 export const esLegal = {
   privacy: [
     'Este sitio institucional estático no opera un CMS, cuentas de usuario ni una base de cobranza. Si nos escribes o llamas, usamos los datos de contacto que nos envías para responder.',
-    'Los expedientes de clientes viven en el portal separado online.wnrs.com, no en este sitio. No vendemos listas de visitantes del sitio institucional.',
-    'WNRS (World Net Recovery Systems) es una empresa con sede en Miami, Florida, Estados Unidos. Este aviso describe el sitio de marketing. Las leyes de privacidad de México (incluido el aviso ARCO / LFPDPPP) pueden aplicar cuando tratamos datos de personas en México; esto no es asesoría legal.',
+    'Los datos de cuentas de clientes se guardan en un portal de clientes independiente y seguro, no en este sitio. No vendemos listas de visitantes del sitio institucional.',
+    'Este aviso describe el sitio de marketing de WNRS y sus subsidiarias. Las leyes de privacidad de México (incluido el aviso ARCO / LFPDPPP) pueden aplicar cuando tratamos datos de personas en México; esto no es asesoría legal.',
   ],
   terms: [
     'El contenido de este sitio es información general sobre los servicios de cuentas por cobrar y cobranza de WNRS. Nada aquí es asesoría legal, una decisión de crédito ni un compromiso de tomar un expediente específico.',
-    'El mandato de cobranza se rige por un contrato escrito separado entre WNRS y el cliente. El uso del portal online.wnrs.com se rige por los términos de ese portal.',
-    'WNRS es una empresa de EE. UU., con sede en Miami, FL. Estos términos rigen el sitio institucional. Los contratos con clientes en México pueden tener condiciones adicionales en el acuerdo de mandato; no inventamos obligaciones legales en estas páginas.',
+    'El mandato de cobranza se rige por un contrato escrito separado entre WNRS y el cliente. El uso del portal de clientes independiente y seguro se rige por los términos de ese portal.',
+    'Estos términos de WNRS y sus subsidiarias rigen el sitio institucional. Los contratos con clientes en México pueden tener condiciones adicionales en el acuerdo de mandato; no inventamos obligaciones legales en estas páginas.',
   ],
 };
 
@@ -818,7 +818,7 @@ export const esSeo: Record<string, { title: string; description: string }> = {
   '/privacy': {
     title: 'Aviso de privacidad | WNRS',
     description:
-      'Cómo el sitio institucional de WNRS trata la información. Los expedientes de cliente viven en online.wnrs.com — este sitio no hospeda datos de cobranza.',
+      'Cómo el sitio institucional de WNRS trata la información. Los datos de cuentas de clientes se guardan en un portal de clientes independiente y seguro.',
   },
   '/terms': {
     title: 'Términos de servicio | WNRS',

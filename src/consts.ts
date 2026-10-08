@@ -841,7 +841,7 @@ export const ABOUT = {
   lede: 'WNRS is a leading global provider of customized debt collection and accounts receivable management services. For over half a century, WNRS has been helping companies in a diverse range of industries increase cash flow and reduce operating expenses through results-driven recovery solutions. Every step of the debt recovery process — design, implementation, management — is built to deliver results.',
   body: [
     'Through its headquarters in Miami, FL, WNRS oversees the company’s business operation centers in U.S., Canada, & Latin America. Get to know more about our services and find out what results WNRS can bring to you.',
-    'When it comes to choosing the appropriate company to handle your company’s account receivables, look no further than WNRS. Not only have our proven systems worked for thousands of clients for over thirty years, but also, our team of networked offices, subsidiaries, research & investigation experts, multi-lingual debt collection specialists, and governmental partners have provided our clients with a synergistic collection program that is unrivaled in the collections industry.',
+    'When it comes to choosing the appropriate company to handle your company’s account receivables, look no further than WNRS. Not only have our proven systems worked for thousands of clients for half a century, but also, our team of networked offices, subsidiaries, research & investigation experts, multi-lingual debt collection specialists, and governmental partners have provided our clients with a synergistic collection program that is unrivaled in the collections industry.',
   ],
   vision: 'Our vision simply stated is to resolve account receivable issues through expert customer service.',
   mission:
@@ -903,7 +903,7 @@ export const HOME = {
   quotesSub:
     'For over 50 years, WNRS has been the top accounts receivable agency for B2B and B2C companies across 30+ industries. Here’s why:',
   ctaH: 'Recover and restore your cashflow now.',
-  ctaP: 'Book a meeting today and find out why WNRS has been ranked the #1 agency in the accounts receivable and debt management space for nearly half a decade.',
+  ctaP: 'Book a meeting today and find out why WNRS has been ranked the #1 agency in the accounts receivable and debt management space for nearly half a century.',
 } as const;
 
 /** Live wnrs.com/about-us “Recognized by” marks, plus WSJ and Reuters (not on the live WP page). */
@@ -954,7 +954,7 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
   '/privacy': {
     title: 'Privacy Policy | WNRS',
     description:
-      'How the WNRS marketing site handles information. Client files stay on online.wnrs.com — this site does not host collections data. Questions welcome.',
+      'How the WNRS marketing site handles information. Client account data is kept in a separate, secure client portal. This site does not host collections data.',
   },
   '/terms': {
     title: 'Terms of Service | WNRS',
