@@ -717,15 +717,15 @@ export const ptVerticals: Record<string, Vert> = {
     benefits: ptIndustryBenefits,
   },
   'mill-products': {
-    name: 'Produtos de moinho',
-    kicker: 'Serviços de contas a receber para o setor de produtos de laminação',
-    ic: 'PAPEL · EMBALAGEM · FLORESTA',
-    short: 'Mais lucro, clientes satisfeitos e excelência operacional na planta.',
+    name: 'Aço, papel e madeira',
+    kicker: 'Serviços de cobrança para os setores de aço, papel e madeira',
+    ic: 'AÇO · PAPEL · MADEIRA',
+    short: 'Mais lucro, clientes satisfeitos e excelência operacional em siderúrgicas, papeleiras e madeireiras.',
     intro:
-      'Celulose e papel, construção, têxteis, metais, plásticos ou cimento: nossas soluções de contas a receber sobem os lucros e mantêm clientes satisfeitos, com uma cadeia de suprimento orientada à rentabilidade.',
+      'Aço, celulose e papel, e madeira: contas grandes, prazos longos e preços de commodity que se movem. Nossas soluções de contas a receber sobem os lucros e mantêm clientes satisfeitos, com uma cadeia de suprimento orientada à rentabilidade.',
     overview:
-      'Da gestão de contas a receber à resolução de disputas, a WNRS ajudou algumas das maiores empresas de produtos de moinho a subir a rentabilidade com programas eficazes. Implemente os serviços e comprove a diferença.',
-    audience: 'Fabricantes e distribuidores de papel, embalagem, madeira e produtos de moinho.',
+      'Da gestão de contas a receber à resolução de disputas, a WNRS ajudou algumas das maiores empresas de aço, papel e madeira a subir a rentabilidade com programas eficazes. Implemente os serviços e comprove a diferença.',
+    audience: 'Produtores e distribuidores de aço, celulose e papel, e madeira.',
     benefits: ['Maior fluxo de caixa', 'Maior velocidade de cobrança', ...ptIndustryBenefits.slice(1)],
   },
   mining: {
@@ -970,9 +970,9 @@ export const ptSeo: Record<string, { title: string; description: string }> = {
       'Cobro e contas a receber para empresas de mídia: suporte, faturamento e recuperação de atrasos.',
   },
   '/mill-products': {
-    title: 'Produtos de moinho | WNRS',
+    title: 'Aço, papel e madeira | WNRS',
     description:
-      'Contas a receber para celulose e papel, construção, têxteis, metais, plásticos e cimento.',
+      'Contas a receber para siderúrgicas, papeleiras e madeireiras: aço, celulose e papel, e madeira.',
   },
   '/mining': {
     title: 'Mineração | WNRS',

@@ -113,7 +113,7 @@ Live .mx on the left; tightened overlay on the right.
 
 **Productos de molino**
 - Before: `puede contar con nuestras soluciones de realidad aumentada` / `Servicios de AR para el sector de productos de laminación`
-- After: soluciones de cuentas por cobrar; productos de molino (live hub name)
+- After: soluciones de cuentas por cobrar. Industry renamed **Acero, papel y madera** (`/es/acero-papel-y-madera/`; PT **Aço, papel e madeira**). Old `/productos-de-molino/` and `/produtos-de-laminacao/` redirect.
 
 **Servicios públicos**
 - Before: `Llamadas previas a Dirconnet` / `Colecciones en etapa temprana`

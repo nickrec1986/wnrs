@@ -718,15 +718,15 @@ export const esVerticals: Record<string, Vert> = {
     benefits: esIndustryBenefits,
   },
   'mill-products': {
-    name: 'Productos de molino',
-    kicker: 'Servicios de cuentas por cobrar para el sector de productos de molino',
-    ic: 'PAPEL · EMPAQUE · BOSQUE',
-    short: 'Más ganancia, clientes satisfechos y excelencia operativa en planta.',
+    name: 'Acero, papel y madera',
+    kicker: 'Servicios de cobranza para los sectores del acero, el papel y la madera',
+    ic: 'ACERO · PAPEL · MADERA',
+    short: 'Más ganancia, clientes satisfechos y excelencia operativa en acereras, papeleras y aserraderos.',
     intro:
-      'Pulp y papel, construcción, textiles, metales, plásticos o cemento: nuestras soluciones de cuentas por cobrar suben las ganancias y mantienen clientes satisfechos, con una cadena de suministro orientada a la rentabilidad.',
+      'Acero, pulp y papel, y madera: cuentas grandes, plazos largos y precios de commodity que se mueven. Nuestras soluciones de cuentas por cobrar suben las ganancias y mantienen clientes satisfechos, con una cadena de suministro orientada a la rentabilidad.',
     overview:
-      'De la gestión de cuentas por cobrar a la resolución de disputas, WNRS ha ayudado a algunas de las mayores empresas de productos de molino a subir la rentabilidad con programas eficaces. Implementa los servicios y comprueba la diferencia.',
-    audience: 'Fabricantes y distribuidores de papel, empaque, madera y productos de molino.',
+      'De la gestión de cuentas por cobrar a la resolución de disputas, WNRS ha ayudado a algunas de las mayores empresas de acero, papel y madera a subir la rentabilidad con programas eficaces. Implementa los servicios y comprueba la diferencia.',
+    audience: 'Productores y distribuidores de acero, pulp y papel, y madera.',
     benefits: ['Mayor flujo de caja', 'Mayor velocidad de cobro', ...esIndustryBenefits.slice(1)],
   },
   mining: {
@@ -971,9 +971,9 @@ export const esSeo: Record<string, { title: string; description: string }> = {
       'Cobro y cuentas por cobrar para empresas de medios: soporte, facturación y recuperación de atrasos.',
   },
   '/mill-products': {
-    title: 'Productos de molino | WNRS',
+    title: 'Acero, papel y madera | WNRS',
     description:
-      'Cuentas por cobrar para pulp y papel, construcción, textiles, metales, plásticos y cemento.',
+      'Cuentas por cobrar para acereras, papeleras y aserraderos: acero, pulp y papel, y madera.',
   },
   '/mining': {
     title: 'Minería | WNRS',

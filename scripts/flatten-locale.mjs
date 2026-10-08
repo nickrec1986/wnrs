@@ -89,13 +89,13 @@ for (const file of walk(out)) {
 const four = join(out, '404', 'index.html');
 if (existsSync(four)) cpSync(four, join(out, '404.html'));
 
-if (locale === 'es') {
-  const dest = `${origin}/seguridad-privada/`;
-  mkdirSync(join(out, 'defensa-y-seguridad'), { recursive: true });
+function writeHostRedirect(fromSlug, toPath, lang) {
+  const dest = `${origin}${toPath.startsWith('/') ? toPath : `/${toPath}`}`;
+  mkdirSync(join(out, fromSlug), { recursive: true });
   writeFileSync(
-    join(out, 'defensa-y-seguridad', 'index.html'),
+    join(out, fromSlug, 'index.html'),
     `<!DOCTYPE html>
-<html lang="es-MX">
+<html lang="${lang}">
 <head>
   <meta charset="utf-8">
   <title>Redirecting…</title>
@@ -109,6 +109,15 @@ if (locale === 'es') {
 </html>
 `,
   );
+}
+
+if (locale === 'es') {
+  writeHostRedirect('defensa-y-seguridad', '/seguridad-privada/', 'es-MX');
+  writeHostRedirect('productos-de-molino', '/acero-papel-y-madera/', 'es-MX');
+}
+if (locale === 'pt') {
+  writeHostRedirect('produtos-de-laminacao', '/aco-papel-e-madeira/', 'pt-BR');
+  writeHostRedirect('produtos-de-moinho', '/aco-papel-e-madeira/', 'pt-BR');
 }
 
 writeFileSync(join(out, 'CNAME'), `${host}\n`);

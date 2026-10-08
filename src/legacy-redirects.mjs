@@ -19,6 +19,10 @@ function localeSlugRedirects() {
     if (en !== loc) out[`/${loc}`] = `/es/${loc}/`;
   }
   out['/defensa-y-seguridad'] = '/es/seguridad-privada/';
+  out['/es/productos-de-molino'] = '/es/acero-papel-y-madera/';
+  out['/productos-de-molino'] = '/es/acero-papel-y-madera/';
+  out['/pt/produtos-de-laminacao'] = '/pt/aco-papel-e-madeira/';
+  out['/pt/produtos-de-moinho'] = '/pt/aco-papel-e-madeira/';
   return out;
 }
 

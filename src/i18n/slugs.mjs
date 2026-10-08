@@ -34,7 +34,7 @@ export const SLUG_BY_LOCALE = {
     insurance: 'seguro',
     'life-sciences': 'ciencias-de-la-vida',
     media: 'medios-de-comunicacion',
-    'mill-products': 'productos-de-molino',
+    'mill-products': 'acero-papel-y-madera',
     mining: 'mineria',
     'oil-gas': 'petroleo-y-gas',
     'wholesale-distribution': 'venta-al-por-mayor-y-distribucion',
@@ -71,7 +71,7 @@ export const SLUG_BY_LOCALE = {
     insurance: 'seguros',
     'life-sciences': 'ciencias-da-vida',
     media: 'midia',
-    'mill-products': 'produtos-de-laminacao',
+    'mill-products': 'aco-papel-e-madeira',
     mining: 'mineracao',
     'oil-gas': 'petroleo-e-gas',
     'wholesale-distribution': 'atacado-e-distribuicao',
@@ -88,12 +88,20 @@ export function toLocaleSlug(enId, locale) {
   return SLUG_BY_LOCALE[locale]?.[enId] ?? enId;
 }
 
+/** Retired locale slugs that still resolve to the EN content id. */
+export const SLUG_ALIASES = {
+  'productos-de-molino': 'mill-products',
+  'produtos-de-laminacao': 'mill-products',
+  'produtos-de-moinho': 'mill-products',
+};
+
 /** Map any known public slug (EN or localized) back to the EN content id. */
 export function resolveEnId(slug) {
   const clean = String(slug || '')
     .replace(/^\/+|\/+$/g, '')
     .split('/')[0];
   if (!clean) return clean;
+  if (SLUG_ALIASES[clean]) return SLUG_ALIASES[clean];
   for (const map of Object.values(SLUG_BY_LOCALE)) {
     for (const [en, loc] of Object.entries(map)) {
       if (loc === clean || en === clean) return en;

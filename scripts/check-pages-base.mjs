@@ -323,6 +323,58 @@ for (const [loc, { name, file }] of Object.entries(newIndustry)) {
   if (!html.includes(`<h1>${name}</h1>`)) bad.push(`${loc}/private-security: H1 should be "${name}"`);
 }
 
+const millRename = {
+  es: {
+    name: 'Acero, papel y madera',
+    kicker: 'Servicios de cobranza para los sectores del acero, el papel y la madera',
+    file: join(root, 'es', 'acero-papel-y-madera', 'index.html'),
+    old: join(root, 'es', 'productos-de-molino', 'index.html'),
+    dest: '/es/acero-papel-y-madera/',
+  },
+  pt: {
+    name: 'Aço, papel e madeira',
+    kicker: 'Serviços de cobrança para os setores de aço, papel e madeira',
+    file: join(root, 'pt', 'aco-papel-e-madeira', 'index.html'),
+    old: join(root, 'pt', 'produtos-de-laminacao', 'index.html'),
+    dest: '/pt/aco-papel-e-madeira/',
+  },
+};
+for (const [loc, { name, kicker, file, old, dest }] of Object.entries(millRename)) {
+  if (!existsSync(file)) {
+    bad.push(`missing ${loc} mill-products page at new slug`);
+    continue;
+  }
+  const html = readFileSync(file, 'utf8');
+  const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+  if (!title.startsWith(name)) bad.push(`${loc}/mill-products: title should lead with "${name}" (got "${title}")`);
+  if (!html.includes(`<h1>${name}</h1>`)) bad.push(`${loc}/mill-products: H1 should be "${name}"`);
+  if (!html.includes(`<p class="kicker">${kicker}</p>`)) {
+    bad.push(`${loc}/mill-products: kicker should be "${kicker}"`);
+  }
+  if (/molino|moinho|laminaci/i.test(html.replace(/productos-de-molino|produtos-de-laminacao|produtos-de-moinho/g, ''))) {
+    bad.push(`${loc}/mill-products: leftover molino/moinho/laminación copy`);
+  }
+  const hreflangEs = html.match(/hreflang="es" href="([^"]+)"/)?.[1] ?? '';
+  const hreflangPt = html.match(/hreflang="pt-BR" href="([^"]+)"/)?.[1] ?? '';
+  if (!hreflangEs.includes('acero-papel-y-madera')) {
+    bad.push(`${loc}/mill-products: es hreflang missing acero-papel-y-madera (got ${hreflangEs})`);
+  }
+  if (!hreflangPt.includes('aco-papel-e-madeira')) {
+    bad.push(`${loc}/mill-products: pt-BR hreflang missing aco-papel-e-madeira (got ${hreflangPt})`);
+  }
+  if (!existsSync(old)) {
+    bad.push(`${loc}/mill-products: missing redirect from old slug`);
+  } else {
+    const redir = readFileSync(old, 'utf8');
+    if (!redir.includes(dest)) bad.push(`${loc}/mill-products: old slug redirect missing ${dest}`);
+  }
+}
+const enMill = join(root, 'mill-products', 'index.html');
+if (existsSync(enMill)) {
+  const html = readFileSync(enMill, 'utf8');
+  if (!html.includes('<h1>Mill Products</h1>')) bad.push('en mill-products: H1 should stay Mill Products');
+}
+
 const sectorIds = new Set(['business', 'enterprise', 'government', 'utilities']);
 const serviceIds = new Set([
   'early-stage-arm',
