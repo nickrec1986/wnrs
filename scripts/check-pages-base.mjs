@@ -10,7 +10,7 @@ import {
   ALL_REDIRECT_SOURCES,
   expectedDistFile,
 } from '../src/legacy-redirects.mjs';
-import { toLocaleSlug } from '../src/i18n/slugs.mjs';
+import { SLUG_BY_LOCALE, toLocaleSlug } from '../src/i18n/slugs.mjs';
 
 const root = 'dist';
 const leftoverHtml = /(?:src|href)="(\/wnrs\/[^"]*)"/g;
