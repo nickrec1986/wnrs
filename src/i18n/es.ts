@@ -334,6 +334,7 @@ type Vert = {
   name: string;
   ic: string;
   short: string;
+  kicker?: string;
   intro: string;
   overview: string;
   audience: string;
@@ -415,6 +416,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'education-research': {
     name: 'Instituciones Educativas',
+    kicker: 'Especialistas en Cobranza y Administración de Cartera Educativa',
     ic: 'COLEGIATURA · BECAS · CRÉDITO',
     short: 'Especialistas en cobranza y administración de cartera educativa.',
     intro:
@@ -435,6 +437,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'travel-transportation': {
     name: 'Transporte y Logística',
+    kicker: 'Cobranza a la medida para el sector logístico',
     ic: 'NAVIERAS · FLOTAS · RESERVAS',
     short: 'Cobranza a la medida para logística, viajes y transporte.',
     intro:
@@ -456,6 +459,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   retail: {
     name: 'Minorista',
+    kicker: 'Servicios de cobranza para el sector minorista',
     ic: 'TIENDA · ECOMMERCE · CRÉDITO',
     short: 'Cuentas por cobrar de alto volumen, sin ahogar el capital de trabajo.',
     intro:
@@ -475,6 +479,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   manufacturing: {
     name: 'Manufactura y Fabricación',
+    kicker: 'Servicios de cobranza para la industria manufacturera',
     ic: 'B2B · CRÉDITO COMERCIAL',
     short: 'Gestión y cobro de cuentas por cobrar para fabricantes.',
     intro:
@@ -493,6 +498,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'professional-services': {
     name: 'Servicios Profesionales',
+    kicker: 'Servicios de cobranza para el sector de servicios profesionales',
     ic: 'HONORARIOS · RETAINERS',
     short: 'Gestión de deudas actuales y vencidas para despachos que venden expertise.',
     intro:
@@ -504,6 +510,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'aerospace-defense': {
     name: 'Aeroespacial y Defensa',
+    kicker: 'Servicios de cobranza para el sector aeroespacial y de defensa',
     ic: 'CONTRATO · COMPLIANCE',
     short: 'Un socio de cuentas por cobrar que impulse el flujo de caja y sanee las cuentas gubernamentales a tiempo.',
     intro:
@@ -522,6 +529,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'private-security': {
     name: 'Seguridad Privada',
+    kicker: 'Especialistas en cobranza para empresas de seguridad privada',
     ic: 'GUARDIAS · SITIOS · EVENTOS',
     short: 'Cobra las facturas impagas de vigilancia: edificios, condominios, obras y eventos.',
     intro:
@@ -534,6 +542,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'construction-operations': {
     name: 'Construcción y Operaciones',
+    kicker: 'Cobranza de deudas para el sector de la construcción',
     ic: 'OBRAS · RETENCIONES',
     short: 'Negociaciones complejas de deuda y gestión de cartera para constructoras.',
     intro:
@@ -545,6 +554,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   banking: {
     name: 'Bancario',
+    kicker: 'Servicios de cuentas por cobrar para el sector bancario',
     ic: 'CRÉDITO REGULADO',
     short: 'Cuentas por cobrar orientadas al rendimiento para banca y servicios financieros.',
     intro:
@@ -557,6 +567,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'consumer-products': {
     name: 'Productos de Consumo',
+    kicker: 'Servicios de cobranza para empresas de productos de consumo',
     ic: 'CPG · TRADE',
     short: 'Más flujo de caja y mejor relación con el cliente en un mercado global.',
     intro:
@@ -568,6 +579,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   chemicals: {
     name: 'Productos Químicos',
+    kicker: 'Servicios de cobranza para empresas químicas',
     ic: 'CRÉDITO COMERCIAL · B2B',
     short: 'El equilibrio entre retener al cliente y cobrar de verdad.',
     intro:
@@ -579,6 +591,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   engineering: {
     name: 'Ingeniería',
+    kicker: 'Servicios de cobranza para empresas de ingeniería',
     ic: 'HONORARIOS DE PROYECTO',
     short: 'Cobranza de primera clase para salvaguardar las ganancias del despacho.',
     intro:
@@ -590,6 +603,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'gaming-hospitality-leisure': {
     name: 'Juegos, hostelería y ocio',
+    kicker: 'Servicios de cobranza para juegos, hostelería y ocio',
     ic: 'MARKERS · FOLIOS · EVENTOS',
     short: 'Cuentas por cobrar para una industria que vive del servicio al cliente.',
     intro:
@@ -610,6 +624,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'government-contracting': {
     name: 'Contratación gubernamental',
+    kicker: 'Servicios de cobranza para contratistas gubernamentales',
     ic: 'PRIME · SUB · FLOW-DOWN',
     short: 'Cuentas por cobrar de gobierno: del federal al municipal, y para contratistas.',
     intro:
@@ -621,6 +636,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   healthcare: {
     name: 'Cuidado de la salud',
+    kicker: 'Servicios de cobranza para el sector sanitario',
     ic: 'PACIENTE · PAGADOR',
     short: 'Cobranzas y gestión de cartera para un mercado médico complejo.',
     intro:
@@ -637,6 +653,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'high-tech': {
     name: 'Alta tecnología',
+    kicker: 'Servicios de cobranza para el sector de alta tecnología',
     ic: 'SAAS · HARDWARE · CANAL',
     short: 'Prácticas de cobro a la altura de empresas que viven de innovar.',
     intro:
@@ -648,6 +665,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'industrial-machinery-components': {
     name: 'Maquinaria y componentes industriales',
+    kicker: 'Servicios de cobranza para maquinaria y componentes industriales',
     ic: 'CAPEX · REFACCIONES',
     short: 'Gestión de cuentas por cobrar para fabricantes de maquinaria y componentes.',
     intro:
@@ -659,6 +677,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   insurance: {
     name: 'Seguro',
+    kicker: 'Servicios de cobranza para el sector asegurador',
     ic: 'PRIMA · SUBROGACIÓN',
     short: 'Primas, sobrepagos, subrogación y acuerdos — más de 25 años con el sector.',
     intro:
@@ -676,6 +695,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'life-sciences': {
     name: 'Ciencias de la vida',
+    kicker: 'Servicios de cobranza para empresas de ciencias de la vida',
     ic: 'FARMA · DEVICE · INVESTIGACIÓN',
     short: 'Cuentas por cobrar orientadas al rendimiento para life sciences.',
     intro:
@@ -687,6 +707,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   media: {
     name: 'Medios de comunicación',
+    kicker: 'Servicios de cobranza para medios de comunicación',
     ic: 'PUBLICIDAD · LICENCIAS',
     short: 'Cobro y cuentas por cobrar para las mayores empresas de medios.',
     intro:
@@ -698,6 +719,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'mill-products': {
     name: 'Productos de molino',
+    kicker: 'Servicios de cuentas por cobrar para el sector de productos de molino',
     ic: 'PAPEL · EMPAQUE · BOSQUE',
     short: 'Más ganancia, clientes satisfechos y excelencia operativa en planta.',
     intro:
@@ -709,6 +731,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   mining: {
     name: 'Minería',
+    kicker: 'Servicios de cobranza para empresas mineras',
     ic: 'COMMODITY · TRADE',
     short: 'Cobranza y administración de cartera en un mercado de materias primas difícil.',
     intro:
@@ -720,6 +743,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'oil-gas': {
     name: 'Petróleo y Gas',
+    kicker: 'Servicios de cobranza para el sector del petróleo y el gas',
     ic: 'UPSTREAM · MIDSTREAM · TRADE',
     short: 'Un socio de cobranza que entiende que la calidad del servicio vale tanto como la rapidez.',
     intro:
@@ -731,6 +755,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'wholesale-distribution': {
     name: 'Venta al por mayor y distribución',
+    kicker: 'Servicios de cobranza para venta al por mayor y distribución',
     ic: 'CRÉDITO COMERCIAL',
     short: 'Cobra más rápido y baja el DSO con mejores procesos y talento.',
     intro:
@@ -742,6 +767,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   'sports-entertainment': {
     name: 'Deportes y entretenimiento',
+    kicker: 'Cobranza de deudas para la industria del deporte y el entretenimiento',
     ic: 'DERECHOS · BOLETOS · PATROCINIOS',
     short: 'Cobro de primera clase para una industria que depende de canales y revendedores.',
     intro:
@@ -753,6 +779,7 @@ export const esVerticals: Record<string, Vert> = {
   },
   telecommunications: {
     name: 'Telecomunicaciones',
+    kicker: 'Servicios de cobranza para el sector de telecomunicaciones',
     ic: 'SUSCRIPTOR · CARRIER',
     short: 'Cuentas por cobrar sanas y recuperación de mora para operadores.',
     intro:

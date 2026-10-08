@@ -211,3 +211,9 @@ Visible `/es/` and `/pt/` copy does not use the English acronym *ARM*. Any stage
 Government *unidad especializada* / *unidade especializada* is the SU team, not a service card, and stays. EN copy is unchanged.
 
 ES/PT **URLs are localized** (no `arm` in the path): `/es/cobranza-administrativa/`, `/pt/cobranca-administrativa/`, `/es/seguridad-privada/`, etc. English slugs stay. Old `/es/*-arm/` and `/pt/*-arm/` paths redirect. Host-root `.mx` slugs (`/cobranza-administrativa/`, `/defensa-y-seguridad/`) redirect into `/es/…`.
+
+---
+
+## Industry hero eyebrows (ES/PT)
+
+Live `.mx` industry heroes put a **blue descriptive line above the H1**. Educación is the only page with a unique SEO eyebrow (`Especialistas en Cobranza y Administración de Cartera Educativa`); the rest used generic *Estamos aquí para ayudar.* Our `/es/` pages had been printing *Industria*. Industry pages now use a real `<p class="kicker">` SEO line: educación from live; other industries from the live H2 under the name (light polish — *Colecciones* → *Cobranza*, *recogida*/*RA*/*AR*/*realidad aumentada* discarded); new/missing pages (Seguridad Privada, Telecomunicaciones, a few MT wrecks) written in that pattern. `/pt/` is the Brazilian translation. English still says *Industry*. Sectors still say *Segmento* / *Setor*.

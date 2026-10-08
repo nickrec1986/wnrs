@@ -334,6 +334,7 @@ type Vert = {
   name: string;
   ic: string;
   short: string;
+  kicker?: string;
   intro: string;
   overview: string;
   audience: string;
@@ -414,6 +415,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'education-research': {
     name: 'Instituições Educacionais',
+    kicker: 'Especialistas em Cobrança e Administração de Carteira Educacional',
     ic: 'MENSALIDADE · CONVÊNIOS · CRÉDITO',
     short: 'Especialistas em cobrança e administração de carteira educacional.',
     intro:
@@ -434,6 +436,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'travel-transportation': {
     name: 'Transporte e Logística',
+    kicker: 'Cobrança sob medida para o setor logístico',
     ic: 'TRANSPORTADORAS · FROTAS · RESERVAS',
     short: 'Cobrança sob medida para logística, viagens e transporte.',
     intro:
@@ -455,6 +458,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   retail: {
     name: 'Varejo',
+    kicker: 'Serviços de cobrança para o setor varejista',
     ic: 'LOJA · ECOMMERCE · CRÉDITO',
     short: 'Contas a receber de alto volume, sem sufocar o capital de giro.',
     intro:
@@ -474,6 +478,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   manufacturing: {
     name: 'Manufatura e Fabricação',
+    kicker: 'Serviços de cobrança para a indústria manufatureira',
     ic: 'B2B · CRÉDITO COMERCIAL',
     short: 'Gestão e cobrança de contas a receber para fabricantes.',
     intro:
@@ -492,6 +497,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'professional-services': {
     name: 'Serviços Profissionais',
+    kicker: 'Serviços de cobrança para o setor de serviços profissionais',
     ic: 'HONORÁRIOS · RETAINERS',
     short: 'Gestão de dívidas atuais e vencidas para escritórios que vendem expertise.',
     intro:
@@ -503,6 +509,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'aerospace-defense': {
     name: 'Aeroespacial e Defesa',
+    kicker: 'Serviços de cobrança para o setor aeroespacial e de defesa',
     ic: 'CONTRATO · COMPLIANCE',
     short: 'Um sócio de contas a receber que impulsione o fluxo de caixa e saneie as contas governamentais a tempo.',
     intro:
@@ -521,6 +528,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'private-security': {
     name: 'Segurança Privada',
+    kicker: 'Especialistas em cobrança para empresas de segurança privada',
     ic: 'VIGILANTES · SÍTIOS · EVENTOS',
     short: 'Cobre as faturas em aberto da vigilância: edifícios, condomínios, obras e eventos.',
     intro:
@@ -533,6 +541,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'construction-operations': {
     name: 'Construção e Operações',
+    kicker: 'Cobrança de dívidas para o setor da construção',
     ic: 'OBRAS · RETENÇÃO',
     short: 'Negociações complexas de dívida e gestão de carteira para construtoras.',
     intro:
@@ -544,6 +553,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   banking: {
     name: 'Bancário',
+    kicker: 'Serviços de contas a receber para o setor bancário',
     ic: 'CRÉDITO REGULADO',
     short: 'Contas a receber orientadas a desempenho para bancos e serviços financeiros.',
     intro:
@@ -556,6 +566,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'consumer-products': {
     name: 'Produtos de Consumo',
+    kicker: 'Serviços de cobrança para empresas de produtos de consumo',
     ic: 'CPG · TRADE',
     short: 'Mais fluxo de caixa e melhor relação com o cliente num mercado global.',
     intro:
@@ -567,6 +578,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   chemicals: {
     name: 'Produtos Químicos',
+    kicker: 'Serviços de cobrança para empresas químicas',
     ic: 'CRÉDITO COMERCIAL · B2B',
     short: 'O equilíbrio entre reter o cliente e cobrar de verdade.',
     intro:
@@ -578,6 +590,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   engineering: {
     name: 'Engenharia',
+    kicker: 'Serviços de cobrança para empresas de engenharia',
     ic: 'HONORÁRIOS DE PROJETO',
     short: 'Cobrança de primeira classe para salvaguardar os lucros do escritório.',
     intro:
@@ -589,6 +602,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'gaming-hospitality-leisure': {
     name: 'Jogos, hotelaria e lazer',
+    kicker: 'Serviços de cobrança para jogos, hotelaria e lazer',
     ic: 'MARKERS · FOLIOS · EVENTOS',
     short: 'Contas a receber para uma indústria que vive do serviço ao cliente.',
     intro:
@@ -609,6 +623,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'government-contracting': {
     name: 'Contratação governamental',
+    kicker: 'Serviços de cobrança para contratados governamentais',
     ic: 'PRIME · SUB · FLOW-DOWN',
     short: 'Contas a receber de governo: do federal ao municipal, e para contratados.',
     intro:
@@ -620,6 +635,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   healthcare: {
     name: 'Saúde',
+    kicker: 'Serviços de cobrança para o setor de saúde',
     ic: 'PACIENTE · PAGADOR',
     short: 'Cobranças e gestão de carteira para um mercado médico complexo.',
     intro:
@@ -636,6 +652,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'high-tech': {
     name: 'Alta tecnologia',
+    kicker: 'Serviços de cobrança para o setor de alta tecnologia',
     ic: 'SAAS · HARDWARE · CANAL',
     short: 'Práticas de cobrança à altura de empresas que vivem de inovar.',
     intro:
@@ -647,6 +664,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'industrial-machinery-components': {
     name: 'Máquinas e componentes industriais',
+    kicker: 'Serviços de cobrança para máquinas e componentes industriais',
     ic: 'CAPEX · PEÇAS',
     short: 'Gestão de contas a receber para fabricantes de máquinas e componentes.',
     intro:
@@ -658,6 +676,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   insurance: {
     name: 'Seguros',
+    kicker: 'Serviços de cobrança para o setor de seguros',
     ic: 'PRÊMIO · SUB-ROGAÇÃO',
     short: 'Prêmios, pagamentos a maior, sub-rogação e acordos — mais de 25 anos com o setor.',
     intro:
@@ -675,6 +694,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'life-sciences': {
     name: 'Ciências da vida',
+    kicker: 'Serviços de cobrança para empresas de ciências da vida',
     ic: 'FARMA · DEVICE · PESQUISA',
     short: 'Contas a receber orientadas a desempenho para life sciences.',
     intro:
@@ -686,6 +706,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   media: {
     name: 'Meios de comunicação',
+    kicker: 'Serviços de cobrança para meios de comunicação',
     ic: 'PUBLICIDADE · LICENÇAS',
     short: 'Cobro e contas a receber para as maiores empresas de mídia.',
     intro:
@@ -697,6 +718,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'mill-products': {
     name: 'Produtos de moinho',
+    kicker: 'Serviços de contas a receber para o setor de produtos de laminação',
     ic: 'PAPEL · EMBALAGEM · FLORESTA',
     short: 'Mais lucro, clientes satisfeitos e excelência operacional na planta.',
     intro:
@@ -708,6 +730,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   mining: {
     name: 'Mineração',
+    kicker: 'Serviços de cobrança para empresas de mineração',
     ic: 'COMMODITY · TRADE',
     short: 'Cobrança e administração de carteira num mercado de matérias-primas difícil.',
     intro:
@@ -719,6 +742,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'oil-gas': {
     name: 'Petróleo e Gás',
+    kicker: 'Serviços de cobrança para o setor de petróleo e gás',
     ic: 'UPSTREAM · MIDSTREAM · TRADE',
     short: 'Um sócio de cobrança que entende que a qualidade do serviço vale tanto quanto a rapidez.',
     intro:
@@ -730,6 +754,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'wholesale-distribution': {
     name: 'Atacado e distribuição',
+    kicker: 'Serviços de cobrança para atacado e distribuição',
     ic: 'CRÉDITO COMERCIAL',
     short: 'Cobre mais rápido e baixe o DSO com melhores processos e talento.',
     intro:
@@ -741,6 +766,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   'sports-entertainment': {
     name: 'Esportes e entretenimento',
+    kicker: 'Cobrança de dívidas para a indústria do esporte e do entretenimento',
     ic: 'DIREITOS · INGRESSOS · PATROCÍNIO',
     short: 'Cobro de primeira classe para uma indústria que depende de canais e revendedores.',
     intro:
@@ -752,6 +778,7 @@ export const ptVerticals: Record<string, Vert> = {
   },
   telecommunications: {
     name: 'Telecomunicações',
+    kicker: 'Serviços de cobrança para o setor de telecomunicações',
     ic: 'ASSINANTE · CARRIER',
     short: 'Contas a receber sadias e recuperação de mora para operadoras.',
     intro:

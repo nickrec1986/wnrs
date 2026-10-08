@@ -323,6 +323,48 @@ for (const [loc, { name, file }] of Object.entries(newIndustry)) {
   if (!html.includes(`<h1>${name}</h1>`)) bad.push(`${loc}/private-security: H1 should be "${name}"`);
 }
 
+const sectorIds = new Set(['business', 'enterprise', 'government', 'utilities']);
+const serviceIds = new Set([
+  'early-stage-arm',
+  'late-stage-arm',
+  'specialized-arm',
+  'financial-skip-tracing',
+  'attorney-intervention',
+]);
+for (const loc of ['es', 'pt']) {
+  const generic = loc === 'es' ? 'Industria' : 'Setor';
+  for (const [en, slug] of Object.entries(SLUG_BY_LOCALE[loc])) {
+    if (sectorIds.has(en) || serviceIds.has(en)) continue;
+    const p = join(root, loc, slug, 'index.html');
+    if (!existsSync(p)) {
+      bad.push(`missing ${loc} industry page: ${en}`);
+      continue;
+    }
+    const html = readFileSync(p, 'utf8');
+    const hero = html.match(/<p class="kicker"([^>]*)>([^<]*)<\/p>\s*<h1>([^<]*)<\/h1>/);
+    if (!hero) {
+      bad.push(`${loc}/${slug}: missing real kicker+h1 industry hero`);
+      continue;
+    }
+    const [, kickerAttrs, kicker, heading] = hero;
+    if (/\baria-hidden\b/.test(kickerAttrs)) bad.push(`${loc}/${slug}: kicker is aria-hidden`);
+    if (kicker.trim() === generic) {
+      bad.push(`${loc}/${slug}: industry kicker is still generic "${generic}"`);
+    }
+    if (kicker.trim().length < 20) {
+      bad.push(`${loc}/${slug}: industry kicker too short: "${kicker.trim()}"`);
+    }
+    if (!heading.trim()) bad.push(`${loc}/${slug}: empty industry H1`);
+  }
+}
+const enEdu = join(root, 'education-research', 'index.html');
+if (existsSync(enEdu)) {
+  const html = readFileSync(enEdu, 'utf8');
+  if (!html.includes('<p class="kicker">Industry</p>')) {
+    bad.push('en education-research: kicker should stay Industry');
+  }
+}
+
 function walkHtml(dir, acc = []) {
   if (!existsSync(dir)) return acc;
   for (const name of readdirSync(dir)) {

@@ -18,6 +18,11 @@ const t = ui(locale);
 const href = (path: string) => withBase(localeHref(path, locale));
 const vertical = localizedVertical(incoming.slug, locale) ?? incoming;
 const kindLabel = vertical.kind === 'sector' ? t.sector : t.industryKind;
+// ES/PT industry heroes follow live .mx education: descriptive SEO line above the H1.
+const eyebrow =
+  (locale === 'es' || locale === 'pt') && vertical.kind === 'industry' && vertical.kicker
+    ? vertical.kicker
+    : kindLabel;
 const seo = localizedSeo(`/${vertical.slug}`, locale);
 const site = localizedSite(locale);
 const services = localizedServices(locale);
@@ -58,7 +63,7 @@ const jsonLd = {
   <header class="page-hero">
     <div class="wrap page-split">
       <div>
-        <p class="kicker">{kindLabel}</p>
+        <p class="kicker">{eyebrow}</p>
         <h1>{vertical.name}</h1>
         <p class="lede">{vertical.intro}</p>
         <a class="btn" href={href('/#contact')}>{t.talkToExpert}</a>

@@ -363,6 +363,8 @@ export interface Vertical {
   featured?: boolean;
   ic: string;
   short: string;
+  /** ES/PT industry hero eyebrow. Unused on EN. */
+  kicker?: string;
   intro: string;
   overview: string;
   audience: string;

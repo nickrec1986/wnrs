@@ -151,4 +151,8 @@ for (const s of SERVICES) {
 for (const v of VERTICALS) {
   if (!ptVerticals[v.slug]) throw new Error(`pt overlay missing vertical ${v.slug}`);
   if (!esVerticals[v.slug]) throw new Error(`es overlay missing vertical ${v.slug}`);
+  if (v.kind === 'industry') {
+    if (!esVerticals[v.slug].kicker) throw new Error(`es overlay missing industry kicker ${v.slug}`);
+    if (!ptVerticals[v.slug].kicker) throw new Error(`pt overlay missing industry kicker ${v.slug}`);
+  }
 }
