@@ -123,7 +123,18 @@ The language switcher stays **path-based** (`/`, `/pt/`, `/es/` + same slug) unt
 
 1. `npm run build && npm run preview` → http://localhost:4321/pt/ and http://localhost:4321/es/
 2. After merge to `main`: https://wnrs.com/pt/ and https://wnrs.com/es/ (same layout as EN).
-3. Optional: Actions → **Build wnrs.com.br artifact** / **Build wnrs.com.mx artifact** downloads a host-rooted zip (`dist-br` / `dist-mx`).
+3. Project Pages test sites (no CNAME, base `/wnrs-br/` and `/wnrs-mx/`, language at the site root):
+
+   ```bash
+   npm run build
+   node scripts/flatten-locale.mjs es --preview-base /wnrs-mx
+   node scripts/flatten-locale.mjs pt --preview-base /wnrs-br
+   ```
+
+   Publish `dist-mx/` to `nickrec1986/wnrs-mx` and `dist-br/` to `nickrec1986/wnrs-br` (`gh-pages` or `main`, plus `.nojekyll`). Test at https://nickrec1986.github.io/wnrs-mx/ and https://nickrec1986.github.io/wnrs-br/.
+4. Optional: Actions → **Build wnrs.com.br artifact** / **Build wnrs.com.mx artifact** downloads a host-rooted zip (`dist-br` / `dist-mx`) that includes `CNAME`. Do not publish that zip until DNS cutover.
+
+`LOCALE_DOMAINS_READY` stays `false` until cutover, so wnrs.com hreflang and the language switcher stay on `/`, `/pt/`, and `/es/`.
 
 ### DNS cutover (GoDaddy → GitHub Pages) for .br and .mx
 
@@ -143,8 +154,16 @@ Sequence per domain (`wnrs.com.br`, then `wnrs.com.mx`):
 4. **Settings → Pages → Custom domain** `wnrs.com.br` (or `.mx`). Wait for the DNS check, then **Enforce HTTPS**.
 5. In **GoDaddy DNS** for that zone: remove WordPress/parked A/CNAME records for `@` and `www`. Add the GitHub A/AAAA + `www` CNAME. Lower TTL beforehand if you can.
 6. **Do not cancel WordPress** on .br/.mx until HTTPS is green and you have spot-checked the new site.
-7. Flip `LOCALE_DOMAINS_READY` to `true` so the switcher on all three hosts uses `wnrs.com` / `wnrs.com.br` / `wnrs.com.mx` + the equivalent slug.
-8. Leave `online.wnrs.com` and the live **wnrs.com** Pages settings alone.
+7. Republish host-rooted builds (base `/`, with CNAME) — do not reuse the `/wnrs-mx/` / `/wnrs-br/` preview trees:
+
+   ```bash
+   npm run build:mx   # dist-mx/CNAME = wnrs.com.mx
+   npm run build:br   # dist-br/CNAME = wnrs.com.br
+   ```
+
+   Push `dist-mx/` and `dist-br/` over the preview branches, then set each repo’s Pages custom domain.
+8. Flip `LOCALE_DOMAINS_READY` to `true` (branch `cursor/locale-domains-ready-d924`) and merge it so the switcher and hreflang on all three hosts use `wnrs.com` / `wnrs.com.br` / `wnrs.com.mx` + the equivalent slug.
+9. Leave `online.wnrs.com` and the live **wnrs.com** Pages settings alone.
 
 Cloudflare Pages (one project, three custom domains, host-based rewrite) is an alternative if you do not want two extra GitHub repos. It is not required: GitHub Pages + two sibling repos matches the existing wnrs.com cutover.
 

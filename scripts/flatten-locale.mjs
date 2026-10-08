@@ -8,9 +8,18 @@
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
-const locale = process.argv[2];
+const args = process.argv.slice(2);
+const locale = args[0];
+let previewBase = '';
+for (let i = 1; i < args.length; i++) {
+  if (args[i] === '--preview-base') previewBase = (args[++i] || '').replace(/\/$/, '');
+}
 if (locale !== 'pt' && locale !== 'es') {
-  console.error('Usage: node scripts/flatten-locale.mjs pt|es');
+  console.error('Usage: node scripts/flatten-locale.mjs pt|es [--preview-base /wnrs-br|/wnrs-mx]');
+  process.exit(1);
+}
+if (previewBase && previewBase !== '/wnrs-br' && previewBase !== '/wnrs-mx') {
+  console.error('Preview base must be /wnrs-br or /wnrs-mx (project Pages before DNS).');
   process.exit(1);
 }
 
@@ -60,19 +69,31 @@ const prefixRe = new RegExp(`(href|src)="(${prefix})(/[^"]*)"`, 'g');
 const prefixHomeRe = new RegExp(`(href|src)="${prefix}/"`, 'g');
 const prefixHashRe = new RegExp(`(href)="${prefix}/#`, 'g');
 
+const ptSwitch = previewBase ? 'https://nickrec1986.github.io/wnrs-br' : 'https://wnrs.com.br';
+const esSwitch = previewBase ? 'https://nickrec1986.github.io/wnrs-mx' : 'https://wnrs.com.mx';
+
+function prefixPreview(html) {
+  if (!previewBase) return html;
+  return html
+    .replace(/((?:href|src)=")\//g, `$1${previewBase}/`)
+    .replace(/url\(\s*(['"]?)\//g, `url($1${previewBase}/`);
+}
+
 const locs = [];
 for (const file of walk(out)) {
   if (!file.endsWith('.html')) continue;
   let html = readFileSync(file, 'utf8');
-  // Language switcher: send EN/other-locale to production hosts before stripping /pt or /es.
+  // Language switcher: EN stays on wnrs.com. The other locale goes to its
+  // production host, or to the github.io test site when --preview-base is set.
   html = html.replace(/href="(\/[^"]*)"(\s+)hreflang="en"/g, 'href="https://wnrs.com$1"$2hreflang="en"');
-  html = html.replace(/href="(\/pt)(\/[^"]*)"(\s+)hreflang="pt-BR"/g, 'href="https://wnrs.com.br$2"$3hreflang="pt-BR"');
-  html = html.replace(/href="(\/pt\/)"(\s+)hreflang="pt-BR"/g, 'href="https://wnrs.com.br/"$2hreflang="pt-BR"');
-  html = html.replace(/href="(\/es)(\/[^"]*)"(\s+)hreflang="es"/g, 'href="https://wnrs.com.mx$2"$3hreflang="es"');
-  html = html.replace(/href="(\/es\/)"(\s+)hreflang="es"/g, 'href="https://wnrs.com.mx/"$2hreflang="es"');
+  html = html.replace(/href="(\/pt)(\/[^"]*)"(\s+)hreflang="pt-BR"/g, `href="${ptSwitch}$2"$3hreflang="pt-BR"`);
+  html = html.replace(/href="(\/pt\/)"(\s+)hreflang="pt-BR"/g, `href="${ptSwitch}/"$2hreflang="pt-BR"`);
+  html = html.replace(/href="(\/es)(\/[^"]*)"(\s+)hreflang="es"/g, `href="${esSwitch}$2"$3hreflang="es"`);
+  html = html.replace(/href="(\/es\/)"(\s+)hreflang="es"/g, `href="${esSwitch}/"$2hreflang="es"`);
   html = html.replace(prefixHashRe, '$1="/#');
   html = html.replace(prefixHomeRe, '$1="/"');
   html = html.replace(prefixRe, (_, attr, _pre, rest) => `${attr}="${rest}"`);
+  html = prefixPreview(html);
   writeFileSync(file, html);
 
   const rel = relative(out, file).replace(/\\/g, '/');
@@ -90,7 +111,8 @@ const four = join(out, '404', 'index.html');
 if (existsSync(four)) cpSync(four, join(out, '404.html'));
 
 function writeHostRedirect(fromSlug, toPath, lang) {
-  const dest = `${origin}${toPath.startsWith('/') ? toPath : `/${toPath}`}`;
+  const path = toPath.startsWith('/') ? toPath : `/${toPath}`;
+  const dest = previewBase ? `https://nickrec1986.github.io${previewBase}${path}` : `${origin}${path}`;
   mkdirSync(join(out, fromSlug), { recursive: true });
   writeFileSync(
     join(out, fromSlug, 'index.html'),
@@ -120,7 +142,13 @@ if (locale === 'pt') {
   writeHostRedirect('produtos-de-moinho', '/aco-papel-e-madeira/', 'pt-BR');
 }
 
-writeFileSync(join(out, 'CNAME'), `${host}\n`);
+if (previewBase) {
+  const cname = join(out, 'CNAME');
+  if (existsSync(cname)) rmSync(cname);
+} else {
+  writeFileSync(join(out, 'CNAME'), `${host}\n`);
+}
+writeFileSync(join(out, '.nojekyll'), '');
 writeFileSync(
   join(out, 'robots.txt'),
   `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap-index.xml\n`,
@@ -139,4 +167,15 @@ writeFileSync(
   `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <sitemap><loc>${origin}/sitemap-0.xml</loc></sitemap>\n</sitemapindex>\n`,
 );
 
-console.log(`Flattened ${srcLocale} → ${out} (${uniqueLocs.length} pages) for ${host}`);
+if (previewBase) {
+  for (const file of walk(out)) {
+    if (!file.endsWith('.css')) continue;
+    const css = readFileSync(file, 'utf8');
+    const next = css.replace(/url\(\s*(['"]?)\//g, `url($1${previewBase}/`);
+    if (next !== css) writeFileSync(file, next);
+  }
+}
+
+console.log(
+  `Flattened ${srcLocale} → ${out} (${uniqueLocs.length} pages) for ${previewBase ? `preview ${previewBase}` : host}`,
+);

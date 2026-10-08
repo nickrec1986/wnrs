@@ -105,12 +105,32 @@ if (homeCanon !== 'https://wnrs.com/') {
 if (!home.includes('rel="alternate" hreflang="pt-BR"')) {
   bad.push('home missing pt-BR hreflang alternate');
 }
+const localeSrc = readFileSync(new URL('../src/i18n/locale.ts', import.meta.url), 'utf8');
+const domainsReady = /export const LOCALE_DOMAINS_READY = true\b/.test(localeSrc);
+const ptAboutHref = domainsReady ? 'https://wnrs.com.br/about-us/' : 'https://wnrs.com/pt/about-us/';
+const esAboutHref = domainsReady ? 'https://wnrs.com.mx/about-us/' : 'https://wnrs.com/es/about-us/';
+
 const about = readFileSync(join(root, 'about-us/index.html'), 'utf8');
-if (!about.includes('rel="alternate" hreflang="pt-BR" href="https://wnrs.com.br/about-us/"')) {
-  bad.push('about-us missing per-page pt-BR hreflang');
+if (!about.includes(`rel="alternate" hreflang="pt-BR" href="${ptAboutHref}"`)) {
+  bad.push(`about-us missing per-page pt-BR hreflang ${ptAboutHref}`);
 }
-if (!about.includes('rel="alternate" hreflang="es" href="https://wnrs.com.mx/about-us/"')) {
-  bad.push('about-us missing per-page es hreflang');
+if (!about.includes(`rel="alternate" hreflang="es" href="${esAboutHref}"`)) {
+  bad.push(`about-us missing per-page es hreflang ${esAboutHref}`);
+}
+if (!domainsReady) {
+  for (const file of ['index.html', 'about-us/index.html', 'privacy/index.html', 'private-security/index.html']) {
+    const html = readFileSync(join(root, file), 'utf8');
+    for (const href of html.matchAll(/rel="alternate" hreflang="[^"]+" href="([^"]+)"/g)) {
+      if (href[1].includes('wnrs.com.mx') || href[1].includes('wnrs.com.br')) {
+        bad.push(`${file}: hreflang points at a locale domain before DNS: ${href[1]}`);
+      }
+    }
+    for (const href of html.matchAll(/<a href="([^"]+)"[^>]*hreflang="(?:pt-BR|es)"/g)) {
+      if (href[1].includes('wnrs.com.mx') || href[1].includes('wnrs.com.br')) {
+        bad.push(`${file}: language switcher points at a locale domain before DNS: ${href[1]}`);
+      }
+    }
+  }
 }
 const aboutCanon = about.match(/rel="canonical" href="([^"]+)"/)?.[1];
 if (aboutCanon !== 'https://wnrs.com/about-us/') {

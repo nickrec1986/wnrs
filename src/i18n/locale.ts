@@ -106,16 +106,25 @@ export function localeHref(path: string, locale: Locale): string {
   return `${prefix}${localizePath(path, locale)}`;
 }
 
+function hreflangHref(locale: Locale, path: string): string {
+  const suffix = path === '/' ? '/' : path;
+  if (locale === 'en' || !LOCALE_DOMAINS_READY) {
+    const prefix = locale === 'en' ? '' : `/${locale}`;
+    return suffix === '/' ? `https://wnrs.com${prefix}/` : `https://wnrs.com${prefix}${suffix}`;
+  }
+  return `${LOCALE_META[locale].origin}${suffix}`;
+}
+
 export function pageHreflangLinks(pathname: string): { hreflang: string; href: string }[] {
   const bare = barePath(pathname);
   const en = slashedPath(localizePath(bare, 'en'));
   const pt = slashedPath(localizePath(bare, 'pt'));
   const es = slashedPath(localizePath(bare, 'es'));
   return [
-    { hreflang: 'en', href: `https://wnrs.com${en}` },
-    { hreflang: 'pt-BR', href: `https://wnrs.com.br${pt}` },
-    { hreflang: 'es', href: `https://wnrs.com.mx${es}` },
-    { hreflang: 'x-default', href: `https://wnrs.com${en}` },
+    { hreflang: 'en', href: hreflangHref('en', en) },
+    { hreflang: 'pt-BR', href: hreflangHref('pt', pt) },
+    { hreflang: 'es', href: hreflangHref('es', es) },
+    { hreflang: 'x-default', href: hreflangHref('en', en) },
   ];
 }
 
