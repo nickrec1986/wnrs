@@ -130,7 +130,6 @@ export const ASTRO_REDIRECTS = {
   '/landing_page_1/landing-1b': '/',
   '/landing_page_1/test1': '/',
   '/landing_page_2/landing-test-page-2': '/',
-  '/landingip1': '/',
   '/landingip3': '/',
   '/landingip5': '/',
 
@@ -170,6 +169,8 @@ export const HTML_REDIRECTS = {
 
   '/landing.html': '/',
   '/thank-you.html': '/',
+  // Directory stub so /landingip1 and /landingip1/ both serve this file.
+  '/landingip1/index.html': 'https://wnrslatam.com/',
 
   '/acreditaciones.html': '/es/',
   '/arco.html': '/es/',

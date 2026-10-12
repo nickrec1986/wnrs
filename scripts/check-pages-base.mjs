@@ -41,7 +41,8 @@ function walk(dir) {
           href === 'https://wnrs.com' ||
           href.startsWith('https://wnrs.com.br') ||
           href.startsWith('https://wnrs.com.mx') ||
-          href.startsWith('https://online.wnrs.com');
+          href.startsWith('https://online.wnrs.com') ||
+          href.startsWith('https://wnrslatam.com');
         if (!allowed) bad.push(`${p}: unexpected canonical host: ${href}`);
       }
       const ogUrl = html.match(/property="og:url" content="([^"]+)"/);
