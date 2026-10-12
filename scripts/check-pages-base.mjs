@@ -217,15 +217,15 @@ if (esHome.includes('versión en español del sitio WNRS se está armando')) {
 
 const serviceHeroes = {
   es: {
-    'early-stage-arm': {
+    'early-stage-collection': {
       name: 'Cobranza Administrativa',
       h1: 'Recupera tu cartera antes de que se complique.',
     },
-    'late-stage-arm': {
+    'late-stage-collection': {
       name: 'Cobranza Extrajudicial',
       h1: 'Expertos avanzados para etapas avanzadas.',
     },
-    'specialized-arm': { name: 'Cobranza Especializada', h1: 'Simplifica lo complejo.' },
+    'specialized-collection': { name: 'Cobranza Especializada', h1: 'Simplifica lo complejo.' },
     'financial-skip-tracing': {
       name: 'Localización de deudores',
       h1: 'Localiza al deudor y a sus bienes.',
@@ -236,15 +236,15 @@ const serviceHeroes = {
     },
   },
   pt: {
-    'early-stage-arm': {
+    'early-stage-collection': {
       name: 'Cobrança Administrativa',
       h1: 'Recupere sua carteira antes que complique.',
     },
-    'late-stage-arm': {
+    'late-stage-collection': {
       name: 'Cobrança Extrajudicial',
       h1: 'Especialistas avançados para etapas avançadas.',
     },
-    'specialized-arm': { name: 'Cobrança Especializada', h1: 'Simplifique o complexo.' },
+    'specialized-collection': { name: 'Cobrança Especializada', h1: 'Simplifique o complexo.' },
     'financial-skip-tracing': {
       name: 'Localização de Inadimplentes',
       h1: 'Localize o inadimplente e os seus bens.',
@@ -313,14 +313,33 @@ for (const [loc, pages] of Object.entries(serviceHeroes)) {
   }
 }
 
-const enEarly = join(root, 'early-stage-arm', 'index.html');
+const enEarly = join(root, 'early-stage-collection', 'index.html');
 if (existsSync(enEarly)) {
   const html = readFileSync(enEarly, 'utf8');
   if (!html.includes('<h1>Early Stage Collection</h1>')) {
-    bad.push('en early-stage-arm: H1 should stay the service name');
+    bad.push('en early-stage-collection: H1 should stay the service name');
   }
   if (!html.includes('Debt Collection Experts')) {
-    bad.push('en early-stage-arm: brand kicker missing');
+    bad.push('en early-stage-collection: brand kicker missing');
+  }
+  if (html.includes('http-equiv="refresh"')) {
+    bad.push('en early-stage-collection should be a real page');
+  }
+}
+for (const [oldSlug, nextSlug] of [
+  ['early-stage-arm', 'early-stage-collection'],
+  ['late-stage-arm', 'late-stage-collection'],
+  ['specialized-arm', 'specialized-collection'],
+]) {
+  const old = join(root, oldSlug, 'index.html');
+  if (!existsSync(old)) {
+    bad.push(`missing redirect ${oldSlug} → ${nextSlug}`);
+    continue;
+  }
+  const html = readFileSync(old, 'utf8');
+  const dest = `https://wnrs.com/${nextSlug}/`;
+  if (!html.includes(`url=${dest}`) || !html.includes(`rel="canonical" href="${dest}"`)) {
+    bad.push(`${oldSlug} should redirect to ${dest}`);
   }
 }
 
@@ -398,9 +417,9 @@ if (existsSync(enMill)) {
 
 const sectorIds = new Set(['business', 'enterprise', 'government', 'utilities']);
 const serviceIds = new Set([
-  'early-stage-arm',
-  'late-stage-arm',
-  'specialized-arm',
+  'early-stage-collection',
+  'late-stage-collection',
+  'specialized-collection',
   'financial-skip-tracing',
   'attorney-intervention',
 ]);

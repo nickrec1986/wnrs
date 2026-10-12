@@ -41,9 +41,9 @@ export const ptKeyStats = [
 ];
 
 export const ptPicker: Record<string, string> = {
-  'early-stage-arm': 'Cobrança Administrativa',
-  'specialized-arm': 'Cobrança Especializada',
-  'late-stage-arm': 'Cobrança Extrajudicial',
+  'early-stage-collection': 'Cobrança Administrativa',
+  'specialized-collection': 'Cobrança Especializada',
+  'late-stage-collection': 'Cobrança Extrajudicial',
   'financial-skip-tracing': 'Localização de Inadimplentes',
   'attorney-intervention': 'Cobrança Judicial',
   contact: 'Gestão da experiência do cliente',
@@ -167,7 +167,7 @@ type Svc = {
 };
 
 export const ptServices: Record<string, Svc> = {
-  'early-stage-arm': {
+  'early-stage-collection': {
     name: 'Cobrança Administrativa',
     navLabel: 'Cobrança Administrativa',
     ic: '1–60 DIAS · FIRST-PARTY',
@@ -202,7 +202,7 @@ export const ptServices: Record<string, Svc> = {
       'Reporting, QA e um ponto de contato nomeado',
     ],
   },
-  'late-stage-arm': {
+  'late-stage-collection': {
     name: 'Cobrança Extrajudicial',
     navLabel: 'Cobrança Extrajudicial',
     ic: 'PRÉ-BAIXA · CONCENTRADA',
@@ -233,7 +233,7 @@ export const ptServices: Record<string, Svc> = {
       'Cobrança Judicial quando necessário',
     ],
   },
-  'specialized-arm': {
+  'specialized-collection': {
     name: 'Cobrança Especializada',
     navLabel: 'Cobrança Especializada',
     ic: 'SENSÍVEL · MULTIDISCIPLINAR',
@@ -829,17 +829,17 @@ export const ptSeo: Record<string, { title: string; description: string }> = {
     description:
       'Esse endereço não está no site institucional da WNRS. Volte ao início para serviços de cobrança e contas a receber nas Américas.',
   },
-  '/early-stage-arm': {
+  '/early-stage-collection': {
     title: 'Cobrança Administrativa | WNRS',
     description:
       'Cobrança administrativa da WNRS: aja no início da inadimplência, antes que a conta complique. Fale com um especialista.',
   },
-  '/late-stage-arm': {
+  '/late-stage-collection': {
     title: 'Cobrança Extrajudicial | WNRS',
     description:
       'Cobrança Extrajudicial para contas perto da incobrabilidade. Estratégia sob medida, Localização de Inadimplentes e Cobrança Judicial. Fale com um especialista.',
   },
-  '/specialized-arm': {
+  '/specialized-collection': {
     title: 'Cobrança Especializada | WNRS',
     description:
       'Cobrança especializada da WNRS: a Unidade Especializada trata cobranças sensíveis e multipartes para governo e multinacionais. Fale com um especialista.',
