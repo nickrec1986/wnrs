@@ -16,3 +16,4 @@ npm-debug.log*
 # Generated WordPress file redirects (scripts/write-html-redirects.mjs)
 public/*.html
 public/*.hmtl
+public/landingip1/
