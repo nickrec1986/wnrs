@@ -104,9 +104,9 @@ export const CLIENT_LOGOS = [
 
 /** Homepage “pick your service” tiles — live Elementor labels, mapped to service slugs. */
 export const HOME_PICKER = [
-  { href: withBase('/early-stage-arm'), label: 'Administrative Collection' },
-  { href: withBase('/specialized-arm'), label: 'Specialized Collection' },
-  { href: withBase('/late-stage-arm'), label: 'Extrajudicial Collection' },
+  { href: withBase('/early-stage-collection'), label: 'Administrative Collection' },
+  { href: withBase('/specialized-collection'), label: 'Specialized Collection' },
+  { href: withBase('/late-stage-collection'), label: 'Extrajudicial Collection' },
   { href: withBase('/financial-skip-tracing'), label: 'Financial Investigation' },
   { href: withBase('/attorney-intervention'), label: 'Judicial Collection' },
   { href: withBase('/#contact'), label: 'Customer Experience Management' },
@@ -127,7 +127,7 @@ export interface Service {
 
 export const SERVICES: Service[] = [
   {
-    slug: 'early-stage-arm',
+    slug: 'early-stage-collection',
     name: 'Early Stage Collection',
     navLabel: 'Early Stage Collection',
     ic: '1–60 DAYS · FIRST-PARTY',
@@ -159,7 +159,7 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    slug: 'late-stage-arm',
+    slug: 'late-stage-collection',
     name: 'Late Stage Collection',
     navLabel: 'Late Stage Collection',
     ic: 'PRE-CHARGE-OFF · CONCENTRATED',
@@ -189,7 +189,7 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    slug: 'specialized-arm',
+    slug: 'specialized-collection',
     name: 'Specialized Collection',
     navLabel: 'Specialized Collection',
     ic: 'SENSITIVE · MULTIDISCIPLINARY',
@@ -283,11 +283,11 @@ export const getService = (slug: string) => SERVICES.find((s) => s.slug === slug
 
 /** Hub order on /services/ — matches live Elementor. */
 export const SERVICE_HUB_ORDER = [
-  'early-stage-arm',
-  'late-stage-arm',
+  'early-stage-collection',
+  'late-stage-collection',
   'attorney-intervention',
   'financial-skip-tracing',
-  'specialized-arm',
+  'specialized-collection',
 ] as const;
 
 export const getServicesForHub = () =>
@@ -976,17 +976,17 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
     description:
       'WNRS — expertos en cobranza y gestión de cuentas por cobrar en las Américas. Sitio en español en construcción. Contáctanos.',
   },
-  '/early-stage-arm': {
+  '/early-stage-collection': {
     title: 'Early Stage Collection | Debt Collection | WNRS',
     description:
       'First-party early stage collection from WNRS — stop delinquency in the first 1–60 days without souring customer relationships. Talk to an expert.',
   },
-  '/late-stage-arm': {
+  '/late-stage-collection': {
     title: 'Late Stage Collection | Pre-Charge-Off Recovery | WNRS',
     description:
       'Late stage collection for accounts nearing charge-off. Seasoned collectors, skip tracing, and attorney backup from WNRS. Talk to an expert.',
   },
-  '/specialized-arm': {
+  '/specialized-collection': {
     title: 'Specialized Collection | Sensitive ARM | WNRS',
     description:
       'WNRS Specialized Unit handles sensitive, multi-party collections for government and multinationals. Complex disputes, discreet recovery. Talk to an expert.',

@@ -23,6 +23,18 @@ function localeSlugRedirects() {
   out['/productos-de-molino'] = '/es/acero-papel-y-madera/';
   out['/pt/produtos-de-laminacao'] = '/pt/aco-papel-e-madeira/';
   out['/pt/produtos-de-moinho'] = '/pt/aco-papel-e-madeira/';
+  const retiredArm = {
+    'early-stage-arm': 'early-stage-collection',
+    'late-stage-arm': 'late-stage-collection',
+    'specialized-arm': 'specialized-collection',
+  };
+  for (const [oldSlug, nextSlug] of Object.entries(retiredArm)) {
+    out[`/${oldSlug}`] = `/${nextSlug}/`;
+    for (const locale of ['es', 'pt']) {
+      const loc = SLUG_BY_LOCALE[locale][nextSlug];
+      out[`/${locale}/${oldSlug}`] = `/${locale}/${loc}/`;
+    }
+  }
   return out;
 }
 
@@ -62,9 +74,9 @@ export const ASTRO_REDIRECTS = {
   '/industries/industrial-machinery-and-components': '/industrial-machinery-components/',
   '/industries/163': '/services/',
 
-  '/service/early-stage-collection': '/early-stage-arm/',
-  '/service/late-stage-collection': '/late-stage-arm/',
-  '/service/specialized-collection': '/specialized-arm/',
+  '/service/early-stage-collection': '/early-stage-collection/',
+  '/service/late-stage-collection': '/late-stage-collection/',
+  '/service/specialized-collection': '/specialized-collection/',
   '/service/financial-skip-tracing': '/financial-skip-tracing/',
   '/service/attorney-intervention': '/attorney-intervention/',
   '/service/payment-processing': '/services/',
@@ -163,7 +175,7 @@ export const HTML_REDIRECTS = {
   '/contact.html': '/#contact',
   '/privacypolicy.html': '/privacy/',
   '/attorney.html': '/attorney-intervention/',
-  '/earlyintervention.html': '/early-stage-arm/',
+  '/earlyintervention.html': '/early-stage-collection/',
   '/financialskiptracing.html': '/financial-skip-tracing/',
   '/payonline.html': PORTAL,
 

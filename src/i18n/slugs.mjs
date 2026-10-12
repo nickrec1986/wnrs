@@ -1,13 +1,13 @@
 /**
- * EN ids stay the content keys (`early-stage-arm`).
+ * EN ids stay the content keys (`early-stage-collection`).
  * ES/PT public URL slugs are localized (ASCII, no accents).
  */
 export const SLUG_BY_LOCALE = {
   en: {},
   es: {
-    'early-stage-arm': 'cobranza-administrativa',
-    'late-stage-arm': 'cobranza-extrajudicial',
-    'specialized-arm': 'cobranza-especializada',
+    'early-stage-collection': 'cobranza-administrativa',
+    'late-stage-collection': 'cobranza-extrajudicial',
+    'specialized-collection': 'cobranza-especializada',
     'financial-skip-tracing': 'localizacion-de-deudores',
     'attorney-intervention': 'intervencion-legal',
     business: 'negocio',
@@ -42,9 +42,9 @@ export const SLUG_BY_LOCALE = {
     telecommunications: 'telecomunicaciones',
   },
   pt: {
-    'early-stage-arm': 'cobranca-administrativa',
-    'late-stage-arm': 'cobranca-extrajudicial',
-    'specialized-arm': 'cobranca-especializada',
+    'early-stage-collection': 'cobranca-administrativa',
+    'late-stage-collection': 'cobranca-extrajudicial',
+    'specialized-collection': 'cobranca-especializada',
     'financial-skip-tracing': 'localizacao-de-inadimplentes',
     'attorney-intervention': 'cobranca-judicial',
     business: 'negocio',
@@ -93,6 +93,9 @@ export const SLUG_ALIASES = {
   'productos-de-molino': 'mill-products',
   'produtos-de-laminacao': 'mill-products',
   'produtos-de-moinho': 'mill-products',
+  'early-stage-arm': 'early-stage-collection',
+  'late-stage-arm': 'late-stage-collection',
+  'specialized-arm': 'specialized-collection',
 };
 
 /** Map any known public slug (EN or localized) back to the EN content id. */
