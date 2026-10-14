@@ -805,6 +805,22 @@ export const INDUSTRIES: Vertical[] = [
     audience: 'Wireline, wireless, and wholesale telecom operators.',
     benefits: COLLECTION_BENEFITS,
   },
+  {
+    slug: 'testing-inspection-certification',
+    name: 'Testing, Inspection & Certification (TIC)',
+    kind: 'industry',
+    featured: true,
+    ic: 'TIC · B2B · B2C',
+    short:
+      'Recover unpaid testing, inspection, and certification invoices — B2B and B2C — without damaging the relationship.',
+    intro:
+      'Testing, inspection, and certification firms invoice after the work is done — a visit, a test result, a certificate — while payment often waits on a shipment, a buyer, or a dispute about the outcome. WNRS recovers those receivables in the language of the trade, with a diplomatic tone that protects the client relationship.',
+    overview:
+      'We already work with leaders in the TIC industry. For half a century, more than 1,200 professionals across 8 global recovery centers have collected in 30+ countries and 20+ languages. Collectors learn how an inspection is documented and how a disputed or failed result turns into non-payment: we separate the service that was delivered from the outcome the customer wanted, and we work the objection from the service order, inspection report, certificate, or visit confirmation. Small invoices — inspections, re-inspections, late cancellations — add up across many debtors, so we consolidate by payer. The company that orders the work, the site that is inspected, and the entity that pays are often in different countries and under different legal names; we identify who owes and locate them. The book is mostly B2B, and where product certification reaches consumer brands we treat those B2C accounts with the same care for the relationship. Early-stage contact, late-stage concentration, skip tracing, and attorney intervention are available when a reminder is not enough.',
+    audience:
+      'Testing, inspection, and certification firms serving importers, exporters, manufacturers, and consumer brands.',
+    benefits: COLLECTION_BENEFITS,
+  },
 ];
 
 export const VERTICALS: Vertical[] = [...SECTORS, ...INDUSTRIES];
@@ -835,6 +851,7 @@ export const INDUSTRY_HUB = [
   'retail',
   'sports-entertainment',
   'telecommunications',
+  'testing-inspection-certification',
 ] as const;
 
 export const ABOUT = {
@@ -1150,6 +1167,11 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
     title: 'Telecommunications Debt Collection | WNRS',
     description:
       'Subscriber and carrier receivables for telecom operators. WNRS covers high-volume delinquency and wholesale claims with compliant outreach. Talk to an expert.',
+  },
+  '/testing-inspection-certification': {
+    title: 'Testing, Inspection & Certification (TIC) | WNRS',
+    description:
+      'Collections for testing, inspection, and certification firms. WNRS recovers unpaid B2B and B2C invoices — disputed results, small high-volume bills, and cross-border payers. Talk to an expert.',
   },
 };
 
