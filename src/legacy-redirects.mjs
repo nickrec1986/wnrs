@@ -60,6 +60,7 @@ const SAME_INDUSTRY = [
   'retail',
   'sports-entertainment',
   'telecommunications',
+  'testing-inspection-certification',
   'travel-transportation',
   'wholesale-distribution',
 ];

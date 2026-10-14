@@ -796,6 +796,20 @@ export const esVerticals: Record<string, Vert> = {
       'Procesos de cobro eficaces',
     ],
   },
+  'testing-inspection-certification': {
+    name: 'Pruebas, Inspección y Certificación (TIC)',
+    kicker: 'Servicios de cobranza para la industria de pruebas, inspección y certificación',
+    ic: 'TIC · B2B · B2C',
+    short:
+      'Recupera facturas impagas de pruebas, inspección y certificación — B2B y B2C — sin dañar la relación.',
+    intro:
+      'Las empresas de pruebas, inspección y certificación facturan cuando el trabajo ya se hizo — una visita, un resultado, un certificado — y el pago a menudo espera un embarque, un comprador o una disputa por el resultado. WNRS recupera esas cuentas con el vocabulario de tu oficio y un tono diplomático que cuida la relación con tu cliente.',
+    overview:
+      'Ya trabajamos con líderes de la industria TIC. Durante medio siglo, más de 1,200 profesionales en 8 centros de recuperación globales han cobrado en 30+ países y 20+ idiomas. Los gestores aprenden cómo se documenta una inspección y cómo una disputa o un resultado fallido se vuelve un impago: separamos el servicio que ya prestaste del resultado que tu cliente esperaba, y trabajamos la objeción con la orden de servicio, el reporte de inspección, el certificado o la confirmación de visita. Las facturas pequeñas — inspecciones, reinspecciones, cancelaciones tardías — se acumulan entre muchos deudores, así que consolidamos por pagador. Quien contrata, quien es inspeccionado y quien paga suelen estar en países distintos y con razones sociales diferentes; identificamos a quién le toca pagar y lo localizamos. La cartera es sobre todo B2B y, cuando la certificación de producto llega a marcas de consumo, tratamos esas cuentas B2C con el mismo cuidado de la relación. El contacto temprano, la cobranza de etapas avanzadas, la localización de deudores y la intervención legal están disponibles cuando un recordatorio no basta.',
+    audience:
+      'Empresas de pruebas, inspección y certificación que atienden a importadores, exportadores, fabricantes y marcas de consumo.',
+    benefits: esIndustryBenefits,
+  },
 };
 
 export const esSeo: Record<string, { title: string; description: string }> = {
@@ -999,6 +1013,11 @@ export const esSeo: Record<string, { title: string; description: string }> = {
     title: 'Telecomunicaciones | WNRS',
     description:
       'Cuentas por cobrar sanas y recuperación de mora para operadores móviles, internet, cable y VoIP.',
+  },
+  '/testing-inspection-certification': {
+    title: 'Pruebas, Inspección y Certificación (TIC) | WNRS',
+    description:
+      'Cobranza para empresas de pruebas, inspección y certificación. WNRS recupera facturas B2B y B2C: disputas por resultados, facturas pequeñas de alto volumen y pagadores en varios países. Habla con un experto.',
   },
   '/government-contracting': {
     title: 'Contratación gubernamental | WNRS',
