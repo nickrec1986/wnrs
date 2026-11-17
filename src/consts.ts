@@ -328,6 +328,9 @@ export const SERVICES: Service[] = [
 
 export const getService = (slug: string) => SERVICES.find((s) => s.slug === slug);
 
+/** Niche lines stay off the header Services menu and the about-us picker. */
+export const showInHeaderMenu = (slug: string) => slug !== 'retail-receivables-management';
+
 /** Hub order on /services/ — matches live Elementor. */
 export const SERVICE_HUB_ORDER = [
   'early-stage-collection',

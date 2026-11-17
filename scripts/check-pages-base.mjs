@@ -392,6 +392,33 @@ for (const [loc, spec] of Object.entries(cobranzaLink)) {
     bad.push(`${loc} cobranza administrativa missing link ${spec.href}`);
   }
 }
+const menuPlacement = {
+  en: { home: 'index.html', href: '/retail-receivables-management/' },
+  es: { home: 'es/index.html', href: '/es/cuentas-por-cobrar-cadenas-comerciales/' },
+  pt: { home: 'pt/index.html', href: '/pt/contas-a-receber-redes-varejistas/' },
+};
+for (const [loc, spec] of Object.entries(menuPlacement)) {
+  const html = readFileSync(join(root, spec.home), 'utf8');
+  const split = html.indexOf('<footer');
+  const header = split >= 0 ? html.slice(0, split) : html;
+  const footer = split >= 0 ? html.slice(split) : '';
+  if (header.includes(spec.href)) bad.push(`${loc} header menu still links ${spec.href}`);
+  if (!footer.includes(spec.href)) bad.push(`${loc} footer missing ${spec.href}`);
+}
+const servicesIndex = readFileSync(join(root, 'services/index.html'), 'utf8');
+if (!servicesIndex.includes('/retail-receivables-management/')) {
+  bad.push('services index missing retail receivables');
+}
+for (const rel of ['about-us/index.html', 'es/about-us/index.html', 'pt/about-us/index.html']) {
+  const aboutBody = readFileSync(join(root, rel), 'utf8').split('<footer')[0];
+  if (
+    aboutBody.includes('retail-receivables-management') ||
+    aboutBody.includes('cuentas-por-cobrar-cadenas-comerciales') ||
+    aboutBody.includes('contas-a-receber-redes-varejistas')
+  ) {
+    bad.push(`${rel} service list still includes retail receivables`);
+  }
+}
 for (const [oldSlug, nextSlug] of [
   ['early-stage-arm', 'early-stage-collection'],
   ['late-stage-arm', 'late-stage-collection'],
