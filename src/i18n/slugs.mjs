@@ -6,6 +6,7 @@ export const SLUG_BY_LOCALE = {
   en: {},
   es: {
     'early-stage-collection': 'cobranza-administrativa',
+    'retail-receivables-management': 'cuentas-por-cobrar-cadenas-comerciales',
     'late-stage-collection': 'cobranza-extrajudicial',
     'specialized-collection': 'cobranza-especializada',
     'financial-skip-tracing': 'localizacion-de-deudores',
@@ -44,6 +45,7 @@ export const SLUG_BY_LOCALE = {
   },
   pt: {
     'early-stage-collection': 'cobranca-administrativa',
+    'retail-receivables-management': 'contas-a-receber-redes-varejistas',
     'late-stage-collection': 'cobranca-extrajudicial',
     'specialized-collection': 'cobranca-especializada',
     'financial-skip-tracing': 'localizacao-de-inadimplentes',

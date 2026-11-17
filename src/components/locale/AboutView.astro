@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LogoMarquee from '../LogoMarquee.astro';
 import ContactSection from '../ContactSection.astro';
-import { PRESS_LOGOS } from '../../consts';
+import { PRESS_LOGOS, showInHeaderMenu } from '../../consts';
 import { withBase } from '../../base';
 import { localeFromPath, localeHref, LOCALE_META } from '../../i18n/locale';
 import { ui } from '../../i18n/ui';
@@ -12,7 +12,7 @@ const locale = localeFromPath(Astro.url.pathname);
 const t = ui(locale);
 const about = localizedAbout(locale);
 const seo = localizedSeo('/about-us', locale);
-const services = localizedServices(locale);
+const services = localizedServices(locale).filter((s) => showInHeaderMenu(s.slug));
 const href = (path: string) => withBase(localeHref(path, locale));
 ---
 <BaseLayout

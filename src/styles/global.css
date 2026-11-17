@@ -783,6 +783,12 @@ button { font-family: inherit; }
 .text-link:hover { color: var(--accent); }
 .prose-el { font-size: 16.5px; color: var(--text); }
 .prose-el p { margin-bottom: 14px; }
+.prose-el a.inline-link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .prose-el h2 { font-size: 28px; margin: 8px 0 12px; color: var(--secondary); }
 .svc-grid {
   display: grid;

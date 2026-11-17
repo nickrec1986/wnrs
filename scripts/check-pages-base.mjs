@@ -78,6 +78,9 @@ for (const sp of sitemapFiles) {
       if (!xml.includes('https://wnrs.com/insights/')) {
         bad.push(`${sp}: insights URL missing from sitemap`);
       }
+      if (!xml.includes('https://wnrs.com/retail-receivables-management/')) {
+        bad.push(`${sp}: retail receivables URL missing from sitemap`);
+      }
       const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((x) => x[1]);
       for (const loc of locs) {
         if (!loc.endsWith('/')) bad.push(`${sp}: sitemap loc missing trailing slash: ${loc}`);
@@ -325,6 +328,96 @@ if (existsSync(enEarly)) {
   if (html.includes('http-equiv="refresh"')) {
     bad.push('en early-stage-collection should be a real page');
   }
+  if (!html.includes('href="/retail-receivables-management/"')) {
+    bad.push('en early-stage-collection missing retail receivables link');
+  }
+}
+
+const retailService = {
+  en: {
+    file: join(root, 'retail-receivables-management', 'index.html'),
+    kicker: 'Debt Collection Experts',
+    h1: 'Retail Receivables Management: portals, disputes &amp; deductions',
+    canon: 'https://wnrs.com/retail-receivables-management/',
+  },
+  es: {
+    file: join(root, 'es', 'cuentas-por-cobrar-cadenas-comerciales', 'index.html'),
+    kicker: 'Gestión de Cuentas por Cobrar con Cadenas Comerciales: portales, disputas y deducciones',
+    h1: 'Recupera el margen que las cadenas se quedan en la factura.',
+    canon: 'https://wnrs.com.mx/cuentas-por-cobrar-cadenas-comerciales/',
+  },
+  pt: {
+    file: join(root, 'pt', 'contas-a-receber-redes-varejistas', 'index.html'),
+    kicker: 'Gestão de Contas a Receber com Redes Varejistas: portais, disputas e deduções',
+    h1: 'Recupere a margem que as redes varejistas retêm na fatura.',
+    canon: 'https://wnrs.com.br/contas-a-receber-redes-varejistas/',
+  },
+};
+for (const [loc, spec] of Object.entries(retailService)) {
+  if (!existsSync(spec.file)) {
+    bad.push(`missing ${loc} retail receivables page`);
+    continue;
+  }
+  const html = readFileSync(spec.file, 'utf8');
+  const canon = html.match(/rel="canonical" href="([^"]+)"/)?.[1];
+  if (canon !== spec.canon) bad.push(`${loc} retail receivables canonical ${canon} (expected ${spec.canon})`);
+  if (!html.includes(`<p class="kicker">${spec.kicker}</p>`)) {
+    bad.push(`${loc} retail receivables kicker mismatch`);
+  }
+  if (!html.includes(`<h1>${spec.h1}</h1>`)) bad.push(`${loc} retail receivables H1 mismatch`);
+  if (!html.includes('hreflang="es" href="https://wnrs.com.mx/cuentas-por-cobrar-cadenas-comerciales/"')) {
+    bad.push(`${loc} retail receivables missing es hreflang`);
+  }
+  if (!html.includes('hreflang="pt-BR" href="https://wnrs.com.br/contas-a-receber-redes-varejistas/"')) {
+    bad.push(`${loc} retail receivables missing pt hreflang`);
+  }
+  if (!html.includes('hreflang="en" href="https://wnrs.com/retail-receivables-management/"')) {
+    bad.push(`${loc} retail receivables missing en hreflang`);
+  }
+  if (/\barm\b/i.test(html)) bad.push(`${loc} retail receivables page contains "arm"`);
+}
+const cobranzaLink = {
+  es: {
+    file: join(root, 'es', 'cobranza-administrativa', 'index.html'),
+    href: '/es/cuentas-por-cobrar-cadenas-comerciales/',
+  },
+  pt: {
+    file: join(root, 'pt', 'cobranca-administrativa', 'index.html'),
+    href: '/pt/contas-a-receber-redes-varejistas/',
+  },
+};
+for (const [loc, spec] of Object.entries(cobranzaLink)) {
+  const html = existsSync(spec.file) ? readFileSync(spec.file, 'utf8') : '';
+  if (!html.includes(`href="${spec.href}"`)) {
+    bad.push(`${loc} cobranza administrativa missing link ${spec.href}`);
+  }
+}
+const menuPlacement = {
+  en: { home: 'index.html', href: '/retail-receivables-management/' },
+  es: { home: 'es/index.html', href: '/es/cuentas-por-cobrar-cadenas-comerciales/' },
+  pt: { home: 'pt/index.html', href: '/pt/contas-a-receber-redes-varejistas/' },
+};
+for (const [loc, spec] of Object.entries(menuPlacement)) {
+  const html = readFileSync(join(root, spec.home), 'utf8');
+  const split = html.indexOf('<footer');
+  const header = split >= 0 ? html.slice(0, split) : html;
+  const footer = split >= 0 ? html.slice(split) : '';
+  if (header.includes(spec.href)) bad.push(`${loc} header menu still links ${spec.href}`);
+  if (!footer.includes(spec.href)) bad.push(`${loc} footer missing ${spec.href}`);
+}
+const servicesIndex = readFileSync(join(root, 'services/index.html'), 'utf8');
+if (!servicesIndex.includes('/retail-receivables-management/')) {
+  bad.push('services index missing retail receivables');
+}
+for (const rel of ['about-us/index.html', 'es/about-us/index.html', 'pt/about-us/index.html']) {
+  const aboutBody = readFileSync(join(root, rel), 'utf8').split('<footer')[0];
+  if (
+    aboutBody.includes('retail-receivables-management') ||
+    aboutBody.includes('cuentas-por-cobrar-cadenas-comerciales') ||
+    aboutBody.includes('contas-a-receber-redes-varejistas')
+  ) {
+    bad.push(`${rel} service list still includes retail receivables`);
+  }
 }
 for (const [oldSlug, nextSlug] of [
   ['early-stage-arm', 'early-stage-collection'],
@@ -422,6 +515,7 @@ const serviceIds = new Set([
   'specialized-collection',
   'financial-skip-tracing',
   'attorney-intervention',
+  'retail-receivables-management',
 ]);
 for (const loc of ['es', 'pt']) {
   const generic = loc === 'es' ? 'Industria' : 'Setor';
