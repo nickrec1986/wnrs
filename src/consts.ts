@@ -123,6 +123,13 @@ export interface Service {
   benefits: string[];
   included: string[];
   ic: string;
+  /** One sentence under Overview that links to another service. */
+  related?: {
+    before: string;
+    label: string;
+    after: string;
+    slug: string;
+  };
 }
 
 export const SERVICES: Service[] = [
@@ -156,6 +163,46 @@ export const SERVICES: Service[] = [
       'Multilingual coverage aligned to the debtor’s language',
       'Payment reminders, billing questions, and early follow-up',
       'Reporting, QA, and a named point of contact',
+    ],
+    related: {
+      before: 'Selling into retail chains is a different line of work from early-stage collection.',
+      label: 'Retail Receivables Management: portals, disputes & deductions',
+      after: ' covers portal posting, deduction disputes, and cash application.',
+      slug: 'retail-receivables-management',
+    },
+  },
+  {
+    slug: 'retail-receivables-management',
+    name: 'Retail Receivables Management: portals, disputes & deductions',
+    navLabel: 'Retail Receivables Management: portals, disputes & deductions',
+    ic: 'RETAIL CHAINS · DEDUCTIONS',
+    short:
+      'Portal posting, deduction disputes, and cash application for consumer-goods suppliers selling into major retail chains.',
+    tagline: 'Get invalid deductions back before they become lost margin.',
+    intro:
+      'Retail Receivables Management: portals, disputes & deductions is a WNRS service line for consumer-goods suppliers that sell into major retailers such as Walmart. It is separate from early-stage collection. We post your invoices on retailer portals, follow them to payment, and work each short payment until the deduction is resolved.',
+    overview: [
+      'Consumer-goods suppliers lose margin between the invoice and the remittance. Major retailers such as Walmart take commercial discounts, returns, shortages, price differences, logistics charges, and penalties — often before your team has the backup. This desk exists to recover what the shipment was worth, not to chase a past-due consumer account.',
+      'We upload invoices to the retailer portals and follow up until each invoice is accepted, matched, and scheduled to pay. When the remittance is short, we manage the deduction: commercial discounts, returns, shortages, price differences, logistics, and penalties. Cash that arrives without a clear invoice — cash application, payments still to identify — is applied so the open item matches what the retailer actually paid.',
+      'Each dispute is investigated to a resolution. A valid deduction is documented and closed with your internal areas. An invalid deduction is claimed back from the retailer as a payment or a credit note. An amount that is not recoverable is documented for write-off approval. When the portal stops moving the file, we escalate beyond it. We control claim deadlines so a recoverable amount does not expire on a calendar.',
+      'The engagement starts with a backlog cleanup, then continues as an ongoing service. Reporting and KPIs show what was recovered, what was valid, what is waiting on the retailer, and what is still open.',
+    ],
+    benefits: [
+      'Recover margin lost to invalid deductions',
+      'A cleaner accounts receivable ledger',
+      'Internal analysts freed from portal work',
+      'Every dispute closed as valid, invalid, or not recoverable',
+      'Claim deadlines under control',
+      'Backlog cleared first, then an ongoing service',
+      'Reporting and KPIs finance can use',
+    ],
+    included: [
+      'Invoice upload and follow-up on retailer portals',
+      'Deduction and short-payment management',
+      'Cash application for payments still to identify',
+      'Dispute resolution: valid, invalid, or not recoverable',
+      'Escalation beyond the portal and claim-deadline control',
+      'Backlog cleanup, then an ongoing service, with reporting and KPIs',
     ],
   },
   {
@@ -284,6 +331,7 @@ export const getService = (slug: string) => SERVICES.find((s) => s.slug === slug
 /** Hub order on /services/ — matches live Elementor. */
 export const SERVICE_HUB_ORDER = [
   'early-stage-collection',
+  'retail-receivables-management',
   'late-stage-collection',
   'attorney-intervention',
   'financial-skip-tracing',
@@ -997,6 +1045,11 @@ export const PAGE_SEO: Record<string, SeoEntry> = {
     title: 'Early Stage Collection | Debt Collection | WNRS',
     description:
       'First-party early stage collection from WNRS — stop delinquency in the first 1–60 days without souring customer relationships. Talk to an expert.',
+  },
+  '/retail-receivables-management': {
+    title: 'Retail Receivables Management: portals, disputes & deductions | WNRS',
+    description:
+      'Retail receivables for suppliers into major retailers such as Walmart: portal posting, deduction disputes, and cash application. Talk to an expert.',
   },
   '/late-stage-collection': {
     title: 'Late Stage Collection | Pre-Charge-Off Recovery | WNRS',

@@ -164,6 +164,12 @@ type Svc = {
   overview: string[];
   benefits: string[];
   included: string[];
+  related?: {
+    before: string;
+    label: string;
+    after: string;
+    slug: string;
+  };
 };
 
 export const ptServices: Record<string, Svc> = {
@@ -200,6 +206,46 @@ export const ptServices: Record<string, Svc> = {
       'Cobertura multilíngue alinhada ao idioma do devedor',
       'Lembretes de pagamento, dúvidas de faturamento e acompanhamento precoce',
       'Reporting, QA e um ponto de contato nomeado',
+    ],
+    related: {
+      before:
+        'Se você vende para redes varejistas, portais, disputas e deduções são outra linha, distinta da cobrança administrativa. Conheça',
+      label: 'Gestão de Contas a Receber com Redes Varejistas: portais, disputas e deduções',
+      after: '.',
+      slug: 'retail-receivables-management',
+    },
+  },
+  'retail-receivables-management': {
+    name: 'Gestão de Contas a Receber com Redes Varejistas: portais, disputas e deduções',
+    navLabel: 'Gestão de Contas a Receber com Redes Varejistas: portais, disputas e deduções',
+    ic: 'REDES VAREJISTAS · DEDUÇÕES',
+    short:
+      'Carga de notas nos portais, disputas de deduções e pagamentos a identificar para fornecedores de consumo que vendem a redes varejistas.',
+    tagline: 'Recupere a margem que as redes varejistas retêm na fatura.',
+    intro:
+      'Gestão de Contas a Receber com Redes Varejistas: portais, disputas e deduções é uma linha da WNRS distinta da cobrança administrativa. Ela é feita para fornecedores de bens de consumo que vendem a redes como Walmart, Soriana, Chedraui, City Fresko e Liverpool. Carregamos as suas notas nos portais, fazemos o acompanhamento e tratamos cada dedução até uma resolução.',
+    overview: [
+      'A margem se perde entre a nota e a remessa. Redes como Walmart, Soriana, Chedraui, City Fresko e Liverpool aplicam descontos comerciais, devoluções, faltas, diferenças de preço, logística e penalidades, muitas vezes antes de a sua equipe ver o comprovante. Este serviço não é cobrança administrativa: é o trabalho de receber o que o embarque valia.',
+      'Carregamos as notas nos portais da rede e acompanhamos até cada uma ser aceita, conciliada e programada para pagamento. Se a remessa chega menor, gerimos a dedução: descontos comerciais, devoluções, faltas, diferenças de preço, logística e penalidades. O dinheiro que entra sem nota clara — os pagamentos a identificar — é aplicado para a partida em aberto coincidir com o que a rede de fato pagou.',
+      'Investigamos cada disputa até uma resolução. Se a dedução é válida, documentamos e encerramos com as suas áreas internas. Se é inválida, cobramos de volta da rede por pagamento ou nota de crédito. Se não é recuperável, documentamos para a sua aprovação de baixa. Quando o portal deixa de mover o processo, escalamos para fora dele. Controlamos os prazos de reclamação para um valor recuperável não vencer no calendário.',
+      'Começamos pela limpeza do acúmulo de pendências e depois seguimos como serviço contínuo. O reporting e os indicadores mostram o que foi recuperado, o que era válido, o que espera a rede e o que continua em aberto.',
+    ],
+    benefits: [
+      'Recupere a margem perdida em deduções inválidas',
+      'Contas a receber mais limpas',
+      'Os seus analistas saem do trabalho de portal',
+      'Cada disputa encerrada como válida, inválida ou não recuperável',
+      'Prazos de reclamação sob controle',
+      'Primeiro a limpeza do acúmulo, depois um serviço contínuo',
+      'Reporting e indicadores que o financeiro consegue usar',
+    ],
+    included: [
+      'Carga de notas e acompanhamento nos portais da rede',
+      'Gestão de deduções e pagamentos a menor',
+      'Aplicação de pagamentos a identificar',
+      'Resolução de cada disputa: válida, inválida ou não recuperável',
+      'Escalonamento fora do portal e controle dos prazos de reclamação',
+      'Limpeza do acúmulo e depois um serviço contínuo, com reporting e indicadores',
     ],
   },
   'late-stage-collection': {
@@ -847,6 +893,11 @@ export const ptSeo: Record<string, { title: string; description: string }> = {
     title: 'Cobrança Administrativa | WNRS',
     description:
       'Cobrança administrativa da WNRS: aja no início da inadimplência, antes que a conta complique. Fale com um especialista.',
+  },
+  '/retail-receivables-management': {
+    title: 'Gestão de Contas a Receber com Redes Varejistas: portais, disputas e deduções | WNRS',
+    description:
+      'Contas a receber com redes varejistas: portais, disputas, deduções e pagamentos a identificar. Fale com um especialista.',
   },
   '/late-stage-collection': {
     title: 'Cobrança Extrajudicial | WNRS',

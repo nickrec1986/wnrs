@@ -164,6 +164,12 @@ type Svc = {
   overview: string[];
   benefits: string[];
   included: string[];
+  related?: {
+    before: string;
+    label: string;
+    after: string;
+    slug: string;
+  };
 };
 
 export const esServices: Record<string, Svc> = {
@@ -200,6 +206,46 @@ export const esServices: Record<string, Svc> = {
       'Cobertura multilingüe alineada al idioma del deudor',
       'Recordatorios de pago, dudas de facturación y seguimiento temprano',
       'Reporting, QA y un punto de contacto nombrado',
+    ],
+    related: {
+      before:
+        'Si vendes a cadenas comerciales, portales, disputas y deducciones son otra línea, distinta de la cobranza administrativa. Conoce',
+      label: 'Gestión de Cuentas por Cobrar con Cadenas Comerciales: portales, disputas y deducciones',
+      after: '.',
+      slug: 'retail-receivables-management',
+    },
+  },
+  'retail-receivables-management': {
+    name: 'Gestión de Cuentas por Cobrar con Cadenas Comerciales: portales, disputas y deducciones',
+    navLabel: 'Gestión de Cuentas por Cobrar con Cadenas Comerciales: portales, disputas y deducciones',
+    ic: 'CADENAS · DEDUCCIONES',
+    short:
+      'Carga de facturas en portales, disputas por deducciones y pagos por identificar para proveedores de consumo que venden a cadenas.',
+    tagline: 'Recupera el margen que las cadenas se quedan en la factura.',
+    intro:
+      'Gestión de Cuentas por Cobrar con Cadenas Comerciales: portales, disputas y deducciones es una línea de WNRS distinta de la cobranza administrativa. Está pensada para proveedores de bienes de consumo que venden a cadenas como Walmart, Soriana, Chedraui, City Fresko y Liverpool. Cargamos tus facturas en los portales, les damos seguimiento y trabajamos cada deducción hasta dejarla resuelta.',
+    overview: [
+      'El margen se pierde entre la factura y la remesa. Cadenas como Walmart, Soriana, Chedraui, City Fresko y Liverpool aplican descuentos comerciales, devoluciones, faltantes, diferencias de precio, logística y penalizaciones, muchas veces antes de que tu equipo vea el soporte. Este servicio no es cobranza administrativa: es el trabajo de cobrar lo que valía el embarque.',
+      'Cargamos las facturas en los portales de la cadena y damos seguimiento hasta que cada una queda aceptada, conciliada y programada para pago. Si la remesa llega corta, gestionamos la deducción: descuentos comerciales, devoluciones, faltantes, diferencias de precio, logística y penalizaciones. El dinero que entra sin factura clara — los pagos por identificar — se aplica para que la partida abierta coincida con lo que la cadena sí pagó.',
+      'Investigamos cada disputa hasta una resolución. Si la deducción es válida, la documentamos y la cerramos con tus áreas internas. Si es inválida, la reclamamos a la cadena mediante pago o nota de crédito. Si no es recuperable, la documentamos para tu aprobación de castigo. Cuando el portal deja de mover el expediente, escalamos fuera de él. Controlamos los plazos de reclamación para que un monto recuperable no venza en el calendario.',
+      'Empezamos por limpiar el rezago y después seguimos como servicio continuo. El reporting y los indicadores te muestran qué se recuperó, qué era válido, qué espera a la cadena y qué sigue abierto.',
+    ],
+    benefits: [
+      'Recuperas el margen perdido en deducciones inválidas',
+      'Cuentas por cobrar más limpias',
+      'Tus analistas dejan de vivir dentro del portal',
+      'Cada disputa cerrada como válida, inválida o no recuperable',
+      'Plazos de reclamación bajo control',
+      'Primero el rezago, después un servicio continuo',
+      'Reporting e indicadores que finanzas puede usar',
+    ],
+    included: [
+      'Carga de facturas y seguimiento en los portales de la cadena',
+      'Gestión de deducciones y pagos cortos',
+      'Aplicación de pagos por identificar',
+      'Resolución de cada disputa: válida, inválida o no recuperable',
+      'Escalamiento fuera del portal y control de plazos de reclamación',
+      'Limpieza del rezago y luego un servicio continuo, con reporting e indicadores',
     ],
   },
   'late-stage-collection': {
@@ -848,6 +894,12 @@ export const esSeo: Record<string, { title: string; description: string }> = {
     title: 'Cobranza Administrativa | WNRS',
     description:
       'Cobranza administrativa de WNRS: actúa al inicio de la morosidad, antes de que la cuenta se complique. Habla con un experto.',
+  },
+  '/retail-receivables-management': {
+    title:
+      'Gestión de Cuentas por Cobrar con Cadenas Comerciales: portales, disputas y deducciones | WNRS',
+    description:
+      'Cuentas por cobrar con cadenas comerciales: portales, disputas, deducciones y pagos por identificar. Habla con un experto.',
   },
   '/late-stage-collection': {
     title: 'Cobranza Extrajudicial | WNRS',

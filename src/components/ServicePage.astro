@@ -71,6 +71,12 @@ const jsonLd = {
             <p class="kicker" style="display:flex;align-items:center;gap:8px"><span class="check">✓</span> {t.overview}</p>
             <h2>{t.overview}</h2>
             {svc.overview.map((p) => <p>{p}</p>)}
+            {svc.related && (
+              <p>
+                {svc.related.before}{' '}
+                <a class="inline-link" href={href(`/${svc.related.slug}`)}>{svc.related.label}</a>{svc.related.after}
+              </p>
+            )}
           </div>
           <div id="panel-benefits" hidden>
             <h2>{t.benefits}</h2>
